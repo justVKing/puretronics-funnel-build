@@ -20,6 +20,8 @@ Generated at: 2026-07-29T20:28:24+05:30
 
 During planning, Notion fetch/query access was available and confirmed the workspace map, database schema, database row count, and row governance fields. During execution, the live Notion fetch/query tools stopped being exposed by tool discovery. This repo therefore contains a faithful build-workspace migration, source map, schema summary, row export, and governance docs, but the raw block-perfect Notion page snapshots are pending a refresh pass.
 
+Implementation status as of 29 July 2026: the funnel build specifications, operating systems, and validation scripts are implemented in the repository. The exact raw Notion refresh gate remains open until the Notion connector is restored or a manual Notion export is supplied.
+
 ## Required Refresh Gate
 
 Before calling this a final archival mirror:

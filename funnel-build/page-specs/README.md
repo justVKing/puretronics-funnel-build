@@ -2,15 +2,12 @@
 
 Use this folder for build-ready page specifications derived from Annexure A.
 
-Initial page set:
+Implemented page set:
 
-- Wire & Cable Industry Landing Page
-- Online Measurement & Dimensional Control
-- Spark Testing & Insulation Fault Detection
-- HV & Cable Validation
-- Fire Resistance Cable Testing System
-- Line Stability, Adhesion & Tension Control
+- Wire & Cable Industry Landing Page: wire-cable-industry-landing-page.md
+- Five Solution Blocks: five-solution-blocks.md
 - Technical Library
 - Adaptive Requirement Form
 - Service & Support
-- OEM Integration Section / Compact Page
+
+Governance: signed Services Agreement dated 9 July 2026 controls contracted scope, commercials, exclusions, approvals, and change control. This folder must not imply SEO, paid advertising, extra campaigns, extra product pages, product selectors, calculators, configurators, export/OEM/partner/multilingual expansion, or standalone accessory deliverables unless separately approved in writing.
