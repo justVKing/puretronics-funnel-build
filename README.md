@@ -13,7 +13,7 @@ This repository mirrors the operating structure of the Puretronics Notion worksp
 
 ## Source Of Truth Rules
 
-1. docs/00-governance/services-agreement-final-signature-copy.md is the locked legal and commercial source of truth once the raw Notion export is refreshed into this repo.
+1. docs/00-governance/services-agreement-final-signature-copy.md is the locked legal and commercial source of truth.
 2. The signed Services Agreement dated 9 July 2026 governs scope, commercials, exclusions, deliverables, approvals, and change control.
 3. The Product Master Database is the product-intelligence source, not the legal or commercial authority.
 4. Support items cannot become standalone pages, campaigns, forms, automations, SEO assets, selectors, calculators, configurators, or extra deliverables unless separately approved in writing.
@@ -43,8 +43,11 @@ The repo contains the build-ready operating artifacts for the first funnel-build
 
 ## Current Export Status
 
-This initial repository was generated from verified Notion inventory, schema, page summaries, and product row data available in the Codex task context. The live Notion connector became unavailable during execution, so raw block-perfect page snapshots are marked as pending refresh in migration-manifest.md.
+The live Notion refresh was completed on 29 July 2026:
 
-Before treating this repository as the final archival mirror, run a refresh pass from Notion and replace data/notion-export/raw-page-fetches/ with exact fetched content. If live Notion connector access is unavailable, place the untouched manual export under data/notion-export/manual/ before normalization.
+- Exact connector responses for all 10 core assets and all 14 raw input child pages are stored in data/notion-export/raw-page-fetches/.
+- The exact Product Master Database, data-source schema, and 38-row query responses are stored in data/notion-export/raw-database-fetches/.
+- data/product-master/rows.json and rows.csv contain all 44 Notion properties plus each row's Notion URL.
+- data/product-master/schema.json and views.json mirror the live 44-property schema and 12 configured views.
 
-Issue #8 remains dependent on live Notion connector access or a manual Notion export because exact raw Notion blocks cannot be recreated from summaries without changing evidentiary fidelity.
+Run scripts/validate_notion_export.ps1, scripts/validate_workspace.ps1, and scripts/validate_signed_scope.ps1 before accepting later refreshes.

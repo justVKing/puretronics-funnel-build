@@ -1,6 +1,6 @@
 ﻿# Migration Manifest
 
-Generated at: 2026-07-29T20:28:24+05:30
+Refreshed at: 2026-07-29T23:34:48+05:30
 
 ## Source Workspace
 
@@ -11,25 +11,25 @@ Generated at: 2026-07-29T20:28:24+05:30
 
 ## Exported Structure
 
-- Core Notion pages mapped: 10
-- Raw input child pages mapped: 14
-- Product database rows represented: 38
-- Product database rows verified during planning: 38
+- Core Notion assets fetched: 10
+- Raw input child pages fetched: 14
+- Product database rows fetched: 38
+- Product database properties fetched: 44
+- Product database views fetched: 12
 
-## Important Export Limitation
+## Exact Export Status
 
-During planning, Notion fetch/query access was available and confirmed the workspace map, database schema, database row count, and row governance fields. During execution, the live Notion fetch/query tools stopped being exposed by tool discovery. This repo therefore contains a faithful build-workspace migration, source map, schema summary, row export, and governance docs, but the raw block-perfect Notion page snapshots are pending a refresh pass.
+The exact live Notion refresh gate was completed on 29 July 2026. Each mapped page was fetched directly by its Notion ID, and the connector's untouched JSON response was stored under data/notion-export/raw-page-fetches/.
 
-Implementation status as of 29 July 2026: the funnel build specifications, operating systems, and validation scripts are implemented in the repository. The exact raw Notion refresh gate remains open until the Notion connector is restored or a manual Notion export is supplied.
+The Product Master Database container, data-source schema, and exact 38-row `00 Admin - All Properties` view response are preserved under data/notion-export/raw-database-fetches/. Normalized row, CSV, schema, and view files under data/product-master/ are generated directly from those live responses without reducing the property set.
 
-## Required Refresh Gate
+## Completed Refresh Gate
 
-Before calling this a final archival mirror:
-
-1. Re-fetch each page listed in notion-source-map.json.
-2. Save exact raw Notion-flavored Markdown to data/notion-export/raw-page-fetches/.
-3. Re-query the database and replace data/product-master/rows.json and data/product-master/rows.csv with all properties.
-4. Re-run the validation checklist in funnel-build/qa-checklists/migration-validation.md.
+1. Fetched each of the 24 assets listed in notion-source-map.json.
+2. Saved exact Notion connector responses to data/notion-export/raw-page-fetches/.
+3. Queried and stored all 38 Product Master Database rows from `00 Admin - All Properties`, with all 44 properties.
+4. Refreshed the live schema and 12 database view definitions.
+5. Added a dedicated exact-export validator at scripts/validate_notion_export.ps1.
 
 ## Signed Commercial Facts
 

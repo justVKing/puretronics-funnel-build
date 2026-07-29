@@ -1,173 +1,205 @@
-﻿{
-    "notion_parent":  "https://app.notion.com/p/37d3dd29567d8276adfd81f554906805",
-    "export_status":  "structure-and-governance export complete; raw block-perfect export pending refreshed Notion connector access",
-    "generated_at":  "2026-07-29T20:28:24+05:30",
-    "product_database":  {
-                             "repo_paths":  [
-                                                "data/product-master/schema.json",
-                                                "data/product-master/views.json",
-                                                "data/product-master/rows.json",
-                                                "data/product-master/rows.csv",
-                                                "docs/03-product-intelligence/products/"
-                                            ],
-                             "database_id":  "c303dd29567d83f9bfc301995427e6e7",
-                             "data_source_id":  "c643dd29-567d-82e8-b556-0710db1026be",
-                             "row_count_verified_during_planning":  38
-                         },
-    "core_pages":  [
-                       {
-                           "id":  "37d3dd29567d8276adfd81f554906805",
-                           "authority":  "navigation-index",
-                           "repo_path":  "README.md",
-                           "category":  "workspace-parent",
-                           "title":  "Puretronics India Private Limited",
-                           "url":  "https://app.notion.com/p/37d3dd29567d8276adfd81f554906805"
-                       },
-                       {
-                           "id":  "3383dd29567d8266bcf3013893c23fd4",
-                           "authority":  "historical-source",
-                           "repo_path":  "docs/04-source-archive/input-files-index.md",
-                           "category":  "raw-source-archive",
-                           "title":  "Input Files - Wire and Cable Industry Product Portfolio",
-                           "url":  "https://app.notion.com/p/3383dd29567d8266bcf3013893c23fd4"
-                       },
-                       {
-                           "id":  "d4a3dd29567d83d1b1e20155d6c3d3f2",
-                           "authority":  "technical-reference",
-                           "repo_path":  "docs/03-product-intelligence/master-product-portfolio-technical-reference.md",
-                           "category":  "product-intelligence",
-                           "title":  "Master Document - Wire and Cable Industry Product Portfolio and Technical Reference",
-                           "url":  "https://app.notion.com/p/d4a3dd29567d83d1b1e20155d6c3d3f2"
-                       },
-                       {
-                           "id":  "c303dd29567d83f9bfc301995427e6e7",
-                           "authority":  "product-intelligence-source",
-                           "repo_path":  "data/product-master/",
-                           "category":  "database",
-                           "title":  "Puretronics Wire \u0026 Cable Product Master Database",
-                           "url":  "https://app.notion.com/p/c303dd29567d83f9bfc301995427e6e7"
-                       },
-                       {
-                           "id":  "c5c3dd29567d8304bb3e81ffce55f094",
-                           "authority":  "operating-guide",
-                           "repo_path":  "docs/03-product-intelligence/product-intelligence-hub.md",
-                           "category":  "product-intelligence",
-                           "title":  "Puretronics Wire \u0026 Cable Product Intelligence Hub",
-                           "url":  "https://app.notion.com/p/c5c3dd29567d8304bb3e81ffce55f094"
-                       },
-                       {
-                           "id":  "88f3dd29567d8348b3f9811b30824878",
-                           "authority":  "operating-guide",
-                           "repo_path":  "docs/03-product-intelligence/master-user-guide-product-database.md",
-                           "category":  "product-intelligence",
-                           "title":  "Master User-Guide - Puretronics Wire \u0026 Cable Product Database",
-                           "url":  "https://app.notion.com/p/88f3dd29567d8348b3f9811b30824878"
-                       },
-                       {
-                           "id":  "6843dd29567d82b0af5d01d9657188e2",
-                           "authority":  "internal-working-copy",
-                           "repo_path":  "docs/01-funnel-architecture/internal-copy-annexure-a-funnel-architecture.md",
-                           "category":  "funnel-architecture",
-                           "title":  "Internal Copy - Annexure A | Funnel Architecture",
-                           "url":  "https://app.notion.com/p/6843dd29567d82b0af5d01d9657188e2"
-                       },
-                       {
-                           "id":  "a6b3dd29567d82eca75a01da552644bb",
-                           "authority":  "aligned-reference",
-                           "repo_path":  "docs/01-funnel-architecture/annexure-a-funnel-architecture.md",
-                           "category":  "funnel-architecture",
-                           "title":  "Annexure A | Funnel Architecture",
-                           "url":  "https://app.notion.com/p/a6b3dd29567d82eca75a01da552644bb"
-                       },
-                       {
-                           "id":  "d1c3dd29567d82dcb12a81fd1325f84f",
-                           "authority":  "aligned-reference",
-                           "repo_path":  "docs/02-commercial/annexure-b-commercial-structure-pricing.md",
-                           "category":  "commercial",
-                           "title":  "Annexure B | Commercial Structure \u0026 Pricing",
-                           "url":  "https://app.notion.com/p/d1c3dd29567d82dcb12a81fd1325f84f"
-                       },
-                       {
-                           "id":  "3ac3dd29567d80149762e193b61bc191",
-                           "authority":  "locked-source-of-truth",
-                           "repo_path":  "docs/00-governance/services-agreement-final-signature-copy.md",
-                           "category":  "signed-agreement",
-                           "title":  "Services Agreement - Final Signature Copy",
-                           "url":  "https://app.notion.com/p/3ac3dd29567d80149762e193b61bc191"
-                       }
-                   ],
-    "raw_input_pages":  [
-                            {
-                                "title":  "Laser Diameter Gauge",
-                                "url":  "https://app.notion.com/p/9c33dd29567d83728e3281201cfa9bf9",
-                                "id":  "9c33dd29567d83728e3281201cfa9bf9"
-                            },
-                            {
-                                "title":  "Static Powder Applicator",
-                                "url":  "https://app.notion.com/p/6673dd29567d821c8a27017ae8c4b2d0",
-                                "id":  "6673dd29567d821c8a27017ae8c4b2d0"
-                            },
-                            {
-                                "title":  "Butt Welding Machine",
-                                "url":  "https://app.notion.com/p/7f03dd29567d827ba260010d8dd891a7",
-                                "id":  "7f03dd29567d827ba260010d8dd891a7"
-                            },
-                            {
-                                "title":  "Fire Resistance Cable Testing System",
-                                "url":  "https://app.notion.com/p/2b43dd29567d82fca9400126dff11aa1",
-                                "id":  "2b43dd29567d82fca9400126dff11aa1"
-                            },
-                            {
-                                "title":  "Inline Induction Wire Preheater",
-                                "url":  "https://app.notion.com/p/9c63dd29567d835ea69f8133a0b00e48",
-                                "id":  "9c63dd29567d835ea69f8133a0b00e48"
-                            },
-                            {
-                                "title":  "Loadcell",
-                                "url":  "https://app.notion.com/p/8bc3dd29567d82629931814e557073e7",
-                                "id":  "8bc3dd29567d82629931814e557073e7"
-                            },
-                            {
-                                "title":  "LTC-PRO",
-                                "url":  "https://app.notion.com/p/61c3dd29567d835ea606019eb29af383",
-                                "id":  "61c3dd29567d835ea606019eb29af383"
-                            },
-                            {
-                                "title":  "Pneumatic Brake",
-                                "url":  "https://app.notion.com/p/86d3dd29567d8259b33101edb2c599a3",
-                                "id":  "86d3dd29567d8259b33101edb2c599a3"
-                            },
-                            {
-                                "title":  "Spark Tester with IoT Accessories",
-                                "url":  "https://app.notion.com/p/edb3dd29567d8326a3c801d6b99cb699",
-                                "id":  "edb3dd29567d8326a3c801d6b99cb699"
-                            },
-                            {
-                                "title":  "Spark Tester",
-                                "url":  "https://app.notion.com/p/cb63dd29567d82f1aef401a0732c5d57",
-                                "id":  "cb63dd29567d82f1aef401a0732c5d57"
-                            },
-                            {
-                                "title":  "Spark Tester Sensitivity Calibrator",
-                                "url":  "https://app.notion.com/p/9f93dd29567d83fda16901acfa241728",
-                                "id":  "9f93dd29567d83fda16901acfa241728"
-                            },
-                            {
-                                "title":  "Wire \u0026 Cable Brochure",
-                                "url":  "https://app.notion.com/p/1323dd29567d82d1b9e8811a69f1f184",
-                                "id":  "1323dd29567d82d1b9e8811a69f1f184"
-                            },
-                            {
-                                "title":  "Wire Tension Indicator",
-                                "url":  "https://app.notion.com/p/5bf3dd29567d821fbb6e81247973a4fb",
-                                "id":  "5bf3dd29567d821fbb6e81247973a4fb"
-                            },
-                            {
-                                "title":  "Wire Tension Indicator with IoT",
-                                "url":  "https://app.notion.com/p/c2c3dd29567d83bb9ed98106a68a3de7",
-                                "id":  "c2c3dd29567d83bb9ed98106a68a3de7"
-                            }
-                        ],
-    "repo_name":  "puretronics-funnel-build"
+{
+  "notion_parent": "https://app.notion.com/p/37d3dd29567d8276adfd81f554906805",
+  "export_status": "exact live Notion page and Product Master Database export complete",
+  "generated_at": "2026-07-29T23:34:48+05:30",
+  "product_database": {
+    "repo_paths": [
+      "data/product-master/schema.json",
+      "data/product-master/views.json",
+      "data/product-master/rows.json",
+      "data/product-master/rows.csv",
+      "docs/03-product-intelligence/products/"
+    ],
+    "database_id": "c303dd29567d83f9bfc301995427e6e7",
+    "data_source_id": "c643dd29-567d-82e8-b556-0710db1026be",
+    "export_view": "00 Admin - All Properties",
+    "export_view_url": "https://www.notion.so/c303dd29567d83f9bfc301995427e6e7?v=2f83dd29567d8340b91f888e0e0904b5",
+    "row_count_verified_live": 38,
+    "property_count_verified_live": 44,
+    "view_count_verified_live": 12,
+    "raw_fetch_paths": [
+      "data/notion-export/raw-database-fetches/product-master-database.json",
+      "data/notion-export/raw-database-fetches/product-master-data-source.json",
+      "data/notion-export/raw-database-fetches/product-master-rows.json"
+    ]
+  },
+  "core_pages": [
+    {
+      "id": "37d3dd29567d8276adfd81f554906805",
+      "authority": "navigation-index",
+      "repo_path": "README.md",
+      "category": "workspace-parent",
+      "title": "Puretronics India Private Limited",
+      "url": "https://app.notion.com/p/37d3dd29567d8276adfd81f554906805",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/puretronics-india-private-limited.json"
+    },
+    {
+      "id": "3383dd29567d8266bcf3013893c23fd4",
+      "authority": "historical-source",
+      "repo_path": "docs/04-source-archive/input-files-index.md",
+      "category": "raw-source-archive",
+      "title": "Input Files - Wire and Cable Industry Product Portfolio",
+      "url": "https://app.notion.com/p/3383dd29567d8266bcf3013893c23fd4",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/input-files-wire-and-cable-industry-product-portfolio.json"
+    },
+    {
+      "id": "d4a3dd29567d83d1b1e20155d6c3d3f2",
+      "authority": "technical-reference",
+      "repo_path": "docs/03-product-intelligence/master-product-portfolio-technical-reference.md",
+      "category": "product-intelligence",
+      "title": "Master Document - Wire and Cable Industry Product Portfolio and Technical Reference",
+      "url": "https://app.notion.com/p/d4a3dd29567d83d1b1e20155d6c3d3f2",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/master-document-wire-and-cable-industry-product-portfolio-and-technical-reference.json"
+    },
+    {
+      "id": "c303dd29567d83f9bfc301995427e6e7",
+      "authority": "product-intelligence-source",
+      "repo_path": "data/product-master/",
+      "category": "database",
+      "title": "Puretronics Wire & Cable Product Master Database",
+      "url": "https://app.notion.com/p/c303dd29567d83f9bfc301995427e6e7",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/puretronics-wire-cable-product-master-database.json"
+    },
+    {
+      "id": "c5c3dd29567d8304bb3e81ffce55f094",
+      "authority": "operating-guide",
+      "repo_path": "docs/03-product-intelligence/product-intelligence-hub.md",
+      "category": "product-intelligence",
+      "title": "Puretronics Wire & Cable Product Intelligence Hub",
+      "url": "https://app.notion.com/p/c5c3dd29567d8304bb3e81ffce55f094",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/puretronics-wire-cable-product-intelligence-hub.json"
+    },
+    {
+      "id": "88f3dd29567d8348b3f9811b30824878",
+      "authority": "operating-guide",
+      "repo_path": "docs/03-product-intelligence/master-user-guide-product-database.md",
+      "category": "product-intelligence",
+      "title": "Master User-Guide - Puretronics Wire & Cable Product Database",
+      "url": "https://app.notion.com/p/88f3dd29567d8348b3f9811b30824878",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/master-user-guide-puretronics-wire-cable-product-database.json"
+    },
+    {
+      "id": "6843dd29567d82b0af5d01d9657188e2",
+      "authority": "internal-working-copy",
+      "repo_path": "docs/01-funnel-architecture/internal-copy-annexure-a-funnel-architecture.md",
+      "category": "funnel-architecture",
+      "title": "Internal Copy - Annexure A | Funnel Architecture",
+      "url": "https://app.notion.com/p/6843dd29567d82b0af5d01d9657188e2",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/internal-copy-annexure-a-funnel-architecture.json"
+    },
+    {
+      "id": "a6b3dd29567d82eca75a01da552644bb",
+      "authority": "aligned-reference",
+      "repo_path": "docs/01-funnel-architecture/annexure-a-funnel-architecture.md",
+      "category": "funnel-architecture",
+      "title": "Annexure A | Funnel Architecture",
+      "url": "https://app.notion.com/p/a6b3dd29567d82eca75a01da552644bb",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/annexure-a-funnel-architecture.json"
+    },
+    {
+      "id": "d1c3dd29567d82dcb12a81fd1325f84f",
+      "authority": "aligned-reference",
+      "repo_path": "docs/02-commercial/annexure-b-commercial-structure-pricing.md",
+      "category": "commercial",
+      "title": "Annexure B | Commercial Structure & Pricing",
+      "url": "https://app.notion.com/p/d1c3dd29567d82dcb12a81fd1325f84f",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/annexure-b-commercial-structure-pricing.json"
+    },
+    {
+      "id": "3ac3dd29567d80149762e193b61bc191",
+      "authority": "locked-source-of-truth",
+      "repo_path": "docs/00-governance/services-agreement-final-signature-copy.md",
+      "category": "signed-agreement",
+      "title": "Services Agreement - Final Signature Copy",
+      "url": "https://app.notion.com/p/3ac3dd29567d80149762e193b61bc191",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/services-agreement-final-signature-copy.json"
+    }
+  ],
+  "raw_input_pages": [
+    {
+      "title": "Laser Diameter Gauge",
+      "url": "https://app.notion.com/p/9c33dd29567d83728e3281201cfa9bf9",
+      "id": "9c33dd29567d83728e3281201cfa9bf9",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/laser-diameter-gauge.json"
+    },
+    {
+      "title": "Static Powder Applicator",
+      "url": "https://app.notion.com/p/6673dd29567d821c8a27017ae8c4b2d0",
+      "id": "6673dd29567d821c8a27017ae8c4b2d0",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/static-powder-applicator.json"
+    },
+    {
+      "title": "Butt Welding Machine",
+      "url": "https://app.notion.com/p/7f03dd29567d827ba260010d8dd891a7",
+      "id": "7f03dd29567d827ba260010d8dd891a7",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/butt-welding-machine.json"
+    },
+    {
+      "title": "Fire Resistance Cable Testing System",
+      "url": "https://app.notion.com/p/2b43dd29567d82fca9400126dff11aa1",
+      "id": "2b43dd29567d82fca9400126dff11aa1",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/fire-resistance-cable-testing-system.json"
+    },
+    {
+      "title": "Inline Induction Wire Preheater",
+      "url": "https://app.notion.com/p/9c63dd29567d835ea69f8133a0b00e48",
+      "id": "9c63dd29567d835ea69f8133a0b00e48",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/inline-induction-wire-preheater.json"
+    },
+    {
+      "title": "Loadcell",
+      "url": "https://app.notion.com/p/8bc3dd29567d82629931814e557073e7",
+      "id": "8bc3dd29567d82629931814e557073e7",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/loadcell.json"
+    },
+    {
+      "title": "LTC-PRO",
+      "url": "https://app.notion.com/p/61c3dd29567d835ea606019eb29af383",
+      "id": "61c3dd29567d835ea606019eb29af383",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/ltc-pro.json"
+    },
+    {
+      "title": "Pneumatic Brake",
+      "url": "https://app.notion.com/p/86d3dd29567d8259b33101edb2c599a3",
+      "id": "86d3dd29567d8259b33101edb2c599a3",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/pneumatic-brake.json"
+    },
+    {
+      "title": "Spark Tester with IoT Accessories",
+      "url": "https://app.notion.com/p/edb3dd29567d8326a3c801d6b99cb699",
+      "id": "edb3dd29567d8326a3c801d6b99cb699",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/spark-tester-with-iot-accessories.json"
+    },
+    {
+      "title": "Spark Tester",
+      "url": "https://app.notion.com/p/cb63dd29567d82f1aef401a0732c5d57",
+      "id": "cb63dd29567d82f1aef401a0732c5d57",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/spark-tester.json"
+    },
+    {
+      "title": "Spark Tester Sensitivity Calibrator",
+      "url": "https://app.notion.com/p/9f93dd29567d83fda16901acfa241728",
+      "id": "9f93dd29567d83fda16901acfa241728",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/spark-tester-sensitivity-calibrator.json"
+    },
+    {
+      "title": "Wire & Cable Brochure",
+      "url": "https://app.notion.com/p/1323dd29567d82d1b9e8811a69f1f184",
+      "id": "1323dd29567d82d1b9e8811a69f1f184",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/wire-cable-brochure.json"
+    },
+    {
+      "title": "Wire Tension Indicator",
+      "url": "https://app.notion.com/p/5bf3dd29567d821fbb6e81247973a4fb",
+      "id": "5bf3dd29567d821fbb6e81247973a4fb",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/wire-tension-indicator.json"
+    },
+    {
+      "title": "Wire Tension Indicator with IoT",
+      "url": "https://app.notion.com/p/c2c3dd29567d83bb9ed98106a68a3de7",
+      "id": "c2c3dd29567d83bb9ed98106a68a3de7",
+      "raw_fetch_path": "data/notion-export/raw-page-fetches/wire-tension-indicator-with-iot.json"
+    }
+  ],
+  "repo_name": "puretronics-funnel-build"
 }
-

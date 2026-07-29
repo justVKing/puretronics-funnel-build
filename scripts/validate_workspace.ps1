@@ -39,14 +39,14 @@ if ($rows.Count -ne 38) {
     $failures.Add("Expected 38 product rows; found $($rows.Count)")
 }
 
-$supportItems = @($rows | Where-Object { $_.treatment -eq 'Covered Support Item' })
+$supportItems = @($rows | Where-Object { $_.'Signed Scope Treatment' -eq 'Covered Support Item' })
 if ($supportItems.Count -lt 6) {
     $failures.Add("Expected at least 6 Covered Support Item rows; found $($supportItems.Count)")
 }
 
-$heroSupport = @($supportItems | Where-Object { $_.priority -eq 'Hero' })
+$heroSupport = @($supportItems | Where-Object { $_.'Sales Priority' -eq 'Hero' })
 if ($heroSupport.Count -gt 0) {
-    $failures.Add("Support item rows must not be Hero priority: $($heroSupport.name -join ', ')")
+    $failures.Add("Support item rows must not be Hero priority: $($heroSupport.'Product / Model Name' -join ', ')")
 }
 
 Require-Text 'funnel-build/page-specs/five-solution-blocks.md' 'LTC-PRO Web Tension Controller'

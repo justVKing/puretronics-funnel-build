@@ -1,63 +1,336 @@
-﻿[
-    {
-        "name":  "00 Admin - All Properties",
-        "type":  "table",
-        "purpose":  "Full maintenance view for database operators"
+[
+  {
+    "url": "view://2f83dd29-567d-8340-b91f-888e0e0904b5",
+    "dataSourceUrl": "{{collection://c643dd29-567d-82e8-b556-0710db1026be}}",
+    "displayProperties": [
+      "Product / Model Name",
+      "Product Family",
+      "Product Type",
+      "Row Type",
+      "Parent Product / Platform",
+      "Model / Variant",
+      "Source Coverage",
+      "Signed Scope Treatment",
+      "Signed Scope Note",
+      "Sales Priority",
+      "Manufacturing Flow Stage",
+      "Production / Context Tags",
+      "Solution Theme",
+      "Spec Confidence",
+      "Primary Buyer Problem",
+      "Best-Fit Customer Question",
+      "Primary Use Case",
+      "Target Personas",
+      "Core Buyer Value",
+      "Differentiators",
+      "Discovery Questions",
+      "Recommended CTA",
+      "Proposal Positioning",
+      "Cross-Sell / Complementary Products",
+      "Measured / Controlled Parameter",
+      "Material / Cable Applicability",
+      "Range / Capacity",
+      "Speed / Throughput",
+      "Power Supply",
+      "Inputs",
+      "Outputs",
+      "Communication / Integration",
+      "Display / UI",
+      "Safety / Compliance / Standards",
+      "Operating Conditions",
+      "Dimensions",
+      "Weight",
+      "Accessories / Options",
+      "Important Caveats",
+      "Industry 4.0 Relevance",
+      "Line Integration Complexity",
+      "Proposal Section Fit",
+      "Funnel Stage Fit",
+      "Notes For Sales Team"
+    ],
+    "name": "00 Admin - All Properties",
+    "type": "table"
+  },
+  {
+    "url": "view://76a3dd29-567d-82bc-a10d-087b8594398f",
+    "dataSourceUrl": "{{collection://c643dd29-567d-82e8-b556-0710db1026be}}",
+    "displayProperties": [
+      "Product / Model Name",
+      "Product Family",
+      "Product Type",
+      "Sales Priority",
+      "Signed Scope Treatment",
+      "Signed Scope Note",
+      "Manufacturing Flow Stage",
+      "Solution Theme",
+      "Primary Buyer Problem",
+      "Core Buyer Value",
+      "Recommended CTA"
+    ],
+    "name": "01 Sales Snapshot",
+    "sorts": [
+      {
+        "direction": "ascending",
+        "property": "Manufacturing Flow Stage"
+      }
+    ],
+    "type": "table"
+  },
+  {
+    "url": "view://0bb3dd29-567d-8285-98d3-08ddfaee7dd0",
+    "dataSourceUrl": "{{collection://c643dd29-567d-82e8-b556-0710db1026be}}",
+    "displayProperties": [
+      "Product / Model Name",
+      "Manufacturing Flow Stage",
+      "Product Family",
+      "Product Type",
+      "Solution Theme",
+      "Primary Use Case",
+      "Production / Context Tags",
+      "Core Buyer Value",
+      "Cross-Sell / Complementary Products"
+    ],
+    "groupBy": {
+      "property": "Manufacturing Flow Stage",
+      "propertyType": "select",
+      "sort": {
+        "type": "manual"
+      }
     },
-    {
-        "name":  "01 Sales Snapshot",
-        "type":  "table",
-        "purpose":  "Quick commercial overview for sales and proposal work"
+    "name": "02 Manufacturing Flow",
+    "type": "table"
+  },
+  {
+    "url": "view://efa3dd29-567d-825d-9fda-081603762b40",
+    "dataSourceUrl": "{{collection://c643dd29-567d-82e8-b556-0710db1026be}}",
+    "displayProperties": [
+      "Product / Model Name",
+      "Product Family",
+      "Solution Theme",
+      "Target Personas",
+      "Primary Buyer Problem",
+      "Best-Fit Customer Question",
+      "Discovery Questions",
+      "Recommended CTA",
+      "Notes For Sales Team"
+    ],
+    "name": "03 Buyer Discovery",
+    "type": "table"
+  },
+  {
+    "url": "view://d9c3dd29-567d-835e-a081-08e8733b530a",
+    "dataSourceUrl": "{{collection://c643dd29-567d-82e8-b556-0710db1026be}}",
+    "displayProperties": [
+      "Product / Model Name",
+      "Product Family",
+      "Product Type",
+      "Sales Priority",
+      "Manufacturing Flow Stage",
+      "Solution Theme",
+      "Primary Buyer Problem",
+      "Core Buyer Value",
+      "Recommended CTA",
+      "Cross-Sell / Complementary Products"
+    ],
+    "groupBy": {
+      "property": "Product Family",
+      "propertyType": "select",
+      "sort": {
+        "type": "manual"
+      }
     },
-    {
-        "name":  "02 Manufacturing Flow",
-        "type":  "table",
-        "purpose":  "Ordered production-line map"
+    "name": "04 Product Family Navigator",
+    "type": "table"
+  },
+  {
+    "url": "view://05d3dd29-567d-8324-a124-8851189c7d8a",
+    "advancedFilter": {
+      "filters": [
+        {
+          "operator": "enum_is",
+          "property": "Sales Priority",
+          "propertyType": "select",
+          "type": "property",
+          "value": {
+            "type": "exact",
+            "value": "Hero"
+          }
+        }
+      ],
+      "operator": "and",
+      "type": "group"
     },
-    {
-        "name":  "03 Buyer Discovery",
-        "type":  "table",
-        "purpose":  "Persona, problem, question, CTA, and sales-note view"
+    "dataSourceUrl": "{{collection://c643dd29-567d-82e8-b556-0710db1026be}}",
+    "displayProperties": [
+      "Product / Model Name",
+      "Product Family",
+      "Product Type",
+      "Manufacturing Flow Stage",
+      "Solution Theme",
+      "Primary Buyer Problem",
+      "Core Buyer Value",
+      "Differentiators",
+      "Recommended CTA",
+      "Proposal Positioning"
+    ],
+    "name": "05 Hero Products",
+    "type": "table"
+  },
+  {
+    "url": "view://f5d3dd29-567d-8230-be43-88d6a9ce1eac",
+    "dataSourceUrl": "{{collection://c643dd29-567d-82e8-b556-0710db1026be}}",
+    "displayProperties": [
+      "Product / Model Name",
+      "Product Type",
+      "Measured / Controlled Parameter",
+      "Range / Capacity",
+      "Speed / Throughput",
+      "Power Supply",
+      "Inputs",
+      "Outputs",
+      "Communication / Integration",
+      "Safety / Compliance / Standards",
+      "Dimensions",
+      "Weight",
+      "Spec Confidence",
+      "Important Caveats"
+    ],
+    "groupBy": {
+      "property": "Product Type",
+      "propertyType": "select",
+      "sort": {
+        "type": "manual"
+      }
     },
-    {
-        "name":  "04 Product Family Navigator",
-        "type":  "table",
-        "purpose":  "Portfolio navigation by product family"
+    "name": "06 Technical Lookup",
+    "type": "table"
+  },
+  {
+    "url": "view://4ce3dd29-567d-8241-bfb2-08100d0644cd",
+    "advancedFilter": {
+      "filters": [
+        {
+          "operator": "enum_is",
+          "property": "Industry 4.0 Relevance",
+          "propertyType": "select",
+          "type": "property",
+          "value": {
+            "type": "exact",
+            "value": "High"
+          }
+        }
+      ],
+      "operator": "and",
+      "type": "group"
     },
-    {
-        "name":  "05 Hero Products",
-        "type":  "table",
-        "purpose":  "Proposal anchors and funnel-first products"
+    "dataSourceUrl": "{{collection://c643dd29-567d-82e8-b556-0710db1026be}}",
+    "displayProperties": [
+      "Product / Model Name",
+      "Product Family",
+      "Solution Theme",
+      "Measured / Controlled Parameter",
+      "Communication / Integration",
+      "Inputs",
+      "Outputs",
+      "Display / UI",
+      "Line Integration Complexity",
+      "Spec Confidence"
+    ],
+    "name": "07 Connected Factory / Industry 4.0",
+    "type": "table"
+  },
+  {
+    "url": "view://7ac3dd29-567d-8251-bd76-08b966ec0c83",
+    "dataSourceUrl": "{{collection://c643dd29-567d-82e8-b556-0710db1026be}}",
+    "displayProperties": [
+      "Product / Model Name",
+      "Signed Scope Treatment",
+      "Signed Scope Note",
+      "Funnel Stage Fit",
+      "Proposal Section Fit",
+      "Sales Priority",
+      "Solution Theme",
+      "Primary Buyer Problem",
+      "Best-Fit Customer Question",
+      "Recommended CTA",
+      "Proposal Positioning"
+    ],
+    "groupBy": {
+      "property": "Funnel Stage Fit",
+      "propertyType": "multi_select",
+      "sort": {
+        "type": "manual"
+      }
     },
-    {
-        "name":  "06 Technical Lookup",
-        "type":  "table",
-        "purpose":  "Technical comparison and configuration support"
+    "name": "08 Proposal & Funnel Builder",
+    "type": "table"
+  },
+  {
+    "url": "view://88c3dd29-567d-82ea-b014-88596b015228",
+    "dataSourceUrl": "{{collection://c643dd29-567d-82e8-b556-0710db1026be}}",
+    "displayProperties": [
+      "Product / Model Name",
+      "Signed Scope Treatment",
+      "Signed Scope Note",
+      "Product Family",
+      "Parent Product / Platform",
+      "Solution Theme",
+      "Primary Use Case",
+      "Cross-Sell / Complementary Products",
+      "Accessories / Options",
+      "Notes For Sales Team"
+    ],
+    "name": "09 Cross-Sell & Bundles",
+    "type": "table"
+  },
+  {
+    "url": "view://beb3dd29-567d-83f4-ae1e-88201e5608bb",
+    "dataSourceUrl": "{{collection://c643dd29-567d-82e8-b556-0710db1026be}}",
+    "displayProperties": [
+      "Product / Model Name",
+      "Signed Scope Treatment",
+      "Signed Scope Note",
+      "Product Family",
+      "Product Type",
+      "Source Coverage",
+      "Spec Confidence",
+      "Important Caveats",
+      "Range / Capacity",
+      "Power Supply",
+      "Notes For Sales Team"
+    ],
+    "groupBy": {
+      "property": "Spec Confidence",
+      "propertyType": "select",
+      "sort": {
+        "type": "manual"
+      }
     },
-    {
-        "name":  "07 Connected Factory / Industry 4.0",
-        "type":  "table",
-        "purpose":  "Connected/data/HMI/ERP/reporting/control products"
+    "name": "10 Source & Spec Governance",
+    "type": "table"
+  },
+  {
+    "url": "view://24c3dd29-567d-8270-b570-88f89a5fc256",
+    "dataSourceUrl": "{{collection://c643dd29-567d-82e8-b556-0710db1026be}}",
+    "displayProperties": [
+      "Product / Model Name",
+      "Production / Context Tags",
+      "Manufacturing Flow Stage",
+      "Solution Theme",
+      "Product Family",
+      "Product Type",
+      "Primary Use Case",
+      "Target Personas",
+      "Cross-Sell / Complementary Products"
+    ],
+    "groupBy": {
+      "property": "Production / Context Tags",
+      "propertyType": "multi_select",
+      "sort": {
+        "type": "manual"
+      }
     },
-    {
-        "name":  "08 Proposal \u0026 Funnel Builder",
-        "type":  "table",
-        "purpose":  "Funnel stage and proposal planning"
-    },
-    {
-        "name":  "09 Cross-Sell \u0026 Bundles",
-        "type":  "table",
-        "purpose":  "Bundle logic and complementary mapping"
-    },
-    {
-        "name":  "10 Source \u0026 Spec Governance",
-        "type":  "table",
-        "purpose":  "Source coverage, caveats, and quotation-risk review"
-    },
-    {
-        "name":  "Context Tags",
-        "type":  "table",
-        "purpose":  "Flexible process/application filtering"
-    }
+    "name": "Context Tags",
+    "type": "table"
+  }
 ]
-

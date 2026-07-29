@@ -1,4 +1,3 @@
-﻿# Open Questions
+# Open Questions
 
-- Refresh exact Notion raw export once connector access is available in execution context.
-
+No open questions remain for the exact Notion export gate.

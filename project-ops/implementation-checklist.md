@@ -1,7 +1,7 @@
-﻿# Implementation Checklist
+# Implementation Checklist
 
-- [ ] Re-fetch Notion raw pages.
-- [ ] Re-export full database rows with all properties.
+- [x] Re-fetch Notion raw pages.
+- [x] Re-export full database rows with all properties.
 - [ ] Validate signed scope.
 - [ ] Write landing page spec.
 - [ ] Write five solution-block page specs.

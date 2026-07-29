@@ -1,37 +1,919 @@
-﻿{
-    "row_count_verified":  38,
-    "row_type_options":  [
-                             "Product",
-                             "Model / Variant",
-                             "Accessory",
-                             "System"
-                         ],
-    "governance_properties":  [
-                                  "Signed Scope Treatment",
-                                  "Signed Scope Note",
-                                  "Spec Confidence",
-                                  "Important Caveats"
-                              ],
-    "product_family_options":  [
-                                   "Online Measurement",
-                                   "Fault \u0026 Safety Testing",
-                                   "Process Enhancement",
-                                   "Tension / Braking / Automation"
-                               ],
-    "signed_scope_treatment_options":  [
-                                           "Covered Primary / Variant",
-                                           "Covered Support Item",
-                                           "Reference Only",
-                                           "Out of Signed Scope"
-                                       ],
-    "title_property":  "Product / Model Name",
-    "data_source_id":  "c643dd29-567d-82e8-b556-0710db1026be",
-    "sales_priority_options":  [
-                                   "Hero",
-                                   "Strategic",
-                                   "Supporting",
-                                   "Niche"
-                               ],
-    "export_limitation":  "Initial rows contain governance/identity fields verified during planning; full all-property export requires refreshed Notion query access."
+{
+  "database_id": "c303dd29567d83f9bfc301995427e6e7",
+  "data_source_id": "c643dd29-567d-82e8-b556-0710db1026be",
+  "title": "Puretronics Wire & Cable Product Master Database",
+  "url": "collection://c643dd29-567d-82e8-b556-0710db1026be",
+  "schema": {
+    "Accessories / Options": {
+      "description": "",
+      "name": "Accessories / Options",
+      "type": "text"
+    },
+    "Best-Fit Customer Question": {
+      "description": "",
+      "name": "Best-Fit Customer Question",
+      "type": "text"
+    },
+    "Communication / Integration": {
+      "description": "",
+      "name": "Communication / Integration",
+      "type": "text"
+    },
+    "Core Buyer Value": {
+      "description": "",
+      "name": "Core Buyer Value",
+      "type": "text"
+    },
+    "Cross-Sell / Complementary Products": {
+      "description": "",
+      "name": "Cross-Sell / Complementary Products",
+      "type": "text"
+    },
+    "Differentiators": {
+      "description": "",
+      "name": "Differentiators",
+      "type": "text"
+    },
+    "Dimensions": {
+      "description": "",
+      "name": "Dimensions",
+      "type": "text"
+    },
+    "Discovery Questions": {
+      "description": "",
+      "name": "Discovery Questions",
+      "type": "text"
+    },
+    "Display / UI": {
+      "description": "",
+      "name": "Display / UI",
+      "type": "text"
+    },
+    "Funnel Stage Fit": {
+      "description": "",
+      "name": "Funnel Stage Fit",
+      "options": [
+        {
+          "color": "blue",
+          "description": "",
+          "name": "Awareness",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/XFZcXw/YmMxYWE3OGQtODUxMi00OTczLTgxM2EtNjJiNTAwYzRlNzE4"
+        },
+        {
+          "color": "purple",
+          "description": "",
+          "name": "Consideration",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/XFZcXw/MGE2Yzc2ZmEtN2M0Yy00NzM1LThjMTgtNjk1NWIwNDU5NmE1"
+        },
+        {
+          "color": "orange",
+          "description": "",
+          "name": "Technical Evaluation",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/XFZcXw/MTg0OWRlYmQtZDk1OC00ZGZlLWJjZTgtMzVlNjFiMGNiNmU0"
+        },
+        {
+          "color": "green",
+          "description": "",
+          "name": "Commercial Discussion",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/XFZcXw/MDQ5Yzk4MGQtNjcxOS00YzNhLThiZTUtNTU2YThkYmJmYWY4"
+        },
+        {
+          "color": "gray",
+          "description": "",
+          "name": "Retention / Expansion",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/XFZcXw/NzQ3ZWQ1OWItY2UwZC00NmEyLTg2MTItOTdhM2E2MTMyNDFh"
+        }
+      ],
+      "type": "multi_select"
+    },
+    "Important Caveats": {
+      "description": "",
+      "name": "Important Caveats",
+      "type": "text"
+    },
+    "Industry 4.0 Relevance": {
+      "description": "",
+      "name": "Industry 4.0 Relevance",
+      "options": [
+        {
+          "color": "red",
+          "description": "",
+          "name": "High",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/RkRbZQ/Zjk3MjdmNjctNTcxMi00ZjU4LTg2ZmEtMzBlMTFlYmY3ZGEy"
+        },
+        {
+          "color": "yellow",
+          "description": "",
+          "name": "Medium",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/RkRbZQ/NGU4YjJiYWUtOTY4ZS00NmM3LTgwZWQtNzAwZTcxNDAxNjgy"
+        },
+        {
+          "color": "gray",
+          "description": "",
+          "name": "Low",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/RkRbZQ/YTcxOWQ1Y2QtNDhmZi00Y2VlLWJiYWEtNzVkMmE3ZGZhZDE0"
+        }
+      ],
+      "type": "select"
+    },
+    "Inputs": {
+      "description": "",
+      "name": "Inputs",
+      "type": "text"
+    },
+    "Line Integration Complexity": {
+      "description": "",
+      "name": "Line Integration Complexity",
+      "options": [
+        {
+          "color": "gray",
+          "description": "",
+          "name": "Low",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/S2hqfQ/NWNhZDFhOGMtMDNmMi00Y2YzLWExYmUtMDNhZGMyOGNkMWQw"
+        },
+        {
+          "color": "yellow",
+          "description": "",
+          "name": "Medium",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/S2hqfQ/OTgyMTI2NzktMzQ2Mi00YmMyLTg3NTUtODBlMmZhMzJmNzlm"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "High",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/S2hqfQ/YWZkYWM2NWEtYmFmZS00YjE0LTgyZDctNGJmZDdmZjVlM2Iy"
+        }
+      ],
+      "type": "select"
+    },
+    "Manufacturing Flow Stage": {
+      "description": "",
+      "name": "Manufacturing Flow Stage",
+      "options": [
+        {
+          "color": "brown",
+          "description": "",
+          "name": "01 Pay-off / Unwind",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/NzlkN2RjYzYtMzQ5Yy00Yzc1LTkwZjAtYzc2MDBhZGQ1MWFm"
+        },
+        {
+          "color": "orange",
+          "description": "",
+          "name": "02 Joining / Butt Welding",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/MzVmNTY1NmUtYjdhOC00NDlmLWE3YjQtNTU2Y2FjNGVjOTgw"
+        },
+        {
+          "color": "purple",
+          "description": "",
+          "name": "03 Tension & Braking Control",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/NmI2ODI1MzItMmIxYi00ZjFjLThjMTctZDE1OWVkNTZiNmRh"
+        },
+        {
+          "color": "yellow",
+          "description": "",
+          "name": "04 Pre-extrusion / Preheating",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/ZGIyNDE3NzUtODY1MS00YjRmLWI2MDUtNTIxNDg1OTQyYjc3"
+        },
+        {
+          "color": "green",
+          "description": "",
+          "name": "05 Powdering / Talc Application",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/ZmUxOTk5ZTctZmNkNy00OWJlLWI0YjAtY2VmNTQ4ODY5ZDAz"
+        },
+        {
+          "color": "green",
+          "description": "",
+          "name": "06 Extrusion / Coating",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/YWY2OGE4YWQtMDJlMS00M2E4LTlkZjgtMmFjZjc4YzZiNzhi"
+        },
+        {
+          "color": "blue",
+          "description": "",
+          "name": "07 Cooling",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/MTBlN2ZmYjMtZmRhZC00MzQ1LTllMzUtZDc3ZGIyNTYzOGU1"
+        },
+        {
+          "color": "blue",
+          "description": "",
+          "name": "08 Online Measurement",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/NThlNTVhODMtNThhYS00OTNmLTlmNTYtZDM1MTZmMWJlYWFk"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "09 Spark / Fault Inspection",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/NWIwNjgxNDQtYTQ0OC00MmM5LTgzNTQtN2I2NTE5OGJiNGU5"
+        },
+        {
+          "color": "pink",
+          "description": "",
+          "name": "10 Inline Marking",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/Mzc0MTBiYzQtMjUzMS00MzEwLTg1MzQtYzY2ZGE5MzdjODRl"
+        },
+        {
+          "color": "purple",
+          "description": "",
+          "name": "11 Rewinding / Coiling",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/Y2Q2NTcxMWEtOWE5ZS00ZTUzLTllNTAtMWYwMmU1ZGQxNWRm"
+        },
+        {
+          "color": "gray",
+          "description": "",
+          "name": "12 Offline HV Testing",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/Mjk4NTBmNzMtOGE2MS00MzdkLThjNzktODhkMTQ1M2JlZjU5"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "13 Fire / Compliance Testing",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/NzdiMWRkOTctZDU1NS00NTZlLWEyNTUtMzk3YTJhODJiMjAw"
+        },
+        {
+          "color": "orange",
+          "description": "",
+          "name": "14 Repair / Rework",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/ZmRmYmY2NmQtY2I4MS00YzA1LWExYzYtODcyMTI5ZmVmMDFk"
+        },
+        {
+          "color": "gray",
+          "description": "",
+          "name": "15 Calibration / Support",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/NTlhZDZmZWItYjAzYi00MGZjLTlkMGItYzhjMTlhNDIxNDU5"
+        },
+        {
+          "color": "blue",
+          "description": "",
+          "name": "16 Data / Reporting Layer",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UzpiYw/ZDhlNzg4N2EtMDM2Yy00NmQyLWJhOTUtMDAzMDI3ZmYzNjQ4"
+        }
+      ],
+      "type": "select"
+    },
+    "Material / Cable Applicability": {
+      "description": "",
+      "name": "Material / Cable Applicability",
+      "type": "text"
+    },
+    "Measured / Controlled Parameter": {
+      "description": "",
+      "name": "Measured / Controlled Parameter",
+      "type": "text"
+    },
+    "Model / Variant": {
+      "description": "",
+      "name": "Model / Variant",
+      "type": "text"
+    },
+    "Notes For Sales Team": {
+      "description": "",
+      "name": "Notes For Sales Team",
+      "type": "text"
+    },
+    "Operating Conditions": {
+      "description": "",
+      "name": "Operating Conditions",
+      "type": "text"
+    },
+    "Outputs": {
+      "description": "",
+      "name": "Outputs",
+      "type": "text"
+    },
+    "Parent Product / Platform": {
+      "description": "",
+      "name": "Parent Product / Platform",
+      "type": "text"
+    },
+    "Power Supply": {
+      "description": "",
+      "name": "Power Supply",
+      "type": "text"
+    },
+    "Primary Buyer Problem": {
+      "description": "",
+      "name": "Primary Buyer Problem",
+      "type": "text"
+    },
+    "Primary Use Case": {
+      "description": "",
+      "name": "Primary Use Case",
+      "type": "text"
+    },
+    "Product / Model Name": {
+      "description": "",
+      "name": "Product / Model Name",
+      "type": "title"
+    },
+    "Product Family": {
+      "description": "",
+      "name": "Product Family",
+      "options": [
+        {
+          "color": "blue",
+          "description": "",
+          "name": "Online Measurement",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UV1CTg/ODM2ZjdiNDMtNGM2Zi00NmVjLWFmMjYtNDE2ZTk3YTI5ZDAw"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "Fault & Safety Testing",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UV1CTg/YzJmMmU0YzktYzZjYS00MzQyLTkzMjItNzNlYTQ4MGJmMjg0"
+        },
+        {
+          "color": "green",
+          "description": "",
+          "name": "Process Enhancement",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UV1CTg/NzM2MmJmMzgtYjMxYS00YzZhLWE1MTAtODA5MmRkZmVlODUw"
+        },
+        {
+          "color": "purple",
+          "description": "",
+          "name": "Tension / Braking / Automation",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UV1CTg/NjcwYWY1YWItYWM1MC00MWM3LWE2OGItMDRhYWFkNzk2YzY0"
+        }
+      ],
+      "type": "select"
+    },
+    "Product Type": {
+      "description": "",
+      "name": "Product Type",
+      "options": [
+        {
+          "color": "blue",
+          "description": "",
+          "name": "Gauge",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Zj50Rw/Zjg1ZmViODgtMDYwZC00OWQxLThjMDUtMmU2NmQ4MmQ3NDg1"
+        },
+        {
+          "color": "purple",
+          "description": "",
+          "name": "Controller",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Zj50Rw/OWQ1YjE5NzctNGI4Zi00YTM2LTgwOTMtNzMxZDYwNzU4MTFj"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "Tester",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Zj50Rw/M2FhNmYxZTMtNDM0NS00YTVjLTgwMmYtZjIxZjAzYmMxYjIw"
+        },
+        {
+          "color": "orange",
+          "description": "",
+          "name": "Calibrator",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Zj50Rw/MThmZTU2MjAtMWM5MS00ZDZkLWFkMmQtOTkyZTUyOGViZjBi"
+        },
+        {
+          "color": "green",
+          "description": "",
+          "name": "Applicator",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Zj50Rw/NjI5NGY4MzMtZWIzYS00YjI2LTg0MTQtZTFmNzliNzllZWUx"
+        },
+        {
+          "color": "yellow",
+          "description": "",
+          "name": "Preheater",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Zj50Rw/ODQwN2FiYjktNDAxMi00MWUwLTk5ZWUtZDVjMzIwNGJiYmUx"
+        },
+        {
+          "color": "brown",
+          "description": "",
+          "name": "Brake",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Zj50Rw/NDg2YTYyYWYtY2EyOC00Nzk0LTljY2ItNjBiMzY0MzBkYTdi"
+        },
+        {
+          "color": "pink",
+          "description": "",
+          "name": "Loadcell",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Zj50Rw/MTVhMGVkMmQtODZlYy00Y2ExLWJhNTgtNWY2ZTExZWMyMDM2"
+        },
+        {
+          "color": "gray",
+          "description": "",
+          "name": "Welder",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Zj50Rw/ZDQxOTU1NzktYzkzMy00ZjI3LThmZGItNWQ5YTAzMGVmMDVk"
+        },
+        {
+          "color": "default",
+          "description": "",
+          "name": "Accessory",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Zj50Rw/NmFmN2YyZTUtZTNkYi00ZWU2LTkwMzQtMGJhOGUxMTU3MDky"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "System",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Zj50Rw/NTJjMDc2OTYtZGUwOS00OTQxLWI5MDEtMTYxYzkwMzA0NGFj"
+        }
+      ],
+      "type": "select"
+    },
+    "Production / Context Tags": {
+      "description": "",
+      "name": "Production / Context Tags",
+      "options": [
+        {
+          "color": "brown",
+          "description": "",
+          "name": "Pay-off",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/MDBjNGViNTMtNzkwOS00MTM0LWIxZjItZDUzNWJjYmZjNzdh"
+        },
+        {
+          "color": "yellow",
+          "description": "",
+          "name": "Pre-extrusion",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/Y2E0NGVjYWYtMGQyMS00NjU2LWEzZTgtNGUwYTE5NDI5YzI1"
+        },
+        {
+          "color": "green",
+          "description": "",
+          "name": "Extrusion",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/ZTMzNzRiNzktMDFiOC00MGM5LTg4ZDgtZGI2NzIwNjI3ZDMw"
+        },
+        {
+          "color": "blue",
+          "description": "",
+          "name": "Cooling",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/MjNlZGFhYjYtNDMyMi00OWY5LWJmNzYtYmRjNWIxZjg2YzE4"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "Inspection",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/NmNkMGE1ZGYtZGU4MC00ODQ0LWFjNWQtMGJkMjA3Mjc3ZmEx"
+        },
+        {
+          "color": "purple",
+          "description": "",
+          "name": "Rewinding",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/ZWUwN2E4MjktZDE2ZS00NGZhLWIzOWItZGRjZWY4MWMzMjI1"
+        },
+        {
+          "color": "pink",
+          "description": "",
+          "name": "Coiling",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/YjkzZmUxNDMtZTRkZS00ODgwLWJjYWEtMjE3ZTRjOTlhYWMy"
+        },
+        {
+          "color": "gray",
+          "description": "",
+          "name": "Offline Testing",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/ZGJhMDFlN2ItZDc0My00ODMyLWE4NGQtNDAxNTJkODUzOGU0"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "Fire Testing",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/YTc0MmVkODktMTJkNy00OTI3LWJiMDAtNmU4ZmEyYWU4NmQ2"
+        },
+        {
+          "color": "green",
+          "description": "",
+          "name": "Powdering",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/ZmVlMjczMDEtNjEzZC00OTY4LTg0OWQtNWEzYTkzOTMxNDFh"
+        },
+        {
+          "color": "orange",
+          "description": "",
+          "name": "Joining",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/ZTdkYzk0OWQtYTI0MC00MDY5LWE0MjUtNmFlNTQ5NDA4NzMz"
+        },
+        {
+          "color": "orange",
+          "description": "",
+          "name": "Repair",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/NzM0OTM1ZmUtN2Q3MS00YzkyLWE3MjEtYzAzZGY3MTYxNGNl"
+        },
+        {
+          "color": "purple",
+          "description": "",
+          "name": "Tension Control",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/NTQyMzU1YzgtNDJkYy00MjA3LWI0NzgtZmEwODg2ZGIwOTkx"
+        },
+        {
+          "color": "brown",
+          "description": "",
+          "name": "Braking",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/MGRlNWNhZjEtMzRlMi00OTFlLWJjZDItNzAwZTViZTgwYTdh"
+        },
+        {
+          "color": "blue",
+          "description": "",
+          "name": "Data Layer",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/NGI5YTgyMWItODgzMi00OTY3LWI1YjEtNGQ3ZGNlOTAwOGQ3"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "QA",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/YzAzMTkwNzctOGZmOS00ZGRkLWIwM2UtYzU0ZmQ3MzdlMzky"
+        },
+        {
+          "color": "orange",
+          "description": "",
+          "name": "QA Calibration",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/NDk0ZDM4ZWUtMzFhMS00ZGRjLTg0ZTEtZmQ2MDMwOWJhNDEx"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "Compliance",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/ZTY0YjhjYzctODdkYS00YTBkLTk0YWMtNGJiZTFiMjNiZTQ1"
+        },
+        {
+          "color": "green",
+          "description": "",
+          "name": "High-speed lines",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/X1x3YA/NTBlZDYxMmMtMWRkMi00ZjkzLWE1OTMtNzNlY2Y3MTYyZTA1"
+        }
+      ],
+      "type": "multi_select"
+    },
+    "Proposal Positioning": {
+      "description": "",
+      "name": "Proposal Positioning",
+      "type": "text"
+    },
+    "Proposal Section Fit": {
+      "description": "",
+      "name": "Proposal Section Fit",
+      "options": [
+        {
+          "color": "blue",
+          "description": "",
+          "name": "Portfolio Map",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UlBnQA/Y2NhMWZkODUtZWI3OS00ZWY3LTg5YWEtMTRhMmNkOTQzNTM0"
+        },
+        {
+          "color": "purple",
+          "description": "",
+          "name": "Product Family Profile",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UlBnQA/N2I3NDY3ZDUtZmI3Yy00MmM1LTg4YjItMDdmYWRjNjYyNWNj"
+        },
+        {
+          "color": "gray",
+          "description": "",
+          "name": "Technical Appendix",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UlBnQA/M2YxYTUxMmMtNzdhZC00MjMwLTkzMjItNzQ2ZGNlYzI1ZTkz"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "Compliance / QA",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UlBnQA/ZTRhOTNlZWMtOThmYS00OGY5LWJlMWEtMjc2YWU5OGI1Yjhm"
+        },
+        {
+          "color": "green",
+          "description": "",
+          "name": "Automation / Industry 4.0",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UlBnQA/OTM4MzVkZTItZjk1OC00ZGRiLTliNzctMjgzMzM2YmQ5OTNm"
+        },
+        {
+          "color": "orange",
+          "description": "",
+          "name": "Accessories",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UlBnQA/YzUxZGU5ZjgtNTQzZS00ODEzLTg0MDctNDkzYzM3ZWE4YjA5"
+        },
+        {
+          "color": "pink",
+          "description": "",
+          "name": "Use Case Matrix",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UlBnQA/ZDM0NjBmNTktZDdhMi00NmNlLWJkZDQtZTMyZWMxNjIwYmE5"
+        }
+      ],
+      "type": "multi_select"
+    },
+    "Range / Capacity": {
+      "description": "",
+      "name": "Range / Capacity",
+      "type": "text"
+    },
+    "Recommended CTA": {
+      "description": "",
+      "name": "Recommended CTA",
+      "options": [
+        {
+          "color": "red",
+          "description": "",
+          "name": "Request demo",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/d0xFfg/NzM5YWJhYWQtMjk2OC00NGZkLWIxMzYtM2FiYmI2YjkxNjk0"
+        },
+        {
+          "color": "blue",
+          "description": "",
+          "name": "Share specs",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/d0xFfg/YTZkNWE3YmEtYTZjYS00Zjk0LWE4ZDktMzBmNzBjYmQ5MWUx"
+        },
+        {
+          "color": "green",
+          "description": "",
+          "name": "Audit line",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/d0xFfg/ZTRmMDIwNWUtODU5OC00MzA5LThjNzMtODMzZmM1NWFiMDk5"
+        },
+        {
+          "color": "yellow",
+          "description": "",
+          "name": "Ask for sample/application details",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/d0xFfg/ODUzNjllZDktMDM0MC00OWI5LTlkNGEtNDExM2YxYmY3Mzdi"
+        },
+        {
+          "color": "purple",
+          "description": "",
+          "name": "Schedule technical call",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/d0xFfg/ODU1ODU0Y2EtZjhlOS00MzQ4LWI1MWUtN2MyMWI5NjY0MGRh"
+        },
+        {
+          "color": "orange",
+          "description": "",
+          "name": "Quote configuration",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/d0xFfg/YjhlNjJmY2UtMDNlNi00ZGUzLWJlMDctMzcxYTc2ZGU5OWFi"
+        },
+        {
+          "color": "brown",
+          "description": "",
+          "name": "Compliance discussion",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/d0xFfg/NGZhNTAwMzItMDU0OS00YzVmLWJiODgtZDVkN2ZlNzM2ZDgx"
+        }
+      ],
+      "type": "select"
+    },
+    "Row Type": {
+      "description": "",
+      "name": "Row Type",
+      "options": [
+        {
+          "color": "blue",
+          "description": "",
+          "name": "Product",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/VkdleA/MmUxYzg3MjItOGJkNC00ZWUzLWJlNzgtODI5YjQxYmFmYTc0"
+        },
+        {
+          "color": "purple",
+          "description": "",
+          "name": "Model / Variant",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/VkdleA/YjZiYjAwNzItNzI3Yi00NzQ2LTg2MDEtYmY3YWU4YTg0NjE2"
+        },
+        {
+          "color": "gray",
+          "description": "",
+          "name": "Accessory",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/VkdleA/NzdiYzA5MzQtZGZkZC00MmIyLWE1MWYtODllYzJiMjY1Yjcy"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "System",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/VkdleA/OTFjNjRlM2ItYWM2ZC00ZGZkLTgyNTctMTEzYWI3MTE2MTg5"
+        }
+      ],
+      "type": "select"
+    },
+    "Safety / Compliance / Standards": {
+      "description": "",
+      "name": "Safety / Compliance / Standards",
+      "type": "text"
+    },
+    "Sales Priority": {
+      "description": "",
+      "name": "Sales Priority",
+      "options": [
+        {
+          "color": "red",
+          "description": "",
+          "name": "Hero",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UEV7SA/N2MxOGM1ODAtNjgxOC00OGVkLTgyMWMtZDFkNjVkYzA5NGM4"
+        },
+        {
+          "color": "blue",
+          "description": "",
+          "name": "Strategic",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UEV7SA/ZTE3MGIwOGEtMmIxMS00M2Y2LTkxMzYtNmM5NWUyMWU5ODdl"
+        },
+        {
+          "color": "gray",
+          "description": "",
+          "name": "Supporting",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UEV7SA/OTg2YmEyYWQtNmIwZC00MTgzLWFhYmQtMzc4YzA2NmFhNWUx"
+        },
+        {
+          "color": "brown",
+          "description": "",
+          "name": "Niche",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/UEV7SA/MzU2MGFlMWUtZjI2ZC00OWUyLWJiZjMtNzdjZTA2ZmFkNDkw"
+        }
+      ],
+      "type": "select"
+    },
+    "Signed Scope Note": {
+      "description": "",
+      "name": "Signed Scope Note",
+      "type": "text"
+    },
+    "Signed Scope Treatment": {
+      "description": "",
+      "name": "Signed Scope Treatment",
+      "options": [
+        {
+          "color": "green",
+          "description": "",
+          "name": "Covered Primary / Variant",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/e3VTSQ/ZGVmNzBjMjMtOWYzNC00MjFjLTk5NjgtMTBjOTUyMTgzYjA3"
+        },
+        {
+          "color": "yellow",
+          "description": "",
+          "name": "Covered Support Item",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/e3VTSQ/ODVjMWMyNTYtNWJiNC00M2RmLTk5N2UtYjJkYjFmNjY4YTQx"
+        },
+        {
+          "color": "gray",
+          "description": "",
+          "name": "Reference Only",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/e3VTSQ/YzdhOWU0ZTAtMjdmYS00M2Y5LTgxOTMtMjE2NDdjZTY5ZWYz"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "Out of Signed Scope",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/e3VTSQ/ZjMwNzA2MjktOGUzMy00YjNkLWIzZTktMWJmNzc2MWJiYjJj"
+        }
+      ],
+      "type": "select"
+    },
+    "Solution Theme": {
+      "description": "",
+      "name": "Solution Theme",
+      "options": [
+        {
+          "color": "blue",
+          "description": "",
+          "name": "Diameter / Ovality Control",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/PlxDVg/ZTg4NjcyYTEtYzM5OS00NDU3LTgxMWMtNTMwOWEyZDI0YTUw"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "Spark Fault Intelligence",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/PlxDVg/OGZjMWJiZmUtMGE4YS00NmUxLWFkNTAtNjRlNjM5ZWEyZjgy"
+        },
+        {
+          "color": "purple",
+          "description": "",
+          "name": "Tension Control",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/PlxDVg/YjczZTc0ZDEtYzcwMy00ZGRiLWE5NjktZWY1Y2U2ZjZlZjRj"
+        },
+        {
+          "color": "brown",
+          "description": "",
+          "name": "Braking / Unwind-Rewind",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/PlxDVg/ZDA0MWE1ZDgtZDk4NS00NzEzLTk2YmQtZGRiMTJmOGI5Yzk4"
+        },
+        {
+          "color": "yellow",
+          "description": "",
+          "name": "Pre-Extrusion Quality",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/PlxDVg/OTQxMGRkODEtNzczNy00NTNhLTkwMDMtMjc1ZDE2YzgzZjkx"
+        },
+        {
+          "color": "green",
+          "description": "",
+          "name": "Powdering / Clean Shopfloor",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/PlxDVg/ZGUyMzEwYTYtYmM4Mi00MTE5LTk3ODctNjE3NjEyMzA2YTdl"
+        },
+        {
+          "color": "gray",
+          "description": "",
+          "name": "Offline HV Testing",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/PlxDVg/YTBiOTFhNjctNzhhNS00NmE0LTgyODQtODc3NjU3ODJkMGJm"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "Fire Compliance",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/PlxDVg/MjFkOWI5NjktNDdmMy00OWMxLWFlYzQtZGU2YWYzOGVlNzQ1"
+        },
+        {
+          "color": "blue",
+          "description": "",
+          "name": "Data / Reporting",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/PlxDVg/MTIxODJmNTgtNGExOC00ZTdmLTg3MmQtNDA4MTZhZDU1ODgw"
+        },
+        {
+          "color": "orange",
+          "description": "",
+          "name": "Joining / Repair",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/PlxDVg/MjY4ZTc2NGUtOGJlYy00NTBmLWE3MmEtNDJiNzdkZGYzMTQy"
+        },
+        {
+          "color": "gray",
+          "description": "",
+          "name": "Calibration / Support",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/PlxDVg/ZjRjNDZmZDctNzRlNi00YmRlLTk0M2QtMGRjZjc5Yzk0Zjc5"
+        }
+      ],
+      "type": "multi_select"
+    },
+    "Source Coverage": {
+      "description": "",
+      "name": "Source Coverage",
+      "type": "text"
+    },
+    "Spec Confidence": {
+      "description": "",
+      "name": "Spec Confidence",
+      "options": [
+        {
+          "color": "green",
+          "description": "",
+          "name": "Complete Source-Backed",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/YHBrdg/NzBkYmJmOWEtYWQ1NS00NGZkLWE0MjItMjExOWVjZDUzN2Jh"
+        },
+        {
+          "color": "yellow",
+          "description": "",
+          "name": "Variant-Dependent",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/YHBrdg/Y2Q2ZGM2NjMtNDI3NS00MWNiLWEzZjUtNzlmNzNjOWIwNmU2"
+        },
+        {
+          "color": "orange",
+          "description": "",
+          "name": "Source-Limited",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/YHBrdg/MjZkODc0ZTctZTI2Yi00ZGI5LTg5M2QtMGU2OTE2MjIzZGZk"
+        },
+        {
+          "color": "red",
+          "description": "",
+          "name": "Verify At Quotation",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/YHBrdg/YTVkYTkxZjAtMmU1ZS00MTk5LThhY2QtNjg0YWU3MTZmOWY0"
+        }
+      ],
+      "type": "select"
+    },
+    "Speed / Throughput": {
+      "description": "",
+      "name": "Speed / Throughput",
+      "type": "text"
+    },
+    "Target Personas": {
+      "description": "",
+      "name": "Target Personas",
+      "options": [
+        {
+          "color": "red",
+          "description": "",
+          "name": "Plant Head",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Yz5sag/ZjgyZmZkZmYtZjFhMi00MzI4LWJmMDQtODVlNjM0OWE5MDUz"
+        },
+        {
+          "color": "blue",
+          "description": "",
+          "name": "Production Manager",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Yz5sag/NzEzMDg3NGYtZDAxMS00NWNlLTlkMDItOTc4N2Q5ZjNmNGQ4"
+        },
+        {
+          "color": "orange",
+          "description": "",
+          "name": "QA/QC Head",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Yz5sag/M2RmOGJjNGItYTI0Ny00Zjg1LTgwZmItZDA5ODMyYTlhY2Vm"
+        },
+        {
+          "color": "brown",
+          "description": "",
+          "name": "Maintenance Head",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Yz5sag/NTgzZDE4NmYtZDhiYi00ZDgzLWI1MzEtZjU5ZjFhOTI4M2Nj"
+        },
+        {
+          "color": "purple",
+          "description": "",
+          "name": "Automation Engineer",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Yz5sag/NTc5OWUwOTMtNjRmZS00NDIwLTllMDctMmZhZjk5ZWEzYzI0"
+        },
+        {
+          "color": "gray",
+          "description": "",
+          "name": "Purchase / Procurement",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Yz5sag/MDE4NDEyOWItZmMxYS00ZTQ3LWJkNTEtZWE4NzZlYWRiYzEy"
+        },
+        {
+          "color": "green",
+          "description": "",
+          "name": "R&D / Technical Team",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Yz5sag/M2JlNDdlMjYtZmQ1Mi00MTVkLWFlMjYtNmNhNGZiZjlkODUw"
+        },
+        {
+          "color": "pink",
+          "description": "",
+          "name": "Sales Engineer",
+          "url": "collectionPropertyOption://c643dd29-567d-82e8-b556-0710db1026be/Yz5sag/NDdhMmE4NjUtNWJlYS00NWI4LWFiYzgtMjAxOGUzMmE1NjU2"
+        }
+      ],
+      "type": "multi_select"
+    },
+    "Weight": {
+      "description": "",
+      "name": "Weight",
+      "type": "text"
+    }
+  },
+  "sqlite_table": "CREATE TABLE IF NOT EXISTS \"collection://c643dd29-567d-82e8-b556-0710db1026be\" (\n\turl TEXT UNIQUE,\n\tcreatedTime TEXT, -- ISO-8601 datetime string, automatically set. This is the canonical time for when the page was created.\n\t\"Speed / Throughput\" TEXT,\n\t\"Source Coverage\" TEXT,\n\t\"Solution Theme\" TEXT, -- JSON array with zero or more of [\"Diameter / Ovality Control\", \"Spark Fault Intelligence\", \"Tension Control\", \"Braking / Unwind-Rewind\", \"Pre-Extrusion Quality\", \"Powdering / Clean Shopfloor\", \"Offline HV Testing\", \"Fire Compliance\", \"Data / Reporting\", \"Joining / Repair\", \"Calibration / Support\"]\n\t\"Inputs\" TEXT,\n\t\"Dimensions\" TEXT,\n\t\"Weight\" TEXT,\n\t\"Important Caveats\" TEXT,\n\t\"Accessories / Options\" TEXT,\n\t\"Industry 4.0 Relevance\" TEXT, -- one of [\"High\", \"Medium\", \"Low\"]\n\t\"Primary Use Case\" TEXT,\n\t\"Line Integration Complexity\" TEXT, -- one of [\"Low\", \"Medium\", \"High\"]\n\t\"Proposal Positioning\" TEXT,\n\t\"Sales Priority\" TEXT, -- one of [\"Hero\", \"Strategic\", \"Supporting\", \"Niche\"]\n\t\"Safety / Compliance / Standards\" TEXT,\n\t\"Product Family\" TEXT, -- one of [\"Online Measurement\", \"Fault & Safety Testing\", \"Process Enhancement\", \"Tension / Braking / Automation\"]\n\t\"Proposal Section Fit\" TEXT, -- JSON array with zero or more of [\"Portfolio Map\", \"Product Family Profile\", \"Technical Appendix\", \"Compliance / QA\", \"Automation / Industry 4.0\", \"Accessories\", \"Use Case Matrix\"]\n\t\"Manufacturing Flow Stage\" TEXT, -- one of [\"01 Pay-off / Unwind\", \"02 Joining / Butt Welding\", \"03 Tension & Braking Control\", \"04 Pre-extrusion / Preheating\", \"05 Powdering / Talc Application\", \"06 Extrusion / Coating\", \"07 Cooling\", \"08 Online Measurement\", \"09 Spark / Fault Inspection\", \"10 Inline Marking\", \"11 Rewinding / Coiling\", \"12 Offline HV Testing\", \"13 Fire / Compliance Testing\", \"14 Repair / Rework\", \"15 Calibration / Support\", \"16 Data / Reporting Layer\"]\n\t\"Core Buyer Value\" TEXT,\n\t\"Row Type\" TEXT, -- one of [\"Product\", \"Model / Variant\", \"Accessory\", \"System\"]\n\t\"Outputs\" TEXT,\n\t\"Funnel Stage Fit\" TEXT, -- JSON array with zero or more of [\"Awareness\", \"Consideration\", \"Technical Evaluation\", \"Commercial Discussion\", \"Retention / Expansion\"]\n\t\"Best-Fit Customer Question\" TEXT,\n\t\"Signed Scope Note\" TEXT,\n\t\"Production / Context Tags\" TEXT, -- JSON array with zero or more of [\"Pay-off\", \"Pre-extrusion\", \"Extrusion\", \"Cooling\", \"Inspection\", \"Rewinding\", \"Coiling\", \"Offline Testing\", \"Fire Testing\", \"Powdering\", \"Joining\", \"Repair\", \"Tension Control\", \"Braking\", \"Data Layer\", \"QA\", \"QA Calibration\", \"Compliance\", \"High-speed lines\"]\n\t\"Differentiators\" TEXT,\n\t\"Spec Confidence\" TEXT, -- one of [\"Complete Source-Backed\", \"Variant-Dependent\", \"Source-Limited\", \"Verify At Quotation\"]\n\t\"Display / UI\" TEXT,\n\t\"Material / Cable Applicability\" TEXT,\n\t\"Target Personas\" TEXT, -- JSON array with zero or more of [\"Plant Head\", \"Production Manager\", \"QA/QC Head\", \"Maintenance Head\", \"Automation Engineer\", \"Purchase / Procurement\", \"R&D / Technical Team\", \"Sales Engineer\"]\n\t\"Product Type\" TEXT, -- one of [\"Gauge\", \"Controller\", \"Tester\", \"Calibrator\", \"Applicator\", \"Preheater\", \"Brake\", \"Loadcell\", \"Welder\", \"Accessory\", \"System\"]\n\t\"Operating Conditions\" TEXT,\n\t\"Range / Capacity\" TEXT,\n\t\"Cross-Sell / Complementary Products\" TEXT,\n\t\"Primary Buyer Problem\" TEXT,\n\t\"Notes For Sales Team\" TEXT,\n\t\"Model / Variant\" TEXT,\n\t\"Parent Product / Platform\" TEXT,\n\t\"Discovery Questions\" TEXT,\n\t\"Communication / Integration\" TEXT,\n\t\"Power Supply\" TEXT,\n\t\"Recommended CTA\" TEXT, -- one of [\"Request demo\", \"Share specs\", \"Audit line\", \"Ask for sample/application details\", \"Schedule technical call\", \"Quote configuration\", \"Compliance discussion\"]\n\t\"Signed Scope Treatment\" TEXT, -- one of [\"Covered Primary / Variant\", \"Covered Support Item\", \"Reference Only\", \"Out of Signed Scope\"]\n\t\"Measured / Controlled Parameter\" TEXT,\n\t\"Product / Model Name\" TEXT\n)"
 }
-
