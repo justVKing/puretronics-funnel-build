@@ -1,0 +1,14 @@
+﻿{
+    "raw_export_status":  "pending-refresh",
+    "database_id":  "c303dd29567d83f9bfc301995427e6e7",
+    "row_count_verified_during_planning":  38,
+    "generated_at":  "2026-07-29T20:28:24+05:30",
+    "data_source_id":  "c643dd29-567d-82e8-b556-0710db1026be",
+    "repo_paths":  [
+                       "data/product-master/schema.json",
+                       "data/product-master/views.json",
+                       "data/product-master/rows.json",
+                       "data/product-master/rows.csv",
+                       "docs/03-product-intelligence/products/"
+                   ]
+}

@@ -1,0 +1,37 @@
+﻿{
+    "row_count_verified":  38,
+    "row_type_options":  [
+                             "Product",
+                             "Model / Variant",
+                             "Accessory",
+                             "System"
+                         ],
+    "governance_properties":  [
+                                  "Signed Scope Treatment",
+                                  "Signed Scope Note",
+                                  "Spec Confidence",
+                                  "Important Caveats"
+                              ],
+    "product_family_options":  [
+                                   "Online Measurement",
+                                   "Fault \u0026 Safety Testing",
+                                   "Process Enhancement",
+                                   "Tension / Braking / Automation"
+                               ],
+    "signed_scope_treatment_options":  [
+                                           "Covered Primary / Variant",
+                                           "Covered Support Item",
+                                           "Reference Only",
+                                           "Out of Signed Scope"
+                                       ],
+    "title_property":  "Product / Model Name",
+    "data_source_id":  "c643dd29-567d-82e8-b556-0710db1026be",
+    "sales_priority_options":  [
+                                   "Hero",
+                                   "Strategic",
+                                   "Supporting",
+                                   "Niche"
+                               ],
+    "export_limitation":  "Initial rows contain governance/identity fields verified during planning; full all-property export requires refreshed Notion query access."
+}
+

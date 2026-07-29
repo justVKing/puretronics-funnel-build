@@ -1,0 +1,63 @@
+﻿[
+    {
+        "name":  "00 Admin - All Properties",
+        "type":  "table",
+        "purpose":  "Full maintenance view for database operators"
+    },
+    {
+        "name":  "01 Sales Snapshot",
+        "type":  "table",
+        "purpose":  "Quick commercial overview for sales and proposal work"
+    },
+    {
+        "name":  "02 Manufacturing Flow",
+        "type":  "table",
+        "purpose":  "Ordered production-line map"
+    },
+    {
+        "name":  "03 Buyer Discovery",
+        "type":  "table",
+        "purpose":  "Persona, problem, question, CTA, and sales-note view"
+    },
+    {
+        "name":  "04 Product Family Navigator",
+        "type":  "table",
+        "purpose":  "Portfolio navigation by product family"
+    },
+    {
+        "name":  "05 Hero Products",
+        "type":  "table",
+        "purpose":  "Proposal anchors and funnel-first products"
+    },
+    {
+        "name":  "06 Technical Lookup",
+        "type":  "table",
+        "purpose":  "Technical comparison and configuration support"
+    },
+    {
+        "name":  "07 Connected Factory / Industry 4.0",
+        "type":  "table",
+        "purpose":  "Connected/data/HMI/ERP/reporting/control products"
+    },
+    {
+        "name":  "08 Proposal \u0026 Funnel Builder",
+        "type":  "table",
+        "purpose":  "Funnel stage and proposal planning"
+    },
+    {
+        "name":  "09 Cross-Sell \u0026 Bundles",
+        "type":  "table",
+        "purpose":  "Bundle logic and complementary mapping"
+    },
+    {
+        "name":  "10 Source \u0026 Spec Governance",
+        "type":  "table",
+        "purpose":  "Source coverage, caveats, and quotation-risk review"
+    },
+    {
+        "name":  "Context Tags",
+        "type":  "table",
+        "purpose":  "Flexible process/application filtering"
+    }
+]
+

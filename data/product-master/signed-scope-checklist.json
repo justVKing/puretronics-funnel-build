@@ -1,0 +1,45 @@
+﻿{
+    "support_items_expected":  [
+                                   "Laser / Measurement Accessories Group",
+                                   "Spark Tester IoT Stage 1 Fault Interface",
+                                   "Spark Tester IoT Stage 2 Data Logging \u0026 Graphics",
+                                   "Spark Tester IoT Stage 3 Inline Marking System",
+                                   "Spark Tester Sensitivity Calibrator",
+                                   "Loadcell Accessories / Integration Items"
+                               ],
+    "signed_products_expected":  [
+                                     "LASER 2008",
+                                     "LASER 2008B",
+                                     "LASER-2060",
+                                     "LASER-2012",
+                                     "LASER-2030",
+                                     "LASER-2010H",
+                                     "LASER-2020H",
+                                     "LASER-2030H",
+                                     "WTI-90-40",
+                                     "WTI-100-40",
+                                     "Live Spark",
+                                     "Acute Spark",
+                                     "DC Spark",
+                                     "AC HV",
+                                     "DC HV",
+                                     "Fire Resistance Cable Testing System",
+                                     "Inline Induction Wire Preheater 1000",
+                                     "Inline Induction Wire Preheater 1500",
+                                     "Inline Induction Wire Preheater 2000",
+                                     "LSP-G1",
+                                     "LSP-G2",
+                                     "Butt Welding Machine",
+                                     "LTC-PRO",
+                                     "AR-85",
+                                     "AR-118",
+                                     "AR-125",
+                                     "AR-ST",
+                                     "LC-AR-60",
+                                     "LC-AR-HD",
+                                     "AX-250",
+                                     "AX-400",
+                                     "AX-500"
+                                 ]
+}
+

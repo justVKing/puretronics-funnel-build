@@ -1,0 +1,307 @@
+﻿[
+    {
+        "name":  "AC HV Tester",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Fault \u0026 Safety Testing",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Supporting",
+        "row_type":  "Product"
+    },
+    {
+        "name":  "Acute Spark Tester",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Fault \u0026 Safety Testing",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Product"
+    },
+    {
+        "name":  "AX-250 Pneumatic Brake",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Tension / Braking / Automation",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "AX-400 Pneumatic Brake",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Tension / Braking / Automation",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "AX-500 Pneumatic Brake",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Tension / Braking / Automation",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "Butt Welding Machine",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Process Enhancement",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Supporting",
+        "row_type":  "Product"
+    },
+    {
+        "name":  "DC HV Tester",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Fault \u0026 Safety Testing",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Product"
+    },
+    {
+        "name":  "DC Spark Tester",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Fault \u0026 Safety Testing",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Product"
+    },
+    {
+        "name":  "Fire Resistance Cable Testing System",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Fault \u0026 Safety Testing",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Hero",
+        "row_type":  "System"
+    },
+    {
+        "name":  "Inline Induction Wire Preheater - 1000 m/min",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Process Enhancement",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "Inline Induction Wire Preheater - 1500 m/min",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Process Enhancement",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "Inline Induction Wire Preheater - 2000 m/min",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Process Enhancement",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "Laser / Measurement Accessories Group",
+        "treatment":  "Covered Support Item",
+        "family":  "Online Measurement",
+        "note":  "Covered as a support item only under signed Services Agreement Annexure A dated 9 July 2026; no standalone page, campaign, form, automation, outreach sequence, SEO asset, selector, calculator, configurator, or extra deliverable unless separately approved in writing.",
+        "priority":  "Supporting",
+        "row_type":  "Accessory"
+    },
+    {
+        "name":  "LASER 2008B",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Online Measurement",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "Laser Diameter Gauge / LASER 2008",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Online Measurement",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Hero",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "LASER-2010H",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Online Measurement",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "LASER-2012",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Online Measurement",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "LASER-2020H",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Online Measurement",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Hero",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "LASER-2030",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Online Measurement",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "LASER-2030H",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Online Measurement",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "LASER-2060",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Online Measurement",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "Live Spark Tester",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Fault \u0026 Safety Testing",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Hero",
+        "row_type":  "Product"
+    },
+    {
+        "name":  "Loadcell Accessories / Integration Items",
+        "treatment":  "Covered Support Item",
+        "family":  "Tension / Braking / Automation",
+        "note":  "Covered as a support item only under signed Services Agreement Annexure A dated 9 July 2026; no standalone page, campaign, form, automation, outreach sequence, SEO asset, selector, calculator, configurator, or extra deliverable unless separately approved in writing.",
+        "priority":  "Supporting",
+        "row_type":  "Accessory"
+    },
+    {
+        "name":  "Loadcell AR-118 Series",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Tension / Braking / Automation",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "Loadcell AR-125 Series",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Tension / Braking / Automation",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "Loadcell AR-85 Series",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Tension / Braking / Automation",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "Loadcell AR-ST Series",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Tension / Braking / Automation",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "Loadcell LC-AR-60 Series",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Tension / Braking / Automation",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Supporting",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "Loadcell LC-AR-HD Series",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Tension / Braking / Automation",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "LSP-G1 Static Powder Applicator",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Process Enhancement",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Hero",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "LSP-G2 Static Powder Applicator",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Process Enhancement",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Hero",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "LTC-PRO Web Tension Controller",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Tension / Braking / Automation",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Hero",
+        "row_type":  "Product"
+    },
+    {
+        "name":  "Spark Tester IoT Stage 1 Fault Interface",
+        "treatment":  "Covered Support Item",
+        "family":  "Fault \u0026 Safety Testing",
+        "note":  "Covered as a support item only under signed Services Agreement Annexure A dated 9 July 2026; no standalone page, campaign, form, automation, outreach sequence, SEO asset, selector, calculator, configurator, or extra deliverable unless separately approved in writing.",
+        "priority":  "Supporting",
+        "row_type":  "Accessory"
+    },
+    {
+        "name":  "Spark Tester IoT Stage 2 Data Logging \u0026 Graphics",
+        "treatment":  "Covered Support Item",
+        "family":  "Fault \u0026 Safety Testing",
+        "note":  "Covered as a support item only under signed Services Agreement Annexure A dated 9 July 2026; no standalone page, campaign, form, automation, outreach sequence, SEO asset, selector, calculator, configurator, or extra deliverable unless separately approved in writing.",
+        "priority":  "Supporting",
+        "row_type":  "Accessory"
+    },
+    {
+        "name":  "Spark Tester IoT Stage 3 Inline Marking System",
+        "treatment":  "Covered Support Item",
+        "family":  "Fault \u0026 Safety Testing",
+        "note":  "Covered as a support item only under signed Services Agreement Annexure A dated 9 July 2026; no standalone page, campaign, form, automation, outreach sequence, SEO asset, selector, calculator, configurator, or extra deliverable unless separately approved in writing.",
+        "priority":  "Supporting",
+        "row_type":  "Accessory"
+    },
+    {
+        "name":  "Spark Tester Sensitivity Calibrator",
+        "treatment":  "Covered Support Item",
+        "family":  "Fault \u0026 Safety Testing",
+        "note":  "Covered as a support item only under signed Services Agreement Annexure A dated 9 July 2026; no standalone page, campaign, form, automation, outreach sequence, SEO asset, selector, calculator, configurator, or extra deliverable unless separately approved in writing.",
+        "priority":  "Supporting",
+        "row_type":  "Accessory"
+    },
+    {
+        "name":  "Wire Tension Indicator WTI-100-40",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Tension / Braking / Automation",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    },
+    {
+        "name":  "Wire Tension Indicator WTI-90-40",
+        "treatment":  "Covered Primary / Variant",
+        "family":  "Tension / Braking / Automation",
+        "note":  "Covered by signed Services Agreement Annexure A dated 9 July 2026. Product intelligence must remain within the signed Wire \u0026 Cable pilot scope; final specs/configuration to be verified where row caveats require.",
+        "priority":  "Strategic",
+        "row_type":  "Model / Variant"
+    }
+]
+
