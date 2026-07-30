@@ -1,9 +1,9 @@
-﻿# Laser / Measurement Accessories Group
+# Laser / Measurement Accessories Group
 
 | Field | Value |
 | --- | --- |
 | Row Type | Accessory |
-| Product Family | Online Measurement |
+| Product Family | Inline Measurement & Dimensional Control |
 | Sales Priority | Supporting |
 | Signed Scope Treatment | Covered Support Item |
 

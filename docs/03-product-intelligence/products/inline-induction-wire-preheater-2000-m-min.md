@@ -1,9 +1,9 @@
-﻿# Inline Induction Wire Preheater - 2000 m/min
+# Inline Induction Wire Preheater - 2000 m/min
 
 | Field | Value |
 | --- | --- |
 | Row Type | Model / Variant |
-| Product Family | Process Enhancement |
+| Product Family | Process Equipment & Line Auxiliaries |
 | Sales Priority | Strategic |
 | Signed Scope Treatment | Covered Primary / Variant |
 

@@ -2,10 +2,44 @@ $ErrorActionPreference = 'Stop'
 
 $root = Split-Path -Parent $PSScriptRoot
 $failures = New-Object System.Collections.Generic.List[string]
-$sourceMapPath = Join-Path $root 'notion-source-map.json'
-$rawPagesPath = Join-Path $root 'data/notion-export/raw-page-fetches'
-$rawDatabasePath = Join-Path $root 'data/notion-export/raw-database-fetches'
 
+function Add-Failure {
+    param([string]$Message)
+    $failures.Add($Message)
+}
+
+function Read-NotionEnvelope {
+    param([string]$Path)
+    try {
+        $json = Get-Content -Raw -LiteralPath $Path | ConvertFrom-Json
+    } catch {
+        Add-Failure "Invalid Notion JSON: $Path"
+        return $null
+    }
+    if ($json.metadata -and $json.url -and $json.text) { return $json }
+    if ($json.content -and $json.content[0].text) {
+        try {
+            $inner = $json.content[0].text | ConvertFrom-Json
+            if ($inner.metadata -and $inner.url -and $inner.text) { return $inner }
+        } catch {
+            Add-Failure "Invalid wrapped Notion response: $Path"
+            return $null
+        }
+    }
+    if ($json.response.content -and $json.response.content[0].text) {
+        try {
+            $inner = $json.response.content[0].text | ConvertFrom-Json
+            if ($inner.metadata -and $inner.url -and $inner.text) { return $inner }
+        } catch {
+            Add-Failure "Invalid final Notion response wrapper: $Path"
+            return $null
+        }
+    }
+    Add-Failure "Incomplete Notion fetch envelope: $Path"
+    return $null
+}
+
+$sourceMapPath = Join-Path $root 'notion-source-map.json'
 if (-not (Test-Path -LiteralPath $sourceMapPath)) {
     Write-Host 'Notion export validation failed:'
     Write-Host '- Missing notion-source-map.json'
@@ -13,158 +47,156 @@ if (-not (Test-Path -LiteralPath $sourceMapPath)) {
 }
 
 $sourceMap = Get-Content -Raw -LiteralPath $sourceMapPath | ConvertFrom-Json
-$mappedPages = @($sourceMap.core_pages) + @($sourceMap.raw_input_pages)
-$expectedRawFiles = New-Object System.Collections.Generic.List[string]
+$corePages = @($sourceMap.core_pages)
+$rawPages = @($sourceMap.raw_input_pages)
+if ($corePages.Count -ne 11) {
+    Add-Failure "Expected 11 mapped core surfaces including taxonomy governance; found $($corePages.Count)."
+}
+if ($rawPages.Count -ne 19) {
+    Add-Failure "Expected 19 mapped immutable raw source pages; found $($rawPages.Count)."
+}
+
+$mappedPages = $corePages + $rawPages
+$duplicateIds = @($mappedPages | Group-Object id | Where-Object Count -gt 1)
+foreach ($duplicate in $duplicateIds) {
+    Add-Failure "Duplicate Notion page ID in source map: $($duplicate.Name)"
+}
 
 foreach ($page in $mappedPages) {
-    $slug = [regex]::Replace($page.title.ToLowerInvariant(), '[^a-z0-9]+', '-').Trim('-')
-    $relativePath = "data/notion-export/raw-page-fetches/$slug.json"
-    $expectedRawFiles.Add($relativePath)
+    $relativePath = [string]$page.raw_fetch_path
     $fullPath = Join-Path $root $relativePath
-
-    if (-not (Test-Path -LiteralPath $fullPath)) {
-        $failures.Add("Missing raw Notion fetch: $relativePath")
+    if (-not (Test-Path -LiteralPath $fullPath -PathType Leaf)) {
+        Add-Failure "Missing mapped Notion fetch: $relativePath"
         continue
     }
-
-    try {
-        $rawFetch = Get-Content -Raw -LiteralPath $fullPath | ConvertFrom-Json
-    } catch {
-        $failures.Add("Invalid raw Notion JSON: $relativePath")
-        continue
-    }
-
-    if (-not $rawFetch.metadata.type -or -not $rawFetch.url -or -not $rawFetch.text) {
-        $failures.Add("Incomplete raw Notion fetch envelope: $relativePath")
-    }
-    if ($rawFetch.url -notlike "*$($page.id)*") {
-        $failures.Add("Raw Notion fetch does not match mapped ID $($page.id): $relativePath")
+    $envelope = Read-NotionEnvelope -Path $fullPath
+    if ($envelope -and $envelope.url -notlike "*$($page.id)*") {
+        Add-Failure "Mapped Notion fetch does not match ID $($page.id): $relativePath"
     }
 }
 
-if ($expectedRawFiles.Count -ne 24) {
-    $failures.Add("Expected 24 mapped Notion assets; found $($expectedRawFiles.Count)")
+$correctNestedIds = @(
+    '1f83dd29567d82f29ae681eedafdb20e',
+    '5663dd29567d82f59edf01f0a2845511',
+    'f533dd29567d8291a199012d56279849',
+    'ac83dd29567d82d0a96e81514259839b',
+    '54b3dd29567d82fdbf568104ad4e888c'
+)
+foreach ($id in $correctNestedIds) {
+    if ($rawPages.id -notcontains $id) {
+        Add-Failure "Nested source page is absent from source map: $id"
+    }
 }
 
-$actualRawFiles = @(Get-ChildItem -LiteralPath $rawPagesPath -File -Filter '*.json')
-if ($actualRawFiles.Count -ne 24) {
-    $failures.Add("Expected 24 raw page/database fetch files; found $($actualRawFiles.Count)")
+$rowsPath = Join-Path $root 'data/product-master/rows.json'
+$csvPath = Join-Path $root 'data/product-master/rows.csv'
+$schemaPath = Join-Path $root 'data/product-master/schema.json'
+$viewsPath = Join-Path $root 'data/product-master/views.json'
+foreach ($path in @($rowsPath, $csvPath, $schemaPath, $viewsPath)) {
+    if (-not (Test-Path -LiteralPath $path -PathType Leaf)) { Add-Failure "Missing Product Master export: $path" }
 }
 
-foreach ($file in @(
+if ($failures.Count -eq 0) {
+    $rowsRaw = Get-Content -Raw -LiteralPath $rowsPath | ConvertFrom-Json
+    $rows = @()
+    foreach ($row in $rowsRaw) { $rows += $row }
+    if ($rows.Count -ne 38) { Add-Failure "Expected 38 Product Master rows; found $($rows.Count)." }
+
+    $schema = Get-Content -Raw -LiteralPath $schemaPath | ConvertFrom-Json
+    $schemaProperties = @($schema.schema.PSObject.Properties)
+    if ($schemaProperties.Count -ne 44) { Add-Failure "Expected 44 Product Master properties; found $($schemaProperties.Count)." }
+
+    $viewsRaw = Get-Content -Raw -LiteralPath $viewsPath | ConvertFrom-Json
+    $views = @()
+    foreach ($view in $viewsRaw) { $views += $view }
+    if ($views.Count -ne 12) { Add-Failure "Expected 12 Product Master views; found $($views.Count)." }
+
+    $csvRows = @(Import-Csv -LiteralPath $csvPath -Encoding UTF8)
+    if ($csvRows.Count -ne 38) { Add-Failure "Expected 38 Product Master CSV rows; found $($csvRows.Count)." }
+    if (@($csvRows[0].PSObject.Properties).Count -ne 45) { Add-Failure "Expected 45 Product Master CSV columns including URL." }
+}
+
+$migrationRoot = Join-Path $root 'data/notion-export/taxonomy-migration/2026-07-30'
+$preRoot = Join-Path $migrationRoot 'pre-migration'
+$postRoot = Join-Path $migrationRoot 'post-migration'
+$cutoverRoot = Join-Path $migrationRoot 'post-cutover'
+$integrityPath = Join-Path $migrationRoot 'integrity-manifest.csv'
+foreach ($path in @($preRoot, $postRoot, $cutoverRoot, $integrityPath)) {
+    if (-not (Test-Path -LiteralPath $path)) { Add-Failure "Missing taxonomy migration evidence: $path" }
+}
+
+if (Test-Path -LiteralPath $integrityPath) {
+    $integrity = @(Import-Csv -LiteralPath $integrityPath)
+    if ($integrity.Count -ne 20) { Add-Failure "Expected 20 immutable integrity records; found $($integrity.Count)." }
+    foreach ($record in $integrity) {
+        if ($record.unchanged -ne 'yes' -or $record.pre_sha256 -ne $record.post_sha256) {
+            Add-Failure "Immutable evidence changed: $($record.file_name)"
+        }
+    }
+    if (@($integrity | Where-Object evidence_type -eq 'signed-agreement').Count -ne 1) {
+        Add-Failure 'Signed Agreement integrity record is missing or duplicated.'
+    }
+    if (@($integrity | Where-Object evidence_type -eq 'immutable-raw-source').Count -ne 19) {
+        Add-Failure 'Expected 19 immutable raw-source integrity records.'
+    }
+}
+
+foreach ($requiredPostFile in @(
+    'taxonomy-governance.json',
     'product-master-database.json',
     'product-master-data-source.json',
-    'product-master-rows.json'
+    'annexure-a.json',
+    'internal-copy-annexure-a.json'
 )) {
-    if (-not (Test-Path -LiteralPath (Join-Path $rawDatabasePath $file))) {
-        $failures.Add("Missing raw database fetch: $file")
+    if (-not (Test-Path -LiteralPath (Join-Path $postRoot $requiredPostFile))) {
+        Add-Failure "Missing post-migration Notion snapshot: $requiredPostFile"
     }
 }
 
-$rawDatabaseResponse = Get-Content -Raw -LiteralPath (Join-Path $rawDatabasePath 'product-master-database.json') | ConvertFrom-Json
-$rawDataSourceResponse = Get-Content -Raw -LiteralPath (Join-Path $rawDatabasePath 'product-master-data-source.json') | ConvertFrom-Json
-$rawRowsResponse = Get-Content -Raw -LiteralPath (Join-Path $rawDatabasePath 'product-master-rows.json') | ConvertFrom-Json
-
-$schema = Get-Content -Raw -LiteralPath (Join-Path $root 'data/product-master/schema.json') | ConvertFrom-Json
-$schemaProperties = @($schema.schema.PSObject.Properties)
-if ($schemaProperties.Count -ne 44) {
-    $failures.Add("Expected 44 Product Master properties; found $($schemaProperties.Count)")
-}
-
-$rawStateMatch = [regex]::Match(
-    $rawDataSourceResponse.text,
-    '<data-source-state>\s*(.*?)\s*</data-source-state>',
-    [System.Text.RegularExpressions.RegexOptions]::Singleline
-)
-if (-not $rawStateMatch.Success) {
-    $failures.Add('Could not read schema from the raw Product Master data-source response')
-} else {
-    $rawState = $rawStateMatch.Groups[1].Value | ConvertFrom-Json
-    $rawSchemaJson = $rawState.schema | ConvertTo-Json -Depth 30 -Compress
-    $normalizedSchemaJson = $schema.schema | ConvertTo-Json -Depth 30 -Compress
-    if ($rawSchemaJson -ne $normalizedSchemaJson) {
-        $failures.Add('schema.json does not exactly match the raw Product Master schema')
+foreach ($requiredCutoverFile in @(
+    'taxonomy-governance.json',
+    'product-master-database.json',
+    'product-master-data-source.json',
+    'live-row-verification.json',
+    'puretronics-main-page.json',
+    'input-files-index.json',
+    'master-document.json',
+    'product-intelligence-hub.json',
+    'master-user-guide.json',
+    'annexure-a.json',
+    'internal-copy-annexure-a.json',
+    'annexure-b.json'
+)) {
+    if (-not (Test-Path -LiteralPath (Join-Path $cutoverRoot $requiredCutoverFile))) {
+        Add-Failure "Missing final post-cutover Notion snapshot: $requiredCutoverFile"
     }
 }
 
-$views = Get-Content -Raw -LiteralPath (Join-Path $root 'data/product-master/views.json') | ConvertFrom-Json
-if ($views.Count -ne 12) {
-    $failures.Add("Expected 12 Product Master views; found $($views.Count)")
-}
-$rawViewMatches = [regex]::Matches(
-    $rawDatabaseResponse.text,
-    '<view url="\{\{(view://[^}]+)\}\}">\s*(.*?)\s*</view>',
-    [System.Text.RegularExpressions.RegexOptions]::Singleline
-)
-if ($rawViewMatches.Count -ne 12) {
-    $failures.Add("Expected 12 views in the raw Product Master response; found $($rawViewMatches.Count)")
-}
-
-$rows = Get-Content -Raw -LiteralPath (Join-Path $root 'data/product-master/rows.json') | ConvertFrom-Json
-if ($rows.Count -ne 38) {
-    $failures.Add("Expected 38 Product Master rows; found $($rows.Count)")
-}
-$rawRows = $rawRowsResponse.results
-if ($rawRows.Count -ne 38) {
-    $failures.Add("Expected 38 rows in the raw Product Master query; found $($rawRows.Count)")
-}
-$rawRowsJson = $rawRows | ConvertTo-Json -Depth 30 -Compress
-$normalizedRowsJson = $rows | ConvertTo-Json -Depth 30 -Compress
-if ($rawRowsJson -ne $normalizedRowsJson) {
-    $failures.Add('rows.json does not exactly match the raw Product Master query result')
-}
-
-function Normalize-ProductName {
-    param([string]$Value)
-    return [regex]::Replace($Value.ToLowerInvariant(), '[^a-z0-9]+', '')
-}
-
-if ($rows.Count -gt 0) {
-    $rowProperties = @($rows[0].PSObject.Properties.Name)
-    foreach ($property in $schemaProperties.Name) {
-        if ($property -notin $rowProperties) {
-            $failures.Add("rows.json is missing database property: $property")
+$finalDataSourcePath = Join-Path $cutoverRoot 'product-master-data-source.json'
+if (Test-Path -LiteralPath $finalDataSourcePath) {
+    $outer = Get-Content -Raw -LiteralPath $finalDataSourcePath | ConvertFrom-Json
+    try {
+        $inner = $outer.response.content[0].text | ConvertFrom-Json
+        $stateMatch = [regex]::Match($inner.text, '<data-source-state>\s*(\{.*?\})\s*</data-source-state>', 'Singleline')
+        if (-not $stateMatch.Success) {
+            Add-Failure 'Final Product Master data-source state is not parseable.'
+        } else {
+            $state = $stateMatch.Groups[1].Value | ConvertFrom-Json
+            if (@($state.schema.PSObject.Properties).Count -ne 44) { Add-Failure 'Final live Product Master must contain 44 active properties.' }
+            if ($null -ne $state.schema.'Legacy Product Family') { Add-Failure 'Final live Product Master still contains Legacy Product Family.' }
+            $familyOptions = @($state.schema.'Product Family'.options | ForEach-Object name)
+            $expectedFamilies = @(
+                'Inline Measurement & Dimensional Control',
+                'Inline Spark Testing & Insulation Fault Detection',
+                'Cable Testing & Validation',
+                'Process Equipment & Line Auxiliaries',
+                'Tension / Braking / Line Control'
+            )
+            if (($familyOptions -join '|') -ne ($expectedFamilies -join '|')) { Add-Failure 'Final live Product Family options are not canonical or are out of order.' }
         }
+    } catch {
+        Add-Failure 'Final Product Master data-source snapshot is invalid.'
     }
-
-    $scopeChecklist = Get-Content -Raw -LiteralPath (Join-Path $root 'data/product-master/signed-scope-checklist.json') | ConvertFrom-Json
-    $rowNames = @($rows | ForEach-Object { Normalize-ProductName $_.'Product / Model Name' })
-    foreach ($expected in $scopeChecklist.signed_products_expected) {
-        $normalizedExpected = Normalize-ProductName $expected
-        $match = @($rowNames | Where-Object {
-            $_.Contains($normalizedExpected) -or $normalizedExpected.Contains($_)
-        })
-        if ($match.Count -eq 0) {
-            $failures.Add("Missing signed product or variant: $expected")
-        }
-    }
-
-    $supportNames = @(
-        $rows |
-            Where-Object { $_.'Signed Scope Treatment' -eq 'Covered Support Item' } |
-            ForEach-Object { Normalize-ProductName $_.'Product / Model Name' }
-    )
-    foreach ($expected in $scopeChecklist.support_items_expected) {
-        $normalizedExpected = Normalize-ProductName $expected
-        $match = @($supportNames | Where-Object {
-            $_.Contains($normalizedExpected) -or $normalizedExpected.Contains($_)
-        })
-        if ($match.Count -eq 0) {
-            $failures.Add("Missing Covered Support Item treatment: $expected")
-        }
-    }
-}
-
-$csvHeader = Get-Content -LiteralPath (Join-Path $root 'data/product-master/rows.csv') -TotalCount 1
-$csvColumnCount = ([regex]::Matches($csvHeader, '","')).Count + 1
-if ($csvColumnCount -ne 45) {
-    $failures.Add("Expected 45 CSV columns (row URL + 44 database); found $csvColumnCount")
-}
-
-$pendingMarkers = Get-ChildItem -LiteralPath $rawPagesPath -File -Filter '*.json' |
-    Select-String -SimpleMatch 'pending-refresh'
-if ($pendingMarkers) {
-    $failures.Add('Raw page fetches still contain pending-refresh markers')
 }
 
 if ($failures.Count -gt 0) {
@@ -173,4 +205,4 @@ if ($failures.Count -gt 0) {
     exit 1
 }
 
-Write-Host 'Notion export validation passed.'
+Write-Host 'Notion export validation passed: 11 core surfaces, 19 immutable source pages, 38 Product Master rows, 44 final active properties, 12 views, legacy field removed, and 20 unchanged integrity records.'

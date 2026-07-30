@@ -36,12 +36,11 @@ The form is governed by the signed Services Agreement dated 9 July 2026 and must
 
 | Trigger | Additional fields |
 | --- | --- |
-| Online Measurement | Cable/wire type, diameter range, line speed, display/software needs, tolerance issue |
-| Spark Testing | AC/DC requirement, voltage range, line speed, insulation type, fault marking/logging need |
-| HV & Cable Validation | AC/DC HV requirement, sample/cable type, voltage/test method, reporting need |
-| Fire Resistance | Cable type, test standard/context, lab/plant setup, commissioning/support need |
-| Line Stability/Tension Control | Tension range, line stage, WTI/loadcell/brake/LTC-PRO context, brake model, RPM/pressure/torque context |
-| Process Enhancement | Powdering, preheating, welding/splicing need, line speed, conductor/cable material |
+| PF-01 Inline Measurement & Dimensional Control | Cable/wire type, diameter range, line speed, display/software needs, tolerance issue |
+| PF-02 Inline Spark Testing & Insulation Fault Detection | AC/DC requirement, voltage range, line speed, insulation type, fault marking/logging need |
+| PF-03 Cable Testing & Validation | AC/DC HV requirement or fire-resistance theme, sample/cable type, voltage/test method, standards context, reporting need |
+| PF-04 Process Equipment & Line Auxiliaries | Powdering, preheating, welding/splicing need, line speed, conductor/cable material |
+| PF-05 Tension / Braking / Line Control | Tension range, line stage, WTI/loadcell/brake/LTC-PRO context, brake model, RPM/pressure/torque context |
 | Service/support | Product installed, serial/model if available, issue type, downtime status, location, images/documents if available |
 
 ## Classification Logic
@@ -57,11 +56,11 @@ The form is governed by the signed Services Agreement dated 9 July 2026 and must
 
 ## Routing Rules
 
-- Online Measurement routes to LASER product/application owner.
-- Spark Testing routes to spark tester product/application owner; IoT stages and calibrator are support context only.
-- HV & Cable Validation routes to testing/quality product owner.
-- Fire Resistance routes to specialist system owner.
-- Line Stability, Adhesion & Tension Control routes to the tension/braking/automation owner and must include LTC-PRO where WTI, loadcells, braking, torque, or line stability are involved.
+- PF-01 routes to the LASER product/application owner.
+- PF-02 routes to the spark tester product/application owner; IoT stages and calibrator are support context only.
+- PF-03 routes to the testing/quality owner, with Fire Resistance & Circuit Integrity routed as a specialized theme.
+- PF-04 routes to the applicable preheating, powdering, or conductor-joining owner.
+- PF-05 routes to the tension/braking/line-control owner and must include LTC-PRO where WTI, loadcells, braking, torque, or closed-loop line control are involved.
 - Service/support bypasses campaign qualification and routes to support owner.
 - Out-of-scope or expansion requests route to commercial review before any commitment.
 
@@ -85,5 +84,6 @@ Every routed enquiry should carry:
 
 - Sales and service/support paths are separated.
 - Routing aligns with Annexure A and the signed Services Agreement.
+- All four entry paths capture one of the five canonical Product Families where product context applies.
 - Support-only items cannot generate standalone funnel commitments.
 - Out-of-scope and expansion requests are caught before proposal or delivery promises.

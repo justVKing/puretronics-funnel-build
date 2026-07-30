@@ -1,9 +1,9 @@
-﻿# Spark Tester IoT Stage 3 Inline Marking System
+# Spark Tester IoT Stage 3 Inline Marking System
 
 | Field | Value |
 | --- | --- |
 | Row Type | Accessory |
-| Product Family | Fault & Safety Testing |
+| Product Family | Inline Spark Testing & Insulation Fault Detection |
 | Sales Priority | Supporting |
 | Signed Scope Treatment | Covered Support Item |
 

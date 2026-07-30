@@ -11,7 +11,7 @@ $targetFiles = @(
     'docs/01-funnel-architecture/annexure-a-funnel-architecture.md',
     'docs/02-commercial/annexure-b-commercial-structure-pricing.md',
     'funnel-build/page-specs/wire-cable-industry-landing-page.md',
-    'funnel-build/page-specs/five-solution-blocks.md',
+    'funnel-build/page-specs/five-product-families.md',
     'funnel-build/technical-library/proof-stack.md',
     'funnel-build/forms-and-routing/adaptive-requirement-form-routing.md',
     'funnel-build/dashboard-and-reporting/dashboard-reporting-model.md',

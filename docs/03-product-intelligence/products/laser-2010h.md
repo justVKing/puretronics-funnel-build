@@ -1,9 +1,9 @@
-﻿# LASER-2010H
+# LASER-2010H
 
 | Field | Value |
 | --- | --- |
 | Row Type | Model / Variant |
-| Product Family | Online Measurement |
+| Product Family | Inline Measurement & Dimensional Control |
 | Sales Priority | Strategic |
 | Signed Scope Treatment | Covered Primary / Variant |
 

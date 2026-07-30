@@ -67,44 +67,44 @@ $primaryNote = "Covered by signed Services Agreement Annexure A dated 9 July 202
 $supportNote = "Covered as a support item only under signed Services Agreement Annexure A dated 9 July 2026; no standalone page, campaign, form, automation, outreach sequence, SEO asset, selector, calculator, configurator, or extra deliverable unless separately approved in writing."
 
 $products = @(
-  @{ name="AC HV Tester"; row_type="Product"; family="Fault & Safety Testing"; priority="Supporting"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Acute Spark Tester"; row_type="Product"; family="Fault & Safety Testing"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="AX-250 Pneumatic Brake"; row_type="Model / Variant"; family="Tension / Braking / Automation"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="AX-400 Pneumatic Brake"; row_type="Model / Variant"; family="Tension / Braking / Automation"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="AX-500 Pneumatic Brake"; row_type="Model / Variant"; family="Tension / Braking / Automation"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Butt Welding Machine"; row_type="Product"; family="Process Enhancement"; priority="Supporting"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="DC HV Tester"; row_type="Product"; family="Fault & Safety Testing"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="DC Spark Tester"; row_type="Product"; family="Fault & Safety Testing"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Fire Resistance Cable Testing System"; row_type="System"; family="Fault & Safety Testing"; priority="Hero"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Inline Induction Wire Preheater - 1000 m/min"; row_type="Model / Variant"; family="Process Enhancement"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Inline Induction Wire Preheater - 1500 m/min"; row_type="Model / Variant"; family="Process Enhancement"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Inline Induction Wire Preheater - 2000 m/min"; row_type="Model / Variant"; family="Process Enhancement"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Laser / Measurement Accessories Group"; row_type="Accessory"; family="Online Measurement"; priority="Supporting"; treatment="Covered Support Item"; note=$supportNote },
-  @{ name="LASER 2008B"; row_type="Model / Variant"; family="Online Measurement"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Laser Diameter Gauge / LASER 2008"; row_type="Model / Variant"; family="Online Measurement"; priority="Hero"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="LASER-2010H"; row_type="Model / Variant"; family="Online Measurement"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="LASER-2012"; row_type="Model / Variant"; family="Online Measurement"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="LASER-2020H"; row_type="Model / Variant"; family="Online Measurement"; priority="Hero"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="LASER-2030"; row_type="Model / Variant"; family="Online Measurement"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="LASER-2030H"; row_type="Model / Variant"; family="Online Measurement"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="LASER-2060"; row_type="Model / Variant"; family="Online Measurement"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Live Spark Tester"; row_type="Product"; family="Fault & Safety Testing"; priority="Hero"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Loadcell Accessories / Integration Items"; row_type="Accessory"; family="Tension / Braking / Automation"; priority="Supporting"; treatment="Covered Support Item"; note=$supportNote },
-  @{ name="Loadcell AR-118 Series"; row_type="Model / Variant"; family="Tension / Braking / Automation"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Loadcell AR-125 Series"; row_type="Model / Variant"; family="Tension / Braking / Automation"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Loadcell AR-85 Series"; row_type="Model / Variant"; family="Tension / Braking / Automation"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Loadcell AR-ST Series"; row_type="Model / Variant"; family="Tension / Braking / Automation"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Loadcell LC-AR-60 Series"; row_type="Model / Variant"; family="Tension / Braking / Automation"; priority="Supporting"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Loadcell LC-AR-HD Series"; row_type="Model / Variant"; family="Tension / Braking / Automation"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="LSP-G1 Static Powder Applicator"; row_type="Model / Variant"; family="Process Enhancement"; priority="Hero"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="LSP-G2 Static Powder Applicator"; row_type="Model / Variant"; family="Process Enhancement"; priority="Hero"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="LTC-PRO Web Tension Controller"; row_type="Product"; family="Tension / Braking / Automation"; priority="Hero"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Spark Tester IoT Stage 1 Fault Interface"; row_type="Accessory"; family="Fault & Safety Testing"; priority="Supporting"; treatment="Covered Support Item"; note=$supportNote },
-  @{ name="Spark Tester IoT Stage 2 Data Logging & Graphics"; row_type="Accessory"; family="Fault & Safety Testing"; priority="Supporting"; treatment="Covered Support Item"; note=$supportNote },
-  @{ name="Spark Tester IoT Stage 3 Inline Marking System"; row_type="Accessory"; family="Fault & Safety Testing"; priority="Supporting"; treatment="Covered Support Item"; note=$supportNote },
-  @{ name="Spark Tester Sensitivity Calibrator"; row_type="Accessory"; family="Fault & Safety Testing"; priority="Supporting"; treatment="Covered Support Item"; note=$supportNote },
-  @{ name="Wire Tension Indicator WTI-100-40"; row_type="Model / Variant"; family="Tension / Braking / Automation"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
-  @{ name="Wire Tension Indicator WTI-90-40"; row_type="Model / Variant"; family="Tension / Braking / Automation"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote }
+  @{ name="AC HV Tester"; row_type="Product"; family="Cable Testing & Validation"; priority="Supporting"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Acute Spark Tester"; row_type="Product"; family="Inline Spark Testing & Insulation Fault Detection"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="AX-250 Pneumatic Brake"; row_type="Model / Variant"; family="Tension / Braking / Line Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="AX-400 Pneumatic Brake"; row_type="Model / Variant"; family="Tension / Braking / Line Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="AX-500 Pneumatic Brake"; row_type="Model / Variant"; family="Tension / Braking / Line Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Butt Welding Machine"; row_type="Product"; family="Process Equipment & Line Auxiliaries"; priority="Supporting"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="DC HV Tester"; row_type="Product"; family="Cable Testing & Validation"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="DC Spark Tester"; row_type="Product"; family="Inline Spark Testing & Insulation Fault Detection"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Fire Resistance Cable Testing System"; row_type="System"; family="Cable Testing & Validation"; priority="Hero"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Inline Induction Wire Preheater - 1000 m/min"; row_type="Model / Variant"; family="Process Equipment & Line Auxiliaries"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Inline Induction Wire Preheater - 1500 m/min"; row_type="Model / Variant"; family="Process Equipment & Line Auxiliaries"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Inline Induction Wire Preheater - 2000 m/min"; row_type="Model / Variant"; family="Process Equipment & Line Auxiliaries"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Laser / Measurement Accessories Group"; row_type="Accessory"; family="Inline Measurement & Dimensional Control"; priority="Supporting"; treatment="Covered Support Item"; note=$supportNote },
+  @{ name="LASER 2008B"; row_type="Model / Variant"; family="Inline Measurement & Dimensional Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Laser Diameter Gauge / LASER 2008"; row_type="Model / Variant"; family="Inline Measurement & Dimensional Control"; priority="Hero"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="LASER-2010H"; row_type="Model / Variant"; family="Inline Measurement & Dimensional Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="LASER-2012"; row_type="Model / Variant"; family="Inline Measurement & Dimensional Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="LASER-2020H"; row_type="Model / Variant"; family="Inline Measurement & Dimensional Control"; priority="Hero"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="LASER-2030"; row_type="Model / Variant"; family="Inline Measurement & Dimensional Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="LASER-2030H"; row_type="Model / Variant"; family="Inline Measurement & Dimensional Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="LASER-2060"; row_type="Model / Variant"; family="Inline Measurement & Dimensional Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Live Spark Tester"; row_type="Product"; family="Inline Spark Testing & Insulation Fault Detection"; priority="Hero"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Loadcell Accessories / Integration Items"; row_type="Accessory"; family="Tension / Braking / Line Control"; priority="Supporting"; treatment="Covered Support Item"; note=$supportNote },
+  @{ name="Loadcell AR-118 Series"; row_type="Model / Variant"; family="Tension / Braking / Line Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Loadcell AR-125 Series"; row_type="Model / Variant"; family="Tension / Braking / Line Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Loadcell AR-85 Series"; row_type="Model / Variant"; family="Tension / Braking / Line Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Loadcell AR-ST Series"; row_type="Model / Variant"; family="Tension / Braking / Line Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Loadcell LC-AR-60 Series"; row_type="Model / Variant"; family="Tension / Braking / Line Control"; priority="Supporting"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Loadcell LC-AR-HD Series"; row_type="Model / Variant"; family="Tension / Braking / Line Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="LSP-G1 Static Powder Applicator"; row_type="Model / Variant"; family="Process Equipment & Line Auxiliaries"; priority="Hero"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="LSP-G2 Static Powder Applicator"; row_type="Model / Variant"; family="Process Equipment & Line Auxiliaries"; priority="Hero"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="LTC-PRO Web Tension Controller"; row_type="Product"; family="Tension / Braking / Line Control"; priority="Hero"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Spark Tester IoT Stage 1 Fault Interface"; row_type="Accessory"; family="Inline Spark Testing & Insulation Fault Detection"; priority="Supporting"; treatment="Covered Support Item"; note=$supportNote },
+  @{ name="Spark Tester IoT Stage 2 Data Logging & Graphics"; row_type="Accessory"; family="Inline Spark Testing & Insulation Fault Detection"; priority="Supporting"; treatment="Covered Support Item"; note=$supportNote },
+  @{ name="Spark Tester IoT Stage 3 Inline Marking System"; row_type="Accessory"; family="Inline Spark Testing & Insulation Fault Detection"; priority="Supporting"; treatment="Covered Support Item"; note=$supportNote },
+  @{ name="Spark Tester Sensitivity Calibrator"; row_type="Accessory"; family="Inline Spark Testing & Insulation Fault Detection"; priority="Supporting"; treatment="Covered Support Item"; note=$supportNote },
+  @{ name="Wire Tension Indicator WTI-100-40"; row_type="Model / Variant"; family="Tension / Braking / Line Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote },
+  @{ name="Wire Tension Indicator WTI-90-40"; row_type="Model / Variant"; family="Tension / Braking / Line Control"; priority="Strategic"; treatment="Covered Primary / Variant"; note=$primaryNote }
 )
 
 $dirs = @(
@@ -348,7 +348,7 @@ The Puretronics Wire & Cable Demand Engine converts production problems, testing
 
 1. Wire & Cable Industry Landing Page
 2. Three Buyer Navigation Modes
-3. Five Solution Blocks
+3. Five Product Families
 4. Technical Library
 5. Adaptive Requirement Form
 6. Internal Routing and Follow-Up Logic
@@ -360,15 +360,15 @@ The Puretronics Wire & Cable Demand Engine converts production problems, testing
 - Find by Production Stage
 - Find by Product Family
 
-## Five Solution Blocks
+## Five Product Families
 
-| Solution Block | Role |
-| --- | --- |
-| Online Measurement & Dimensional Control | Laser diameter, ovality, width, thickness, and measurement confidence |
-| Spark Testing & Insulation Fault Detection | Live Spark, Acute Spark, DC Spark, and support-only fault intelligence |
-| HV & Cable Validation | AC HV, DC HV, and offline insulation validation |
-| Fire Resistance Cable Testing | Fire/water/shock compliance-led testing conversations |
-| Line Stability, Adhesion & Tension Control | Preheater, LSP, Butt Welding, WTI, LTC-PRO, Loadcells, and Pneumatic Brake |
+| ID | Product Family | Role |
+| --- | --- | --- |
+| PF-01 | Inline Measurement & Dimensional Control | Laser diameter, ovality, width, thickness, and measurement confidence |
+| PF-02 | Inline Spark Testing & Insulation Fault Detection | Live Spark, Acute Spark, DC Spark, and support-only fault intelligence |
+| PF-03 | Cable Testing & Validation | AC HV, DC HV, and specialized Fire Resistance & Circuit Integrity |
+| PF-04 | Process Equipment & Line Auxiliaries | Preheater, LSP, and Butt Welding |
+| PF-05 | Tension / Braking / Line Control | WTI, LTC-PRO, loadcells, and pneumatic brakes |
 
 ## Section 7 Defect Guard
 
@@ -393,11 +393,12 @@ Write-Utf8 (Join-Path $Root "docs/01-funnel-architecture/funnel-page-and-asset-m
 ## Initial Build Pages
 
 1. Wire & Cable Industry Landing Page
-2. Online Measurement & Dimensional Control
-3. Spark Testing & Insulation Fault Detection
-4. HV & Cable Validation
-5. Fire Resistance Cable Testing System
-6. Line Stability, Adhesion & Tension Control
+2. Inline Measurement & Dimensional Control
+3. Inline Spark Testing & Insulation Fault Detection
+4. Cable Testing & Validation
+   - Fire Resistance & Circuit Integrity specialized module
+5. Process Equipment & Line Auxiliaries
+6. Tension / Braking / Line Control
 7. Technical Library
 8. Adaptive Requirement Form
 9. Service & Support
@@ -560,7 +561,7 @@ $schema = @{
   governance_properties = @("Signed Scope Treatment", "Signed Scope Note", "Spec Confidence", "Important Caveats")
   signed_scope_treatment_options = @("Covered Primary / Variant", "Covered Support Item", "Reference Only", "Out of Signed Scope")
   row_type_options = @("Product", "Model / Variant", "Accessory", "System")
-  product_family_options = @("Online Measurement", "Fault & Safety Testing", "Process Enhancement", "Tension / Braking / Automation")
+  product_family_options = @("Inline Measurement & Dimensional Control", "Inline Spark Testing & Insulation Fault Detection", "Cable Testing & Validation", "Process Equipment & Line Auxiliaries", "Tension / Braking / Line Control")
   sales_priority_options = @("Hero", "Strategic", "Supporting", "Niche")
   export_limitation = "Initial rows contain governance/identity fields verified during planning; full all-property export requires refreshed Notion query access."
 }
@@ -629,11 +630,11 @@ Use this folder for build-ready page specifications derived from Annexure A.
 Initial page set:
 
 - Wire & Cable Industry Landing Page
-- Online Measurement & Dimensional Control
-- Spark Testing & Insulation Fault Detection
-- HV & Cable Validation
-- Fire Resistance Cable Testing System
-- Line Stability, Adhesion & Tension Control
+- Inline Measurement & Dimensional Control
+- Inline Spark Testing & Insulation Fault Detection
+- Cable Testing & Validation
+- Process Equipment & Line Auxiliaries
+- Tension / Braking / Line Control
 - Technical Library
 - Adaptive Requirement Form
 - Service & Support
@@ -698,7 +699,7 @@ Write-Utf8 (Join-Path $Root "project-ops/implementation-checklist.md") @"
 - [ ] Re-export full database rows with all properties.
 - [ ] Validate signed scope.
 - [ ] Write landing page spec.
-- [ ] Write five solution-block page specs.
+- [ ] Write five Product Family page specs.
 - [ ] Write technical library spec.
 - [ ] Write adaptive form spec.
 - [ ] Write routing and dashboard specs.

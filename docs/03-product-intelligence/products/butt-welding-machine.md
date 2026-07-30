@@ -1,9 +1,9 @@
-﻿# Butt Welding Machine
+# Butt Welding Machine
 
 | Field | Value |
 | --- | --- |
 | Row Type | Product |
-| Product Family | Process Enhancement |
+| Product Family | Process Equipment & Line Auxiliaries |
 | Sales Priority | Supporting |
 | Signed Scope Treatment | Covered Primary / Variant |
 

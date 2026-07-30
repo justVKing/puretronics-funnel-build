@@ -1,0 +1,67 @@
+{
+    "version":  "1.0.0",
+    "effective_date":  "2026-07-30",
+    "authority":  "docs/00-governance/product-taxonomy-governance.md",
+    "signed_agreement_precedence":  true,
+    "product_families":  [
+                             {
+                                 "id":  "PF-01",
+                                 "label":  "Inline Measurement \u0026 Dimensional Control",
+                                 "slug":  "inline-measurement-dimensional-control",
+                                 "expected_rows":  9
+                             },
+                             {
+                                 "id":  "PF-02",
+                                 "label":  "Inline Spark Testing \u0026 Insulation Fault Detection",
+                                 "slug":  "inline-spark-testing-insulation-fault-detection",
+                                 "expected_rows":  7
+                             },
+                             {
+                                 "id":  "PF-03",
+                                 "label":  "Cable Testing \u0026 Validation",
+                                 "slug":  "cable-testing-validation",
+                                 "expected_rows":  3
+                             },
+                             {
+                                 "id":  "PF-04",
+                                 "label":  "Process Equipment \u0026 Line Auxiliaries",
+                                 "slug":  "process-equipment-line-auxiliaries",
+                                 "expected_rows":  6
+                             },
+                             {
+                                 "id":  "PF-05",
+                                 "label":  "Tension / Braking / Line Control",
+                                 "slug":  "tension-braking-line-control",
+                                 "expected_rows":  13
+                             }
+                         ],
+    "solution_themes":  [
+                            "Dimensional Measurement \u0026 Control",
+                            "Spark Testing \u0026 Fault Intelligence",
+                            "Electrical/HV Validation",
+                            "Fire Resistance \u0026 Circuit Integrity",
+                            "Wire Preheating \u0026 Adhesion",
+                            "Static Powder Application",
+                            "Conductor Joining \u0026 Repair",
+                            "Tension Measurement \u0026 Control",
+                            "Braking \u0026 Unwind/Rewind Control",
+                            "Data \u0026 Reporting",
+                            "Calibration \u0026 Support"
+                        ],
+    "deprecated_active_terms":  [
+                                    "Online Measurement",
+                                    "Fault \u0026 Safety Testing",
+                                    "Process Enhancement",
+                                    "Tension / Braking / Automation",
+                                    "solution-block",
+                                    "solution block",
+                                    "five solution blocks"
+                                ],
+    "approved_legacy_contexts":  [
+                                     "signed agreement",
+                                     "raw Notion/source exports",
+                                     "pre-migration snapshots",
+                                     "taxonomy governance crosswalk",
+                                     "migration manifests"
+                                 ]
+}

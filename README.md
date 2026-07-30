@@ -17,6 +17,7 @@ This repository mirrors the operating structure of the Puretronics Notion worksp
 2. The signed Services Agreement dated 9 July 2026 governs scope, commercials, exclusions, deliverables, approvals, and change control.
 3. The Product Master Database is the product-intelligence source, not the legal or commercial authority.
 4. Support items cannot become standalone pages, campaigns, forms, automations, SEO assets, selectors, calculators, configurators, or extra deliverables unless separately approved in writing.
+5. `docs/00-governance/product-taxonomy-governance.md` controls active product classification below the signed agreement.
 
 ## Navigation
 
@@ -34,7 +35,7 @@ This repository mirrors the operating structure of the Puretronics Notion worksp
 
 The repo contains the build-ready operating artifacts for the first funnel-build pass:
 
-- Funnel page and solution-block specifications
+- Funnel page and five-Product-Family specifications
 - Technical proof-stack map
 - Adaptive requirement form and routing model
 - Dashboard and reporting model
@@ -43,11 +44,12 @@ The repo contains the build-ready operating artifacts for the first funnel-build
 
 ## Current Export Status
 
-The live Notion refresh was completed on 29 July 2026:
+The pre-migration live Notion baseline was captured on 30 July 2026. The canonical taxonomy migration is implemented with the final legacy-field cleanup held for review:
 
-- Exact connector responses for all 10 core assets and all 14 raw input child pages are stored in data/notion-export/raw-page-fetches/.
+- Exact connector responses for the pre-migration baseline are stored in `data/notion-export/taxonomy-migration/2026-07-30/pre-migration/`.
+- The source map now covers 19 immutable raw source pages, including five nested pages.
 - The exact Product Master Database, data-source schema, and 38-row query responses are stored in data/notion-export/raw-database-fetches/.
 - data/product-master/rows.json and rows.csv contain all 44 Notion properties plus each row's Notion URL.
-- data/product-master/schema.json and views.json mirror the live 44-property schema and 12 configured views.
+- data/product-master/schema.json and views.json contain the canonical five-family schema and 12 configured views.
 
-Run scripts/validate_notion_export.ps1, scripts/validate_workspace.ps1, and scripts/validate_signed_scope.ps1 before accepting later refreshes.
+Run `scripts/validate_product_taxonomy.ps1`, `scripts/validate_funnel_asset_master.ps1`, `scripts/validate_notion_export.ps1`, `scripts/validate_workspace.ps1`, and `scripts/validate_signed_scope.ps1` before accepting later refreshes.

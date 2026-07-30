@@ -1,0 +1,12 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"name\":\"APIResponseError\",\"code\":\"validation_error\",\"status\":400,\"headers\":{},\"body\":\"{\\\"object\\\":\\\"error\\\",\\\"status\\\":400,\\\"code\\\":\\\"validation_error\\\",\\\"message\\\":\\\"URL type view not currently supported for fetch tool.\\\",\\\"request_id\\\":\\\"7b1016d0-a448-4365-a3d3-396b9ae59793\\\"}\",\"request_id\":\"7b1016d0-a448-4365-a3d3-396b9ae59793\"}"
+    }
+  ],
+  "structuredContent": {
+    "error_code": "INVALID_ARGUMENT"
+  },
+  "isError": true
+}

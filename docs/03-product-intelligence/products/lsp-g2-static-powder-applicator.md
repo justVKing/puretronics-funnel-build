@@ -1,9 +1,9 @@
-﻿# LSP-G2 Static Powder Applicator
+# LSP-G2 Static Powder Applicator
 
 | Field | Value |
 | --- | --- |
 | Row Type | Model / Variant |
-| Product Family | Process Enhancement |
+| Product Family | Process Equipment & Line Auxiliaries |
 | Sales Priority | Hero |
 | Signed Scope Treatment | Covered Primary / Variant |
 

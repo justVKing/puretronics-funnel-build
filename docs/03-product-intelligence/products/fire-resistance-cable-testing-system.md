@@ -1,9 +1,9 @@
-﻿# Fire Resistance Cable Testing System
+# Fire Resistance Cable Testing System
 
 | Field | Value |
 | --- | --- |
 | Row Type | System |
-| Product Family | Fault & Safety Testing |
+| Product Family | Cable Testing & Validation |
 | Sales Priority | Hero |
 | Signed Scope Treatment | Covered Primary / Variant |
 

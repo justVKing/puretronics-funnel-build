@@ -1,9 +1,9 @@
-﻿# Loadcell LC-AR-60 Series
+# Loadcell LC-AR-60 Series
 
 | Field | Value |
 | --- | --- |
 | Row Type | Model / Variant |
-| Product Family | Tension / Braking / Automation |
+| Product Family | Tension / Braking / Line Control |
 | Sales Priority | Supporting |
 | Signed Scope Treatment | Covered Primary / Variant |
 

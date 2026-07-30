@@ -1,9 +1,9 @@
-﻿# Laser Diameter Gauge / LASER 2008
+# Laser Diameter Gauge / LASER 2008
 
 | Field | Value |
 | --- | --- |
 | Row Type | Model / Variant |
-| Product Family | Online Measurement |
+| Product Family | Inline Measurement & Dimensional Control |
 | Sales Priority | Hero |
 | Signed Scope Treatment | Covered Primary / Variant |
 

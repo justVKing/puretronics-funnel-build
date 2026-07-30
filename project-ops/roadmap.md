@@ -1,10 +1,8 @@
 ﻿# Roadmap
 
-1. Refresh exact Notion raw export.
-2. Lock repository migration validation.
-3. Convert Annexure A into build-ready page specs.
-4. Build funnel content architecture.
-5. Build technical library.
-6. Build form and routing logic.
-7. Build dashboard/reporting model.
-8. Prepare activation execution system.
+1. Capture recoverable pre-migration Notion baseline.
+2. Establish and migrate the canonical five-Product-Family taxonomy.
+3. Lock repository and live migration validation.
+4. Review the migration checkpoint and remove the live legacy field only after approval.
+5. Convert the aligned architecture into production-ready content and implementation specifications.
+6. Build and test the funnel experience, technical library, adaptive form/routing, reporting, integrations, and activation systems in controlled phases.

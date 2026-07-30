@@ -10,6 +10,10 @@ The master product-intelligence document is aligned to the signed Services Agree
 
 See data/product-master/rows.json and generated product pages under docs/03-product-intelligence/products/.
 
+## Canonical Product Classification
+
+The portfolio is classified into the five Product Families defined in `docs/00-governance/product-taxonomy-governance.md`. Fire Resistance & Circuit Integrity is a specialized PF-03 Solution Theme; process equipment is separated from PF-05 tension/braking control.
+
 ## Support-Only Rule
 
 Laser accessories, spark tester fault-intelligence/accessory items, and loadcell accessories are support items only. Their inclusion does not imply standalone pages, campaigns, forms, automations, outreach sequences, SEO, product selectors, calculators, configurators, export/OEM/partner/multilingual expansion, or additional product pages unless separately approved in writing.

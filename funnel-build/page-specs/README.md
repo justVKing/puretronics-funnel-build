@@ -5,7 +5,7 @@ Use this folder for build-ready page specifications derived from Annexure A.
 Implemented page set:
 
 - Wire & Cable Industry Landing Page: wire-cable-industry-landing-page.md
-- Five Solution Blocks: five-solution-blocks.md
+- Five Product Families: five-product-families.md
 - Technical Library
 - Adaptive Requirement Form
 - Service & Support

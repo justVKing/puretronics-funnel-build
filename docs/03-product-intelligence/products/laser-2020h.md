@@ -1,9 +1,9 @@
-﻿# LASER-2020H
+# LASER-2020H
 
 | Field | Value |
 | --- | --- |
 | Row Type | Model / Variant |
-| Product Family | Online Measurement |
+| Product Family | Inline Measurement & Dimensional Control |
 | Sales Priority | Hero |
 | Signed Scope Treatment | Covered Primary / Variant |
 

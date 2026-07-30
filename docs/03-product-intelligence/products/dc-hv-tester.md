@@ -1,9 +1,9 @@
-﻿# DC HV Tester
+# DC HV Tester
 
 | Field | Value |
 | --- | --- |
 | Row Type | Product |
-| Product Family | Fault & Safety Testing |
+| Product Family | Cable Testing & Validation |
 | Sales Priority | Strategic |
 | Signed Scope Treatment | Covered Primary / Variant |
 

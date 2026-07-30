@@ -1,13 +1,14 @@
-﻿# Funnel Page And Asset Map
+# Funnel Page And Asset Map
 
 ## Initial Build Pages
 
 1. Wire & Cable Industry Landing Page
-2. Online Measurement & Dimensional Control
-3. Spark Testing & Insulation Fault Detection
-4. HV & Cable Validation
-5. Fire Resistance Cable Testing System
-6. Line Stability, Adhesion & Tension Control
+2. Inline Measurement & Dimensional Control
+3. Inline Spark Testing & Insulation Fault Detection
+4. Cable Testing & Validation
+   - Fire Resistance & Circuit Integrity specialized theme/module
+5. Process Equipment & Line Auxiliaries
+6. Tension / Braking / Line Control
 7. Technical Library
 8. Adaptive Requirement Form
 9. Service & Support

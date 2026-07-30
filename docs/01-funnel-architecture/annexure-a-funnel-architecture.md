@@ -1,4 +1,4 @@
-﻿# Annexure A | Funnel Architecture
+# Annexure A | Funnel Architecture
 
 Source Notion page: https://app.notion.com/p/a6b3dd29567d82eca75a01da552644bb
 
@@ -18,7 +18,7 @@ The Puretronics Wire & Cable Demand Engine converts production problems, testing
 
 1. Wire & Cable Industry Landing Page
 2. Three Buyer Navigation Modes
-3. Five Solution Blocks
+3. Five Product Families
 4. Technical Library
 5. Adaptive Requirement Form
 6. Internal Routing and Follow-Up Logic
@@ -30,15 +30,17 @@ The Puretronics Wire & Cable Demand Engine converts production problems, testing
 - Find by Production Stage
 - Find by Product Family
 
-## Five Solution Blocks
+## Five Product Families
 
-| Solution Block | Role |
-| --- | --- |
-| Online Measurement & Dimensional Control | Laser diameter, ovality, width, thickness, and measurement confidence |
-| Spark Testing & Insulation Fault Detection | Live Spark, Acute Spark, DC Spark, and support-only fault intelligence |
-| HV & Cable Validation | AC HV, DC HV, and offline insulation validation |
-| Fire Resistance Cable Testing | Fire/water/shock compliance-led testing conversations |
-| Line Stability, Adhesion & Tension Control | Preheater, LSP, Butt Welding, WTI, LTC-PRO, Loadcells, and Pneumatic Brake |
+| ID | Product Family | Role |
+| --- | --- | --- |
+| PF-01 | Inline Measurement & Dimensional Control | Laser diameter, ovality, width, thickness, and measurement confidence |
+| PF-02 | Inline Spark Testing & Insulation Fault Detection | Live Spark, Acute Spark, DC Spark, and support-only fault intelligence |
+| PF-03 | Cable Testing & Validation | AC HV, DC HV, and Fire Resistance Cable Testing; Fire Resistance & Circuit Integrity is a specialized theme |
+| PF-04 | Process Equipment & Line Auxiliaries | Preheater, LSP Static Powder Applicator, and Butt Welding |
+| PF-05 | Tension / Braking / Line Control | WTI, LTC-PRO, loadcells, and pneumatic brakes |
+
+Product Family is the sole top-level taxonomy. Solution Theme is subordinate and many-to-many. Manufacturing Flow Stage and Buyer Problem remain independent buyer-navigation axes.
 
 ## Section 7 Defect Guard
 

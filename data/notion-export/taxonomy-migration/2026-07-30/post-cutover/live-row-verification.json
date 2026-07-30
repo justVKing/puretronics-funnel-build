@@ -1,0 +1,414 @@
+{
+  "verified_at": "2026-07-30T18:46:39.287Z",
+  "method": "38 individual live Notion page fetches after PF-05 slash-label cutover and Legacy Product Family removal; aggregate SQL excluded because its cache remained stale.",
+  "row_count": 38,
+  "approval_state": "approved",
+  "taxonomy_owner": "Vaibhav Kuvadia + Codex",
+  "operational_steward": "Vaibhav Kuvadia + Codex",
+  "legacy_product_family_removed": true,
+  "standards_treatment": "BS EN 50200:2006 remains pending-puretronics-validation; external compliance claims prohibited pending Puretronics validation.",
+  "rows": [
+    {
+      "name": "AC HV Tester",
+      "id": "20d3dd29567d83678f15019cb9439ecb",
+      "url": "https://app.notion.com/p/20d3dd29567d83678f15019cb9439ecb",
+      "product_family": "Cable Testing & Validation",
+      "solution_themes": [
+        "Electrical/HV Validation"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Acute Spark Tester",
+      "id": "2293dd29567d82c5bd8a012bc98fcd6c",
+      "url": "https://app.notion.com/p/2293dd29567d82c5bd8a012bc98fcd6c",
+      "product_family": "Inline Spark Testing & Insulation Fault Detection",
+      "solution_themes": [
+        "Spark Testing & Fault Intelligence"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "AX-250 Pneumatic Brake",
+      "id": "5ea3dd29567d82c682e181b413ac2561",
+      "url": "https://app.notion.com/p/5ea3dd29567d82c682e181b413ac2561",
+      "product_family": "Tension / Braking / Line Control",
+      "solution_themes": [
+        "Tension Measurement & Control",
+        "Braking & Unwind/Rewind Control"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "AX-400 Pneumatic Brake",
+      "id": "a253dd29567d832498b2012d4d5a0c2c",
+      "url": "https://app.notion.com/p/a253dd29567d832498b2012d4d5a0c2c",
+      "product_family": "Tension / Braking / Line Control",
+      "solution_themes": [
+        "Tension Measurement & Control",
+        "Braking & Unwind/Rewind Control"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "AX-500 Pneumatic Brake",
+      "id": "5383dd29567d83d1853f81fc6004a295",
+      "url": "https://app.notion.com/p/5383dd29567d83d1853f81fc6004a295",
+      "product_family": "Tension / Braking / Line Control",
+      "solution_themes": [
+        "Tension Measurement & Control",
+        "Braking & Unwind/Rewind Control"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Butt Welding Machine",
+      "id": "2373dd29567d82039c04018467d4cc3d",
+      "url": "https://app.notion.com/p/2373dd29567d82039c04018467d4cc3d",
+      "product_family": "Process Equipment & Line Auxiliaries",
+      "solution_themes": [
+        "Conductor Joining & Repair"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "DC HV Tester",
+      "id": "b343dd29567d83a3b6d501aafe6c09c1",
+      "url": "https://app.notion.com/p/b343dd29567d83a3b6d501aafe6c09c1",
+      "product_family": "Cable Testing & Validation",
+      "solution_themes": [
+        "Electrical/HV Validation"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "DC Spark Tester",
+      "id": "3b73dd29567d831183a6814aa6ca715c",
+      "url": "https://app.notion.com/p/3b73dd29567d831183a6814aa6ca715c",
+      "product_family": "Inline Spark Testing & Insulation Fault Detection",
+      "solution_themes": [
+        "Spark Testing & Fault Intelligence"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Fire Resistance Cable Testing System",
+      "id": "8cd3dd29567d83e19b9d81eac8c5fe9e",
+      "url": "https://app.notion.com/p/8cd3dd29567d83e19b9d81eac8c5fe9e",
+      "product_family": "Cable Testing & Validation",
+      "solution_themes": [
+        "Fire Resistance & Circuit Integrity",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Inline Induction Wire Preheater - 1000 m/min",
+      "id": "5b63dd29567d8359a35281261d823025",
+      "url": "https://app.notion.com/p/5b63dd29567d8359a35281261d823025",
+      "product_family": "Process Equipment & Line Auxiliaries",
+      "solution_themes": [
+        "Wire Preheating & Adhesion"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Inline Induction Wire Preheater - 1500 m/min",
+      "id": "5443dd29567d820c9efa0108105779c7",
+      "url": "https://app.notion.com/p/5443dd29567d820c9efa0108105779c7",
+      "product_family": "Process Equipment & Line Auxiliaries",
+      "solution_themes": [
+        "Wire Preheating & Adhesion"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Inline Induction Wire Preheater - 2000 m/min",
+      "id": "cce3dd29567d83a48d560111914067d1",
+      "url": "https://app.notion.com/p/cce3dd29567d83a48d560111914067d1",
+      "product_family": "Process Equipment & Line Auxiliaries",
+      "solution_themes": [
+        "Wire Preheating & Adhesion"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Laser / Measurement Accessories Group",
+      "id": "1e23dd29567d8249b01581a10a56f448",
+      "url": "https://app.notion.com/p/1e23dd29567d8249b01581a10a56f448",
+      "product_family": "Inline Measurement & Dimensional Control",
+      "solution_themes": [
+        "Dimensional Measurement & Control",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Support Item"
+    },
+    {
+      "name": "LASER 2008B",
+      "id": "e5d3dd29567d82b2984c0119bbf278dd",
+      "url": "https://app.notion.com/p/e5d3dd29567d82b2984c0119bbf278dd",
+      "product_family": "Inline Measurement & Dimensional Control",
+      "solution_themes": [
+        "Dimensional Measurement & Control",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Laser Diameter Gauge / LASER 2008",
+      "id": "1a53dd29567d83ffa57101fca4bf9646",
+      "url": "https://app.notion.com/p/1a53dd29567d83ffa57101fca4bf9646",
+      "product_family": "Inline Measurement & Dimensional Control",
+      "solution_themes": [
+        "Dimensional Measurement & Control",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "LASER-2010H",
+      "id": "6573dd29567d837f81850191d56ae896",
+      "url": "https://app.notion.com/p/6573dd29567d837f81850191d56ae896",
+      "product_family": "Inline Measurement & Dimensional Control",
+      "solution_themes": [
+        "Dimensional Measurement & Control",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "LASER-2012",
+      "id": "b293dd29567d833397d981cc64d3a395",
+      "url": "https://app.notion.com/p/b293dd29567d833397d981cc64d3a395",
+      "product_family": "Inline Measurement & Dimensional Control",
+      "solution_themes": [
+        "Dimensional Measurement & Control",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "LASER-2020H",
+      "id": "37d3dd29567d82bd850f01ebfc503908",
+      "url": "https://app.notion.com/p/37d3dd29567d82bd850f01ebfc503908",
+      "product_family": "Inline Measurement & Dimensional Control",
+      "solution_themes": [
+        "Dimensional Measurement & Control",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "LASER-2030",
+      "id": "c253dd29567d832aa50781ce6ee1ff4b",
+      "url": "https://app.notion.com/p/c253dd29567d832aa50781ce6ee1ff4b",
+      "product_family": "Inline Measurement & Dimensional Control",
+      "solution_themes": [
+        "Dimensional Measurement & Control",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "LASER-2030H",
+      "id": "d553dd29567d83b1b3ef013e69fe1b84",
+      "url": "https://app.notion.com/p/d553dd29567d83b1b3ef013e69fe1b84",
+      "product_family": "Inline Measurement & Dimensional Control",
+      "solution_themes": [
+        "Dimensional Measurement & Control",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "LASER-2060",
+      "id": "e973dd29567d838c9610013415149288",
+      "url": "https://app.notion.com/p/e973dd29567d838c9610013415149288",
+      "product_family": "Inline Measurement & Dimensional Control",
+      "solution_themes": [
+        "Dimensional Measurement & Control",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Live Spark Tester",
+      "id": "8953dd29567d8316a8ec817e072aa5fe",
+      "url": "https://app.notion.com/p/8953dd29567d8316a8ec817e072aa5fe",
+      "product_family": "Inline Spark Testing & Insulation Fault Detection",
+      "solution_themes": [
+        "Spark Testing & Fault Intelligence"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Loadcell Accessories / Integration Items",
+      "id": "bdf3dd29567d822d88c0012089b7ad92",
+      "url": "https://app.notion.com/p/bdf3dd29567d822d88c0012089b7ad92",
+      "product_family": "Tension / Braking / Line Control",
+      "solution_themes": [
+        "Tension Measurement & Control",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Support Item"
+    },
+    {
+      "name": "Loadcell AR-118 Series",
+      "id": "34d3dd29567d836f9978817560f96c4c",
+      "url": "https://app.notion.com/p/34d3dd29567d836f9978817560f96c4c",
+      "product_family": "Tension / Braking / Line Control",
+      "solution_themes": [
+        "Tension Measurement & Control"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Loadcell AR-125 Series",
+      "id": "7643dd29567d838c844c0107be6a1f51",
+      "url": "https://app.notion.com/p/7643dd29567d838c844c0107be6a1f51",
+      "product_family": "Tension / Braking / Line Control",
+      "solution_themes": [
+        "Tension Measurement & Control"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Loadcell AR-85 Series",
+      "id": "3373dd29567d82e4ae98814f535f98b3",
+      "url": "https://app.notion.com/p/3373dd29567d82e4ae98814f535f98b3",
+      "product_family": "Tension / Braking / Line Control",
+      "solution_themes": [
+        "Tension Measurement & Control"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Loadcell AR-ST Series",
+      "id": "bb53dd29567d82c78a6401d3631b079e",
+      "url": "https://app.notion.com/p/bb53dd29567d82c78a6401d3631b079e",
+      "product_family": "Tension / Braking / Line Control",
+      "solution_themes": [
+        "Tension Measurement & Control"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Loadcell LC-AR-60 Series",
+      "id": "0343dd29567d8256ae5501e32a37ed46",
+      "url": "https://app.notion.com/p/0343dd29567d8256ae5501e32a37ed46",
+      "product_family": "Tension / Braking / Line Control",
+      "solution_themes": [
+        "Tension Measurement & Control"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Loadcell LC-AR-HD Series",
+      "id": "adc3dd29567d83cc9da5815272514f71",
+      "url": "https://app.notion.com/p/adc3dd29567d83cc9da5815272514f71",
+      "product_family": "Tension / Braking / Line Control",
+      "solution_themes": [
+        "Tension Measurement & Control"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "LSP-G1 Static Powder Applicator",
+      "id": "ba03dd29567d83b78cc7017788c87bba",
+      "url": "https://app.notion.com/p/ba03dd29567d83b78cc7017788c87bba",
+      "product_family": "Process Equipment & Line Auxiliaries",
+      "solution_themes": [
+        "Static Powder Application"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "LSP-G2 Static Powder Applicator",
+      "id": "db23dd29567d830cb0148145e7185f7f",
+      "url": "https://app.notion.com/p/db23dd29567d830cb0148145e7185f7f",
+      "product_family": "Process Equipment & Line Auxiliaries",
+      "solution_themes": [
+        "Static Powder Application"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "LTC-PRO Web Tension Controller",
+      "id": "ee13dd29567d828da56d816167a23fb2",
+      "url": "https://app.notion.com/p/ee13dd29567d828da56d816167a23fb2",
+      "product_family": "Tension / Braking / Line Control",
+      "solution_themes": [
+        "Tension Measurement & Control",
+        "Braking & Unwind/Rewind Control",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Spark Tester IoT Stage 1 Fault Interface",
+      "id": "cea3dd29567d83fdb07301a285e2c07c",
+      "url": "https://app.notion.com/p/cea3dd29567d83fdb07301a285e2c07c",
+      "product_family": "Inline Spark Testing & Insulation Fault Detection",
+      "solution_themes": [
+        "Spark Testing & Fault Intelligence",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Support Item"
+    },
+    {
+      "name": "Spark Tester IoT Stage 2 Data Logging & Graphics",
+      "id": "7a33dd29567d83419cc481ff47492b4a",
+      "url": "https://app.notion.com/p/7a33dd29567d83419cc481ff47492b4a",
+      "product_family": "Inline Spark Testing & Insulation Fault Detection",
+      "solution_themes": [
+        "Spark Testing & Fault Intelligence",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Support Item"
+    },
+    {
+      "name": "Spark Tester IoT Stage 3 Inline Marking System",
+      "id": "ae73dd29567d82aeb3918168ba5ccbb9",
+      "url": "https://app.notion.com/p/ae73dd29567d82aeb3918168ba5ccbb9",
+      "product_family": "Inline Spark Testing & Insulation Fault Detection",
+      "solution_themes": [
+        "Spark Testing & Fault Intelligence",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Support Item"
+    },
+    {
+      "name": "Spark Tester Sensitivity Calibrator",
+      "id": "5ca3dd29567d8210a79701b514cfc93b",
+      "url": "https://app.notion.com/p/5ca3dd29567d8210a79701b514cfc93b",
+      "product_family": "Inline Spark Testing & Insulation Fault Detection",
+      "solution_themes": [
+        "Spark Testing & Fault Intelligence",
+        "Calibration & Support"
+      ],
+      "signed_scope_treatment": "Covered Support Item"
+    },
+    {
+      "name": "Wire Tension Indicator WTI-100-40",
+      "id": "90e3dd29567d82bd96c60160885a3ba1",
+      "url": "https://app.notion.com/p/90e3dd29567d82bd96c60160885a3ba1",
+      "product_family": "Tension / Braking / Line Control",
+      "solution_themes": [
+        "Tension Measurement & Control",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    },
+    {
+      "name": "Wire Tension Indicator WTI-90-40",
+      "id": "1ad3dd29567d837189b50190809d62aa",
+      "url": "https://app.notion.com/p/1ad3dd29567d837189b50190809d62aa",
+      "product_family": "Tension / Braking / Line Control",
+      "solution_themes": [
+        "Tension Measurement & Control",
+        "Data & Reporting"
+      ],
+      "signed_scope_treatment": "Covered Primary / Variant"
+    }
+  ]
+}

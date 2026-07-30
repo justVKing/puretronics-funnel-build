@@ -27,7 +27,10 @@ Require-File 'notion-source-map.json'
 Require-File 'data/product-master/rows.json'
 Require-File 'data/product-master/rows.csv'
 Require-File 'funnel-build/page-specs/wire-cable-industry-landing-page.md'
-Require-File 'funnel-build/page-specs/five-solution-blocks.md'
+Require-File 'funnel-build/page-specs/five-product-families.md'
+Require-File 'docs/00-governance/product-taxonomy-governance.md'
+Require-File 'data/product-master/taxonomy.json'
+Require-File 'data/product-master/taxonomy-migration-manifest.csv'
 Require-File 'funnel-build/technical-library/proof-stack.md'
 Require-File 'funnel-build/forms-and-routing/adaptive-requirement-form-routing.md'
 Require-File 'funnel-build/dashboard-and-reporting/dashboard-reporting-model.md'
@@ -49,7 +52,8 @@ if ($heroSupport.Count -gt 0) {
     $failures.Add("Support item rows must not be Hero priority: $($heroSupport.'Product / Model Name' -join ', ')")
 }
 
-Require-Text 'funnel-build/page-specs/five-solution-blocks.md' 'LTC-PRO Web Tension Controller'
+Require-Text 'funnel-build/page-specs/five-product-families.md' 'LTC-PRO Web Tension Controller'
+Require-Text 'funnel-build/page-specs/five-product-families.md' 'PF-05'
 Require-Text 'funnel-build/forms-and-routing/adaptive-requirement-form-routing.md' 'Service/support'
 Require-Text 'funnel-build/dashboard-and-reporting/dashboard-reporting-model.md' '15% to 20%'
 Require-Text 'activation/monthly-operating-system/README.md' '20,000 campaign email sends'

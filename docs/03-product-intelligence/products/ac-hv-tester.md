@@ -1,9 +1,9 @@
-﻿# AC HV Tester
+# AC HV Tester
 
 | Field | Value |
 | --- | --- |
 | Row Type | Product |
-| Product Family | Fault & Safety Testing |
+| Product Family | Cable Testing & Validation |
 | Sales Priority | Supporting |
 | Signed Scope Treatment | Covered Primary / Variant |
 

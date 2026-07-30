@@ -1,9 +1,9 @@
-﻿# LASER-2030H
+# LASER-2030H
 
 | Field | Value |
 | --- | --- |
 | Row Type | Model / Variant |
-| Product Family | Online Measurement |
+| Product Family | Inline Measurement & Dimensional Control |
 | Sales Priority | Strategic |
 | Signed Scope Treatment | Covered Primary / Variant |
 

@@ -1,9 +1,9 @@
-﻿# LTC-PRO Web Tension Controller
+# LTC-PRO Web Tension Controller
 
 | Field | Value |
 | --- | --- |
 | Row Type | Product |
-| Product Family | Tension / Braking / Automation |
+| Product Family | Tension / Braking / Line Control |
 | Sales Priority | Hero |
 | Signed Scope Treatment | Covered Primary / Variant |
 

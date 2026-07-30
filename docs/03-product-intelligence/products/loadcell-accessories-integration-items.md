@@ -1,9 +1,9 @@
-﻿# Loadcell Accessories / Integration Items
+# Loadcell Accessories / Integration Items
 
 | Field | Value |
 | --- | --- |
 | Row Type | Accessory |
-| Product Family | Tension / Braking / Automation |
+| Product Family | Tension / Braking / Line Control |
 | Sales Priority | Supporting |
 | Signed Scope Treatment | Covered Support Item |
 

@@ -1,9 +1,9 @@
-﻿# DC Spark Tester
+# DC Spark Tester
 
 | Field | Value |
 | --- | --- |
 | Row Type | Product |
-| Product Family | Fault & Safety Testing |
+| Product Family | Inline Spark Testing & Insulation Fault Detection |
 | Sales Priority | Strategic |
 | Signed Scope Treatment | Covered Primary / Variant |
 

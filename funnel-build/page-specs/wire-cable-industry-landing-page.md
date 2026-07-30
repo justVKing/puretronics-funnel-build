@@ -24,14 +24,14 @@ The first screen should quickly route visitors into one of three discovery paths
 
 - Find by production problem: diameter variation, insulation faults, HV validation, fire-resistance testing, powder adhesion, tension instability, braking control, butt welding, conductor preheating.
 - Find by production stage: extrusion, insulation, sheathing, spark testing, HV testing, FR testing, line control, take-up/pay-off, conductor preheating, welding/splicing.
-- Find by solution block: Online Measurement, Spark Testing, HV & Cable Validation, Fire Resistance, Line Stability/Adhesion/Tension Control.
+- Find by Product Family: Inline Measurement & Dimensional Control; Inline Spark Testing & Insulation Fault Detection; Cable Testing & Validation; Process Equipment & Line Auxiliaries; Tension / Braking / Line Control.
 
 ## Required Sections
 
 1. Industry entry section: Puretronics Wire & Cable product universe, with signed-scope caveat.
 2. Problem router: short cards for the main line-quality and testing problems.
-3. Production-stage router: extrusion, testing, process enhancement, line control, maintenance/service.
-4. Five solution blocks: summary cards linking to the solution-block sections/specs.
+3. Production-stage router: extrusion, testing, process equipment, line control, maintenance/service.
+4. Five Product Families: summary cards linking to the family experiences/specs. Fire Resistance & Circuit Integrity appears as a specialized PF-03 module.
 5. Product coverage strip: signed products and variants only.
 6. Technical proof library: datasheets, comparison tables, explainers, diagrams, standards notes, output/integration notes, reports, demo workflows, service proof, FAQs.
 7. Adaptive requirement form CTA: sales enquiry and service/support separation.
@@ -53,6 +53,7 @@ Support items include laser accessories, spark tester fault-intelligence/accesso
 ## Acceptance Criteria
 
 - Page spec maps CTAs to the adaptive requirement form.
+- Product Family is the sole top-level product taxonomy; the other discovery paths do not create competing classifications.
 - All product references stay inside signed Wire & Cable scope.
 - LTC-PRO appears in line stability, braking, loadcell, WTI, and tension-control contexts.
 - No accessory is treated as a standalone page, campaign, form, automation, SEO asset, selector, calculator, configurator, or extra deliverable.

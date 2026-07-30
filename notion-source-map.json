@@ -1,7 +1,7 @@
 {
   "notion_parent": "https://app.notion.com/p/37d3dd29567d8276adfd81f554906805",
-  "export_status": "exact live Notion page and Product Master Database export complete",
-  "generated_at": "2026-07-29T23:34:48+05:30",
+  "export_status": "canonical taxonomy migration implemented; legacy-field cleanup pending approval checkpoint",
+  "generated_at": "2026-07-30T23:00:00+05:30",
   "product_database": {
     "repo_paths": [
       "data/product-master/schema.json",
@@ -31,7 +31,7 @@
       "category": "workspace-parent",
       "title": "Puretronics India Private Limited",
       "url": "https://app.notion.com/p/37d3dd29567d8276adfd81f554906805",
-      "raw_fetch_path": "data/notion-export/raw-page-fetches/puretronics-india-private-limited.json"
+      "raw_fetch_path": "data/notion-export/taxonomy-migration/2026-07-30/post-cutover/puretronics-main-page.json"
     },
     {
       "id": "3383dd29567d8266bcf3013893c23fd4",
@@ -40,7 +40,7 @@
       "category": "raw-source-archive",
       "title": "Input Files - Wire and Cable Industry Product Portfolio",
       "url": "https://app.notion.com/p/3383dd29567d8266bcf3013893c23fd4",
-      "raw_fetch_path": "data/notion-export/raw-page-fetches/input-files-wire-and-cable-industry-product-portfolio.json"
+      "raw_fetch_path": "data/notion-export/taxonomy-migration/2026-07-30/post-cutover/input-files-index.json"
     },
     {
       "id": "d4a3dd29567d83d1b1e20155d6c3d3f2",
@@ -49,7 +49,7 @@
       "category": "product-intelligence",
       "title": "Master Document - Wire and Cable Industry Product Portfolio and Technical Reference",
       "url": "https://app.notion.com/p/d4a3dd29567d83d1b1e20155d6c3d3f2",
-      "raw_fetch_path": "data/notion-export/raw-page-fetches/master-document-wire-and-cable-industry-product-portfolio-and-technical-reference.json"
+      "raw_fetch_path": "data/notion-export/taxonomy-migration/2026-07-30/post-cutover/master-document.json"
     },
     {
       "id": "c303dd29567d83f9bfc301995427e6e7",
@@ -58,7 +58,7 @@
       "category": "database",
       "title": "Puretronics Wire & Cable Product Master Database",
       "url": "https://app.notion.com/p/c303dd29567d83f9bfc301995427e6e7",
-      "raw_fetch_path": "data/notion-export/raw-page-fetches/puretronics-wire-cable-product-master-database.json"
+      "raw_fetch_path": "data/notion-export/taxonomy-migration/2026-07-30/post-cutover/product-master-database.json"
     },
     {
       "id": "c5c3dd29567d8304bb3e81ffce55f094",
@@ -67,7 +67,7 @@
       "category": "product-intelligence",
       "title": "Puretronics Wire & Cable Product Intelligence Hub",
       "url": "https://app.notion.com/p/c5c3dd29567d8304bb3e81ffce55f094",
-      "raw_fetch_path": "data/notion-export/raw-page-fetches/puretronics-wire-cable-product-intelligence-hub.json"
+      "raw_fetch_path": "data/notion-export/taxonomy-migration/2026-07-30/post-cutover/product-intelligence-hub.json"
     },
     {
       "id": "88f3dd29567d8348b3f9811b30824878",
@@ -76,7 +76,7 @@
       "category": "product-intelligence",
       "title": "Master User-Guide - Puretronics Wire & Cable Product Database",
       "url": "https://app.notion.com/p/88f3dd29567d8348b3f9811b30824878",
-      "raw_fetch_path": "data/notion-export/raw-page-fetches/master-user-guide-puretronics-wire-cable-product-database.json"
+      "raw_fetch_path": "data/notion-export/taxonomy-migration/2026-07-30/post-cutover/master-user-guide.json"
     },
     {
       "id": "6843dd29567d82b0af5d01d9657188e2",
@@ -85,7 +85,7 @@
       "category": "funnel-architecture",
       "title": "Internal Copy - Annexure A | Funnel Architecture",
       "url": "https://app.notion.com/p/6843dd29567d82b0af5d01d9657188e2",
-      "raw_fetch_path": "data/notion-export/raw-page-fetches/internal-copy-annexure-a-funnel-architecture.json"
+      "raw_fetch_path": "data/notion-export/taxonomy-migration/2026-07-30/post-cutover/internal-copy-annexure-a.json"
     },
     {
       "id": "a6b3dd29567d82eca75a01da552644bb",
@@ -94,7 +94,7 @@
       "category": "funnel-architecture",
       "title": "Annexure A | Funnel Architecture",
       "url": "https://app.notion.com/p/a6b3dd29567d82eca75a01da552644bb",
-      "raw_fetch_path": "data/notion-export/raw-page-fetches/annexure-a-funnel-architecture.json"
+      "raw_fetch_path": "data/notion-export/taxonomy-migration/2026-07-30/post-cutover/annexure-a.json"
     },
     {
       "id": "d1c3dd29567d82dcb12a81fd1325f84f",
@@ -103,7 +103,16 @@
       "category": "commercial",
       "title": "Annexure B | Commercial Structure & Pricing",
       "url": "https://app.notion.com/p/d1c3dd29567d82dcb12a81fd1325f84f",
-      "raw_fetch_path": "data/notion-export/raw-page-fetches/annexure-b-commercial-structure-pricing.json"
+      "raw_fetch_path": "data/notion-export/taxonomy-migration/2026-07-30/post-cutover/annexure-b.json"
+    },
+    {
+      "id": "3ad3dd29567d817fa47ed507b3add3f9",
+      "authority": "taxonomy-governance",
+      "repo_path": "docs/00-governance/product-taxonomy-governance.md",
+      "category": "governance",
+      "title": "Puretronics Wire & Cable Taxonomy Governance",
+      "url": "https://app.notion.com/p/3ad3dd29567d817fa47ed507b3add3f9",
+      "raw_fetch_path": "data/notion-export/taxonomy-migration/2026-07-30/post-cutover/taxonomy-governance.json"
     },
     {
       "id": "3ac3dd29567d80149762e193b61bc191",
@@ -199,6 +208,36 @@
       "url": "https://app.notion.com/p/c2c3dd29567d83bb9ed98106a68a3de7",
       "id": "c2c3dd29567d83bb9ed98106a68a3de7",
       "raw_fetch_path": "data/notion-export/raw-page-fetches/wire-tension-indicator-with-iot.json"
+    },
+    {
+      "title": "LASER 2000 Series",
+      "url": "https://app.notion.com/p/1f83dd29567d82f29ae681eedafdb20e",
+      "id": "1f83dd29567d82f29ae681eedafdb20e",
+      "raw_fetch_path": "data/notion-export/taxonomy-migration/2026-07-30/pre-migration/nested-laser-2000-series.json"
+    },
+    {
+      "title": "Laser Diameter Gauge",
+      "url": "https://app.notion.com/p/5663dd29567d82f59edf01f0a2845511",
+      "id": "5663dd29567d82f59edf01f0a2845511",
+      "raw_fetch_path": "data/notion-export/taxonomy-migration/2026-07-30/pre-migration/nested-laser-diameter-gauge.json"
+    },
+    {
+      "title": "LASER-2000H Series",
+      "url": "https://app.notion.com/p/f533dd29567d8291a199012d56279849",
+      "id": "f533dd29567d8291a199012d56279849",
+      "raw_fetch_path": "data/notion-export/taxonomy-migration/2026-07-30/pre-migration/nested-laser-2000h-series.json"
+    },
+    {
+      "title": "LSP Series Catalogue",
+      "url": "https://app.notion.com/p/ac83dd29567d82d0a96e81514259839b",
+      "id": "ac83dd29567d82d0a96e81514259839b",
+      "raw_fetch_path": "data/notion-export/taxonomy-migration/2026-07-30/pre-migration/nested-lsp-series-catalogue.json"
+    },
+    {
+      "title": "Static Powder Applicator Key Features",
+      "url": "https://app.notion.com/p/54b3dd29567d82fdbf568104ad4e888c",
+      "id": "54b3dd29567d82fdbf568104ad4e888c",
+      "raw_fetch_path": "data/notion-export/taxonomy-migration/2026-07-30/pre-migration/nested-static-powder-key-features.json"
     }
   ],
   "repo_name": "puretronics-funnel-build"

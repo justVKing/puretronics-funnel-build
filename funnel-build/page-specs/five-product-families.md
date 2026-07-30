@@ -1,4 +1,4 @@
-# Five Solution-Block Page Specifications
+# Five Product-Family Experience Specifications
 
 ## Governance
 
@@ -6,7 +6,7 @@ These specs are governed by the signed Services Agreement dated 9 July 2026. The
 
 Support items may appear inside proof stacks and technical context only. They do not create standalone pages, campaigns, forms, automations, SEO assets, selectors, calculators, configurators, outreach tracks, or extra deliverables unless separately approved in writing.
 
-## 1. Online Measurement
+## PF-01 — Inline Measurement & Dimensional Control
 
 Purpose: help wire and cable teams evaluate diameter, dimensional consistency, and inline measurement requirements.
 
@@ -33,7 +33,7 @@ Required proof stack:
 - Output and integration notes
 - FAQ covering diameter variation, model selection, display/software outputs, and installation context
 
-## 2. Spark Testing
+## PF-02 — Inline Spark Testing & Insulation Fault Detection
 
 Purpose: help teams detect insulation faults and route spark-testing requirements into the right product/spec conversation.
 
@@ -58,7 +58,7 @@ Required proof stack:
 - Output and fault-intelligence support notes
 - FAQ covering voltage selection, inline marking, data logging, calibration, and service/support routing
 
-## 3. HV & Cable Validation
+## PF-03 — Cable Testing & Validation
 
 Purpose: help quality/testing teams distinguish AC HV and DC HV testing needs and request the correct validation conversation.
 
@@ -66,6 +66,7 @@ Covered products:
 
 - AC HV Tester
 - DC HV Tester
+- Fire Resistance Cable Testing System
 
 Required proof stack:
 
@@ -75,9 +76,9 @@ Required proof stack:
 - Requirement checklist for voltage, sample type, test method, and throughput
 - FAQ covering AC/DC selection, safety, documentation, and service routing
 
-## 4. Fire Resistance
+### Specialized Solution Theme — Fire Resistance & Circuit Integrity
 
-Purpose: position the Fire Resistance Cable Testing System as a specialized validation system for fire-resistance cable testing requirements.
+Purpose: position the Fire Resistance Cable Testing System as a specialized validation theme within PF-03. This theme is not a separate Product Family.
 
 Covered product:
 
@@ -91,9 +92,29 @@ Required proof stack:
 - Standards notes, subject to Puretronics validation
 - FAQ covering test setup, validation context, inputs required, and support boundaries
 
-## 5. Line Stability, Adhesion & Tension Control
+## PF-04 — Process Equipment & Line Auxiliaries
 
-Purpose: help production teams diagnose tension instability, braking control, powdering/adhesion issues, preheating needs, welding/splicing needs, and closed-loop line-control requirements.
+Purpose: help production teams evaluate preheating, powder application, conductor joining, repair, and related line-auxiliary requirements.
+
+Covered products and variants:
+
+- LSP-G1 Static Powder Applicator
+- LSP-G2 Static Powder Applicator
+- Inline Induction Wire Preheater variants at 1000/1500/2000 m/min
+- Butt Welding Machine
+
+Required proof stack:
+
+- Preheater variant comparison table and application note
+- LSP-G1/LSP-G2 comparison and application note
+- Butt welding suitability table and conductor-joining explainer
+- Production-stage diagram for pre-extrusion and joining contexts
+- Output and integration notes where technically supported
+- FAQ covering powdering, conductor preheating, butt welding, and integration context
+
+## PF-05 — Tension / Braking / Line Control
+
+Purpose: help production teams diagnose tension instability, braking control, load measurement, unwind/rewind control, and closed-loop line-control requirements.
 
 Covered products and variants:
 
@@ -104,10 +125,6 @@ Covered products and variants:
 - AX-250 Pneumatic Brake
 - AX-400 Pneumatic Brake
 - AX-500 Pneumatic Brake
-- LSP-G1 Static Powder Applicator
-- LSP-G2 Static Powder Applicator
-- Inline Induction Wire Preheater variants at 1000/1500/2000 m/min
-- Butt Welding Machine
 
 Support items:
 
@@ -118,14 +135,15 @@ Required proof stack:
 - Tension-control architecture showing WTI, loadcells, LTC-PRO, and pneumatic brakes together
 - Brake torque, pressure, and RPM table
 - Loadcell model and accessory integration notes
-- Preheater variant comparison table
-- LSP-G1/LSP-G2 powder applicator comparison
-- Butt welding suitability table
-- FAQ covering tension, braking, powdering, conductor preheating, butt welding, and line stability
+- LTC-PRO control and integration note
+- FAQ covering tension, braking, load measurement, closed-loop control, and line stability
 
 ## Shared Acceptance Criteria
 
-- Each solution block has a clear purpose, product scope, support-item treatment, and proof stack.
+- Each Product Family has a clear purpose, product scope, support-item treatment, and proof stack.
+- `Solution Theme` is subordinate and many-to-many; Manufacturing Flow Stage and Buyer Problem remain separate axes.
+- Fire Resistance & Circuit Integrity remains a specialized PF-03 theme.
+- The machine-readable family slugs are documented in `docs/00-governance/product-taxonomy-governance.md`.
 - LTC-PRO Web Tension Controller appears in tension/control coverage wherever WTI, loadcells, braking, torque, or line stability are discussed.
 - Accessory and fault-intelligence items remain support-only.
 - Specs do not introduce new commercials or excluded deliverables.

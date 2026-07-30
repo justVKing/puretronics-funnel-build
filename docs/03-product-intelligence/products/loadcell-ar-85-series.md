@@ -1,9 +1,9 @@
-﻿# Loadcell AR-85 Series
+# Loadcell AR-85 Series
 
 | Field | Value |
 | --- | --- |
 | Row Type | Model / Variant |
-| Product Family | Tension / Braking / Automation |
+| Product Family | Tension / Braking / Line Control |
 | Sales Priority | Strategic |
 | Signed Scope Treatment | Covered Primary / Variant |
 

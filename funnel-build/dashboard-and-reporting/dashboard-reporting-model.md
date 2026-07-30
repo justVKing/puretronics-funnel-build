@@ -10,9 +10,9 @@ The dialogue-initiation benchmark is approximately 15% to 20% of total prospects
 
 | View | Purpose | Core fields |
 | --- | --- | --- |
-| Product-family demand | Show demand by product family and solution block | Product family, solution block, product/model, count, enquiry quality |
+| Product-family demand | Show demand by the canonical Product Family | Product Family, Solution Theme, product/model, count, enquiry quality |
 | Buyer segments | Show which roles engage | Buyer role, company type, geography, source, lead classification |
-| Problem/process-stage demand | Track actual production problems | Problem type, production stage, urgency, solution block |
+| Problem/process-stage demand | Track actual production problems | Buyer Problem, Manufacturing Flow Stage, urgency, Product Family |
 | Enquiry quality | Separate high-intent, technical qualification, proof request, service/support, and out-of-scope | Classification, completeness, owner, next action |
 | Routing ownership | Track handoff and response accountability | Owner, SLA target, status, ageing, blocked reason |
 | LinkedIn outreach | Monitor signed LinkedIn scope | Prospects outreached, connection requests, follow-ups, replies, dialogue starts |
