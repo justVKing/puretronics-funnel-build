@@ -2,10 +2,10 @@
 
 Use this folder only if the live Notion connector is unavailable.
 
-Required manual export package:
+Required manual export package. Follow `docs/00-governance/notion-system-reconstruction-guide.md` and `data/notion-export/notion-reconstruction-manifest.json` for the current counts and source precedence:
 
-- All 10 core Notion pages listed in notion-source-map.json
-- All 14 raw input child source pages
+- All 11 core Notion surfaces listed in notion-source-map.json
+- All 19 immutable raw source pages, including five nested source pages
 - Full Product Master Database export with every property
 - Page/database export timestamps
 

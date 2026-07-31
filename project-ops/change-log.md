@@ -17,7 +17,7 @@
 
 ## 2026-07-29T23:34:48+05:30
 
-- Fetched exact live Notion responses for all 10 core assets and 14 raw input child pages.
+- Fetched exact live Notion responses for all 11 core surfaces and 19 immutable raw source pages, including five nested source pages.
 - Exported the Product Master Database with 38 rows, all 44 properties, and 12 configured views.
 - Replaced the summarized product dataset with full-property JSON and CSV exports.
 - Added exact-export validation and cleared the Notion refresh gate.

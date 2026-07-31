@@ -1,0 +1,102 @@
+{
+  "manifest_version": "1.0.0",
+  "effective_date": "2026-07-31",
+  "purpose": "Reconstruct the Puretronics Notion system from repository evidence at approximately 98-99% content-and-structure fidelity.",
+  "guide_path": "docs/00-governance/notion-system-reconstruction-guide.md",
+  "validator_path": "scripts/validate_notion_reconstruction.ps1",
+  "notion_destination": "new target account or workspace; source-account IDs and URLs are not required",
+  "active_source_policy": {
+    "authoritative_snapshot_root": "data/notion-export/taxonomy-migration/2026-07-30/post-cutover",
+    "historical_snapshot_roots": [
+      "data/notion-export/taxonomy-migration/2026-07-30/pre-migration",
+      "data/notion-export/taxonomy-migration/2026-07-30/post-migration"
+    ],
+    "source_map": "notion-source-map.json",
+    "do_not_overwrite_evidence": true
+  },
+  "coverage": {
+    "core_surface_count": 11,
+    "immutable_raw_source_count": 19,
+    "product_master_row_count": 38,
+    "product_master_active_property_count": 44,
+    "product_master_view_count": 12,
+    "product_family_counts": {
+      "Inline Measurement & Dimensional Control": 9,
+      "Inline Spark Testing & Insulation Fault Detection": 7,
+      "Cable Testing & Validation": 3,
+      "Process Equipment & Line Auxiliaries": 6,
+      "Tension / Braking / Line Control": 13
+    },
+    "canonical_product_family_slugs": [
+      "inline-measurement-dimensional-control",
+      "inline-spark-testing-insulation-fault-detection",
+      "cable-testing-validation",
+      "process-equipment-line-auxiliaries",
+      "tension-braking-line-control"
+    ],
+    "pf05_label": "Tension / Braking / Line Control",
+    "ltc_pro_family": "Tension / Braking / Line Control",
+    "fire_resistance_theme_family": "Cable Testing & Validation",
+    "bs_en_50200_status": "pending-puretronics-validation",
+    "external_compliance_claims_allowed": false
+  },
+  "structured_sources": {
+    "source_map": "notion-source-map.json",
+    "product_master_schema": "data/product-master/schema.json",
+    "product_master_rows_json": "data/product-master/rows.json",
+    "product_master_rows_csv": "data/product-master/rows.csv",
+    "product_master_views": "data/product-master/views.json",
+    "product_master_taxonomy": "data/product-master/taxonomy.json",
+    "row_migration_manifest": "data/product-master/taxonomy-migration-manifest.csv",
+    "integrity_manifest": "data/notion-export/taxonomy-migration/2026-07-30/integrity-manifest.csv"
+  },
+  "protected_paths": [
+    "docs/00-governance/services-agreement-final-signature-copy.md",
+    "docs/04-source-archive/",
+    "data/notion-export/raw-page-fetches/services-agreement-final-signature-copy.json",
+    "data/notion-export/taxonomy-migration/2026-07-30/pre-migration/signed-agreement-read-only.json",
+    "data/notion-export/taxonomy-migration/2026-07-30/post-migration/signed-agreement-read-only.json",
+    "data/notion-export/taxonomy-migration/2026-07-30/post-cutover/live-row-verification.json",
+    "data/notion-export/taxonomy-migration/2026-07-30/integrity-manifest.csv"
+  ],
+  "protected_hashes_sha256": {
+    "docs/00-governance/services-agreement-final-signature-copy.md": "6A772D81BC6FDDAEA3872DE7BC247B780F5BDBD633DB396C39BF93DFF3DC54B9",
+    "docs/04-source-archive/input-files-index.md": "71C48E44D84906E1EB5A66BB993F862515B01AECA500341DE5CE0E40AC39867B",
+    "docs/04-source-archive/raw-child-source-pages/butt-welding-machine.md": "A3F1449216CCE1B8DA93F14079D52E73E96776B1CA019F49E607188155040E27",
+    "docs/04-source-archive/raw-child-source-pages/fire-resistance-cable-testing-system.md": "D5C3B0C778365BC605A52BFA47046C08875C1153DA7FB93C0C568DD7B784E8FE",
+    "docs/04-source-archive/raw-child-source-pages/inline-induction-wire-preheater.md": "25E1A27D153E6086459558AF396C8F5B491A57BA879086656316AA00CC02EA0B",
+    "docs/04-source-archive/raw-child-source-pages/laser-diameter-gauge.md": "9608759DE8816C79F7EBADD4A84B78F58911B754E2F93FA5BFD167AD34D06B82",
+    "docs/04-source-archive/raw-child-source-pages/loadcell.md": "B643682A02C4D53CFBFEA5A5E3A83818249D74890882DB2F48DC157DD87C298C",
+    "docs/04-source-archive/raw-child-source-pages/ltc-pro.md": "D3545D661D5DF540A905121E7F390036441C8C64CA97A13B9FCF681C920318B6",
+    "docs/04-source-archive/raw-child-source-pages/pneumatic-brake.md": "59049DE7B10B1CDC766BB69E092E7112EE00BEB1F682F74B6CB5C9F5BF49DA49",
+    "docs/04-source-archive/raw-child-source-pages/spark-tester-sensitivity-calibrator.md": "40B755C3B9B73C86A189BB420B426859607976D5838E5213C4F19F35E9F33D5A",
+    "docs/04-source-archive/raw-child-source-pages/spark-tester-with-iot-accessories.md": "FC648260102B6F87D65BAD55D1CEFD5B40FECAD0DDF0C91A4C64E5FA4F31B473",
+    "docs/04-source-archive/raw-child-source-pages/spark-tester.md": "C73F71F18407D66A54951F343908ACBC33B7086F962B311C96133F3F8A7CE074",
+    "docs/04-source-archive/raw-child-source-pages/static-powder-applicator.md": "CD341260DCCD3A2312C0D9E309AACAC39B1666D3D502A3A4A7ACC68B2EFB59F0",
+    "docs/04-source-archive/raw-child-source-pages/wire-cable-brochure.md": "F77241D4C4F0E8F0D902FC8DE8EC1D0C2747B6E49D60BC4F592291B02D4AFCF1",
+    "docs/04-source-archive/raw-child-source-pages/wire-tension-indicator-with-iot.md": "183A48A1CDAA0A375C173A36B910541F203F314A4EE2F727B112ACEF5B0CFF48",
+    "docs/04-source-archive/raw-child-source-pages/wire-tension-indicator.md": "6B30B60B8C9BA254EC2F55AF5993ED29FE6C64AFDF0CDD7031DF024F9BA9E40D"
+  },
+  "approved_exceptions": [
+    "Account-specific Notion IDs, URLs, permissions, ownership, comments, revision history, and timestamps are not preserved.",
+    "Notion-native toggles, callouts, synced blocks, embeds, and other presentation constructs may be normalized into Markdown while preserving meaning.",
+    "Binary attachments or externally hosted media require a repository copy or stable source reference to be reproduced.",
+    "Formulas, rollups, automations, and integrations require behavior-level recreation and separate validation."
+  ],
+  "historical_term_policy": {
+    "deprecated_terms_allowed_in": [
+      "data/notion-export/taxonomy-migration/",
+      "migration-manifest.md",
+      "docs/00-governance/product-taxonomy-governance.md"
+    ],
+    "deprecated_terms_disallowed_in_active_content": true
+  },
+  "last_verified_notional_cutover": "2026-07-30",
+  "change_log": [
+    {
+      "version": "1.0.0",
+      "date": "2026-07-31",
+      "change": "Initial reconstruction contract for the approved post-cutover Puretronics Notion system."
+    }
+  ]
+}

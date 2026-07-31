@@ -1,6 +1,6 @@
 {
   "notion_parent": "https://app.notion.com/p/37d3dd29567d8276adfd81f554906805",
-  "export_status": "canonical taxonomy migration implemented; legacy-field cleanup pending approval checkpoint",
+  "export_status": "final post-cutover canonical taxonomy verified; reconstruction guide and manifest active",
   "generated_at": "2026-07-30T23:00:00+05:30",
   "product_database": {
     "repo_paths": [

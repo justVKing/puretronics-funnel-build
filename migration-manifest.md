@@ -51,7 +51,7 @@ The Product Master Database container, data-source schema, and exact 38-row `00 
 
 ## Completed Refresh Gate
 
-1. Fetched each of the 24 assets listed in notion-source-map.json.
+1. Fetched each of the 30 mapped surfaces listed in notion-source-map.json: 11 core surfaces and 19 immutable raw source pages.
 2. Saved exact Notion connector responses to data/notion-export/raw-page-fetches/.
 3. Queried and stored all 38 Product Master Database rows from `00 Admin - All Properties`, with all 44 properties.
 4. Refreshed the live schema and 12 database view definitions.

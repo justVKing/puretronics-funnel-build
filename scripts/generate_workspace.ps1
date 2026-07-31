@@ -662,8 +662,8 @@ This folder will hold the dashboard model for product interest, buyer segment, p
 Write-Utf8 (Join-Path $Root "funnel-build/qa-checklists/migration-validation.md") @"
 # Migration Validation Checklist
 
-- [ ] All 10 core Notion assets are mapped in `notion-source-map.json`.
-- [ ] All 14 raw input child pages are mapped.
+- [ ] All 11 core Notion surfaces are mapped in `notion-source-map.json`.
+- [ ] All 19 immutable raw source pages are mapped, including five nested source pages.
 - [ ] Product database row count is 38 after refreshed Notion query.
 - [ ] `rows.json` and `rows.csv` include every database property after refresh.
 - [ ] All signed products and variants exist.
@@ -672,6 +672,7 @@ Write-Utf8 (Join-Path $Root "funnel-build/qa-checklists/migration-validation.md"
 - [ ] Signed commercial facts match the Services Agreement.
 - [ ] No support item implies standalone pages, campaigns, forms, automations, SEO assets, selectors, calculators, configurators, or extra deliverables.
 - [ ] Repository remains private.
+- [ ] `scripts/validate_notion_reconstruction.ps1` passes and protected hashes remain unchanged.
 "@
 
 Write-Utf8 (Join-Path $Root "activation/content/README.md") "# Content Activation`n`nMonthly content production scope: 4 technical thought-leadership/document assets, 8 Company Page posts/assets, and 8 leadership or sales-profile LinkedIn posts/assets.`n"
