@@ -1,0 +1,20 @@
+{
+  "url": "https://justvking.github.io/puretronics-funnel-build/",
+  "auditedAt": "2026-09-06",
+  "scores": {
+    "performance": 97,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 66
+  },
+  "metrics": {
+    "firstContentfulPaint": "1.5 s",
+    "largestContentfulPaint": "1.6 s",
+    "totalBlockingTime": "190 ms",
+    "cumulativeLayoutShift": 0.024
+  },
+  "notes": [
+    "The review build intentionally includes noindex, nofollow metadata, which lowers the conventional SEO score.",
+    "Scores reflect one deployed-site Lighthouse run and may vary slightly between runs."
+  ]
+}
