@@ -10,27 +10,36 @@ describe('model comparison', () => {
     expect(isModelComparable(productById.get('P11'))).toBe(false);
   });
 
-  it('includes every approved model specification label in the comparison rows', () => {
+  it('includes every populated V4 specification label for the compared models', () => {
     comparableProducts.forEach((product) => {
       const technical = buildModelComparison(product).find((section) => section.id === 'technical')!;
       const rendered = technical.rows.map((row) => row.label);
-      allPublishedSpecificationLabels(product).forEach((label) => expect(rendered).toContain(label));
+      expect(rendered).toEqual(allPublishedSpecificationLabels(product));
       expect(technical.rows.length).toBeGreaterThan(0);
     });
   });
 
-  it('keeps governed decision parameters visible when a value is not published', () => {
+  it('does not create parameters that are absent from V4', () => {
     const product = productById.get('P13')!;
     const technical = buildModelComparison(product).find((section) => section.id === 'technical')!;
-    expect(technical.rows.map((row) => row.label)).toEqual(['Braking value', 'Maximum speed', 'Pressure range', 'Weight', 'Inertia', 'Dimensions / mounting']);
-    expect(technical.rows.find((row) => row.label === 'Pressure range')?.values.P13A).toBe('Not published');
+    expect(technical.rows.map((row) => row.label)).toEqual(['Braking Value', 'Maximum Speed']);
+    expect(JSON.stringify(technical)).not.toContain('Not published');
   });
 
-  it('shows an explicit publication state instead of inventing a missing value', () => {
+  it('shows a populated parameter without inventing a value for another model', () => {
     const product = productById.get('P08')!;
-    const powder = buildModelComparison(product).find((section) => section.id === 'technical')!.rows.find((row) => row.label === 'Powder')!;
-    expect(powder.values.P08A).toBe('Not published');
-    expect(powder.values.P08E).toBe('Graphite');
+    const mixed = buildModelComparison(product, ['P08A', 'P08E']).find((section) => section.id === 'technical')!;
+    const graphite = buildModelComparison(product, ['P08E', 'P08F']).find((section) => section.id === 'technical')!;
+    expect(mixed.rows.find((row) => row.label === 'Powder')?.values).toEqual({ P08A: '—', P08E: 'Graphite' });
+    expect(graphite.rows.find((row) => row.label === 'Powder')?.values).toEqual({ P08E: 'Graphite', P08F: 'Graphite' });
+  });
+
+  it('never emits an empty or placeholder technical value', () => {
+    comparableProducts.forEach((product) => {
+      const sections = buildModelComparison(product);
+      expect(JSON.stringify(sections)).not.toMatch(/Not published|No approved public record/i);
+      sections.flatMap((section) => section.rows).forEach((row) => expect(Object.values(row.values).some((value) => value !== '—')).toBe(true));
+    });
   });
 
   it('enforces the supplied model limit without dropping existing selections', () => {

@@ -21,7 +21,7 @@ export function SolutionNavigator() {
     return (
       <div className="navigator-entry" aria-labelledby="starting-point-heading">
         <div className="view-intro">
-          <div><p className="proof-label">Solution Navigator</p><h3 id="starting-point-heading">Choose your starting point</h3></div>
+          <div><p className="proof-label">Solution Navigator</p><h3 id="starting-point-heading">Choose Your Starting Point</h3></div>
           <p>You do not need to know a product name. Start with the information already available.</p>
         </div>
         <div className="entry-grid compact">
@@ -38,7 +38,7 @@ export function SolutionNavigator() {
   return (
     <div className="navigator-panel">
       <div className="navigator-heading">
-        <div><p className="proof-label">Active route</p><h3>{navigatorModes.find((mode) => mode.id === state.navigatorMode)?.title}</h3></div>
+        <div><p className="proof-label">Active Route</p><h3>{navigatorModes.find((mode) => mode.id === state.navigatorMode)?.title}</h3></div>
         <button type="button" className="text-button" onClick={() => dispatch({ type: 'CLEAR_FILTERS' })}>Change starting point</button>
       </div>
 

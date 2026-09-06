@@ -16,7 +16,7 @@ Edit `src/config/site.ts` to replace the canonical URL, booking destination, ser
 
 The app contains no runtime Notion dependency and no credential. Public product data is curated in `src/data/catalog.ts`. Asset provenance is recorded in `public/assets/asset-sources.json`.
 
-The Capability Coverage Index is a dense requirement-to-product view: it does not render empty family intersections. The comparison workbench is intentionally limited to model-to-model comparison within one Primary Product. It renders every governed comparison parameter, showing `Not published` wherever no approved public value exists rather than inferring a specification.
+The Capability Coverage Index is a dense requirement-to-product view: it does not render empty family intersections. The comparison workbench is intentionally limited to model-to-model comparison within one Primary Product. It derives its rows from populated Product Database V4 fields for the selected models and omits parameters that V4 does not contain.
 
 ## Deployment
 

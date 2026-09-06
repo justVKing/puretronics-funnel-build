@@ -11,6 +11,11 @@ export function validateCatalog() {
     if (product.governance.approval !== 'Approved' || product.governance.claimState !== 'Current' || product.governance.qa !== 'Public') errors.push(`${product.id} is not publication-ready.`);
     if (product.governance.evidence === 'Source-Limited' && product.caveats.length === 0) errors.push(`${product.id} requires a source-limited caveat.`);
     for (const item of [...product.specs, ...product.models.flatMap((model) => model.specs)]) if (!item.sourceRecord) errors.push(`${product.id} has an unsourced technical value.`);
+    for (const model of product.models) {
+      if (!model.specs.length) errors.push(`${model.id} has no populated V4 technical fields.`);
+      if (new Set(model.specs.map((spec) => spec.label)).size !== model.specs.length) errors.push(`${model.id} has duplicate V4 technical fields.`);
+      if (model.specs.some((spec) => spec.sourceRecord !== model.id)) errors.push(`${model.id} has a technical value assigned to the wrong source record.`);
+    }
   }
   return errors;
 }

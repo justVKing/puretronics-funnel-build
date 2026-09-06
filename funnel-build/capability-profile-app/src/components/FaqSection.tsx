@@ -16,5 +16,5 @@ const faqs = [
 ];
 
 export function FaqSection() {
-  return <section className="section faq-section"><div className="container"><p className="eyebrow">Frequently Asked Questions</p><h2>Useful answers before you begin.</h2><div className="faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div></div></section>;
+  return <section className="section faq-section"><div className="container"><p className="eyebrow">Frequently Asked Questions</p><h2>Useful Answers Before You Begin.</h2><div className="faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div></div></section>;
 }

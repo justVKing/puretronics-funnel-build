@@ -15,7 +15,7 @@ export function ProductionLineMap() {
 
   return (
     <div className="line-map-view">
-      <div className="view-intro"><div><p className="proof-label">Production-Line Map</p><h3>View the portfolio across the line</h3></div><p>Select one or more stages. Offline testing remains a connected but separate validation branch.</p></div>
+      <div className="view-intro"><div><p className="proof-label">Production-Line Map</p><h3>View the Portfolio Across the Line</h3></div><p>Select one or more stages. Offline testing remains a connected but separate validation branch.</p></div>
       <div className="line-map-desktop">
         <svg viewBox="0 0 920 390" role="img" aria-labelledby="line-title line-desc">
           <title id="line-title">Interactive wire and cable production-stage map</title>

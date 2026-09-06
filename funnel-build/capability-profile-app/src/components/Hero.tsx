@@ -24,7 +24,7 @@ export function Hero() {
       <div className="container hero-grid">
         <div className="hero-copy">
           <p className="eyebrow">Puretronics Wire and Cable Industry Capabilities</p>
-          <h1>Find the right capability for your wire and cable production or testing requirement.</h1>
+          <h1>Find the Right Capability for Your Wire and Cable Production or Testing Requirement.</h1>
           <p className="lead">Explore where Puretronics can support inline measurement, insulation-fault detection, cable testing, conductor preparation, tension measurement, line control and pneumatic braking—then prepare for a focused technical conversation.</p>
           <div className="hero-actions"><BookingLink location="hero">Book a Wire and Cable Application Review</BookingLink><a className="text-link" href="#explore">Explore Puretronics Capabilities <span aria-hidden="true">↓</span></a></div>
           <div className="start-note"><strong>Start with what you know</strong><p>You do not need to begin with a model number. Start with a production problem, a line stage, a test requirement, an existing product—or simply tell us that you are not sure yet.</p></div>

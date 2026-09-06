@@ -13,6 +13,6 @@ describe('Requirement Readiness Builder', () => {
     await user.click(screen.getByRole('button', { name: 'Build My Review Brief' }));
     expect(screen.getByRole('heading', { name: 'Puretronics Application Review Brief' })).toBeInTheDocument();
     expect(screen.getByText('Detect insulation faults')).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Open questions' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Open Questions' })).toBeInTheDocument();
   });
 });

@@ -12,7 +12,7 @@ export function matchProducts(filters: ExplorerFilters): MatchResult[] {
 
   return products.map((product) => {
     let score = hasFilters ? 0 : 1;
-    const reasons: string[] = hasFilters ? [] : ['Included in the complete governed Wire and Cable portfolio'];
+    const reasons: string[] = hasFilters ? [] : ['Included in the Complete Governed Wire and Cable Portfolio'];
     const matchedModelIds: string[] = [];
 
     if (query) {
@@ -22,23 +22,23 @@ export function matchProducts(filters: ExplorerFilters): MatchResult[] {
       if (modelMatches.length) {
         score += 140;
         matchedModelIds.push(...modelMatches.map((model) => model.id));
-        reasons.push(`Matched model: ${modelMatches.map((model) => model.name).join(', ')}`);
+        reasons.push(`Matched Model: ${modelMatches.map((model) => model.name).join(', ')}`);
       } else if (directProductMatch) {
         score += 110;
-        reasons.push(`Matched the governed product record ${product.id}`);
+        reasons.push(`Matched the Governed Product Record ${product.id}`);
       }
     }
 
     for (const problem of filters.problems) {
       if (product.buyerProblems.includes(problem)) {
         score += 38;
-        reasons.push(`Relevant to ${labelFor(problemOptions, problem).toLowerCase()}`);
+        reasons.push(`Relevant to ${labelFor(problemOptions, problem)}`);
       }
     }
     for (const stage of filters.stages) {
       if (product.stages.includes(stage)) {
         score += 30;
-        reasons.push(`Fits the ${productionStages.find((item) => item.id === stage)?.label.toLowerCase() ?? stage} stage`);
+        reasons.push(`Fits the ${productionStages.find((item) => item.id === stage)?.label ?? stage} Stage`);
       }
     }
     for (const family of filters.families) {
@@ -50,7 +50,7 @@ export function matchProducts(filters: ExplorerFilters): MatchResult[] {
     for (const route of filters.routes) {
       if (product.projectRoutes.includes(route)) {
         score += 18;
-        reasons.push(`Can be reviewed for a ${labelFor(projectOptions, route).toLowerCase()} route`);
+        reasons.push(`Can Be Reviewed for a ${labelFor(projectOptions, route)} Route`);
       }
     }
 

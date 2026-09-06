@@ -10,9 +10,9 @@ describe('capability explorer interactions', () => {
     render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
     await user.click(screen.getByRole('button', { name: /I have a production or quality problem/i }));
     await user.click(screen.getByRole('button', { name: /Diameter variation or dimensional consistency/i }));
-    expect(screen.getByRole('heading', { name: 'Your relevant capability paths' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Your Relevant Capability Paths' })).toBeInTheDocument();
     expect(screen.getByText(/3 relevant Primary Products found/i)).toBeInTheDocument();
-    expect(screen.getAllByLabelText('Why this result matched')[0]).toHaveTextContent('Relevant to diameter variation');
+    expect(screen.getAllByLabelText('Why this result matched')[0]).toHaveTextContent('Relevant to Diameter Variation or Dimensional Consistency');
   });
 
   it('preserves selected stages while switching explorer views', async () => {
@@ -41,10 +41,10 @@ describe('capability explorer interactions', () => {
     render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
     await user.click(screen.getByRole('tab', { name: /Comparison Workbench/i }));
     await user.selectOptions(screen.getByRole('combobox', { name: 'Primary Product' }), 'P13');
-    expect(await screen.findByRole('heading', { name: 'Choose models' })).toBeInTheDocument();
-    expect(screen.getByRole('table', { name: /complete approved public model specification comparison/i })).toBeInTheDocument();
-    expect(screen.getByRole('rowheader', { name: 'Braking value' })).toBeInTheDocument();
-    expect(screen.getByRole('rowheader', { name: 'Maximum speed' })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'Choose Models' })).toBeInTheDocument();
+    expect(screen.getByRole('table', { name: /complete approved v4 model specification comparison/i })).toBeInTheDocument();
+    expect(screen.getByRole('rowheader', { name: 'Braking Value' })).toBeInTheDocument();
+    expect(screen.getByRole('rowheader', { name: 'Maximum Speed' })).toBeInTheDocument();
     expect(screen.queryByText('Like-for-like')).not.toBeInTheDocument();
     expect(screen.queryByText('System roles')).not.toBeInTheDocument();
   });

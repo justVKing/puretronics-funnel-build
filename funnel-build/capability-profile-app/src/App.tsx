@@ -16,11 +16,11 @@ import { SiteHeader } from './components/SiteHeader';
 import { WebMcpBridge } from './components/WebMcpBridge';
 
 const capabilityBenefits = [
-  'Relevant capability and product paths based on your selections',
-  'A clear view of where those capabilities fit in production or testing',
-  'Complete approved specification tables for direct model-to-model comparison',
-  'Key operating and project inputs that can help narrow the selection',
-  'A direct route to prepare an application brief or book an Application Review',
+  'Relevant Capability and Product Paths Based on Your Selections',
+  'A Clear View of Where Those Capabilities Fit in Production or Testing',
+  'Complete Approved Specification Tables for Direct Model-to-Model Comparison',
+  'Key Operating and Project Inputs That Can Help Narrow the Selection',
+  'A Direct Route to Prepare an Application Brief or Book an Application Review',
 ];
 
 function CapabilityProfile() {
@@ -32,11 +32,11 @@ function CapabilityProfile() {
       <main id="main">
         <Hero />
         <section className="section section-band" id="explore">
-          <div className="container section-heading-grid"><div><p className="eyebrow">Explore Puretronics Wire and Cable Capabilities</p><h2>Begin with the requirement. Move towards the relevant equipment.</h2></div><div><p className="section-lead">The Puretronics capability explorer brings the portfolio into one guided experience. Choose the way you prefer to explore, review relevant product paths and compare useful technical information without opening every brochure or knowing the final specification in advance.</p><ul className="benefit-list">{capabilityBenefits.map((item) => <li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul></div></div>
+          <div className="container section-heading-grid"><div><p className="eyebrow">Explore Puretronics Wire and Cable Capabilities</p><h2>Begin With the Requirement. Move Towards the Relevant Equipment.</h2></div><div><p className="section-lead">The Puretronics capability explorer brings the portfolio into one guided experience. Choose the way you prefer to explore, review relevant product paths and compare useful technical information without opening every brochure or knowing the final specification in advance.</p><ul className="benefit-list">{capabilityBenefits.map((item) => <li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul></div></div>
           <CapabilityExplorer />
         </section>
         <section className="section readiness-section" id="prepare">
-          <div className="container section-heading-grid"><div><p className="eyebrow">Prepare Your Application Review</p><h2>Turn what you know into a useful application brief.</h2></div><div><p className="section-lead">Choose a capability area, answer only the questions you can, mark unknowns clearly, and generate a concise brief for your team or conversation with Puretronics.</p><p className="privacy-note"><span aria-hidden="true">○</span> Ungated and browser-local. No contact details are required, and nothing is submitted automatically.</p></div></div>
+          <div className="container section-heading-grid"><div><p className="eyebrow">Prepare Your Application Review</p><h2>Turn What You Know Into a Useful Application Brief.</h2></div><div><p className="section-lead">Choose a capability area, answer only the questions you can, mark unknowns clearly, and generate a concise brief for your team or conversation with Puretronics.</p><p className="privacy-note"><span aria-hidden="true">○</span> Ungated and browser-local. No contact details are required, and nothing is submitted automatically.</p></div></div>
           <div className="container"><ReadinessBuilder /></div>
         </section>
         <ProofAndCertificate />

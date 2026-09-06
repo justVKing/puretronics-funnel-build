@@ -6,7 +6,7 @@ describe('high-risk technical claim guards', () => {
   it('keeps Live, Acute and DC values on separate P04 model records', () => {
     const models = productById.get('P04')!.models;
     expect(models.map((model) => model.name)).toEqual(['Live Spark Tester', 'Acute Spark Tester', 'DC Spark Tester']);
-    expect(models.find((model) => model.name.startsWith('Acute'))?.specs.find((spec) => spec.label === 'Line speed')?.display).toBe('Up to 1500 m/min');
+    expect(models.find((model) => model.name.startsWith('Acute'))?.specs.find((spec) => spec.label === 'Line Speed')?.display).toBe('Up to 1500 m/min');
   });
   it('keeps P06 source-limited and project-specific', () => {
     const product = productById.get('P06')!;
@@ -22,6 +22,6 @@ describe('high-risk technical claim guards', () => {
   });
   it('keeps P13 speed and braking values model-specific', () => {
     const models = productById.get('P13')!.models;
-    expect(models.map((model) => model.specs.find((spec) => spec.label === 'Maximum speed')?.display)).toEqual(['2500 rpm', '1500 rpm', '1200 rpm']);
+    expect(models.map((model) => model.specs.find((spec) => spec.label === 'Maximum Speed')?.display)).toEqual(['2500 rpm', '1500 rpm', '1200 rpm']);
   });
 });

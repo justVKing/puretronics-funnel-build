@@ -29,11 +29,11 @@ export function generateBrief(state: ExplorerState): ReviewBrief {
     else if (display !== 'Not applicable') known.push({ label: question.label, value: display });
   }
 
-  const suggestedMaterials = ['Line or test-area layout', 'Product, conductor, cable or sample details'];
-  if (familyIds.includes('PF01') || familyIds.includes('PF02')) suggestedMaterials.push('Current line speed, diameter range and applicable quality specification');
-  if (familyIds.includes('PF03')) suggestedMaterials.push('Test method, sample information and applicable procedure');
-  if (familyIds.includes('PF04')) suggestedMaterials.push('Installation space, utilities and process-stage details');
-  if (familyIds.includes('PF05')) suggestedMaterials.push('Machine arrangement, load/tension range, reel/shaft and present controls');
+  const suggestedMaterials = ['Line or Test-Area Layout', 'Product, Conductor, Cable or Sample Details'];
+  if (familyIds.includes('PF01') || familyIds.includes('PF02')) suggestedMaterials.push('Current Line Speed, Diameter Range and Applicable Quality Specification');
+  if (familyIds.includes('PF03')) suggestedMaterials.push('Test Method, Sample Information and Applicable Procedure');
+  if (familyIds.includes('PF04')) suggestedMaterials.push('Installation Space, Utilities and Process-Stage Details');
+  if (familyIds.includes('PF05')) suggestedMaterials.push('Machine Arrangement, Load/Tension Range, Reel/Shaft and Present Controls');
 
   const productNames = selectedProducts.map((product) => product!.name);
   const lines = [

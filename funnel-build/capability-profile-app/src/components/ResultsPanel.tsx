@@ -9,7 +9,7 @@ export function ResultsPanel() {
 
   if (!results.length) return (
     <section className="empty-state" aria-live="polite">
-      <span className="status-icon" aria-hidden="true">?</span><h3>No published match is available for these selections.</h3>
+      <span className="status-icon" aria-hidden="true">?</span><h3>No Published Match Is Available for These Selections.</h3>
       <p>Edit the filters or discuss the requirement with Puretronics so the application can be reviewed directly.</p>
       <div className="inline-actions"><button className="button button-secondary" type="button" onClick={() => dispatch({ type: 'CLEAR_FILTERS' })}>Edit filters</button><a className="text-link" href="#prepare">Prepare my brief</a></div>
     </section>
@@ -17,7 +17,7 @@ export function ResultsPanel() {
 
   return (
     <section className="results-section" aria-labelledby="results-heading">
-      <div className="results-heading"><div><p className="proof-label">Governed results</p><h3 id="results-heading">Your relevant capability paths</h3></div><p><strong>{results.length}</strong> Primary Product{results.length === 1 ? '' : 's'}</p></div>
+      <div className="results-heading"><div><p className="proof-label">Governed Results</p><h3 id="results-heading">Your Relevant Capability Paths</h3></div><p><strong>{results.length}</strong> Primary Product{results.length === 1 ? '' : 's'}</p></div>
       <p className="result-intro">Based on what you selected, these are the Puretronics capabilities worth reviewing first. Every result explains why it appeared.</p>
       <div className="sr-only" aria-live="polite">{results.length} relevant Primary Products found.</div>
       <div className="result-list">
@@ -38,7 +38,7 @@ export function ResultsPanel() {
               </div>
               <div className="result-data">
                 {product.specs.slice(0, 2).map((spec) => <div key={spec.label}><span>{spec.label}</span><strong>{spec.display}</strong></div>)}
-                {!product.specs.length && <div><span>Selection basis</span><strong>{product.selectionFactors.slice(0, 2).join(' · ')}</strong></div>}
+                {!product.specs.length && <div><span>Selection Basis</span><strong>{product.selectionFactors.slice(0, 2).join(' · ')}</strong></div>}
               </div>
               <div className="result-actions">
                 <button type="button" className="button button-secondary" onClick={() => { dispatch({ type: 'OPEN_DRAWER', productId: product.id }); track('product_detail_opened', { ids: [product.id] }); }}>View details</button>
