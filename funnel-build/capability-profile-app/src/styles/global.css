@@ -15,7 +15,7 @@ p { margin: 0; }
 .section-band { background: var(--band-grey); border-block: 1px solid var(--hairline-grey); }
 .section-cool { background: var(--cool-paper); }
 .section-lead { max-width: 47rem; margin-top: 1.5rem; font-size: 1.125rem; }
-.eyebrow { color: var(--calibration-red); font-family: var(--font-heading); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.13em; line-height: 1.3; text-transform: uppercase; }
+.eyebrow { display: inline-block; padding-left: 0.7rem; color: var(--machine-black); border-left: 3px solid var(--calibration-red); font-family: var(--font-heading); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.13em; line-height: 1.3; text-transform: uppercase; }
 .lead { max-width: 44rem; margin-top: 1.55rem; font-size: clamp(1.08rem, 1.7vw, 1.3rem); line-height: 1.65; }
 .skip-link { position: fixed; z-index: 100; top: 0.5rem; left: 0.5rem; padding: 0.65rem 0.85rem; background: var(--paper); border: 2px solid var(--instrument-blue); transform: translateY(-160%); }
 .skip-link:focus { transform: none; }
