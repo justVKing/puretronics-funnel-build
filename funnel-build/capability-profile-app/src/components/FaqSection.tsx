@@ -1,0 +1,20 @@
+const faqs = [
+  ['Do I need to know the exact product or model before I contact Puretronics?', 'No. Begin with the production problem, test objective, line stage, existing equipment or desired outcome. The capability explorer and Application Review are designed to help narrow the relevant product path.'],
+  ['Can I use the explorer for both a new line and an existing-line retrofit?', 'Yes. Select the appropriate project route and include the existing process, available space, interfaces and current equipment where known. Retrofit suitability depends on the actual line arrangement and operating conditions.'],
+  ['Can the explorer recommend an exact model?', 'It can narrow the portfolio and show applicable products or models using validated selection factors. Final equipment and configuration selection is reviewed against the complete application, interfaces and project requirements.'],
+  ['What if my requirement involves more than one product family?', 'You can keep multiple capability paths in the same session and include them in one readiness brief. This is useful for new-line, retrofit, OEM and multi-stage process reviews.'],
+  ['What information is most useful for inline measurement?', 'Minimum and maximum diameter, material and construction, line speed, measurement location, number of measurement axes, the variation or defect of interest, and required control, display or data outputs.'],
+  ['What information is most useful for spark testing?', 'Cable construction and insulation, diameter range, line speed, test principle or voltage context, applicable quality specification, fault-response requirement and any data-logging, marking or calibration need.'],
+  ['How should I prepare for an offline cable-testing review?', 'Share the test objective, AC or DC method, sample or cable description, voltage/current context, test procedure or customer specification, throughput, reporting and laboratory/project environment.'],
+  ['What is needed for a fire-resistance cable-testing system review?', 'Provide the intended test method, cable/sample context, applicable specification, required system configuration, laboratory conditions, utilities, documentation and project-acceptance requirements. These systems are assessed project by project.'],
+  ['How are tension measurement, control and braking different?', 'Tension indicators provide visibility, loadcells or transducers sense load, controllers process feedback and command the control response, and brakes provide mechanical actuation in applicable unwind or pay-off arrangements.'],
+  ['Can I compare products from different families?', 'Yes, when the purpose is to understand how different equipment roles relate across a line. Detailed side-by-side technical comparison is used only where attributes are genuinely equivalent.'],
+  ['Do I have to complete every field in the Requirement Readiness Builder?', 'No. Answer what you can and mark the remaining items as unknown. The generated brief highlights open questions so they can be handled efficiently.'],
+  ['Does the Requirement Readiness Builder submit my information?', 'No. The builder creates a working brief in your current browser session. You choose whether to copy, save or use it during a separate booking or technical conversation.'],
+  ['What happens during a Wire and Cable Application Review?', 'Puretronics reviews the requirement, available operating and project information, relevant product paths and the questions still needing clarification. The objective is to agree the most useful next technical or commercial step.'],
+  ['I need service or support for installed equipment. Where should I go?', 'Use the dedicated Service and Support route so your request reaches the appropriate team.'],
+];
+
+export function FaqSection() {
+  return <section className="section faq-section"><div className="container"><p className="eyebrow">Frequently Asked Questions</p><h2>Useful answers before you begin.</h2><div className="faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div></div></section>;
+}

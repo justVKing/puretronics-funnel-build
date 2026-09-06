@@ -1,0 +1,9 @@
+@media print {
+  .site-header, .hero, #explore, .pathway-section, .evidence-section, #service-support, .faq-section, .final-cta, .site-footer, .mobile-booking-bar, .builder-status, .imported-selection, .builder-sections, .builder-submit, .brief-actions, .live-status { display: none !important; }
+  body { color: #000; background: #fff; }
+  .readiness-section { display: block !important; padding: 0 !important; }
+  .readiness-section > .section-heading-grid { display: none !important; }
+  .brief-preview { display: block !important; margin: 0; padding: 0; border: 0; box-shadow: none; }
+  .brief-columns { break-inside: avoid; }
+  .brief-disclaimer { border: 1px solid #999; }
+}

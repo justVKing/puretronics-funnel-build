@@ -1,0 +1,24 @@
+@font-face { font-family: Montserrat; src: url('/puretronics-funnel-build/assets/fonts/Montserrat-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: Montserrat; src: url('/puretronics-funnel-build/assets/fonts/Montserrat-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Open Sans"; src: url('/puretronics-funnel-build/assets/fonts/OpenSans-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Open Sans"; src: url('/puretronics-funnel-build/assets/fonts/OpenSans-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+
+:root {
+  --calibration-red: #ed3237;
+  --instrument-blue: #0077bd;
+  --machine-black: #232323;
+  --spec-grey: #6f6f6f;
+  --mute-grey: #939393;
+  --hairline-grey: #d5d5d5;
+  --panel-grey: #ececec;
+  --band-grey: #f9f9f9;
+  --cool-paper: #f4f6f8;
+  --paper: #ffffff;
+  --body-ink: #3d3d3d;
+  --font-heading: Montserrat, Arial, sans-serif;
+  --font-body: "Open Sans", Arial, sans-serif;
+  --container: 77.5rem;
+  --focus: 0 0 0 3px rgba(0, 119, 189, 0.28);
+  --shadow-lift: 0 14px 34px rgba(35, 35, 35, 0.09);
+  --radius: 0.25rem;
+}

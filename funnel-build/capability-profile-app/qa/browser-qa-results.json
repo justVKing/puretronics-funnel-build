@@ -1,0 +1,61 @@
+{
+  "baseUrl": "http://127.0.0.1:4173/puretronics-funnel-build/",
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "h1": 1,
+      "families": 5,
+      "fontHeading": "Montserrat, Arial, sans-serif",
+      "fontBody": "\"Open Sans\", Arial, sans-serif",
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "h1": 1,
+      "families": 5,
+      "fontHeading": "Montserrat, Arial, sans-serif",
+      "fontBody": "\"Open Sans\", Arial, sans-serif",
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "scrollWidth": 1024,
+      "clientWidth": 1024,
+      "h1": 1,
+      "families": 5,
+      "fontHeading": "Montserrat, Arial, sans-serif",
+      "fontBody": "\"Open Sans\", Arial, sans-serif",
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "h1": 1,
+      "families": 5,
+      "fontHeading": "Montserrat, Arial, sans-serif",
+      "fontBody": "\"Open Sans\", Arial, sans-serif",
+      "noHorizontalOverflow": true
+    }
+  ],
+  "consoleErrors": [],
+  "failedResponses": [],
+  "interactions": {
+    "modelSearch": "01\nP13\n\nTENSION / BRAKING / LINE CONTROL\n\nPneumatic Brake\n\nProvides pneumatic braking actuation in applicable unwind or pay-off arrangements.\n\n✓\nMatched model: AX-400\n\nModel match found in this Primary Product.\n\nSELECTION BASIS\nReel geometry · Shaft speed\nView details\nAdd to comparison\nPrepare my review",
+    "drawerTitle": "Pneumatic Brake",
+    "drawerClosed": true,
+    "bookingBoundary": {
+      "heading": "Booking System Page — Review Placeholder",
+      "noProductContext": true,
+      "fieldCount": 0
+    }
+  }
+}
