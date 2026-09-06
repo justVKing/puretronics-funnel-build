@@ -2,7 +2,6 @@ import type { FamilyId, ProjectRoute } from './catalog';
 
 export type ExplorerView = 'navigator' | 'line' | 'matrix' | 'compare';
 export type NavigatorMode = 'problem' | 'stage' | 'family' | 'search' | 'project' | 'guide';
-export type ComparisonMode = 'alternatives' | 'variants' | 'system';
 
 export interface ExplorerFilters {
   problems: string[];
@@ -24,8 +23,9 @@ export interface ExplorerState {
   navigatorMode: NavigatorMode | null;
   filters: ExplorerFilters;
   selectedProducts: string[];
-  comparison: string[];
-  comparisonMode: ComparisonMode;
+  comparisonProductId: string | null;
+  comparisonModelIds: string[];
+  comparisonShowDifferences: boolean;
   drawerProductId: string | null;
   readinessAnswers: Record<string, unknown>;
   briefGenerated: boolean;
@@ -38,9 +38,10 @@ export type ExplorerAction =
   | { type: 'SET_QUERY'; query: string }
   | { type: 'CLEAR_FILTERS' }
   | { type: 'TOGGLE_SELECTED'; productId: string }
-  | { type: 'TOGGLE_COMPARISON'; productId: string; limit: number }
+  | { type: 'SET_COMPARISON_PRODUCT'; productId: string | null }
+  | { type: 'TOGGLE_COMPARISON_MODEL'; modelId: string; limit: number }
+  | { type: 'SET_COMPARISON_DIFFERENCES'; show: boolean }
   | { type: 'CLEAR_COMPARISON' }
-  | { type: 'SET_COMPARISON_MODE'; mode: ComparisonMode }
   | { type: 'OPEN_DRAWER'; productId: string }
   | { type: 'CLOSE_DRAWER' }
   | { type: 'SET_READINESS_ANSWER'; questionId: string; value: unknown }

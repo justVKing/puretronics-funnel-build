@@ -18,7 +18,7 @@ import { WebMcpBridge } from './components/WebMcpBridge';
 const capabilityBenefits = [
   'Relevant capability and product paths based on your selections',
   'A clear view of where those capabilities fit in production or testing',
-  'Comparable technical information where like-for-like comparison is useful',
+  'Complete approved specification tables for direct model-to-model comparison',
   'Key operating and project inputs that can help narrow the selection',
   'A direct route to prepare an application brief or book an Application Review',
 ];

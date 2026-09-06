@@ -1,7 +1,7 @@
 import { siteConfig } from '../config/site';
 import { track } from '../analytics/events';
 
-const steps = [['01', 'Explore', 'Start with the problem, production stage, product family or known product.'], ['02', 'Narrow', 'Review relevant capability paths and compare applicable products or models.'], ['03', 'Prepare', 'Organise known operating conditions, integration requirements and open questions.'], ['04', 'Review', 'Meet Puretronics to examine the application and agree the most useful next step.']];
+const steps = [['01', 'Explore', 'Start with the problem, production stage, product family or known product.'], ['02', 'Narrow', 'Review relevant capability paths and compare approved models within a Primary Product.'], ['03', 'Prepare', 'Organise known operating conditions, integration requirements and open questions.'], ['04', 'Review', 'Meet Puretronics to examine the application and agree the most useful next step.']];
 const evidenceNeeds = ['Wire and cable application example', 'Inline measurement outcome', 'Spark-testing application', 'Tension/braking application', 'Customer testimonial document'];
 
 export function ProofAndCertificate() {

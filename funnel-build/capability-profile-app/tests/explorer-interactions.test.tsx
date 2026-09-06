@@ -25,4 +25,27 @@ describe('capability explorer interactions', () => {
     await user.click(screen.getByRole('tab', { name: /Production-Line Map/i }));
     expect(screen.getAllByRole('button', { name: /Inline spark testing/i })[0]).toHaveAttribute('aria-pressed', 'true');
   });
+
+  it('presents a dense capability coverage index without empty family intersections', async () => {
+    const user = userEvent.setup();
+    render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
+    await user.click(screen.getByRole('tab', { name: /Capability Matrix/i }));
+    expect(screen.getByRole('heading', { name: /Move from a requirement/i })).toBeInTheDocument();
+    expect(screen.getByText(/governed requirement paths shown/i).closest('p')).toHaveTextContent('11 governed requirement paths shown');
+    expect(screen.queryByLabelText('Not applicable')).not.toBeInTheDocument();
+    expect(screen.getAllByRole('button', { name: /LASER 2008 Series/i }).length).toBeGreaterThan(0);
+  });
+
+  it('lets visitors select a product and models directly in the comparison tab', async () => {
+    const user = userEvent.setup();
+    render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
+    await user.click(screen.getByRole('tab', { name: /Comparison Workbench/i }));
+    await user.selectOptions(screen.getByRole('combobox', { name: 'Primary Product' }), 'P13');
+    expect(await screen.findByRole('heading', { name: 'Choose models' })).toBeInTheDocument();
+    expect(screen.getByRole('table', { name: /complete approved public model specification comparison/i })).toBeInTheDocument();
+    expect(screen.getByRole('rowheader', { name: 'Braking value' })).toBeInTheDocument();
+    expect(screen.getByRole('rowheader', { name: 'Maximum speed' })).toBeInTheDocument();
+    expect(screen.queryByText('Like-for-like')).not.toBeInTheDocument();
+    expect(screen.queryByText('System roles')).not.toBeInTheDocument();
+  });
 });

@@ -47,9 +47,9 @@ export const products: ProductRecord[] = [
     buyerProblems: ['diameter-variation', 'dimensional-consistency', 'lump-neck'], stages: ['inline-measurement', 'extrusion'], projectRoutes: ['new-line', 'retrofit', 'replacement', 'oem'], useCases: ['Diameter measurement', 'Lump-and-neck detection'],
     selectionFactors: ['Diameter range', 'Condition of interest', 'Control/output requirements', 'Line arrangement'], specs: [datum('Sampling frequency', '20 kHz', 'speed', 'P03'), datum('Single-axis sampling', '10 kHz', 'speed', 'P03')],
     models: [
-      { id: 'P03A', name: 'LASER-2010H', aliases: ['2010h'], specs: [datum('Measurement range', '0.1–10 mm', 'range', 'P03A')] },
-      { id: 'P03B', name: 'LASER-2020H', aliases: ['2020h'], specs: [datum('Measurement range', '0.3–20 mm', 'range', 'P03B')] },
-      { id: 'P03C', name: 'LASER-2030H', aliases: ['2030h'], specs: [datum('Measurement range', '0.3–30 mm', 'range', 'P03C')] },
+      { id: 'P03A', name: 'LASER-2010H', aliases: ['2010h'], specs: [datum('Measurement range', '0.1–10 mm', 'range', 'P03A'), datum('Scanning frequency', '20 kHz', 'speed', 'P03A'), datum('Single-axis sampling', '10 kHz', 'speed', 'P03A')] },
+      { id: 'P03B', name: 'LASER-2020H', aliases: ['2020h'], specs: [datum('Measurement range', '0.3–20 mm', 'range', 'P03B'), datum('Scanning frequency', '20 kHz', 'speed', 'P03B'), datum('Single-axis sampling', '10 kHz', 'speed', 'P03B')] },
+      { id: 'P03C', name: 'LASER-2030H', aliases: ['2030h'], specs: [datum('Measurement range', '0.3–30 mm', 'range', 'P03C'), datum('Scanning frequency', '20 kHz', 'speed', 'P03C'), datum('Single-axis sampling', '10 kHz', 'speed', 'P03C')] },
     ], caveats: ['Lump-and-neck detection is validated; this is not a general surface-defect inspection claim.'], availability: 'Standard models.', comparisonGroup: 'laser-h', image: 'products/ldg-thumb.jpg', governance: governance(),
   },
   {
@@ -58,17 +58,17 @@ export const products: ProductRecord[] = [
     buyerProblems: ['insulation-faults', 'quality-detection'], stages: ['inline-spark-testing', 'extrusion'], projectRoutes: ['new-line', 'retrofit', 'replacement', 'oem'], useCases: ['Inline insulation-fault detection', 'Fault information and downstream response review'],
     selectionFactors: ['Test principle', 'Voltage', 'Cable diameter', 'Line speed', 'Fault response', 'Data, marking and calibration needs'], specs: [datum('Platform voltage context', '1.5–30 kV, model dependent', 'voltage', 'P04'), datum('Platform speed context', '200–2500 m/min, model dependent', 'speed', 'P04')],
     models: [
-      { id: 'P04A', name: 'Live Spark Tester', aliases: ['live'], specs: [datum('Voltage paths', '1.5–15 / 25 / 30 kV', 'voltage', 'P04A'), datum('Cable diameter', '0.5–40 mm; 60 mm on demand', 'range', 'P04A'), datum('Line speed', 'Up to 200 m/min', 'speed', 'P04A')] },
-      { id: 'P04B', name: 'Acute Spark Tester', aliases: ['acute'], specs: [datum('Voltage paths', '1.5–10 / 15 kV', 'voltage', 'P04B'), datum('Cable diameter', '0.5–15 mm', 'range', 'P04B'), datum('Line speed', 'Up to 1500 m/min', 'speed', 'P04B')] },
-      { id: 'P04C', name: 'DC Spark Tester', aliases: ['dc'], specs: [datum('Voltage paths', '1.5–15 / 20 kV', 'voltage', 'P04C'), datum('Cable diameter', '0.5–15 mm; 30 mm on demand', 'range', 'P04C'), datum('Line speed', 'Up to 2500 m/min, model dependent', 'speed', 'P04C')] },
+      { id: 'P04A', name: 'Live Spark Tester', aliases: ['live'], specs: [datum('Test principle', 'Live AC at supply frequency', 'feature', 'P04A'), datum('Voltage paths', '1.5–15 / 25 / 30 kV', 'voltage', 'P04A'), datum('Cable diameter', '0.5–40 mm; 60 mm on demand', 'range', 'P04A'), datum('Line speed', 'Up to 200 m/min', 'speed', 'P04A')] },
+      { id: 'P04B', name: 'Acute Spark Tester', aliases: ['acute'], specs: [datum('Test principle', 'High-frequency sine-wave AC', 'feature', 'P04B'), datum('Voltage paths', '1.5–10 / 15 kV', 'voltage', 'P04B'), datum('Cable diameter', '0.5–15 mm', 'range', 'P04B'), datum('Line speed', 'Up to 1500 m/min', 'speed', 'P04B')] },
+      { id: 'P04C', name: 'DC Spark Tester', aliases: ['dc'], specs: [datum('Test principle', 'Direct current', 'feature', 'P04C'), datum('Voltage paths', '1.5–15 / 20 kV', 'voltage', 'P04C'), datum('Cable diameter', '0.5–15 mm; 30 mm on demand', 'range', 'P04C'), datum('Line speed', 'Up to 2500 m/min, model dependent', 'speed', 'P04C')] },
     ], caveats: ['Live, Acute and DC values are model-specific and must not be blended.', 'Fault interface, logging, marking and calibration support are shown only where applicable.'], availability: 'Standard and on-demand options as identified by model.', comparisonGroup: 'spark-method', image: 'products/spark-thumb.jpg', governance: governance(),
   },
   {
     id: 'P05', order: 5, familyId: 'PF03', name: 'Offline High-Voltage Tester Platform', shortName: 'Offline High-Voltage Testers', aliases: ['hv tester', 'high voltage tester', 'ac hv', 'dc hv'], systemRole: 'Offline electrical validation', role: 'Separate AC and DC offline high-voltage test paths.', primaryFunction: 'Supports offline high-voltage testing of finished cable or samples.',
     buyerProblems: ['offline-hv', 'quality-validation'], stages: ['offline-hv-testing'], projectRoutes: ['laboratory', 'replacement', 'new-line'], useCases: ['Finished-cable and laboratory high-voltage testing'], selectionFactors: ['AC or DC method', 'Voltage/current', 'Sample', 'Test procedure', 'Throughput and reporting'],
     specs: [], models: [
-      { id: 'P05A', name: 'AC High-Voltage Tester', aliases: ['ac high voltage'], specs: [datum('AC voltage', 'Up to 40 kV', 'voltage', 'P05A'), datum('Current', '1 A', 'capacity', 'P05A')], caveat: 'Requirements above 40 kV are request-based.' },
-      { id: 'P05B', name: 'DC High-Voltage Tester', aliases: ['dc high voltage'], specs: [datum('DC voltage', '0.5–20 kV', 'voltage', 'P05B'), datum('Current', '1 mA', 'capacity', 'P05B')], caveat: 'Other voltage requirements are request-based.' },
+      { id: 'P05A', name: 'AC High-Voltage Tester', aliases: ['ac high voltage'], specs: [datum('Test method', 'Alternating current (AC)', 'feature', 'P05A'), datum('Voltage', 'Up to 40 kV', 'voltage', 'P05A'), datum('Current', 'Up to 1 A', 'capacity', 'P05A')], caveat: 'Requirements above 40 kV are request-based.' },
+      { id: 'P05B', name: 'DC High-Voltage Tester', aliases: ['dc high voltage'], specs: [datum('Test method', 'Direct current (DC)', 'feature', 'P05B'), datum('Voltage', '0.5–20 kV', 'voltage', 'P05B'), datum('Current', '1 mA', 'capacity', 'P05B')], caveat: 'Other voltage requirements are request-based.' },
     ], caveats: ['AC and DC capabilities are separate and must not be combined into one value.'], availability: 'Standard and request-based configurations.', comparisonGroup: 'offline-hv', image: 'products/hv-tester-thumb.jpg', governance: governance(),
   },
   {
@@ -81,9 +81,9 @@ export const products: ProductRecord[] = [
     buyerProblems: ['wire-preheating', 'process-stability'], stages: ['preheating', 'extrusion'], projectRoutes: ['new-line', 'retrofit', 'replacement', 'oem'], useCases: ['Conductor preheating before extrusion'], selectionFactors: ['Solid or bunched conductor', 'Wire size', 'Line speed', 'Target temperature', 'Installation and utilities'],
     specs: [datum('Solid conductor', '0.1–10 mm', 'range', 'P07'), datum('Bunched conductor', '0.1–16 mm', 'range', 'P07'), datum('Target temperature', '60–180 °C', 'temperature', 'P07'), datum('Validated speed configurations', '40–2000 m/min', 'speed', 'P07')],
     models: [
-      { id: 'P07A', name: 'PH10019C / 1000', aliases: ['ph10019c 1000'], specs: [datum('Line speed', 'Up to 1000 m/min', 'speed', 'P07A'), datum('Wire range', '0.4–3.6 mm', 'range', 'P07A')] },
-      { id: 'P07B', name: 'PH10019C / 1500', aliases: ['ph10019c 1500'], specs: [datum('Line speed', 'Up to 1500 m/min', 'speed', 'P07B'), datum('Wire range', '0.5–2.8 mm', 'range', 'P07B')] },
-      { id: 'P07C', name: 'PH10019C / 2000', aliases: ['ph10019c 2000'], specs: [datum('Line speed', 'Up to 2000 m/min', 'speed', 'P07C'), datum('Wire range', '0.3–1.4 mm', 'range', 'P07C')] },
+      { id: 'P07A', name: 'PH10019C / 1000', aliases: ['ph10019c 1000'], specs: [datum('Line speed', 'Up to 1000 m/min; depends on wire diameter', 'speed', 'P07A'), datum('Wire range', '0.4–3.6 mm', 'range', 'P07A'), datum('Target temperature', '60–180 °C', 'temperature', 'P07A')] },
+      { id: 'P07B', name: 'PH10019C / 1500', aliases: ['ph10019c 1500'], specs: [datum('Line speed', 'Up to 1500 m/min; depends on wire diameter', 'speed', 'P07B'), datum('Wire range', '0.5–2.8 mm', 'range', 'P07B'), datum('Target temperature', '60–180 °C', 'temperature', 'P07B')] },
+      { id: 'P07C', name: 'PH10019C / 2000', aliases: ['ph10019c 2000'], specs: [datum('Line speed', 'Up to 2000 m/min; depends on wire diameter', 'speed', 'P07C'), datum('Wire range', '0.3–1.4 mm', 'range', 'P07C'), datum('Target temperature', '60–180 °C', 'temperature', 'P07C')] },
     ], caveats: ['Speed, conductor range and target temperature are configuration-dependent.'], availability: 'Configured variants.', comparisonGroup: 'preheater', image: 'products/preheater-thumb.jpg', governance: governance(),
   },
   {

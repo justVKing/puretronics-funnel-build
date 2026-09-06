@@ -6,7 +6,6 @@ export function ResultsPanel() {
   const { state, dispatch, results } = useExplorer();
   const isActive = state.navigatorMode || state.filters.problems.length || state.filters.stages.length || state.filters.families.length || state.filters.routes.length || state.filters.query;
   if (!isActive) return null;
-  const limit = typeof window !== 'undefined' && window.innerWidth < 768 ? 2 : 3;
 
   if (!results.length) return (
     <section className="empty-state" aria-live="polite">
@@ -25,7 +24,8 @@ export function ResultsPanel() {
         {results.map((result, index) => {
           const product = productById.get(result.productId)!;
           const selected = state.selectedProducts.includes(product.id);
-          const compared = state.comparison.includes(product.id);
+          const compared = state.comparisonProductId === product.id;
+          const comparable = product.models.length > 1;
           return (
             <article className="result-card" key={product.id}>
               <div className="result-rank"><span>{String(index + 1).padStart(2, '0')}</span><span>{product.id}</span></div>
@@ -42,7 +42,7 @@ export function ResultsPanel() {
               </div>
               <div className="result-actions">
                 <button type="button" className="button button-secondary" onClick={() => { dispatch({ type: 'OPEN_DRAWER', productId: product.id }); track('product_detail_opened', { ids: [product.id] }); }}>View details</button>
-                <button type="button" className={`tray-button${compared ? ' is-selected' : ''}`} disabled={!compared && state.comparison.length >= limit} onClick={() => { dispatch({ type: 'TOGGLE_COMPARISON', productId: product.id, limit }); if (!compared) track('comparison_item_added', { ids: [product.id] }); }}>{compared ? 'Remove from comparison' : 'Add to comparison'}</button>
+                <button type="button" className={`tray-button${compared ? ' is-selected' : ''}`} disabled={!comparable} onClick={() => { dispatch({ type: 'SET_COMPARISON_PRODUCT', productId: compared ? null : product.id }); if (!compared) track('comparison_item_added', { ids: [product.id] }); }}>{comparable ? (compared ? 'Selected for model comparison' : 'Compare models') : 'No model set to compare'}</button>
                 <button type="button" className={`tray-button${selected ? ' is-selected' : ''}`} onClick={() => dispatch({ type: 'TOGGLE_SELECTED', productId: product.id })}>{selected ? 'Added to review' : 'Prepare my review'}</button>
               </div>
             </article>

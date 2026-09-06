@@ -5,8 +5,9 @@ export const initialState: ExplorerState = {
   navigatorMode: null,
   filters: { problems: [], stages: [], families: [], routes: [], query: '' },
   selectedProducts: [],
-  comparison: [],
-  comparisonMode: 'alternatives',
+  comparisonProductId: null,
+  comparisonModelIds: [],
+  comparisonShowDifferences: false,
   drawerProductId: null,
   readinessAnswers: {},
   briefGenerated: false,
@@ -22,11 +23,15 @@ export function explorerReducer(state: ExplorerState, action: ExplorerAction): E
     case 'SET_QUERY': return { ...state, filters: { ...state.filters, query: action.query } };
     case 'CLEAR_FILTERS': return { ...state, filters: initialState.filters, navigatorMode: null };
     case 'TOGGLE_SELECTED': return { ...state, selectedProducts: toggle(state.selectedProducts, action.productId) };
-    case 'TOGGLE_COMPARISON': return state.comparison.includes(action.productId)
-      ? { ...state, comparison: state.comparison.filter((id) => id !== action.productId) }
-      : state.comparison.length >= action.limit ? state : { ...state, comparison: [...state.comparison, action.productId] };
-    case 'CLEAR_COMPARISON': return { ...state, comparison: [] };
-    case 'SET_COMPARISON_MODE': return { ...state, comparisonMode: action.mode };
+    case 'SET_COMPARISON_PRODUCT': {
+      if (!action.productId) return { ...state, comparisonProductId: null, comparisonModelIds: [], comparisonShowDifferences: false };
+      return { ...state, comparisonProductId: action.productId, comparisonModelIds: [], comparisonShowDifferences: false };
+    }
+    case 'TOGGLE_COMPARISON_MODEL': return state.comparisonModelIds.includes(action.modelId)
+      ? { ...state, comparisonModelIds: state.comparisonModelIds.filter((id) => id !== action.modelId) }
+      : state.comparisonModelIds.length >= action.limit ? state : { ...state, comparisonModelIds: [...state.comparisonModelIds, action.modelId] };
+    case 'SET_COMPARISON_DIFFERENCES': return { ...state, comparisonShowDifferences: action.show };
+    case 'CLEAR_COMPARISON': return { ...state, comparisonProductId: null, comparisonModelIds: [], comparisonShowDifferences: false };
     case 'OPEN_DRAWER': return { ...state, drawerProductId: action.productId };
     case 'CLOSE_DRAWER': return { ...state, drawerProductId: null };
     case 'SET_READINESS_ANSWER': return { ...state, readinessAnswers: { ...state.readinessAnswers, [action.questionId]: action.value }, briefGenerated: false };

@@ -19,7 +19,7 @@ describe('session persistence', () => {
 
   it('falls back safely on corrupt data', () => {
     const storage = new MemoryStorage();
-    storage.setItem('puretronics-capability-profile:v1', '{invalid');
+    storage.setItem('puretronics-capability-profile:v2', '{invalid');
     expect(loadState(storage)).toEqual(initialState);
   });
 });
