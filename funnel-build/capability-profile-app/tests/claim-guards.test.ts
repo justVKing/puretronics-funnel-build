@@ -11,7 +11,7 @@ describe('high-risk technical claim guards', () => {
   it('keeps P06 source-limited and project-specific', () => {
     const product = productById.get('P06')!;
     expect(product.governance.evidence).toBe('Source-Limited');
-    expect(product.availability).toBe('Project-specific system.');
+    expect(product.availability).toBe('Project-Specific System.');
     expect(product.specs).toHaveLength(0);
   });
   it('publishes six approved P08 variants without extrapolation', () => expect(productById.get('P08')?.models).toHaveLength(6));
