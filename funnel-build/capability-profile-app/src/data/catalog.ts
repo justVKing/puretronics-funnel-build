@@ -1,4 +1,5 @@
 import type { ProductFamily, ProductRecord } from '../types/catalog';
+import { directTechnicalVariants, publicRecordDetails, specificationsFor, supportingItems } from './v4';
 
 const governance = (evidence: 'Validated' | 'Source-Limited' = 'Validated') => ({
   approval: 'Approved' as const,
@@ -18,7 +19,7 @@ export const families: ProductFamily[] = [
   { id: 'PF05', name: 'Tension / Braking / Line Control', summary: 'Distinguish tension indication, sensing, active control and pneumatic braking across tension-sensitive processes.', selectionInputs: 'Material, dimension, tension/load, speed, reel geometry, control mode, air supply and mounting.' },
 ];
 
-export const products: ProductRecord[] = [
+const productBlueprints: ProductRecord[] = [
   {
     id: 'P01', order: 1, familyId: 'PF01', name: 'LASER 2008 Series Diameter Measurement Platform', shortName: 'LASER 2008 Series', aliases: ['laser 2008', 'laser 2008b'], systemRole: 'Inline measurement and control',
     role: 'Continuous non-contact diameter measurement with control functions depending on validated configuration.', primaryFunction: 'Measures wire and cable diameter inline and supports clearer process-control decisions.',
@@ -100,7 +101,7 @@ export const products: ProductRecord[] = [
   },
   {
     id: 'P09', order: 9, familyId: 'PF04', name: 'Butt Welding Machine', shortName: 'Butt Welding Machine', aliases: ['butt welder', 'wire welding'], systemRole: 'Conductor joining and repair', role: 'Joins documented copper or aluminium conductor ranges.', primaryFunction: 'Supports conductor joining, repair and production continuity for the reviewed material and range.',
-    buyerProblems: ['joining-repair', 'production-continuity'], stages: ['conductor-preparation', 'joining-repair'], projectRoutes: ['new-line', 'retrofit', 'replacement'], useCases: ['Conductor Joining and Repair'], selectionFactors: ['Material', 'Conductor Construction', 'Cross-Section or Diameter', 'Duty and Installation'], specs: [], models: [], caveats: ['Confirmed Selection Depends on Conductor Material, Construction and Documented Range.'], availability: 'Application Reviewed.', comparisonGroup: 'butt-welder', image: 'products/butt-welding-thumb.jpg', governance: governance(),
+    buyerProblems: ['joining-repair', 'production-continuity'], stages: ['conductor-preparation'], projectRoutes: ['new-line', 'retrofit', 'replacement'], useCases: ['Conductor Joining and Repair'], selectionFactors: ['Material', 'Conductor Construction', 'Cross-Section or Diameter', 'Duty and Installation'], specs: [], models: [], caveats: ['Confirmed Selection Depends on Conductor Material, Construction and Documented Range.'], availability: 'Application Reviewed.', comparisonGroup: 'butt-welder', image: 'products/butt-welding-thumb.jpg', governance: governance(),
   },
   {
     id: 'P10', order: 10, familyId: 'PF05', name: 'Wire Tension Indicator', shortName: 'Wire Tension Indicator', aliases: ['wti', 'wti-90-40', 'wti-100-40', 'tension display'], systemRole: 'Indication', role: 'Measures and indicates wire tension; it is not an active tension controller.', primaryFunction: 'Provides tension visibility for reviewed wire sizes and tension configurations.',
@@ -137,6 +138,27 @@ export const products: ProductRecord[] = [
     ], caveats: ['Braking Value, Speed, Pressure and Other Limits Are Model-Specific.', 'Final Brake Selection Requires Reel, Shaft, Duty, Air-Supply and Mounting Review.'], availability: 'Standard Models; Application Review Required.', comparisonGroup: 'pneumatic-brake', image: 'products/pnuematic-brake-thumb.jpg', governance: governance(),
   },
 ];
+
+export const products: ProductRecord[] = productBlueprints.map((product) => {
+  const record = publicRecordDetails(product.id);
+  const aliasesById = new Map(product.models.map((model) => [model.id, model.aliases]));
+  const models = directTechnicalVariants(product.id).map((model) => ({
+    ...model,
+    aliases: [...new Set([...(aliasesById.get(model.id) ?? []), ...model.aliases])],
+  }));
+
+  return {
+    ...product,
+    name: record?.name ?? product.name,
+    primaryFunction: record?.primaryFunction || product.primaryFunction,
+    specs: specificationsFor(product.id),
+    models,
+    supportItems: supportingItems(product.id),
+    caveats: record?.technicalCaveats ? [record.technicalCaveats] : product.caveats,
+    availability: record?.availability || product.availability,
+    record,
+  };
+});
 
 export const productById = new Map(products.map((product) => [product.id, product]));
 export const familyById = new Map(families.map((family) => [family.id, family]));

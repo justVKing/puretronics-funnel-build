@@ -1,0 +1,1509 @@
+{
+  "capturedAt": "2026-09-07",
+  "sourceDatabase": "https://app.notion.com/p/a6c3dd29567d820892b781220917231a?pvs=204",
+  "inclusionRule": "Approval Status = Approved and Claim State = Current",
+  "totals": {
+    "records": 83,
+    "technicalSpecifications": 747,
+    "primaryProducts": 13,
+    "directModelsConfigurationsAndSeries": 33,
+    "capacitySkus": 24,
+    "supportAndOptionRecords": 13
+  },
+  "records": [
+    {
+      "id": "LS1",
+      "recordClass": "Support",
+      "parentId": "P01",
+      "specificationCount": 3,
+      "labels": [
+        "Support Components",
+        "Applicability",
+        "Availability"
+      ],
+      "valueChecksum": "a3c8b17c"
+    },
+    {
+      "id": "LS2",
+      "recordClass": "Support",
+      "parentId": "P01",
+      "specificationCount": 3,
+      "labels": [
+        "Support Components",
+        "Applicability",
+        "Availability"
+      ],
+      "valueChecksum": "4be87de6"
+    },
+    {
+      "id": "P01",
+      "recordClass": "Product",
+      "parentId": null,
+      "specificationCount": 14,
+      "labels": [
+        "Measurement Range",
+        "Gate Size",
+        "Scan Velocity",
+        "Resolution",
+        "Repeatability",
+        "Accuracy",
+        "Scan Rate",
+        "Operating Temperature",
+        "Relative Humidity",
+        "Power Supply",
+        "Dimensions (W × H × D)",
+        "Power Consumption",
+        "Approximate Weight",
+        "Communication"
+      ],
+      "valueChecksum": "d3e4b8fe"
+    },
+    {
+      "id": "P01A",
+      "recordClass": "Model",
+      "parentId": "P01",
+      "specificationCount": 14,
+      "labels": [
+        "Measurement Range",
+        "Gate Size",
+        "Scan Velocity",
+        "Resolution",
+        "Repeatability",
+        "Accuracy",
+        "Scan Rate",
+        "Operating Temperature",
+        "Relative Humidity",
+        "Power Supply",
+        "Dimensions",
+        "Power Consumption",
+        "Approximate Weight",
+        "Communication"
+      ],
+      "valueChecksum": "bdea81e0"
+    },
+    {
+      "id": "P01B",
+      "recordClass": "Model",
+      "parentId": "P01",
+      "specificationCount": 14,
+      "labels": [
+        "Measurement Range",
+        "Gate Size",
+        "Scan Velocity",
+        "Resolution",
+        "Repeatability",
+        "Accuracy",
+        "Scan Rate",
+        "Operating Temperature",
+        "Relative Humidity",
+        "Power Supply",
+        "Dimensions",
+        "Power Consumption",
+        "Approximate Weight",
+        "Communication"
+      ],
+      "valueChecksum": "09ccf3ba"
+    },
+    {
+      "id": "P02",
+      "recordClass": "Product",
+      "parentId": null,
+      "specificationCount": 6,
+      "labels": [
+        "Information Area",
+        "Measurement Method",
+        "Measured Parameters",
+        "Typical Materials",
+        "Integration",
+        "Transparency Measurement"
+      ],
+      "valueChecksum": "150d67ff"
+    },
+    {
+      "id": "P02A",
+      "recordClass": "Model",
+      "parentId": "P02",
+      "specificationCount": 21,
+      "labels": [
+        "Measuring Range",
+        "Center Measurement Accuracy",
+        "Straightness",
+        "Repeatability",
+        "Working Principle",
+        "Light Source",
+        "Display Method",
+        "Display Frequency",
+        "Scanning Speed",
+        "Data Collection and Analysis",
+        "Alarm Signal Output",
+        "Transparency Measurements",
+        "Power Supply",
+        "Power Consumption: Watts",
+        "Ambient Temperature",
+        "Relative Humidity",
+        "Environmental Requirements",
+        "Product Net Weight: kg",
+        "Measurement Unit Size: mm",
+        "Product Protection",
+        "Communication Interface"
+      ],
+      "valueChecksum": "889f8ea7"
+    },
+    {
+      "id": "P02B",
+      "recordClass": "Model",
+      "parentId": "P02",
+      "specificationCount": 21,
+      "labels": [
+        "Measuring Range",
+        "Center Measurement Accuracy",
+        "Straightness",
+        "Repeatability",
+        "Working Principle",
+        "Light Source",
+        "Display Method",
+        "Display Frequency",
+        "Scanning Speed",
+        "Data Collection and Analysis",
+        "Alarm Signal Output",
+        "Transparency Measurements",
+        "Power Supply",
+        "Power Consumption: Watts",
+        "Ambient Temperature",
+        "Relative Humidity",
+        "Environmental Requirements",
+        "Product Net Weight: kg",
+        "Measurement Unit Size: mm",
+        "Product Protection",
+        "Communication Interface"
+      ],
+      "valueChecksum": "04754331"
+    },
+    {
+      "id": "P02C",
+      "recordClass": "Model",
+      "parentId": "P02",
+      "specificationCount": 21,
+      "labels": [
+        "Measuring Range",
+        "Center Measurement Accuracy",
+        "Straightness",
+        "Repeatability",
+        "Working Principle",
+        "Light Source",
+        "Display Method",
+        "Display Frequency",
+        "Scanning Speed",
+        "Data Collection and Analysis",
+        "Alarm Signal Output",
+        "Transparency Measurements",
+        "Power Supply",
+        "Power Consumption: Watts",
+        "Ambient Temperature",
+        "Relative Humidity",
+        "Environmental Requirements",
+        "Product Net Weight: kg",
+        "Measurement Unit Size: mm",
+        "Product Protection",
+        "Communication Interface"
+      ],
+      "valueChecksum": "3ce4cad8"
+    },
+    {
+      "id": "P03",
+      "recordClass": "Product",
+      "parentId": null,
+      "specificationCount": 6,
+      "labels": [
+        "Information Area",
+        "Measurement Method",
+        "Primary Measurement",
+        "Additional Validated Capability",
+        "Data and Integration",
+        "Transparency Measurement"
+      ],
+      "valueChecksum": "a65f6188"
+    },
+    {
+      "id": "P03A",
+      "recordClass": "Model",
+      "parentId": "P03",
+      "specificationCount": 19,
+      "labels": [
+        "Measuring Range",
+        "Display Resolution: mm",
+        "Accuracy",
+        "Repeatability",
+        "Working Principle",
+        "Display Method",
+        "Scanning Frequency",
+        "Data Collection and Analysis",
+        "Alarm Signal Output",
+        "Transparency Measurements",
+        "Power Supply",
+        "Power Consumption: Watts",
+        "Ambient Temperature",
+        "Relative Humidity",
+        "Environmental Requirements",
+        "Product Net Weight: kg",
+        "Measurement Unit Size: mm",
+        "Product Protection",
+        "Communication Interface"
+      ],
+      "valueChecksum": "3f3c516e"
+    },
+    {
+      "id": "P03B",
+      "recordClass": "Model",
+      "parentId": "P03",
+      "specificationCount": 19,
+      "labels": [
+        "Measuring Range",
+        "Display Resolution: mm",
+        "Accuracy",
+        "Repeatability",
+        "Working Principle",
+        "Display Method",
+        "Scanning Frequency",
+        "Data Collection and Analysis",
+        "Alarm Signal Output",
+        "Transparency Measurements",
+        "Power Supply",
+        "Power Consumption: Watts",
+        "Ambient Temperature",
+        "Relative Humidity",
+        "Environmental Requirements",
+        "Product Net Weight: kg",
+        "Measurement Unit Size: mm",
+        "Product Protection",
+        "Communication Interface"
+      ],
+      "valueChecksum": "617fdaaf"
+    },
+    {
+      "id": "P03C",
+      "recordClass": "Model",
+      "parentId": "P03",
+      "specificationCount": 19,
+      "labels": [
+        "Measuring Range",
+        "Display Resolution: mm",
+        "Accuracy",
+        "Repeatability",
+        "Working Principle",
+        "Display Method",
+        "Scanning Frequency",
+        "Data Collection and Analysis",
+        "Alarm Signal Output",
+        "Transparency Measurements",
+        "Power Supply",
+        "Power Consumption: Watts",
+        "Ambient Temperature",
+        "Relative Humidity",
+        "Environmental Requirements",
+        "Product Net Weight: kg",
+        "Measurement Unit Size: mm",
+        "Product Protection",
+        "Communication Interface"
+      ],
+      "valueChecksum": "c46caa9e"
+    },
+    {
+      "id": "P04",
+      "recordClass": "Product",
+      "parentId": null,
+      "specificationCount": 6,
+      "labels": [
+        "Platform Capability",
+        "Fault Detection",
+        "Product Coverage",
+        "Installation Context",
+        "Common Controls",
+        "Data and Extensions"
+      ],
+      "valueChecksum": "a1d9de7f"
+    },
+    {
+      "id": "P04A",
+      "recordClass": "Model",
+      "parentId": "P04",
+      "specificationCount": 13,
+      "labels": [
+        "Voltage Range",
+        "Test Frequency",
+        "Wire Size",
+        "Electrode",
+        "Max Wire Speed",
+        "HV Meter",
+        "Sensitivity",
+        "Fault Counter",
+        "Power Supply",
+        "Interlocking",
+        "Safety",
+        "Adjustable Wire Running Height",
+        "Dimension in mm (15 kV)"
+      ],
+      "valueChecksum": "0e0ebbee"
+    },
+    {
+      "id": "P04B",
+      "recordClass": "Model",
+      "parentId": "P04",
+      "specificationCount": 14,
+      "labels": [
+        "Voltage Range",
+        "Test Frequency",
+        "Wire Size",
+        "Electrode",
+        "Max Wire Speed",
+        "HV Meter",
+        "Sensitivity",
+        "Fault Counter",
+        "Power Supply",
+        "Interlocking",
+        "Safety",
+        "Adjustable Wire Running Height",
+        "Dimension in mm (15 kV)",
+        "Approximate Weight (15 kV)"
+      ],
+      "valueChecksum": "c796e7af"
+    },
+    {
+      "id": "P04C",
+      "recordClass": "Model",
+      "parentId": "P04",
+      "specificationCount": 14,
+      "labels": [
+        "Voltage Range",
+        "Test Frequency",
+        "Wire Size",
+        "Electrode",
+        "Max Wire Speed",
+        "HV Meter",
+        "Sensitivity",
+        "Fault Counter",
+        "Power Supply",
+        "Interlocking",
+        "Safety",
+        "Adjustable Wire Running Height",
+        "Dimension in mm (15 kV)",
+        "Approximate Weight (15 kV)"
+      ],
+      "valueChecksum": "4b99def7"
+    },
+    {
+      "id": "P04D",
+      "recordClass": "Support",
+      "parentId": "P04",
+      "specificationCount": 3,
+      "labels": [
+        "Support Scope",
+        "Applicability",
+        "Commercial Treatment"
+      ],
+      "valueChecksum": "16493d55"
+    },
+    {
+      "id": "P04E",
+      "recordClass": "Support",
+      "parentId": "P04",
+      "specificationCount": 3,
+      "labels": [
+        "Support Scope",
+        "Applicability",
+        "Commercial Treatment"
+      ],
+      "valueChecksum": "19a69804"
+    },
+    {
+      "id": "P04F",
+      "recordClass": "Support",
+      "parentId": "P04",
+      "specificationCount": 3,
+      "labels": [
+        "Support Scope",
+        "Applicability",
+        "Commercial Treatment"
+      ],
+      "valueChecksum": "2a6bbc10"
+    },
+    {
+      "id": "P04G",
+      "recordClass": "Support",
+      "parentId": "P04",
+      "specificationCount": 7,
+      "labels": [
+        "Supply",
+        "Sensing Parameters",
+        "Display",
+        "Sensing Selection",
+        "Verification Rate",
+        "Dimensions",
+        "Approximate Weight"
+      ],
+      "valueChecksum": "8ecd0bfa"
+    },
+    {
+      "id": "P04H",
+      "recordClass": "Option",
+      "parentId": "P04",
+      "specificationCount": 3,
+      "labels": [
+        "Support Scope",
+        "Applicability",
+        "Commercial Treatment"
+      ],
+      "valueChecksum": "a14a5db5"
+    },
+    {
+      "id": "P05",
+      "recordClass": "Product",
+      "parentId": null,
+      "specificationCount": 3,
+      "labels": [
+        "Tester Path",
+        "AC HV Tester",
+        "DC HV Tester"
+      ],
+      "valueChecksum": "d66254ab"
+    },
+    {
+      "id": "P05A",
+      "recordClass": "Configuration Class",
+      "parentId": "P05",
+      "specificationCount": 7,
+      "labels": [
+        "Voltage Range",
+        "Output Current",
+        "Fault Indicator",
+        "Timer",
+        "HV Probe",
+        "Current and Voltage Meters",
+        "Supply"
+      ],
+      "valueChecksum": "d5f64d3f"
+    },
+    {
+      "id": "P05B",
+      "recordClass": "Configuration Class",
+      "parentId": "P05",
+      "specificationCount": 11,
+      "labels": [
+        "Voltage Range",
+        "Output Current",
+        "Fault Indicator",
+        "Timer",
+        "HV Probe",
+        "Current Meter",
+        "Safety",
+        "Supply",
+        "Dimensions",
+        "Approximate Weight",
+        "Discharge"
+      ],
+      "valueChecksum": "78a64129"
+    },
+    {
+      "id": "P06",
+      "recordClass": "System",
+      "parentId": null,
+      "specificationCount": 11,
+      "labels": [
+        "Control Panel",
+        "Test Equipment",
+        "Cabinet Enclosure",
+        "Weight of Test Equipment with Control Panel",
+        "Test-Equipment Construction",
+        "Data Logging",
+        "Input Power",
+        "Voltage Selection Described in the Product Literature",
+        "Unprotected Cable Scope Described in the Product Literature",
+        "Item",
+        "Item"
+      ],
+      "valueChecksum": "1a2e6ac6"
+    },
+    {
+      "id": "P07",
+      "recordClass": "Product",
+      "parentId": null,
+      "specificationCount": 4,
+      "labels": [
+        "Process Role",
+        "Heating Principle",
+        "Safety and Control",
+        "Flexibility"
+      ],
+      "valueChecksum": "f16209ff"
+    },
+    {
+      "id": "P07A",
+      "recordClass": "Configuration Class",
+      "parentId": "P07",
+      "specificationCount": 12,
+      "labels": [
+        "Maximum Line Speed (depends on Wire Diameter)",
+        "Wire Diameter",
+        "Wire Material",
+        "Maximum Wire Temp.",
+        "Power Supply",
+        "Induction Frequency",
+        "Power Output",
+        "Dimension (H × W × D)",
+        "Running Height of Wire",
+        "Pulleys",
+        "Wheels",
+        "Control System"
+      ],
+      "valueChecksum": "0528dd20"
+    },
+    {
+      "id": "P07B",
+      "recordClass": "Configuration Class",
+      "parentId": "P07",
+      "specificationCount": 12,
+      "labels": [
+        "Maximum Line Speed (depends on Wire Diameter)",
+        "Wire Diameter",
+        "Wire Material",
+        "Maximum Wire Temp.",
+        "Power Supply",
+        "Induction Frequency",
+        "Power Output",
+        "Dimension (H × W × D)",
+        "Running Height of Wire",
+        "Pulleys",
+        "Wheels",
+        "Control System"
+      ],
+      "valueChecksum": "88c95f74"
+    },
+    {
+      "id": "P07C",
+      "recordClass": "Configuration Class",
+      "parentId": "P07",
+      "specificationCount": 12,
+      "labels": [
+        "Maximum Line Speed (depends on Wire Diameter)",
+        "Wire Diameter",
+        "Wire Material",
+        "Maximum Wire Temp.",
+        "Power Supply",
+        "Induction Frequency",
+        "Power Output",
+        "Dimension (H × W × D)",
+        "Running Height of Wire",
+        "Pulleys",
+        "Wheels",
+        "Control System"
+      ],
+      "valueChecksum": "0d828d5f"
+    },
+    {
+      "id": "P08",
+      "recordClass": "Product",
+      "parentId": null,
+      "specificationCount": 11,
+      "labels": [
+        "Power Supply",
+        "Maximum Speed (m / min)",
+        "Maximum Diameter of Cable (mm)",
+        "Dimensions (mm) - [H × W × D]",
+        "Centre Height of Wire (mm)",
+        "Maximum Power",
+        "Powder Mesh",
+        "Sound Level of Machine in Operation",
+        "User Interface",
+        "Scope Application",
+        "Weight (Kg)"
+      ],
+      "valueChecksum": "d23eba4e"
+    },
+    {
+      "id": "P08A",
+      "recordClass": "Model",
+      "parentId": "P08",
+      "specificationCount": 11,
+      "labels": [
+        "Power Supply",
+        "Maximum Speed (m / min)",
+        "Maximum Diameter of Cable (mm)",
+        "Dimensions (mm) - [H × W × D]",
+        "Centre Height of Wire (mm)",
+        "Maximum Power",
+        "Powder Mesh",
+        "Sound Level of Machine in Operation",
+        "User Interface",
+        "Scope Application",
+        "Weight (Kg)"
+      ],
+      "valueChecksum": "d3155d00"
+    },
+    {
+      "id": "P08B",
+      "recordClass": "Model",
+      "parentId": "P08",
+      "specificationCount": 11,
+      "labels": [
+        "Power Supply",
+        "Maximum Speed (m / min)",
+        "Maximum Diameter of Cable (mm)",
+        "Dimensions (mm) - [H × W × D]",
+        "Centre Height of Wire (mm)",
+        "Maximum Power",
+        "Powder Mesh",
+        "Sound Level of Machine in Operation",
+        "User Interface",
+        "Scope Application",
+        "Weight (Kg)"
+      ],
+      "valueChecksum": "06dc1fc7"
+    },
+    {
+      "id": "P08C",
+      "recordClass": "Model",
+      "parentId": "P08",
+      "specificationCount": 11,
+      "labels": [
+        "Power Supply",
+        "Maximum Speed (m / min)",
+        "Maximum Diameter of Cable (mm)",
+        "Dimensions (mm) - [H × W × D]",
+        "Centre Height of Wire (mm)",
+        "Maximum Power",
+        "Powder Mesh",
+        "Sound Level of Machine in Operation",
+        "User Interface",
+        "Scope Application",
+        "Weight (Kg)"
+      ],
+      "valueChecksum": "a51c9b00"
+    },
+    {
+      "id": "P08D",
+      "recordClass": "Model",
+      "parentId": "P08",
+      "specificationCount": 11,
+      "labels": [
+        "Power Supply",
+        "Maximum Speed (m / min)",
+        "Maximum Diameter of Cable (mm)",
+        "Dimensions (mm) - [H × W × D]",
+        "Centre Height of Wire (mm)",
+        "Maximum Power",
+        "Powder Mesh",
+        "Sound Level of Machine in Operation",
+        "User Interface",
+        "Scope Application",
+        "Weight (Kg)"
+      ],
+      "valueChecksum": "6de9e88b"
+    },
+    {
+      "id": "P08E",
+      "recordClass": "Model",
+      "parentId": "P08",
+      "specificationCount": 11,
+      "labels": [
+        "Power Supply",
+        "Maximum Speed (m / min)",
+        "Maximum Diameter of Cable (mm)",
+        "Dimensions (mm) - [H × W × D]",
+        "Centre Height of Wire (mm)",
+        "Maximum Power",
+        "Powder Specifications",
+        "Sound Level of Machine in Operation",
+        "User Interface",
+        "Scope Application",
+        "Weight (Kg)"
+      ],
+      "valueChecksum": "39db545e"
+    },
+    {
+      "id": "P08F",
+      "recordClass": "Model",
+      "parentId": "P08",
+      "specificationCount": 11,
+      "labels": [
+        "Power Supply",
+        "Maximum Speed (m / min)",
+        "Maximum Diameter of Cable (mm)",
+        "Dimensions (mm) - [H × W × D]",
+        "Centre Height of Wire (mm)",
+        "Maximum Power",
+        "Powder Specifications",
+        "Sound Level of Machine in Operation",
+        "User Interface",
+        "Scope Application",
+        "Weight (Kg)"
+      ],
+      "valueChecksum": "d8338b7b"
+    },
+    {
+      "id": "P09",
+      "recordClass": "Product",
+      "parentId": null,
+      "specificationCount": 8,
+      "labels": [
+        "Material",
+        "Type of Material",
+        "Range",
+        "Display",
+        "Transformer Rating",
+        "Supply",
+        "Size",
+        "Weight"
+      ],
+      "valueChecksum": "63670593"
+    },
+    {
+      "id": "P10",
+      "recordClass": "Product",
+      "parentId": null,
+      "specificationCount": 7,
+      "labels": [
+        "Size of Wire",
+        "Tension Range",
+        "Supply",
+        "Analogue",
+        "Output",
+        "Transistor Output",
+        "Digital Output"
+      ],
+      "valueChecksum": "c0d50585"
+    },
+    {
+      "id": "P10A",
+      "recordClass": "Model",
+      "parentId": "P10",
+      "specificationCount": 7,
+      "labels": [
+        "Size of Wire",
+        "Tension Range",
+        "Supply",
+        "Analogue",
+        "Output",
+        "Transistor Output",
+        "Digital Output"
+      ],
+      "valueChecksum": "b0819c04"
+    },
+    {
+      "id": "P10B",
+      "recordClass": "Model",
+      "parentId": "P10",
+      "specificationCount": 7,
+      "labels": [
+        "Size of Wire",
+        "Tension Range",
+        "Supply",
+        "Analogue",
+        "Output",
+        "Transistor Output",
+        "Digital Output"
+      ],
+      "valueChecksum": "40917b80"
+    },
+    {
+      "id": "P11",
+      "recordClass": "Product",
+      "parentId": null,
+      "specificationCount": 19,
+      "labels": [
+        "Power Supply",
+        "User Interface",
+        "Strain Gauge Channels",
+        "Strain Gauge Sensitivity",
+        "Strain Gauge Bridge Supply",
+        "Analog Input: Dancer",
+        "Analog Input: Line Speed",
+        "Analog Input: Diameter",
+        "Analog Output: Magnetic Brake PWM",
+        "Analog Output: Pneumatic Brake E-to-P",
+        "Analog Output: Tension Output F-actual",
+        "Digital Input: Auto/Stop",
+        "Digital Input: Break-Release",
+        "Digital Input: Emergency Stop",
+        "Digital Output: RL1 Web Break",
+        "Digital Output: RL2 F-target Alarm",
+        "Interface",
+        "Operating Temperature",
+        "Dimensions"
+      ],
+      "valueChecksum": "5cc2a439"
+    },
+    {
+      "id": "P12",
+      "recordClass": "Product",
+      "parentId": null,
+      "specificationCount": 9,
+      "labels": [
+        "Strain-Gauge Resistance",
+        "Excitation Voltage",
+        "Sensitivity",
+        "Working Temperature",
+        "Types",
+        "Connector",
+        "Certification Reference",
+        "Series",
+        "Signal and Protection"
+      ],
+      "valueChecksum": "5ddbbecd"
+    },
+    {
+      "id": "P12A",
+      "recordClass": "Series",
+      "parentId": "P12",
+      "specificationCount": 5,
+      "labels": [
+        "Mounting",
+        "Capacity",
+        "Shaft Outside Diameter",
+        "Signal Output",
+        "Overall Protection"
+      ],
+      "valueChecksum": "47803e1d"
+    },
+    {
+      "id": "P12A-C10",
+      "recordClass": "SKU",
+      "parentId": "P12A",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "1b99758a"
+    },
+    {
+      "id": "P12A-C100",
+      "recordClass": "SKU",
+      "parentId": "P12A",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "78c6a0bc"
+    },
+    {
+      "id": "P12A-C20",
+      "recordClass": "SKU",
+      "parentId": "P12A",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "8e8a71cd"
+    },
+    {
+      "id": "P12A-C50",
+      "recordClass": "SKU",
+      "parentId": "P12A",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "89811456"
+    },
+    {
+      "id": "P12B",
+      "recordClass": "Series",
+      "parentId": "P12",
+      "specificationCount": 5,
+      "labels": [
+        "Mounting",
+        "Capacity",
+        "Shaft Outside Diameter",
+        "Signal Output",
+        "Overall Protection"
+      ],
+      "valueChecksum": "62c3ee2a"
+    },
+    {
+      "id": "P12B-C100",
+      "recordClass": "SKU",
+      "parentId": "P12B",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "5f9184e7"
+    },
+    {
+      "id": "P12B-C200",
+      "recordClass": "SKU",
+      "parentId": "P12B",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "13d17630"
+    },
+    {
+      "id": "P12B-C50",
+      "recordClass": "SKU",
+      "parentId": "P12B",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "cf0f5b0d"
+    },
+    {
+      "id": "P12B-C500",
+      "recordClass": "SKU",
+      "parentId": "P12B",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "a79d18db"
+    },
+    {
+      "id": "P12C",
+      "recordClass": "Series",
+      "parentId": "P12",
+      "specificationCount": 5,
+      "labels": [
+        "Mounting",
+        "Capacity",
+        "Shaft Outside Diameter",
+        "Signal Output",
+        "Overall Protection"
+      ],
+      "valueChecksum": "28ac963a"
+    },
+    {
+      "id": "P12C-C100",
+      "recordClass": "SKU",
+      "parentId": "P12C",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "de83ac23"
+    },
+    {
+      "id": "P12C-C200",
+      "recordClass": "SKU",
+      "parentId": "P12C",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "3e67e784"
+    },
+    {
+      "id": "P12C-C50",
+      "recordClass": "SKU",
+      "parentId": "P12C",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "31b4ba75"
+    },
+    {
+      "id": "P12C-C500",
+      "recordClass": "SKU",
+      "parentId": "P12C",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "09b2eb4f"
+    },
+    {
+      "id": "P12D",
+      "recordClass": "Series",
+      "parentId": "P12",
+      "specificationCount": 5,
+      "labels": [
+        "Mounting",
+        "Capacity",
+        "Shaft / Mounting Note",
+        "Signal Output",
+        "Overall Protection"
+      ],
+      "valueChecksum": "48158d4f"
+    },
+    {
+      "id": "P12D-C100",
+      "recordClass": "SKU",
+      "parentId": "P12D",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "c5a2e9dc"
+    },
+    {
+      "id": "P12D-C1000",
+      "recordClass": "SKU",
+      "parentId": "P12D",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "312e76de"
+    },
+    {
+      "id": "P12D-C200",
+      "recordClass": "SKU",
+      "parentId": "P12D",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "d4b9085d"
+    },
+    {
+      "id": "P12D-C500",
+      "recordClass": "SKU",
+      "parentId": "P12D",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "49e69a80"
+    },
+    {
+      "id": "P12E",
+      "recordClass": "Series",
+      "parentId": "P12",
+      "specificationCount": 3,
+      "labels": [
+        "Mounting",
+        "Capacity",
+        "Technical Status"
+      ],
+      "valueChecksum": "384c00ea"
+    },
+    {
+      "id": "P12E-C10",
+      "recordClass": "SKU",
+      "parentId": "P12E",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "3d597b77"
+    },
+    {
+      "id": "P12E-C20",
+      "recordClass": "SKU",
+      "parentId": "P12E",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "13bd7a58"
+    },
+    {
+      "id": "P12E-C50",
+      "recordClass": "SKU",
+      "parentId": "P12E",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "85b28df3"
+    },
+    {
+      "id": "P12F",
+      "recordClass": "Series",
+      "parentId": "P12",
+      "specificationCount": 3,
+      "labels": [
+        "Mounting",
+        "Capacity",
+        "Technical Status"
+      ],
+      "valueChecksum": "89835202"
+    },
+    {
+      "id": "P12F-C100",
+      "recordClass": "SKU",
+      "parentId": "P12F",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "42a21f2f"
+    },
+    {
+      "id": "P12F-C1000",
+      "recordClass": "SKU",
+      "parentId": "P12F",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "2523da55"
+    },
+    {
+      "id": "P12F-C2000",
+      "recordClass": "SKU",
+      "parentId": "P12F",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "8c8ba82a"
+    },
+    {
+      "id": "P12F-C500",
+      "recordClass": "SKU",
+      "parentId": "P12F",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "4f11f673"
+    },
+    {
+      "id": "P12F-C5000",
+      "recordClass": "SKU",
+      "parentId": "P12F",
+      "specificationCount": 9,
+      "labels": [
+        "Capacity",
+        "Loadcell Series",
+        "Measurement Principle",
+        "General Excitation",
+        "General Sensitivity",
+        "Working Temperature",
+        "Series Mounting",
+        "Overload Protection",
+        "Amplifier / Interface"
+      ],
+      "valueChecksum": "254cff91"
+    },
+    {
+      "id": "P12G",
+      "recordClass": "Support",
+      "parentId": "P12",
+      "specificationCount": 4,
+      "labels": [
+        "Current Models",
+        "Role",
+        "Compatibility",
+        "Technical Status"
+      ],
+      "valueChecksum": "108ec6ad"
+    },
+    {
+      "id": "P12H",
+      "recordClass": "Support",
+      "parentId": "P12",
+      "specificationCount": 5,
+      "labels": [
+        "Component",
+        "Support Scope",
+        "Applicability",
+        "Commercial Treatment",
+        "Technical Caveat"
+      ],
+      "valueChecksum": "83536bc0"
+    },
+    {
+      "id": "P12I",
+      "recordClass": "Support",
+      "parentId": "P12",
+      "specificationCount": 5,
+      "labels": [
+        "Component",
+        "Support Scope",
+        "Applicability",
+        "Commercial Treatment",
+        "Technical Caveat"
+      ],
+      "valueChecksum": "5b4d9460"
+    },
+    {
+      "id": "P12J",
+      "recordClass": "Support",
+      "parentId": "P12",
+      "specificationCount": 5,
+      "labels": [
+        "Component",
+        "Support Scope",
+        "Applicability",
+        "Commercial Treatment",
+        "Technical Caveat"
+      ],
+      "valueChecksum": "832e0422"
+    },
+    {
+      "id": "P12K",
+      "recordClass": "Support",
+      "parentId": "P12",
+      "specificationCount": 5,
+      "labels": [
+        "Component",
+        "Support Scope",
+        "Applicability",
+        "Commercial Treatment",
+        "Technical Caveat"
+      ],
+      "valueChecksum": "33b29d4c"
+    },
+    {
+      "id": "P12L",
+      "recordClass": "Support",
+      "parentId": "P12",
+      "specificationCount": 5,
+      "labels": [
+        "Component",
+        "Support Scope",
+        "Applicability",
+        "Commercial Treatment",
+        "Technical Caveat"
+      ],
+      "valueChecksum": "5124b0f4"
+    },
+    {
+      "id": "P13",
+      "recordClass": "Product",
+      "parentId": null,
+      "specificationCount": 6,
+      "labels": [
+        "Max Torque per Caliper",
+        "Min Torque per Caliper",
+        "Pressure Range",
+        "Max RPM",
+        "Weight",
+        "Inertia"
+      ],
+      "valueChecksum": "66e1348d"
+    },
+    {
+      "id": "P13A",
+      "recordClass": "Model",
+      "parentId": "P13",
+      "specificationCount": 6,
+      "labels": [
+        "Max Torque for Each Calliper",
+        "Min Torque for Each Calliper",
+        "Min & Max Pressure",
+        "Max RPM",
+        "Weight",
+        "Inertia"
+      ],
+      "valueChecksum": "549e12a2"
+    },
+    {
+      "id": "P13B",
+      "recordClass": "Model",
+      "parentId": "P13",
+      "specificationCount": 6,
+      "labels": [
+        "Max Torque for Each Calliper",
+        "Min Torque for Each Calliper",
+        "Min & Max Pressure",
+        "Max RPM",
+        "Weight",
+        "Inertia"
+      ],
+      "valueChecksum": "de3c210a"
+    },
+    {
+      "id": "P13C",
+      "recordClass": "Model",
+      "parentId": "P13",
+      "specificationCount": 6,
+      "labels": [
+        "Max Torque for Each Calliper",
+        "Min Torque for Each Calliper",
+        "Min & Max Pressure",
+        "Max RPM",
+        "Weight",
+        "Inertia"
+      ],
+      "valueChecksum": "4e6c9c49"
+    }
+  ]
+}

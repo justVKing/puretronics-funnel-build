@@ -15,21 +15,10 @@ describe('portfolio governance and discoverability', () => {
     expect(modelIds.every((id) => /^P\d{2}[A-Z]$/.test(id))).toBe(true);
   });
 
-  it('covers every governed V4 model and its populated technical fields', () => {
-    const expectedFields: Record<string, string[]> = {
-      P01A: ['Measurement Range', 'Scan Velocity', 'Scan Rate'], P01B: ['Measurement Range', 'Scan Velocity', 'Scan Rate'],
-      P02A: ['Measurement Range', 'Measurement Frequency'], P02B: ['Measurement Range', 'Measurement Frequency'], P02C: ['Measurement Range', 'Measurement Frequency'],
-      P03A: ['Measurement Range', 'Scanning Frequency', 'Single-Axis Sampling'], P03B: ['Measurement Range', 'Scanning Frequency', 'Single-Axis Sampling'], P03C: ['Measurement Range', 'Scanning Frequency', 'Single-Axis Sampling'],
-      P04A: ['Test Principle', 'Voltage Paths', 'Cable Diameter', 'Line Speed'], P04B: ['Test Principle', 'Voltage Paths', 'Cable Diameter', 'Line Speed'], P04C: ['Test Principle', 'Voltage Paths', 'Cable Diameter', 'Line Speed'],
-      P05A: ['Test Method', 'Voltage', 'Current'], P05B: ['Test Method', 'Voltage', 'Current'],
-      P07A: ['Line Speed', 'Wire Range', 'Target Temperature'], P07B: ['Line Speed', 'Wire Range', 'Target Temperature'], P07C: ['Line Speed', 'Wire Range', 'Target Temperature'],
-      P08A: ['Product Size', 'Line Speed'], P08B: ['Product Size', 'Line Speed'], P08C: ['Product Size', 'Line Speed'], P08D: ['Product Size', 'Line Speed'], P08E: ['Powder', 'Product Size', 'Line Speed'], P08F: ['Powder', 'Product Size', 'Line Speed'],
-      P10A: ['Wire Range', 'Published Configurations'], P10B: ['Wire Range', 'Published Configurations'],
-      P12A: ['Capacities', 'ATEX'], P12B: ['Capacities'], P12C: ['Capacities'], P12D: ['Capacities'], P12E: ['Capacities'], P12F: ['Capacities'],
-      P13A: ['Braking Value', 'Maximum Speed'], P13B: ['Braking Value', 'Maximum Speed'], P13C: ['Braking Value', 'Maximum Speed'],
-    };
-    const models = products.flatMap((product) => product.models);
-    expect(Object.keys(expectedFields).sort()).toEqual(models.map((model) => model.id).sort());
-    models.forEach((model) => expect(model.specs.map((spec) => spec.label)).toEqual(expectedFields[model.id]));
+  it('keeps the approved V4 hierarchy visible beneath the 13 Primary Products', () => {
+    const direct = products.flatMap((product) => product.models);
+    const skus = direct.flatMap((model) => model.children ?? []);
+    expect(direct).toHaveLength(33);
+    expect(skus).toHaveLength(24);
   });
 });

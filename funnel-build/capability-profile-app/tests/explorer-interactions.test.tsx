@@ -32,6 +32,7 @@ describe('capability explorer interactions', () => {
     await user.click(screen.getByRole('tab', { name: /Capability Matrix/i }));
     expect(screen.getByRole('heading', { name: /Move from a requirement/i })).toBeInTheDocument();
     expect(screen.getByText(/governed requirement paths shown/i).closest('p')).toHaveTextContent('11 governed requirement paths shown');
+    expect(screen.getByRole('option', { name: 'All Five Product Families' })).toBeInTheDocument();
     expect(screen.queryByLabelText('Not applicable')).not.toBeInTheDocument();
     expect(screen.getAllByRole('button', { name: /LASER 2008 Series/i }).length).toBeGreaterThan(0);
   });
@@ -41,11 +42,33 @@ describe('capability explorer interactions', () => {
     render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
     await user.click(screen.getByRole('tab', { name: /Comparison Workbench/i }));
     await user.selectOptions(screen.getByRole('combobox', { name: 'Primary Product' }), 'P13');
-    expect(await screen.findByRole('heading', { name: 'Choose Models' })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'Choose Models or Variants' })).toBeInTheDocument();
     expect(screen.getByRole('table', { name: /complete approved v4 model specification comparison/i })).toBeInTheDocument();
-    expect(screen.getByRole('rowheader', { name: 'Braking Value' })).toBeInTheDocument();
-    expect(screen.getByRole('rowheader', { name: 'Maximum Speed' })).toBeInTheDocument();
+    expect(screen.getByRole('rowheader', { name: 'Max Torque for Each Calliper' })).toBeInTheDocument();
+    expect(screen.getByRole('rowheader', { name: 'Max RPM' })).toBeInTheDocument();
     expect(screen.queryByText('Like-for-like')).not.toBeInTheDocument();
     expect(screen.queryByText('System roles')).not.toBeInTheDocument();
+  });
+
+  it('renders all eleven V4 technical parameters for the first two P08 models', async () => {
+    const user = userEvent.setup();
+    render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
+    await user.click(screen.getByRole('tab', { name: /Comparison Workbench/i }));
+    await user.selectOptions(screen.getByRole('combobox', { name: 'Primary Product' }), 'P08');
+    expect(await screen.findByText(/11 technical parameters, plus publication context/i)).toBeInTheDocument();
+    expect(screen.getByRole('rowheader', { name: 'Power Supply' })).toBeInTheDocument();
+    expect(screen.getByRole('rowheader', { name: 'Dimensions (mm) - [H × W × D]' })).toBeInTheDocument();
+    expect(screen.getByRole('rowheader', { name: 'Weight (Kg)' })).toBeInTheDocument();
+  });
+
+  it('allows direct comparison of P12 capacity SKUs', async () => {
+    const user = userEvent.setup();
+    render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
+    await user.click(screen.getByRole('tab', { name: /Comparison Workbench/i }));
+    await user.selectOptions(screen.getByRole('combobox', { name: 'Primary Product' }), 'P12');
+    await user.click(await screen.findByRole('radio', { name: 'Capacity SKUs' }));
+    expect(await screen.findByText(/9 technical parameters, plus publication context/i)).toBeInTheDocument();
+    expect(screen.getByRole('rowheader', { name: 'Capacity' })).toBeInTheDocument();
+    expect(screen.getByRole('rowheader', { name: 'Loadcell Series' })).toBeInTheDocument();
   });
 });

@@ -20,6 +20,16 @@ describe('product matching', () => {
     expect(result.reasons[0]).toContain('AX-400');
   });
 
+  it('resolves nested capacity SKUs and subordinate support records', () => {
+    const capacity = matchProducts(filters({ query: 'P12F-C5000' }))[0];
+    expect(capacity.productId).toBe('P12');
+    expect(capacity.matchedModelIds).toEqual(['P12F-C5000']);
+
+    const support = matchProducts(filters({ query: 'LA-1000' }))[0];
+    expect(support.productId).toBe('P12');
+    expect(support.matchedModelIds).toEqual(['P12G']);
+  });
+
   it('does not blend offline and inline high-voltage routes', () => {
     expect(matchProducts(filters({ stages: ['offline-hv-testing'] })).map((result) => result.productId)).toEqual(['P05']);
   });

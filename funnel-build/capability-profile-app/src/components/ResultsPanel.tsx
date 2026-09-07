@@ -1,6 +1,7 @@
 import { familyById, productById } from '../data/catalog';
 import { useExplorer } from '../state/ExplorerProvider';
 import { track } from '../analytics/events';
+import { v4RecordById } from '../data/v4';
 
 export function ResultsPanel() {
   const { state, dispatch, results } = useExplorer();
@@ -34,7 +35,7 @@ export function ResultsPanel() {
                 <h4>{product.name}</h4>
                 <p>{product.role}</p>
                 <ul className="match-reasons" aria-label="Why this result matched">{result.reasons.map((reason) => <li key={reason}><span aria-hidden="true">✓</span>{reason}</li>)}</ul>
-                {result.matchedModelIds.length > 0 && <p className="matched-models">Model match found in this Primary Product.</p>}
+                {result.matchedModelIds.length > 0 && <p className="matched-models">Matched V4 Record: {result.matchedModelIds.map((id) => `${id} · ${v4RecordById.get(id)?.name ?? id}`).join('; ')}</p>}
               </div>
               <div className="result-data">
                 {product.specs.slice(0, 2).map((spec) => <div key={spec.label}><span>{spec.label}</span><strong>{spec.display}</strong></div>)}

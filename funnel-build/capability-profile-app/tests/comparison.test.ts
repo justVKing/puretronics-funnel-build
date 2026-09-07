@@ -22,16 +22,26 @@ describe('model comparison', () => {
   it('does not create parameters that are absent from V4', () => {
     const product = productById.get('P13')!;
     const technical = buildModelComparison(product).find((section) => section.id === 'technical')!;
-    expect(technical.rows.map((row) => row.label)).toEqual(['Braking Value', 'Maximum Speed']);
+    expect(technical.rows.map((row) => row.label)).toEqual(['Max Torque for Each Calliper', 'Min Torque for Each Calliper', 'Min & Max Pressure', 'Max RPM', 'Weight', 'Inertia']);
     expect(JSON.stringify(technical)).not.toContain('Not published');
   });
 
-  it('shows a populated parameter without inventing a value for another model', () => {
+  it('shows the union of populated P08 parameters without inventing values', () => {
     const product = productById.get('P08')!;
     const mixed = buildModelComparison(product, ['P08A', 'P08E']).find((section) => section.id === 'technical')!;
     const graphite = buildModelComparison(product, ['P08E', 'P08F']).find((section) => section.id === 'technical')!;
-    expect(mixed.rows.find((row) => row.label === 'Powder')?.values).toEqual({ P08A: '—', P08E: 'Graphite' });
-    expect(graphite.rows.find((row) => row.label === 'Powder')?.values).toEqual({ P08E: 'Graphite', P08F: 'Graphite' });
+    expect(mixed.rows).toHaveLength(12);
+    expect(mixed.rows.find((row) => row.label === 'Powder Mesh')?.values).toEqual({ P08A: '2000 or more', P08E: '—' });
+    expect(mixed.rows.find((row) => row.label === 'Powder Specifications')?.values).toEqual({ P08A: '—', P08E: 'THIELMANN GRAPHITE; Graphite 23061 or similar' });
+    expect(graphite.rows).toHaveLength(11);
+    expect(graphite.rows.find((row) => row.label === 'Powder Specifications')?.values).toEqual({ P08E: 'THIELMANN GRAPHITE; Graphite 23061 or similar', P08F: 'THIELMANN GRAPHITE; Graphite 23061 or similar' });
+  });
+
+  it('compares approved P12 capacity SKUs as first-class V4 variants', () => {
+    const product = productById.get('P12')!;
+    const technical = buildModelComparison(product, ['P12A-C10', 'P12E-C10']).find((section) => section.id === 'technical')!;
+    expect(technical.rows).toHaveLength(9);
+    expect(technical.rows.find((row) => row.label === 'Loadcell Series')?.values).toEqual({ 'P12A-C10': 'LC-AR-85', 'P12E-C10': 'LC-AR-60' });
   });
 
   it('never emits an empty or placeholder technical value', () => {

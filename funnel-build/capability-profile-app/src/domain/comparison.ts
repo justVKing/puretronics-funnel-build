@@ -1,4 +1,5 @@
 import { products } from '../data/catalog';
+import { allComparisonVariants } from '../data/v4';
 import type { ModelVariant, ProductRecord } from '../types/catalog';
 
 export interface ComparisonRow {
@@ -39,8 +40,9 @@ const makeRow = (
 };
 
 export function buildModelComparison(product: ProductRecord, selectedModelIds?: string[]): ComparisonSection[] {
+  const availableModels = allComparisonVariants(product.id);
   const models = selectedModelIds?.length
-    ? product.models.filter((model) => selectedModelIds.includes(model.id))
+    ? availableModels.filter((model) => selectedModelIds.includes(model.id))
     : product.models;
   const labels = [...new Set(models.flatMap((model) => model.specs.map((spec) => spec.label)))];
   const technicalRows = labels.map((label) => makeRow(

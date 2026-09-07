@@ -17,6 +17,34 @@ export interface TechnicalDatum {
   qualifier?: string;
 }
 
+export type V4RecordClass = 'Product' | 'System' | 'Model' | 'Configuration Class' | 'Series' | 'SKU' | 'Support' | 'Option';
+
+export interface V4RecordDetails {
+  id: string;
+  name: string;
+  recordClass: V4RecordClass;
+  subItemType?: string;
+  variantCode?: string;
+  parentId?: string;
+  primaryFunction: string;
+  buyerProblemSolved: string;
+  buyerValue: string;
+  primaryUseCase: string;
+  selectionFactors: string;
+  availability: string;
+  technicalCaveats: string;
+  quotationConfirmationNote: string;
+  bestFitBuyerQuestion: string;
+  primaryManufacturingStage: string;
+  recommendedNextAction: string;
+  sourceAuthority: string;
+  sources: string[];
+  evidenceStatus: string;
+  qaStatus: string;
+  validationDate?: string;
+  lastReviewed?: string;
+}
+
 export interface ModelVariant {
   id: string;
   name: string;
@@ -24,6 +52,8 @@ export interface ModelVariant {
   specs: TechnicalDatum[];
   caveat?: string;
   availability?: string;
+  record?: V4RecordDetails;
+  children?: ModelVariant[];
 }
 
 export interface ProductRecord {
@@ -42,6 +72,8 @@ export interface ProductRecord {
   selectionFactors: string[];
   specs: TechnicalDatum[];
   models: ModelVariant[];
+  supportItems?: ModelVariant[];
+  record?: V4RecordDetails;
   caveats: string[];
   availability: string;
   comparisonGroup: string;

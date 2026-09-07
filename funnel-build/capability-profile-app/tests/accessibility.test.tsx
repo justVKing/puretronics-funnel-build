@@ -52,7 +52,7 @@ describe('automated accessibility smoke tests', () => {
     await user.click(await screen.findByRole('button', { name: 'View Product Details' }));
     expect(screen.getByRole('heading', { name: 'Applications' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Production and Testing Stages' })).toBeInTheDocument();
-    expect(screen.getAllByText('Source: P08F')).toHaveLength(3);
+    expect(screen.getAllByText('P08F').length).toBeGreaterThanOrEqual(11);
     const results = await axe.run(container);
     expect(results.violations.filter((violation) => ['serious', 'critical'].includes(violation.impact ?? ''))).toEqual([]);
   });

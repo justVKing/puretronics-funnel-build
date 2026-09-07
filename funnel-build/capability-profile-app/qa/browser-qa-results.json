@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://justvking.github.io/puretronics-funnel-build/",
+  "baseUrl": "http://127.0.0.1:5173/puretronics-funnel-build/",
   "viewports": [
     {
       "width": 390,
@@ -49,13 +49,35 @@
   "consoleErrors": [],
   "failedResponses": [],
   "interactions": {
-    "modelSearch": "01\nP13\n\nTENSION / BRAKING / LINE CONTROL\n\nPneumatic Brake\n\nProvides pneumatic braking actuation in applicable unwind or pay-off arrangements.\n\n✓\nMatched model: AX-400\n\nModel match found in this Primary Product.\n\nSELECTION BASIS\nReel geometry · Shaft speed\nView details\nAdd to comparison\nPrepare my review",
+    "modelSearch": "01\nP13\n\nTENSION / BRAKING / LINE CONTROL\n\nPneumatic Brake\n\nProvides pneumatic braking actuation in applicable unwind or pay-off arrangements.\n\n✓\nMatched V4 Record: AX-400\n\nMatched V4 Record: P13B · AX-400\n\nMAX TORQUE PER CALIPER\n16.00 kg m | 27.00 kg m | 33.00 kg m\nMIN TORQUE PER CALIPER\n0.15 kg m | 0.25 kg m | 0.33 kg m\nView details\nCompare models\nPrepare my review",
     "drawerTitle": "Pneumatic Brake",
     "drawerClosed": true,
+    "p08Comparison": {
+      "selectedProduct": "P08",
+      "technicalParameters": 11,
+      "includesPowerSupply": true,
+      "includesWeight": true,
+      "containsNotPublished": false
+    },
+    "p12CapacityComparison": {
+      "capacitySkuChoices": 24,
+      "technicalParameters": 9,
+      "includesCapacity": true,
+      "containsNotPublished": false
+    },
+    "capabilityMatrix": {
+      "familyFilterLabel": "All Five Product Families",
+      "exposedInternalSlug": false
+    },
     "bookingBoundary": {
       "heading": "Booking System Page — Review Placeholder",
       "noProductContext": true,
       "fieldCount": 0
+    },
+    "mobileP08Comparison": {
+      "technicalParameterGroups": 13,
+      "pageScrollWidth": 390,
+      "pageClientWidth": 390
     }
   }
 }
