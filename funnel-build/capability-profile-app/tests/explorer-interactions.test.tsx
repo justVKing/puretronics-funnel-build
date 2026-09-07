@@ -9,21 +9,21 @@ describe('capability explorer interactions', () => {
     const user = userEvent.setup();
     render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
     await user.click(screen.getByRole('button', { name: /I have a production or quality problem/i }));
-    await user.click(screen.getByRole('button', { name: /Diameter variation or dimensional consistency/i }));
+    await user.click(screen.getByRole('button', { name: /Diameter variation or inadequate measurement visibility/i }));
     expect(screen.getByRole('heading', { name: 'Your Relevant Capability Paths' })).toBeInTheDocument();
     expect(screen.getByText(/3 relevant Primary Products found/i)).toBeInTheDocument();
-    expect(screen.getAllByLabelText('Why this result matched')[0]).toHaveTextContent('Relevant to Diameter Variation or Dimensional Consistency');
+    expect(screen.getAllByLabelText('Why this result matched')[0]).toHaveTextContent('Relevant to Diameter Variation or Inadequate Measurement Visibility');
   });
 
   it('preserves selected stages while switching explorer views', async () => {
     const user = userEvent.setup();
     render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
     await user.click(screen.getByRole('tab', { name: /Production-Line Map/i }));
-    const stage = screen.getAllByRole('button', { name: /Inline spark testing/i })[0];
+    const stage = screen.getAllByRole('button', { name: /Spark Testing and Fault Response/i })[0];
     await user.click(stage);
     await user.click(screen.getByRole('tab', { name: /Solution Navigator/i }));
     await user.click(screen.getByRole('tab', { name: /Production-Line Map/i }));
-    expect(screen.getAllByRole('button', { name: /Inline spark testing/i })[0]).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getAllByRole('button', { name: /Spark Testing and Fault Response/i })[0]).toHaveAttribute('aria-pressed', 'true');
   });
 
   it('presents a dense capability coverage index without empty family intersections', async () => {
@@ -31,7 +31,9 @@ describe('capability explorer interactions', () => {
     render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
     await user.click(screen.getByRole('tab', { name: /Capability Matrix/i }));
     expect(screen.getByRole('heading', { name: /Move from a requirement/i })).toBeInTheDocument();
-    expect(screen.getByText(/governed requirement paths shown/i).closest('p')).toHaveTextContent('11 governed requirement paths shown');
+    expect(screen.getByText((_, element) => element?.textContent === '12 Requirement Paths')).toBeInTheDocument();
+    expect(screen.getByText((_, element) => element?.textContent === '13 Distinct Primary Products')).toBeInTheDocument();
+    expect(screen.getByText((_, element) => element?.textContent === '5 Product Families')).toBeInTheDocument();
     expect(screen.getByRole('option', { name: 'All Five Product Families' })).toBeInTheDocument();
     expect(screen.queryByLabelText('Not applicable')).not.toBeInTheDocument();
     expect(screen.getAllByRole('button', { name: /LASER 2008 Series/i }).length).toBeGreaterThan(0);

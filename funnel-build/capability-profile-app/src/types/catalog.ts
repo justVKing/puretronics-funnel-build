@@ -1,6 +1,22 @@
 export type FamilyId = 'PF01' | 'PF02' | 'PF03' | 'PF04' | 'PF05';
 export type ProjectRoute = 'new-line' | 'retrofit' | 'replacement' | 'laboratory' | 'oem' | 'support';
 export type RelationshipKind = 'alternative_to' | 'works_with' | 'supports';
+export type CapabilityRelationshipType = 'primary' | 'adjacent' | 'supporting' | 'downstream-response';
+export type RelationshipAuthority = 'Product Database V4' | 'Interactive Sections Specification';
+
+export interface CapabilityRelationship {
+  productId: string;
+  familyId: FamilyId;
+  requirementIds: string[];
+  primaryV4Stage: string;
+  orientationStageId: string;
+  relationshipType: CapabilityRelationshipType;
+  projectRoutes: ProjectRoute[];
+  systemRole: string;
+  sourceAuthority: RelationshipAuthority;
+  approved: true;
+  explanation: string;
+}
 
 export interface ProductFamily {
   id: FamilyId;

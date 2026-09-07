@@ -1,44 +1,30 @@
-import { productById, products } from '../data/catalog';
+import { useState } from 'react';
+import { familyById, productById } from '../data/catalog';
 import { productionStages } from '../data/productionStages';
+import { relationshipsForStage } from '../data/capabilityRelationships';
 import { useExplorer } from '../state/ExplorerProvider';
 import { track } from '../analytics/events';
+import { AccessibleDialog } from './AccessibleDialog';
 
-const positions = [70, 180, 290, 400, 510, 620, 730, 840];
+const positions = [48, 150, 252, 354, 456, 558, 660, 762, 864];
+const roleLabels = { primary: 'Primary V4 Placement', adjacent: 'Adjacent Process Context', supporting: 'Supporting Role', 'downstream-response': 'Downstream Response Context' } as const;
 
 export function ProductionLineMap() {
   const { state, dispatch } = useExplorer();
-  const toggleStage = (id: string) => {
-    dispatch({ type: 'TOGGLE_FILTER', key: 'stages', value: id });
-    track('stage_selected', { ids: [id] });
-  };
-  const countFor = (stage: string) => products.filter((product) => product.stages.includes(stage)).length;
+  const [openStageId, setOpenStageId] = useState<string | null>(null);
+  const inlineStages = productionStages.slice(0, 9);
+  const offlineStages = productionStages.slice(9);
+  const toggleStage = (id: string) => { dispatch({ type: 'TOGGLE_FILTER', key: 'stages', value: id }); track('stage_selected', { ids: [id] }); };
+  const openStage = (id: string) => { if (!state.filters.stages.includes(id)) toggleStage(id); setOpenStageId(id); };
+  const stage = productionStages.find((item) => item.id === openStageId);
+  const stageRelationships = openStageId ? relationshipsForStage(openStageId) : [];
+  const countFor = (id: string) => new Set(relationshipsForStage(id).map((relationship) => relationship.productId)).size;
 
-  return (
-    <div className="line-map-view">
-      <div className="view-intro"><div><p className="proof-label">Production-Line Map</p><h3>View the Portfolio Across the Line</h3></div><p>Select one or more stages. Offline testing remains a connected but separate validation branch.</p></div>
-      <div className="line-map-desktop">
-        <svg viewBox="0 0 920 390" role="img" aria-labelledby="line-title line-desc">
-          <title id="line-title">Interactive wire and cable production-stage map</title>
-          <desc id="line-desc">Eight inline production stages run from conductor preparation through take-up, with separate branches for offline high-voltage and fire-resistance testing.</desc>
-          <path d="M70 165H840" className="map-line" />
-          <path d="M620 165V310H830" className="map-branch" />
-          {productionStages.slice(0, 8).map((stage, index) => {
-            const selected = state.filters.stages.includes(stage.id);
-            return <g key={stage.id} className={`map-stage${selected ? ' is-selected' : ''}`} role="button" tabIndex={0} aria-pressed={selected} aria-label={`${stage.label}, ${countFor(stage.id)} relevant products`} transform={`translate(${positions[index]} 165)`} onClick={() => toggleStage(stage.id)} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleStage(stage.id); } }}>
-              <circle r="25" /><circle r="8" className="map-core" /><text y="55" textAnchor="middle">{stage.label.split(' ').map((part, i) => <tspan x="0" dy={i ? 14 : 0} key={part}>{part}</tspan>)}</text><text y="-42" textAnchor="middle" className="map-count">{countFor(stage.id)} products</text>
-            </g>;
-          })}
-          {productionStages.slice(8).map((stage, index) => {
-            const x = index === 0 ? 705 : 830;
-            const selected = state.filters.stages.includes(stage.id);
-            return <g key={stage.id} className={`map-offline${selected ? ' is-selected' : ''}`} role="button" tabIndex={0} aria-pressed={selected} transform={`translate(${x} 310)`} onClick={() => toggleStage(stage.id)} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') toggleStage(stage.id); }}><rect x="-52" y="-23" width="104" height="46" rx="3" /><text textAnchor="middle" y="-2">{stage.label.split(' ').slice(0, 2).join(' ')}</text><text textAnchor="middle" y="12">{stage.label.split(' ').slice(2).join(' ')}</text></g>;
-          })}
-        </svg>
-      </div>
-      <ol className="line-map-mobile">
-        {productionStages.map((stage, index) => <li key={stage.id}><button type="button" className={state.filters.stages.includes(stage.id) ? 'is-selected' : ''} aria-pressed={state.filters.stages.includes(stage.id)} onClick={() => toggleStage(stage.id)}><span className="stage-sequence">{String(index + 1).padStart(2, '0')}</span><span><strong>{stage.label}</strong><small>{stage.description}</small></span><b>{countFor(stage.id)}</b></button></li>)}
-      </ol>
-      {state.filters.stages.length > 0 && <div className="stage-results"><p><strong>{state.filters.stages.length}</strong> stages selected</p><div>{products.filter((product) => product.stages.some((stage) => state.filters.stages.includes(stage))).map((product) => <button type="button" key={product.id} onClick={() => dispatch({ type: 'OPEN_DRAWER', productId: product.id })}>{product.shortName}</button>)}</div></div>}
-    </div>
-  );
+  return <div className="line-map-view">
+    <div className="view-intro"><div><p className="proof-label">Production-Line Orientation Map</p><h3>See Where Each Capability Can Fit</h3></div><p>This is an orientation aid, not a complete manufacturing-process specification. Primary V4 placement is separated from adjacent process context.</p></div>
+    <div className="line-map-desktop"><svg viewBox="0 0 920 410" role="img" aria-labelledby="line-title line-desc"><title id="line-title">Interactive Wire and Cable Production-Stage Map</title><desc id="line-desc">Nine inline orientation stages run from pay-off through take-up, with separate branches for offline high-voltage and fire-resistance testing.</desc><path d="M48 165H864" className="map-line" /><path d="M660 165V330H850" className="map-branch" />{inlineStages.map((item, index) => { const selected = state.filters.stages.includes(item.id); return <g key={item.id} className={`map-stage${selected ? ' is-selected' : ''}`} role="button" tabIndex={0} aria-pressed={selected} aria-label={`${item.label}, ${countFor(item.id)} relevant products`} transform={`translate(${positions[index]} 165)`} onClick={() => openStage(item.id)} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openStage(item.id); } }}><circle r="23" /><circle r="7" className="map-core" /><text y="48" textAnchor="middle">{item.label.split(' ').reduce<string[]>((lines, word) => { const last = lines.at(-1) ?? ''; if (`${last} ${word}`.trim().length <= 13) lines[lines.length - 1] = `${last} ${word}`.trim(); else lines.push(word); return lines; }, ['']).map((line, i) => <tspan x="0" dy={i ? 12 : 0} key={line}>{line}</tspan>)}</text><text y="-38" textAnchor="middle" className="map-count">{countFor(item.id)} Products</text></g>; })}{offlineStages.map((item, index) => { const x = index ? 850 : 710; const selected = state.filters.stages.includes(item.id); return <g key={item.id} className={`map-offline${selected ? ' is-selected' : ''}`} role="button" tabIndex={0} aria-pressed={selected} transform={`translate(${x} 330)`} onClick={() => openStage(item.id)} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openStage(item.id); } }}><rect x="-58" y="-26" width="116" height="52" rx="3" /><text textAnchor="middle" y="-3">{item.label.split(' ').slice(0, 2).join(' ')}</text><text textAnchor="middle" y="12">{item.label.split(' ').slice(2).join(' ')}</text></g>; })}</svg></div>
+    <ol className="line-map-mobile">{productionStages.map((item, index) => <li key={item.id}><button type="button" className={state.filters.stages.includes(item.id) ? 'is-selected' : ''} aria-pressed={state.filters.stages.includes(item.id)} onClick={() => openStage(item.id)}><span className="stage-sequence">{String(index + 1).padStart(2, '0')}</span><span><strong>{item.label}</strong><small>{item.description}</small></span><b>{countFor(item.id)}</b></button></li>)}</ol>
+    {state.filters.stages.length > 0 && <div className="stage-results"><p><strong>{state.filters.stages.length}</strong> Stages Selected</p><div>{state.filters.stages.map((id) => <button type="button" key={id} onClick={() => setOpenStageId(id)}>{productionStages.find((item) => item.id === id)?.label}</button>)}</div><button type="button" className="text-button" onClick={() => dispatch({ type: 'SET_FILTER_VALUES', key: 'stages', values: [] })}>Clear Stages</button></div>}
+    <AccessibleDialog open={Boolean(stage)} title={stage?.label ?? 'Stage Details'} onClose={() => setOpenStageId(null)} className="stage-dialog"><div className="stage-drawer-content"><p>{stage?.description}</p>{stageRelationships.length ? <div className="stage-capabilities">{stageRelationships.map((relationship) => { const product = productById.get(relationship.productId)!; return <article key={`${relationship.productId}-${relationship.relationshipType}`}><p className="family-label">{familyById.get(relationship.familyId)?.name}</p><h3>{product.id} · {product.shortName}</h3><span className={`relationship-badge relationship-${relationship.relationshipType}`}>{roleLabels[relationship.relationshipType]}</span><p>{relationship.explanation}</p><small>System Role: {relationship.systemRole}</small><button type="button" className="text-button" onClick={() => dispatch({ type: 'OPEN_DRAWER', productId: product.id })}>View Product Details →</button></article>; })}</div> : <div className="guidance-note"><strong>Process Context</strong><p>No Puretronics Primary Product is assigned directly to this orientation stage.</p></div>}<div className="inline-actions"><button type="button" className="button" onClick={() => { if (stage && !state.filters.stages.includes(stage.id)) toggleStage(stage.id); setOpenStageId(null); document.querySelector('#prepare')?.scrollIntoView({ behavior: 'smooth' }); }}>Add Stage to Application Review</button><button type="button" className="button button-secondary" onClick={() => setOpenStageId(null)}>Close</button></div></div></AccessibleDialog>
+  </div>;
 }

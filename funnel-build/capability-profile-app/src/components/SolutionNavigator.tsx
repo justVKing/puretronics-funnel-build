@@ -1,6 +1,6 @@
-import { families } from '../data/catalog';
+import { families, products } from '../data/catalog';
 import { navigatorModes } from '../data/navigatorQuestions';
-import { problemOptions, projectOptions } from '../data/productionStages';
+import { problemOptions, productionStages, projectOptions, requirementDefinitions } from '../data/productionStages';
 import { track } from '../analytics/events';
 import type { FamilyId, ProjectRoute } from '../types/catalog';
 import type { NavigatorMode } from '../types/explorer';
@@ -10,65 +10,34 @@ function ChoiceButton({ selected, onClick, children }: { selected: boolean; onCl
   return <button type="button" className={`choice-button${selected ? ' is-selected' : ''}`} aria-pressed={selected} onClick={onClick}><span className="choice-check" aria-hidden="true">{selected ? '✓' : '+'}</span>{children}</button>;
 }
 
+const familyDiscriminators: Record<FamilyId, Array<{ id: string; label: string; options: Array<[string, string, string?]> }>> = {
+  PF01: [{ id: 'pf01-need', label: 'Which Measurement Need Is Closest?', options: [['diameter', 'Diameter Measurement', 'diameter-variation'], ['lump', 'Lump-and-Neck Detection', 'lump-neck'], ['unknown', 'Not Known Yet']] }],
+  PF02: [{ id: 'pf02-method', label: 'Which Test Principle Is Known?', options: [['live', 'Live AC'], ['acute', 'Acute / High-Frequency AC'], ['dc', 'DC'], ['unknown', 'Not Known Yet']] }, { id: 'pf02-response', label: 'Which Fault Information Is Needed?', options: [['indication', 'Fault Indication'], ['data', 'Logging / Graphics'], ['marking', 'Inline Marking'], ['unknown', 'Not Known Yet']] }],
+  PF03: [{ id: 'pf03-need', label: 'Which Validation Path Applies?', options: [['hv', 'Offline High-Voltage Testing', 'offline-hv'], ['fire', 'Fire / Circuit-Integrity Testing', 'fire-resistance'], ['unknown', 'Not Known Yet']] }],
+  PF04: [{ id: 'pf04-need', label: 'Which Process Need Applies?', options: [['heat', 'Conductor Preheating', 'wire-preheating'], ['powder', 'Powder Application', 'powder-application'], ['join', 'Joining / Repair', 'joining-repair'], ['unknown', 'Not Known Yet']] }],
+  PF05: [{ id: 'pf05-role', label: 'Which Immediate Role Is Needed?', options: [['indication', 'Tension Indication', 'tension-visibility'], ['sensing', 'Load / Tension Sensing', 'load-sensing'], ['control', 'Active Control', 'tension-instability'], ['braking', 'Pneumatic Braking', 'braking'], ['integrated', 'Integrated Path', 'tension-instability'], ['unknown', 'Not Known Yet']] }],
+};
+
 export function SolutionNavigator() {
-  const { state, dispatch } = useExplorer();
-  const chooseMode = (mode: NavigatorMode) => {
-    dispatch({ type: 'SET_MODE', mode });
-    track('explorer_start_mode_selected', { mode });
-  };
+  const { state, dispatch, results } = useExplorer();
+  const chooseMode = (mode: NavigatorMode) => { dispatch({ type: 'SET_MODE', mode }); track('explorer_start_mode_selected', { mode }); };
+  const setSingleFilter = (key: 'problems' | 'stages' | 'families' | 'routes', value?: string) => dispatch({ type: 'SET_FILTER_VALUES', key, values: value ? [value] : [] });
+  const setAnswer = (questionId: string, value: string) => dispatch({ type: 'SET_NAVIGATOR_ANSWER', questionId, value });
 
-  if (!state.navigatorMode) {
-    return (
-      <div className="navigator-entry" aria-labelledby="starting-point-heading">
-        <div className="view-intro">
-          <div><p className="proof-label">Solution Navigator</p><h3 id="starting-point-heading">Choose Your Starting Point</h3></div>
-          <p>You do not need to know a product name. Start with the information already available.</p>
-        </div>
-        <div className="entry-grid compact">
-          {navigatorModes.map((mode, index) => (
-            <button className="entry-card" key={mode.id} type="button" onClick={() => chooseMode(mode.id)}>
-              <span className="entry-number">0{index + 1}</span><strong>{mode.title}</strong><span>{mode.description}</span><span className="entry-action">{mode.short} <span aria-hidden="true">→</span></span>
-            </button>
-          ))}
-        </div>
-      </div>
-    );
-  }
+  if (!state.navigatorMode) return <div className="navigator-entry" aria-labelledby="starting-point-heading"><div className="view-intro"><div><p className="proof-label">Solution Navigator</p><h3 id="starting-point-heading">Choose Your Starting Point</h3></div><p>You do not need to know a product name. Start with the information already available.</p></div><div className="entry-grid compact">{navigatorModes.map((mode, index) => <button className="entry-card" key={mode.id} type="button" onClick={() => chooseMode(mode.id)}><span className="entry-number">0{index + 1}</span><strong>{mode.title}</strong><span>{mode.description}</span><span className="entry-action">{mode.short} <span aria-hidden="true">→</span></span></button>)}</div></div>;
 
-  return (
-    <div className="navigator-panel">
-      <div className="navigator-heading">
-        <div><p className="proof-label">Active Route</p><h3>{navigatorModes.find((mode) => mode.id === state.navigatorMode)?.title}</h3></div>
-        <button type="button" className="text-button" onClick={() => dispatch({ type: 'CLEAR_FILTERS' })}>Change starting point</button>
-      </div>
+  const activeFamily = state.filters.families.length === 1 ? families.find((family) => family.id === state.filters.families[0]) : undefined;
+  return <div className="navigator-panel">
+    <div className="navigator-heading"><div><p className="proof-label">Active Route</p><h3>{navigatorModes.find((mode) => mode.id === state.navigatorMode)?.title}</h3></div><button type="button" className="text-button" onClick={() => dispatch({ type: 'CLEAR_FILTERS' })}>Change Starting Point</button></div>
 
-      {(state.navigatorMode === 'problem' || state.navigatorMode === 'guide') && (
-        <fieldset>
-          <legend>{state.navigatorMode === 'guide' ? 'What best describes the issue you can observe?' : 'What outcome do you need to improve?'}</legend>
-          <div className="choice-grid">
-            {problemOptions.map(([id, label]) => <ChoiceButton key={id} selected={state.filters.problems.includes(id)} onClick={() => { dispatch({ type: 'TOGGLE_FILTER', key: 'problems', value: id }); track('problem_selected', { ids: [id] }); }}>{label}</ChoiceButton>)}
-          </div>
-          {state.navigatorMode === 'guide' && state.filters.problems.some((id) => ['tension-instability', 'tension-visibility', 'braking'].includes(id)) && (
-            <div className="guidance-note"><strong>Equipment roles are kept distinct.</strong><p>Tension indication provides visibility, transducers sense load, LTC-PRO controls a reviewed feedback loop, and pneumatic brakes provide actuation.</p></div>
-          )}
-        </fieldset>
-      )}
+    {state.navigatorMode === 'problem' && <fieldset><legend>What Outcome Do You Need to Improve?</legend><div className="choice-grid">{problemOptions.map(([id, label]) => <ChoiceButton key={id} selected={state.filters.problems.includes(id)} onClick={() => { dispatch({ type: 'TOGGLE_FILTER', key: 'problems', value: id }); track('problem_selected', { ids: [id] }); }}>{label}</ChoiceButton>)}</div></fieldset>}
 
-      {state.navigatorMode === 'family' && (
-        <fieldset><legend>Select one or more Product Families</legend><div className="family-choice-list">
-          {families.map((family) => <ChoiceButton key={family.id} selected={state.filters.families.includes(family.id)} onClick={() => { dispatch({ type: 'TOGGLE_FILTER', key: 'families', value: family.id }); track('family_selected', { ids: [family.id] }); }}><span><strong>{family.name}</strong><small>{family.summary}</small></span></ChoiceButton>)}
-        </div></fieldset>
-      )}
+    {state.navigatorMode === 'family' && <><fieldset><legend>Select One Product Family</legend><div className="family-choice-list">{families.map((family) => <ChoiceButton key={family.id} selected={state.filters.families.includes(family.id)} onClick={() => setSingleFilter('families', family.id)}><span><strong>{family.name}</strong><small>{family.summary}</small></span></ChoiceButton>)}</div></fieldset>{activeFamily && <section className="family-route-detail"><p className="proof-label">{activeFamily.id} · Family Overview</p><h4>{activeFamily.name}</h4><p>{activeFamily.summary}</p><dl><div><dt>Primary Products</dt><dd>{products.filter((product) => product.familyId === activeFamily.id).map((product) => product.shortName).join(' · ')}</dd></div><div><dt>Common Requirements</dt><dd>{requirementDefinitions.filter((requirement) => requirement.productIds.some((id) => products.find((product) => product.id === id)?.familyId === activeFamily.id)).map((requirement) => requirement.label).join(' · ')}</dd></div><div><dt>What to Define</dt><dd>{activeFamily.selectionInputs}</dd></div></dl>{familyDiscriminators[activeFamily.id].map((question) => <fieldset key={question.id}><legend>{question.label}</legend><div className="choice-grid">{question.options.map(([id, label, problemId]) => <ChoiceButton key={id} selected={state.navigatorAnswers[question.id] === id} onClick={() => { setAnswer(question.id, id); if (problemId) setSingleFilter('problems', problemId); }}>{label}</ChoiceButton>)}</div></fieldset>)}</section>}</>}
 
-      {state.navigatorMode === 'search' && (
-        <div className="search-control"><label htmlFor="product-search">Product or model name</label><div className="search-box"><span aria-hidden="true">⌕</span><input id="product-search" type="search" value={state.filters.query} placeholder="For example: AX-400 or LASER-2030" onChange={(event) => dispatch({ type: 'SET_QUERY', query: event.target.value })} onBlur={() => { if (state.filters.query) track('product_search_used', { count: state.filters.query.length }); }} /></div><p>Searches approved product names, model codes and governed aliases.</p></div>
-      )}
+    {state.navigatorMode === 'search' && <div className="search-control"><label htmlFor="product-search">Product or Model Name</label><div className="search-box"><span aria-hidden="true">⌕</span><input id="product-search" type="search" value={state.filters.query} placeholder="For Example: AX-400 or LASER-2030" onChange={(event) => dispatch({ type: 'SET_QUERY', query: event.target.value })} /></div><p>Searches only approved product names, model codes and governed aliases.</p>{state.filters.query && !results.length && <div className="guidance-note"><strong>No Approved Record Matched.</strong><p>Continue by Product Family or observed problem.</p><div className="inline-actions"><button type="button" className="text-button" onClick={() => chooseMode('family')}>Browse Product Families →</button><button type="button" className="text-button" onClick={() => chooseMode('problem')}>Start With a Problem →</button></div></div>}</div>}
 
-      {state.navigatorMode === 'project' && (
-        <fieldset><legend>Which project route applies?</legend><div className="choice-grid">
-          {projectOptions.filter(([id]) => id !== 'support').map(([id, label]) => <ChoiceButton key={id} selected={state.filters.routes.includes(id as ProjectRoute)} onClick={() => dispatch({ type: 'TOGGLE_FILTER', key: 'routes', value: id })}>{label}</ChoiceButton>)}
-        </div><div className="guidance-note"><strong>Multi-stage review supported.</strong><p>Switch to the Production-Line Map to select every relevant stage and keep one coordinated result set.</p><button type="button" className="text-button" onClick={() => dispatch({ type: 'SET_VIEW', view: 'line' })}>Open Production-Line Map →</button></div></fieldset>
-      )}
-    </div>
-  );
+    {state.navigatorMode === 'project' && <div className="guided-sections"><fieldset><legend>1. Which Project Route Applies?</legend><div className="choice-grid">{projectOptions.filter(([id]) => id !== 'support').map(([id, label]) => <ChoiceButton key={id} selected={state.filters.routes.includes(id as ProjectRoute)} onClick={() => setSingleFilter('routes', id)}>{label}</ChoiceButton>)}</div></fieldset><fieldset><legend>2. Which Stages Are in Scope?</legend><div className="choice-grid">{productionStages.map((stage) => <ChoiceButton key={stage.id} selected={state.filters.stages.includes(stage.id)} onClick={() => dispatch({ type: 'TOGGLE_FILTER', key: 'stages', value: stage.id })}>{stage.label}</ChoiceButton>)}</div></fieldset><fieldset><legend>3. Which Outcomes Are Being Improved?</legend><div className="choice-grid">{problemOptions.filter(([id]) => !['multiple-issues', 'not-sure'].includes(id)).map(([id, label]) => <ChoiceButton key={id} selected={state.filters.problems.includes(id)} onClick={() => dispatch({ type: 'TOGGLE_FILTER', key: 'problems', value: id })}>{label}</ChoiceButton>)}</div></fieldset><fieldset><legend>4. What Is the Existing-Equipment Status?</legend><div className="choice-grid">{[['known', 'Existing Equipment Is Known'], ['partial', 'Partly Known'], ['none', 'No Existing Equipment'], ['unknown', 'Not Known Yet']].map(([id, label]) => <ChoiceButton key={id} selected={state.navigatorAnswers.existingEquipment === id} onClick={() => setAnswer('existingEquipment', id)}>{label}</ChoiceButton>)}</div></fieldset></div>}
+
+    {state.navigatorMode === 'guide' && <div className="guided-sections"><fieldset><legend>1. Where Is the Requirement?</legend><div className="choice-grid">{[['line', 'Production Line'], ['lab', 'Offline Laboratory / Test Area'], ['unknown', 'Not Known Yet']].map(([id, label]) => <ChoiceButton key={id} selected={state.navigatorAnswers.guideLocation === id} onClick={() => { setAnswer('guideLocation', id); setSingleFilter('stages', id === 'lab' ? 'offline-hv-testing' : undefined); }}>{label}</ChoiceButton>)}</div></fieldset><fieldset><legend>2. What Is the Broad Concern?</legend><div className="choice-grid">{[['PF01', 'Dimensional Quality'], ['PF02', 'Insulation Faults'], ['PF03', 'Electrical / Fire Testing'], ['PF04', 'Process Preparation'], ['PF05', 'Tension / Braking'], ['unknown', 'Not Sure']].map(([id, label]) => <ChoiceButton key={id} selected={state.navigatorAnswers.guideConcern === id} onClick={() => { setAnswer('guideConcern', id); setSingleFilter('families', id.startsWith('PF') ? id : undefined); }}>{label}</ChoiceButton>)}</div></fieldset><fieldset><legend>3. What Is the Project Context?</legend><div className="choice-grid">{[['new-line', 'New Project'], ['retrofit', 'Existing-Line Problem'], ['replacement', 'Replacement'], ['unknown', 'Not Known Yet']].map(([id, label]) => <ChoiceButton key={id} selected={state.navigatorAnswers.guideProject === id} onClick={() => { setAnswer('guideProject', id); setSingleFilter('routes', id === 'unknown' ? undefined : id); }}>{label}</ChoiceButton>)}</div></fieldset><fieldset><legend>4. Which Basic Measurement Is Known?</legend><div className="choice-grid">{[['diameter', 'Diameter'], ['speed', 'Line Speed'], ['tension', 'Tension / Load'], ['test', 'Test Method / Voltage'], ['temperature', 'Temperature'], ['none', 'None Yet']].map(([id, label]) => <ChoiceButton key={id} selected={state.navigatorAnswers.guideKnown === id} onClick={() => setAnswer('guideKnown', id)}>{label}</ChoiceButton>)}</div></fieldset><div className="guidance-note"><strong>Useful Result First</strong><p>The result set shows the capability paths supported by what is known. Missing technical information becomes an explicit review question rather than a guessed answer.</p></div></div>}
+  </div>;
 }

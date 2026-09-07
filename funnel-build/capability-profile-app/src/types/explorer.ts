@@ -29,12 +29,15 @@ export interface ExplorerState {
   drawerProductId: string | null;
   readinessAnswers: Record<string, unknown>;
   briefGenerated: boolean;
+  navigatorAnswers: Record<string, string | string[]>;
 }
 
 export type ExplorerAction =
   | { type: 'SET_VIEW'; view: ExplorerView }
   | { type: 'SET_MODE'; mode: NavigatorMode }
   | { type: 'TOGGLE_FILTER'; key: 'problems' | 'stages' | 'families' | 'routes'; value: string }
+  | { type: 'SET_FILTER_VALUES'; key: 'problems' | 'stages' | 'families' | 'routes'; values: string[] }
+  | { type: 'SET_NAVIGATOR_ANSWER'; questionId: string; value: string | string[] }
   | { type: 'SET_QUERY'; query: string }
   | { type: 'CLEAR_FILTERS' }
   | { type: 'TOGGLE_SELECTED'; productId: string }

@@ -11,6 +11,7 @@ export const initialState: ExplorerState = {
   drawerProductId: null,
   readinessAnswers: {},
   briefGenerated: false,
+  navigatorAnswers: {},
 };
 
 const toggle = <T,>(items: T[], value: T) => items.includes(value) ? items.filter((item) => item !== value) : [...items, value];
@@ -20,8 +21,10 @@ export function explorerReducer(state: ExplorerState, action: ExplorerAction): E
     case 'SET_VIEW': return { ...state, view: action.view };
     case 'SET_MODE': return { ...state, navigatorMode: action.mode, view: action.mode === 'stage' ? 'line' : 'navigator' };
     case 'TOGGLE_FILTER': return { ...state, filters: { ...state.filters, [action.key]: toggle(state.filters[action.key] as string[], action.value) } } as ExplorerState;
+    case 'SET_FILTER_VALUES': return { ...state, filters: { ...state.filters, [action.key]: action.values } } as ExplorerState;
+    case 'SET_NAVIGATOR_ANSWER': return { ...state, navigatorAnswers: { ...state.navigatorAnswers, [action.questionId]: action.value } };
     case 'SET_QUERY': return { ...state, filters: { ...state.filters, query: action.query } };
-    case 'CLEAR_FILTERS': return { ...state, filters: initialState.filters, navigatorMode: null };
+    case 'CLEAR_FILTERS': return { ...state, filters: initialState.filters, navigatorMode: null, navigatorAnswers: {} };
     case 'TOGGLE_SELECTED': return { ...state, selectedProducts: toggle(state.selectedProducts, action.productId) };
     case 'SET_COMPARISON_PRODUCT': {
       if (!action.productId) return { ...state, comparisonProductId: null, comparisonModelIds: [], comparisonShowDifferences: false };

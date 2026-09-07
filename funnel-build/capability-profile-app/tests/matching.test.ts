@@ -33,4 +33,13 @@ describe('product matching', () => {
   it('does not blend offline and inline high-voltage routes', () => {
     expect(matchProducts(filters({ stages: ['offline-hv-testing'] })).map((result) => result.productId)).toEqual(['P05']);
   });
+
+  it('uses OR within a dimension and AND between dimensions', () => {
+    expect(matchProducts(filters({ families: ['PF01'], stages: ['offline-hv-testing'] }))).toEqual([]);
+    expect(matchProducts(filters({ stages: ['dimensional-measurement', 'spark-fault'] })).map((result) => result.productId)).toEqual(['P01', 'P02', 'P03', 'P04']);
+  });
+
+  it('uses a product search as a constraint', () => {
+    expect(matchProducts(filters({ query: 'AX-400', families: ['PF01'] }))).toEqual([]);
+  });
 });
