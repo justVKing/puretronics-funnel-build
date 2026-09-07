@@ -420,7 +420,38 @@
 .relationship-badge { align-self: flex-start; padding: 0.3rem 0.45rem; border: 1px solid var(--hairline-grey); font-family: var(--font-heading); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; }
 .relationship-primary { border-color: var(--calibration-red); }
 .relationship-adjacent, .relationship-downstream-response { border-color: var(--instrument-blue); }
-@media (max-width: 767px) { .coverage-metrics { grid-template-columns: 1fr; } .family-route-detail dl, .stage-capabilities { grid-template-columns: 1fr; } }
+.scientific-logic-note { margin: 1.5rem; padding: 1.25rem; background: var(--cool-paper); border-left: 3px solid var(--instrument-blue); }
+.scientific-logic-note h3 { margin-top: 0.35rem; font-size: 1.15rem; }
+.scientific-logic-note > p:last-child { margin-top: 0.45rem; color: var(--spec-grey); }
+.mcq-question-list { display: grid; gap: 1px; padding: 0 1.5rem 1.5rem; background: var(--hairline-grey); }
+.mcq-question { min-width: 0; padding: 1.25rem; margin: 0; background: var(--paper); border: 0; }
+.mcq-question legend { color: var(--machine-black); font-family: var(--font-heading); font-weight: 700; }
+.mcq-question > p { margin-top: 0.35rem; color: var(--spec-grey); font-size: 0.8rem; }
+.mcq-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.55rem; margin-top: 0.85rem; }
+.mcq-options button { min-width: 0; min-height: 3.5rem; display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem; color: var(--machine-black); background: var(--paper); border: 1px solid var(--hairline-grey); border-radius: var(--radius); text-align: left; cursor: pointer; }
+.mcq-options button:hover { border-color: var(--instrument-blue); }
+.mcq-options button.is-selected { border: 2px solid var(--calibration-red); }
+.mcq-options button > span { flex: 0 0 auto; color: var(--instrument-blue); font-weight: 700; }
+.mcq-options button strong { font-family: var(--font-heading); font-size: 0.72rem; line-height: 1.35; }
+.mcq-options button small { color: var(--spec-grey); }
+.fit-summary { margin-top: 1.5rem; }
+.fit-summary-heading { padding: 1.25rem; background: var(--cool-paper); border-left: 3px solid var(--instrument-blue); }
+.fit-summary-heading h4 { margin-top: 0.35rem; }
+.fit-summary-heading > p:last-child { margin-top: 0.35rem; color: var(--spec-grey); font-size: 0.82rem; }
+.fit-result-list { display: grid; gap: 0.7rem; margin-top: 0.8rem; }
+.fit-result { padding: 1rem 1.15rem; border: 1px solid var(--hairline-grey); border-left-width: 4px; }
+.fit-result > div:first-child { display: flex; gap: 0.6rem; }
+.fit-result > div:first-child span { color: var(--instrument-blue); font-family: var(--font-heading); font-weight: 700; }
+.fit-result > div:first-child strong { font-family: var(--font-heading); }
+.fit-result > p, .fit-result li { margin-top: 0.4rem; font-size: 0.8rem; }
+.fit-status { color: var(--machine-black); font-family: var(--font-heading); font-weight: 700; }
+.fit-aligned { border-left-color: var(--instrument-blue); }
+.fit-potential, .fit-project-review { border-left-color: var(--mute-grey); }
+.fit-excluded { border-left-color: var(--calibration-red); background: var(--cool-paper); }
+.fit-result details { margin-top: 0.65rem; }
+.fit-result summary { color: var(--machine-black); font-family: var(--font-heading); font-size: 0.74rem; font-weight: 700; cursor: pointer; }
+.fit-result details small { display: block; color: var(--spec-grey); }
+@media (max-width: 767px) { .coverage-metrics { grid-template-columns: 1fr; } .family-route-detail dl, .stage-capabilities { grid-template-columns: 1fr; } .mcq-options { grid-template-columns: 1fr; } .scientific-logic-note { margin-inline: 1rem; } }
 .error-page { min-height: 100vh; display: grid; align-items: center; padding-block: 4rem; }
 .error-page p { max-width: 42rem; margin: 1rem 0; }
 .error-page .button { margin-right: 0.65rem; }

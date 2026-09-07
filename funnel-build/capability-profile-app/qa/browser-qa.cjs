@@ -35,11 +35,12 @@ fs.mkdirSync(screenshots, { recursive: true });
   const productSelect = page.locator('.comparison-product-select select');
   await productSelect.selectOption('P08');
   const p08Table = page.locator('.comparison-table');
+  const p08TechnicalBody = p08Table.locator('tbody').nth(1);
   report.interactions.p08Comparison = {
     selectedProduct: await productSelect.inputValue(),
-    technicalParameters: await p08Table.locator('tbody').filter({ has: page.getByText('Approved Public Technical Specifications', { exact: true }) }).locator('tr:not(.comparison-section-row)').count(),
-    includesPowerSupply: await p08Table.getByRole('row', { name: /Power Supply/ }).count() === 1,
-    includesWeight: await p08Table.getByRole('row', { name: /Weight \(Kg\)/ }).count() === 1,
+    technicalParameters: await p08TechnicalBody.locator('tr:not(.comparison-section-row)').count(),
+    includesPowerSupply: await p08TechnicalBody.getByText('Power Supply', { exact: true }).count() === 1,
+    includesWeight: await p08TechnicalBody.getByText('Weight (Kg)', { exact: true }).count() === 1,
     containsNotPublished: /Not published/i.test(await p08Table.innerText()),
   };
   await page.screenshot({ path: path.join(screenshots, 'comparison-p08-final-1440.png'), fullPage: false });
@@ -70,6 +71,23 @@ fs.mkdirSync(screenshots, { recursive: true });
   };
   await page.close();
 
+  const readinessPage = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await readinessPage.goto(baseUrl, { waitUntil: 'networkidle' });
+  await readinessPage.getByRole('button', { name: /PF02 Inline Spark Testing/ }).click();
+  await readinessPage.getByRole('radio', { name: 'Inline Insulation-Fault Detection', exact: true }).click();
+  await readinessPage.getByText('3. Governed Technical Conditions', { exact: true }).click();
+  await readinessPage.getByRole('radio', { name: 'Acute / High-Frequency Sine-Wave AC', exact: true }).click();
+  await readinessPage.getByRole('radio', { name: 'Above 20 kV to 25 kV', exact: true }).click();
+  await readinessPage.getByRole('button', { name: 'Build My Review Brief', exact: true }).click();
+  await readinessPage.getByText('View Evidence-Based Exclusions', { exact: true }).click();
+  report.interactions.mcqReview = {
+    writeInControls: await readinessPage.locator('.mcq-builder input, .mcq-builder textarea, .mcq-builder [contenteditable="true"]').count(),
+    resultStatus: await readinessPage.locator('.fit-status').innerText(),
+    explainsModelBoundary: /P04B Do Not Cover Above 20 kV to 25 kV/.test(await readinessPage.locator('.fit-summary').innerText()),
+    citesV4Evidence: /Source: P04 Approved Voltage Paths/.test(await readinessPage.locator('.fit-summary').innerText()),
+  };
+  await readinessPage.close();
+
   const mobileComparisonPage = await browser.newPage({ viewport: { width: 390, height: 844 } });
   await mobileComparisonPage.goto(baseUrl, { waitUntil: 'networkidle' });
   await mobileComparisonPage.getByRole('tab', { name: /Comparison Workbench/i }).click();
@@ -87,5 +105,5 @@ fs.mkdirSync(screenshots, { recursive: true });
   await browser.close();
   fs.writeFileSync(path.join(__dirname, 'browser-qa-results.json'), JSON.stringify(report, null, 2));
   process.stdout.write(JSON.stringify(report, null, 2));
-  if (report.consoleErrors.length || report.failedResponses.length || report.viewports.some((item) => !item.noHorizontalOverflow) || !report.interactions.drawerClosed || report.interactions.p08Comparison.technicalParameters !== 11 || report.interactions.p08Comparison.containsNotPublished || report.interactions.p12CapacityComparison.capacitySkuChoices !== 24 || report.interactions.p12CapacityComparison.technicalParameters !== 9 || report.interactions.p12CapacityComparison.containsNotPublished || report.interactions.capabilityMatrix.familyFilterLabel !== 'All Five Product Families' || report.interactions.capabilityMatrix.exposedInternalSlug || !report.interactions.bookingBoundary.noProductContext || report.interactions.bookingBoundary.fieldCount !== 0 || report.interactions.mobileP08Comparison.technicalParameterGroups !== 13 || report.interactions.mobileP08Comparison.pageScrollWidth > report.interactions.mobileP08Comparison.pageClientWidth) process.exitCode = 1;
+  if (report.consoleErrors.length || report.failedResponses.length || report.viewports.some((item) => !item.noHorizontalOverflow) || !report.interactions.drawerClosed || report.interactions.p08Comparison.technicalParameters !== 11 || !report.interactions.p08Comparison.includesPowerSupply || !report.interactions.p08Comparison.includesWeight || report.interactions.p08Comparison.containsNotPublished || report.interactions.p12CapacityComparison.capacitySkuChoices !== 24 || report.interactions.p12CapacityComparison.technicalParameters !== 9 || report.interactions.p12CapacityComparison.containsNotPublished || report.interactions.capabilityMatrix.familyFilterLabel !== 'All Five Product Families' || report.interactions.capabilityMatrix.exposedInternalSlug || !report.interactions.bookingBoundary.noProductContext || report.interactions.bookingBoundary.fieldCount !== 0 || report.interactions.mcqReview.writeInControls !== 0 || report.interactions.mcqReview.resultStatus !== 'Excluded by a Known Requirement' || !report.interactions.mcqReview.explainsModelBoundary || !report.interactions.mcqReview.citesV4Evidence || report.interactions.mobileP08Comparison.technicalParameterGroups !== 13 || report.interactions.mobileP08Comparison.pageScrollWidth > report.interactions.mobileP08Comparison.pageClientWidth) process.exitCode = 1;
 })().catch((error) => { console.error(error); process.exit(1); });

@@ -1,31 +1,26 @@
 import { useMemo, useState } from 'react';
 import { generateBrief } from '../domain/brief';
+import { productById } from '../data/catalog';
+import { v4RecordById } from '../data/v4';
 import { useExplorer } from '../state/ExplorerProvider';
 import { track } from '../analytics/events';
 import { BookingLink } from './SiteHeader';
+
+const statusLabels = { aligned: 'Aligned With Known Requirements', potential: 'Potential Match — Information Incomplete', 'project-review': 'Project-Specific Review', excluded: 'Excluded by a Known Requirement' } as const;
 
 export function BriefPreview() {
   const { state, dispatch } = useExplorer();
   const brief = useMemo(() => generateBrief(state), [state]);
   const [copyStatus, setCopyStatus] = useState('');
   const [confirmReset, setConfirmReset] = useState(false);
+  const copy = async () => { try { await navigator.clipboard.writeText(brief.text); setCopyStatus('Brief Copied to Clipboard.'); track('readiness_brief_copied', { count: brief.known.length }); } catch { setCopyStatus('Copy Was Unavailable. Use Print or Save Instead.'); } };
 
-  const copy = async () => {
-    try { await navigator.clipboard.writeText(brief.text); setCopyStatus('Brief copied to clipboard.'); track('readiness_brief_copied', { count: brief.known.length }); }
-    catch { setCopyStatus('Copy was unavailable. Select the brief text and copy it manually.'); }
-  };
-
-  return (
-    <section className="brief-preview" aria-labelledby="brief-heading">
-      <div className="brief-header"><div><p className="proof-label">Generated Review Brief</p><h3 id="brief-heading">{brief.title}</h3></div><span>{brief.known.length} Known · {brief.open.length} Open</span></div>
-      <div className="brief-columns">
-        <section><h4>Relevant Capability Paths</h4>{brief.capabilityPaths.length ? <ul>{brief.capabilityPaths.map((item) => <li key={item}>{item}</li>)}</ul> : <p>To be confirmed during review.</p>}<h4>Known Information</h4>{brief.known.length ? <dl>{brief.known.map((item) => <div key={item.label}><dt>{item.label}</dt><dd>{item.value}</dd></div>)}</dl> : <p>No operating information has been entered yet.</p>}</section>
-        <section className="open-questions"><h4>Open Questions</h4>{brief.open.length ? <ul>{brief.open.map((item) => <li key={item}>{item}</li>)}</ul> : <p>No open questions recorded.</p>}<h4>Useful Review Materials</h4><ul>{brief.suggestedMaterials.map((item) => <li key={item}>{item}</li>)}</ul></section>
-      </div>
-      <p className="brief-disclaimer">Exact equipment and configuration selection is confirmed against the complete application, operating conditions, interfaces and project requirements.</p>
-      <div className="brief-actions"><button type="button" className="button" onClick={copy}>Copy brief</button><button type="button" className="button button-secondary" onClick={() => { window.print(); track('readiness_brief_printed', { count: brief.known.length }); }}>Print or save brief</button><button type="button" className="text-button" onClick={() => dispatch({ type: 'GENERATE_BRIEF' })}>Edit answers</button>{!confirmReset ? <button type="button" className="text-button danger" onClick={() => setConfirmReset(true)}>Start a new brief</button> : <span className="reset-confirm">Reset this brief? <button type="button" onClick={() => { dispatch({ type: 'RESET_READINESS' }); setConfirmReset(false); }}>Yes, reset</button><button type="button" onClick={() => setConfirmReset(false)}>Cancel</button></span>}<BookingLink location="readiness-brief">Book an Application Review</BookingLink></div>
-      <p className="live-status" aria-live="polite">{copyStatus}</p>
-      <textarea className="sr-only" readOnly value={brief.text} aria-label="Plain text version of the generated brief" />
-    </section>
-  );
+  return <section className="brief-preview" aria-labelledby="brief-heading">
+    <div className="brief-header"><div><p className="proof-label">Generated Review Brief</p><h3 id="brief-heading">{brief.title}</h3></div><span>{brief.known.length} Known · {brief.open.length} Open</span></div>
+    <section className="fit-summary"><div className="fit-summary-heading"><p className="proof-label">Product and Model Fit</p><h4>Evidence-Based Review Result</h4><p>These results use current approved public V4 records. They are not a final engineering selection.</p></div>{brief.evaluations.length ? <div className="fit-result-list">{brief.evaluations.map((evaluation) => { const product = productById.get(evaluation.productId)!; const caveats = [...new Set([...product.caveats, ...evaluation.modelIds.map((id) => product.models.find((model) => model.id === id)?.caveat).filter(Boolean)])] as string[]; return <article className={`fit-result fit-${evaluation.status}`} key={evaluation.productId}><div><span>{product.id}</span><strong>{product.name}</strong></div><p className="fit-status">{statusLabels[evaluation.status]}</p>{evaluation.modelIds.length > 0 && <p><b>Models Remaining:</b> {evaluation.modelIds.map((id) => v4RecordById.get(id)?.name ?? id).join(' · ')}</p>}{evaluation.reasons.length > 0 && <ul>{evaluation.reasons.map((reason) => <li key={reason}>{reason}</li>)}</ul>}{evaluation.exclusions.length > 0 && <details><summary>View Evidence-Based Exclusions</summary><ul>{evaluation.exclusions.map((item) => <li key={`${item.questionId}-${item.reason}`}><strong>{item.reason}</strong><small>Source: {item.source}</small></li>)}</ul></details>}{caveats.length > 0 && <details><summary>View Product-Specific Caveats</summary><ul>{caveats.map((caveat) => <li key={caveat}>{caveat}</li>)}</ul></details>}</article>; })}</div> : <div className="empty-state compact"><h4>No Capability Path Selected Yet</h4><p>Edit the answers and choose a requirement or Product Family to generate product-level fit.</p></div>}</section>
+    <div className="brief-columns"><section><h4>Relevant Capability Paths</h4>{brief.capabilityPaths.length ? <ul>{brief.capabilityPaths.map((item) => <li key={item}>{item}</li>)}</ul> : <p>To Be Confirmed During Review.</p>}<h4>Known Information</h4>{brief.known.length ? <dl>{brief.known.map((item) => <div key={item.label}><dt>{item.label}</dt><dd>{item.value}</dd></div>)}</dl> : <p>No Governed Conditions Have Been Selected Yet.</p>}</section><section className="open-questions"><h4>Open Questions</h4>{brief.open.length ? <ul>{brief.open.map((item) => <li key={item}>{item}</li>)}</ul> : <p>No Open Questions Recorded.</p>}<h4>Useful Review Materials</h4><ul>{brief.suggestedMaterials.map((item) => <li key={item}>{item}</li>)}</ul></section></div>
+    <p className="brief-disclaimer">Exact equipment and configuration selection is confirmed against the complete application, operating conditions, interfaces and project requirements.</p>
+    <div className="brief-actions"><button type="button" className="button" onClick={copy}>Copy Brief</button><button type="button" className="button button-secondary" onClick={() => { window.print(); track('readiness_brief_printed', { count: brief.known.length }); }}>Print or Save Brief</button><button type="button" className="text-button" onClick={() => dispatch({ type: 'GENERATE_BRIEF' })}>Edit Answers</button>{!confirmReset ? <button type="button" className="text-button danger" onClick={() => setConfirmReset(true)}>Start a New Brief</button> : <span className="reset-confirm">Reset This Brief? <button type="button" onClick={() => { dispatch({ type: 'RESET_READINESS' }); setConfirmReset(false); }}>Yes, Reset</button><button type="button" onClick={() => setConfirmReset(false)}>Cancel</button></span>}<BookingLink location="readiness-brief">Book an Application Review</BookingLink></div>
+    <p className="live-status" aria-live="polite">{copyStatus}</p><pre className="sr-only" aria-label="Plain Text Version of the Generated Brief">{brief.text}</pre>
+  </section>;
 }

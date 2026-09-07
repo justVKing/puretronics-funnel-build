@@ -11,15 +11,16 @@ class MemoryStorage {
 describe('session persistence', () => {
   it('round-trips allowlisted explorer state', () => {
     const storage = new MemoryStorage();
-    const state = { ...initialState, selectedProducts: ['P04'], filters: { ...initialState.filters, stages: ['inline-spark-testing'] } };
+    const state = { ...initialState, selectedProducts: ['P04'], filters: { ...initialState.filters, stages: ['spark-fault'] }, readinessAnswers: { 'pf02-principle': 'acute' } };
     saveState(state, storage);
     expect(loadState(storage).selectedProducts).toEqual(['P04']);
-    expect(loadState(storage).filters.stages).toEqual(['inline-spark-testing']);
+    expect(loadState(storage).filters.stages).toEqual(['spark-fault']);
+    expect(loadState(storage).readinessAnswers).toEqual({ 'pf02-principle': 'acute' });
   });
 
   it('falls back safely on corrupt data', () => {
     const storage = new MemoryStorage();
-    storage.setItem('puretronics-capability-profile:v2', '{invalid');
+    storage.setItem('puretronics-capability-profile:v3', '{invalid');
     expect(loadState(storage)).toEqual(initialState);
   });
 });

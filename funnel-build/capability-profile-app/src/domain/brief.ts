@@ -1,50 +1,31 @@
-import { families, productById } from '../data/catalog';
-import { readinessQuestions } from '../data/readinessQuestions';
+import { productById } from '../data/catalog';
+import { capabilityPathsFor, chosenOptions, evaluateFit, visibleReadinessQuestions } from './fit';
 import type { ExplorerState } from '../types/explorer';
-import type { ReviewBrief, StructuredAnswer } from '../types/readiness';
-
-export function answerDisplay(value: unknown) {
-  if (typeof value === 'string') return value.trim();
-  if (!value || typeof value !== 'object') return '';
-  const answer = value as StructuredAnswer;
-  if (answer.status === 'not-known') return 'Not known yet';
-  if (answer.status === 'not-applicable') return 'Not applicable';
-  if (answer.status === 'range') return `${answer.min || '?'}–${answer.max || '?'}${answer.unit ? ` ${answer.unit}` : ''}`;
-  const prefix = answer.status === 'approximate' ? 'Approximately ' : '';
-  return `${prefix}${answer.value || ''}${answer.unit ? ` ${answer.unit}` : ''}`.trim();
-}
+import type { ReviewBrief } from '../types/readiness';
 
 export function generateBrief(state: ExplorerState): ReviewBrief {
-  const selectedProducts = state.selectedProducts.map((id) => productById.get(id)).filter(Boolean);
-  const familyIds = [...new Set(selectedProducts.map((product) => product!.familyId).concat(state.filters.families))];
-  const capabilityPaths = familyIds.map((id) => families.find((family) => family.id === id)?.name).filter(Boolean) as string[];
-  const known: Array<{ label: string; value: string }> = [];
+  const visible = visibleReadinessQuestions(state);
+  const known: ReviewBrief['known'] = [];
   const open: string[] = [];
-
-  for (const question of readinessQuestions) {
-    if (question.familyIds?.length && !question.familyIds.some((id) => familyIds.includes(id))) continue;
-    const value = state.readinessAnswers[question.id];
-    const display = answerDisplay(value);
-    if (!display || display === 'Not known yet') open.push(question.label);
-    else if (display !== 'Not applicable') known.push({ label: question.label, value: display });
+  for (const question of visible) {
+    const options = chosenOptions(question.id, state.readinessAnswers[question.id]);
+    if (options.some((option) => option.id === 'not-applicable')) continue;
+    const usable = options.filter((option) => option.id !== 'not-applicable');
+    if (!usable.length || usable.some((option) => option.id === 'unknown')) open.push(question.label);
+    else known.push({ label: question.label, value: usable.map((option) => option.label).join('; ') });
   }
-
+  const evaluations = evaluateFit(state);
+  const capabilityPaths = capabilityPathsFor(state);
   const suggestedMaterials = ['Line or Test-Area Layout', 'Product, Conductor, Cable or Sample Details'];
-  if (familyIds.includes('PF01') || familyIds.includes('PF02')) suggestedMaterials.push('Current Line Speed, Diameter Range and Applicable Quality Specification');
-  if (familyIds.includes('PF03')) suggestedMaterials.push('Test Method, Sample Information and Applicable Procedure');
-  if (familyIds.includes('PF04')) suggestedMaterials.push('Installation Space, Utilities and Process-Stage Details');
-  if (familyIds.includes('PF05')) suggestedMaterials.push('Machine Arrangement, Load/Tension Range, Reel/Shaft and Present Controls');
-
-  const productNames = selectedProducts.map((product) => product!.name);
-  const lines = [
-    'PURETRONICS — APPLICATION REVIEW BRIEF', '',
-    `Relevant capability paths: ${capabilityPaths.join('; ') || 'To be confirmed'}`,
-    `Products reviewed: ${productNames.join('; ') || 'No product selected yet'}`, '',
-    'KNOWN INFORMATION', ...known.map((item) => `${item.label}: ${item.value}`), '',
-    'OPEN QUESTIONS', ...(open.length ? open.map((item) => `• ${item}`) : ['No open questions recorded.']), '',
-    'SUGGESTED MATERIALS', ...suggestedMaterials.map((item) => `• ${item}`), '',
-    'Exact equipment and configuration selection is confirmed against the complete application, operating conditions, interfaces and project requirements.',
-  ];
-
-  return { title: 'Puretronics Application Review Brief', known, open, capabilityPaths, suggestedMaterials, text: lines.join('\n') };
+  if (capabilityPaths.some((path) => path.includes('Measurement') || path.includes('Spark'))) suggestedMaterials.push('Current Line Speed, Diameter Range and Applicable Quality Specification');
+  if (capabilityPaths.some((path) => path.includes('Testing'))) suggestedMaterials.push('Test Method, Sample Information and Applicable Procedure');
+  if (capabilityPaths.some((path) => path.includes('Process Equipment'))) suggestedMaterials.push('Installation Space, Utilities and Process-Stage Details');
+  if (capabilityPaths.some((path) => path.includes('Tension'))) suggestedMaterials.push('Machine Arrangement, Load/Tension Range, Reel/Shaft and Present Controls');
+  const resultLines = evaluations.flatMap((result) => {
+    const product = productById.get(result.productId)!;
+    const caveats = [...new Set([...product.caveats, ...result.modelIds.map((id) => product.models.find((model) => model.id === id)?.caveat).filter(Boolean)])];
+    return [`${product.name}: ${result.status.replace('-', ' ')}${result.modelIds.length ? ` — ${result.modelIds.join(', ')}` : ''}`, ...caveats.map((caveat) => `  Caveat: ${caveat}`)];
+  });
+  const lines = ['PURETRONICS — APPLICATION REVIEW BRIEF', '', `Relevant capability paths: ${capabilityPaths.join('; ') || 'To be confirmed'}`, '', 'PRODUCT AND MODEL FIT', ...(resultLines.length ? resultLines : ['No capability path selected yet.']), '', 'KNOWN INFORMATION', ...known.map((item) => `${item.label}: ${item.value}`), '', 'OPEN QUESTIONS', ...(open.length ? open.map((item) => `• ${item}`) : ['No open questions recorded.']), '', 'SUGGESTED MATERIALS', ...suggestedMaterials.map((item) => `• ${item}`), '', 'Results reflect current approved public V4 information. Final equipment and configuration selection requires Puretronics application review.'];
+  return { title: 'Puretronics Application Review Brief', known, open, capabilityPaths, suggestedMaterials, evaluations, text: lines.join('\n') };
 }

@@ -10,6 +10,7 @@ export type AnalyticsEventName =
   | 'comparison_item_added'
   | 'comparison_viewed'
   | 'readiness_builder_started'
+  | 'readiness_question_answered'
   | 'readiness_brief_generated'
   | 'readiness_brief_copied'
   | 'readiness_brief_printed'

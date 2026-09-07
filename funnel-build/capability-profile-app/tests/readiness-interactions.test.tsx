@@ -7,12 +7,14 @@ import { ReadinessBuilder } from '../src/components/ReadinessBuilder';
 describe('Requirement Readiness Builder', () => {
   it('supports a blank start and generates a brief with open questions', async () => {
     const user = userEvent.setup();
-    render(<ExplorerProvider><ReadinessBuilder /></ExplorerProvider>);
+    const { container } = render(<ExplorerProvider><ReadinessBuilder /></ExplorerProvider>);
     await user.click(screen.getByRole('button', { name: /Inline Spark Testing and Insulation Fault Detection/i }));
-    await user.type(screen.getByLabelText(/What are you trying to improve/i), 'Detect insulation faults');
+    await user.click(screen.getByRole('radio', { name: /Inline Insulation-Fault Detection/i }));
+    expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
+    expect(container.querySelector('input, textarea, [contenteditable="true"]')).toBeNull();
     await user.click(screen.getByRole('button', { name: 'Build My Review Brief' }));
     expect(screen.getByRole('heading', { name: 'Puretronics Application Review Brief' })).toBeInTheDocument();
-    expect(screen.getByText('Detect insulation faults')).toBeInTheDocument();
+    expect(screen.getByText((_, element) => element?.textContent === 'P04Inline Spark Testing Platform')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Open Questions' })).toBeInTheDocument();
   });
 });

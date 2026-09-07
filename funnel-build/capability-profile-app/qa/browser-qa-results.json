@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://127.0.0.1:5173/puretronics-funnel-build/",
+  "baseUrl": "http://127.0.0.1:4173/puretronics-funnel-build/",
   "viewports": [
     {
       "width": 390,
@@ -73,6 +73,12 @@
       "heading": "Booking System Page — Review Placeholder",
       "noProductContext": true,
       "fieldCount": 0
+    },
+    "mcqReview": {
+      "writeInControls": 0,
+      "resultStatus": "Excluded by a Known Requirement",
+      "explainsModelBoundary": true,
+      "citesV4Evidence": true
     },
     "mobileP08Comparison": {
       "technicalParameterGroups": 13,

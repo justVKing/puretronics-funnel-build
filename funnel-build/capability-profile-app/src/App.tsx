@@ -36,7 +36,7 @@ function CapabilityProfile() {
           <CapabilityExplorer />
         </section>
         <section className="section readiness-section" id="prepare">
-          <div className="container section-heading-grid"><div><p className="eyebrow">Prepare Your Application Review</p><h2>Turn What You Know Into a Useful Application Brief.</h2></div><div><p className="section-lead">Choose a capability area, answer only the questions you can, mark unknowns clearly, and generate a concise brief for your team or conversation with Puretronics.</p><p className="privacy-note"><span aria-hidden="true">○</span> Ungated and browser-local. No contact details are required, and nothing is submitted automatically.</p></div></div>
+          <div className="container section-heading-grid"><div><p className="eyebrow">Prepare Your Application Review</p><h2>Turn What You Know Into a Useful Application Brief.</h2></div><div><p className="section-lead">Choose a capability area, answer governed multiple-choice questions, mark unknown conditions clearly, and generate an evidence-based Product and Model Fit Summary with a concise review brief.</p><p className="privacy-note"><span aria-hidden="true">○</span> Ungated and browser-local. No contact details or free text are collected, and nothing is submitted automatically.</p></div></div>
           <div className="container"><ReadinessBuilder /></div>
         </section>
         <ProofAndCertificate />
