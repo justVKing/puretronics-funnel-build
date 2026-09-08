@@ -23,7 +23,7 @@ describe('capability explorer interactions', () => {
     await user.click(stage);
     await user.click(screen.getByRole('tab', { name: /Solution Navigator/i }));
     await user.click(screen.getByRole('tab', { name: /Production-Line Map/i }));
-    expect(screen.getAllByRole('button', { name: /Spark Testing and Fault Response/i })[0]).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getAllByRole('button', { name: /Spark Testing and Fault Response/i }).find((button) => button.hasAttribute('aria-pressed'))).toHaveAttribute('aria-pressed', 'true');
   });
 
   it('presents a dense capability coverage index without empty family intersections', async () => {
@@ -37,6 +37,65 @@ describe('capability explorer interactions', () => {
     expect(screen.getByRole('option', { name: 'All Five Product Families' })).toBeInTheDocument();
     expect(screen.queryByLabelText('Not applicable')).not.toBeInTheDocument();
     expect(screen.getAllByRole('button', { name: /LASER 2008 Series/i }).length).toBeGreaterThan(0);
+  });
+
+  it('shows a Navigator problem as an explicit Matrix filter instead of hidden state', async () => {
+    const user = userEvent.setup();
+    render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
+    await user.click(screen.getByRole('button', { name: /I have a production or quality problem/i }));
+    await user.click(screen.getByRole('button', { name: /Diameter variation or inadequate measurement visibility/i }));
+    await user.click(screen.getByRole('tab', { name: /Capability Matrix/i }));
+    expect(screen.getByRole('button', { name: /Diameter Variation or Inadequate Measurement Visibility ×/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Clear Explorer Constraints' })).toBeInTheDocument();
+  });
+
+  it('presents offline tests as independent paths rather than stages ten and eleven', async () => {
+    const user = userEvent.setup();
+    render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
+    await user.click(screen.getByRole('tab', { name: /Production-Line Map/i }));
+    expect(screen.getByRole('heading', { name: 'Inline Production Sequence' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Separate Offline / Laboratory Testing' })).toBeInTheDocument();
+    expect(screen.getByText('These are not stages 10 and 11 of the production line.')).toBeInTheDocument();
+  });
+
+  it('narrows a Product Family route with a decision-active discriminator', async () => {
+    const user = userEvent.setup();
+    render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
+    await user.click(screen.getByRole('button', { name: /I know the product family/i }));
+    await user.click(screen.getByRole('button', { name: /Tension \/ Braking \/ Line Control/i }));
+    await user.click(screen.getByRole('button', { name: /Load \/ Tension Sensing/i }));
+    expect(screen.getByText(/1 relevant Primary Product found/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Loadcells and Tension Transducers/i })).toBeInTheDocument();
+  });
+
+  it('prioritises an exact approved model-code search', async () => {
+    const user = userEvent.setup();
+    render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
+    await user.click(screen.getByRole('button', { name: /I know a product or model/i }));
+    await user.type(screen.getByRole('searchbox', { name: 'Product or Model Name' }), 'AX-400');
+    expect(screen.getByText(/Matched V4 Record: P13B · AX-400/i)).toBeInTheDocument();
+  });
+
+  it('groups a new-line or retrofit review by the selected project stages', async () => {
+    const user = userEvent.setup();
+    render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
+    await user.click(screen.getByRole('button', { name: /I am planning a new line or retrofit/i }));
+    await user.click(screen.getByRole('button', { name: 'New Production Line' }));
+    await user.click(screen.getByRole('button', { name: /Preheating and Other Pre-Extrusion Preparation/i }));
+    expect(screen.getByRole('heading', { name: 'Capability Paths Across the Selected Project Stages' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Preheating and Other Pre-Extrusion Preparation' })).toBeInTheDocument();
+  });
+
+  it('uses all four guided answers and carries the known input into review state', async () => {
+    const user = userEvent.setup();
+    render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
+    await user.click(screen.getByRole('button', { name: /I am not sure where to begin/i }));
+    await user.click(screen.getByRole('button', { name: 'Offline Laboratory / Test Area' }));
+    await user.click(screen.getByRole('button', { name: 'Electrical / Fire Testing' }));
+    await user.click(screen.getAllByRole('button', { name: 'Not Known Yet' })[1]);
+    await user.click(screen.getByRole('button', { name: 'Test Method / Voltage' }));
+    expect(screen.getByText(/known measurement is carried into the Application Review/i)).toBeInTheDocument();
+    expect(screen.getByText(/2 relevant Primary Products found/i)).toBeInTheDocument();
   });
 
   it('lets visitors select a product and models directly in the comparison tab', async () => {

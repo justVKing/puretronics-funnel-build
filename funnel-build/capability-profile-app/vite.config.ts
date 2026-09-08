@@ -19,4 +19,14 @@ export default defineConfig({
     setupFiles: './tests/setup.ts',
     css: true,
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/react')) return 'react-vendor';
+          return undefined;
+        },
+      },
+    },
+  },
 });

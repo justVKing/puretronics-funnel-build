@@ -20,7 +20,13 @@ describe('session persistence', () => {
 
   it('falls back safely on corrupt data', () => {
     const storage = new MemoryStorage();
-    storage.setItem('puretronics-capability-profile:v3', '{invalid');
+    storage.setItem('puretronics-capability-profile:v4', '{invalid');
+    expect(loadState(storage)).toEqual(initialState);
+  });
+
+  it('does not import the previous readiness schema', () => {
+    const storage = new MemoryStorage();
+    storage.setItem('puretronics-capability-profile:v3', JSON.stringify({ version: 3, state: { ...initialState, readinessAnswers: { notes: 'legacy free text' } } }));
     expect(loadState(storage)).toEqual(initialState);
   });
 });

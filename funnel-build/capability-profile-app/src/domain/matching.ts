@@ -44,12 +44,15 @@ export function matchProducts(filters: ExplorerFilters): MatchResult[] {
         reasons.push(`Relevant to ${labelFor(problemOptions, problem)}`);
       }
     }
-    const productStageIds = capabilityRelationships.filter((item) => item.productId === product.id).map((item) => item.orientationStageId);
+    const productRelationships = capabilityRelationships.filter((item) => item.productId === product.id);
+    const productStageIds = productRelationships.map((item) => item.orientationStageId);
     const stageMatched = !filters.stages.length || filters.stages.some((stage) => productStageIds.includes(stage));
     for (const stage of filters.stages) {
       if (productStageIds.includes(stage)) {
         score += 30;
-        reasons.push(`Fits the ${productionStages.find((item) => item.id === stage)?.label ?? stage} Stage`);
+        const relationship = productRelationships.find((item) => item.orientationStageId === stage)!;
+        const stageLabel = productionStages.find((item) => item.id === stage)?.label ?? stage;
+        reasons.push(relationship.relationshipType === 'primary' ? `Primary V4 Placement at ${stageLabel}` : relationship.relationshipType === 'downstream-response' ? `Downstream Response Context at ${stageLabel}` : `Adjacent Process Context at ${stageLabel}`);
       }
     }
     const familyMatched = !filters.families.length || filters.families.includes(product.familyId);

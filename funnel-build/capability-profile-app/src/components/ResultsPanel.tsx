@@ -2,6 +2,8 @@ import { familyById, productById } from '../data/catalog';
 import { useExplorer } from '../state/ExplorerProvider';
 import { track } from '../analytics/events';
 import { v4RecordById } from '../data/v4';
+import { productionStages } from '../data/productionStages';
+import { relationshipsForStage } from '../data/capabilityRelationships';
 
 export function ResultsPanel() {
   const { state, dispatch, results } = useExplorer();
@@ -20,7 +22,8 @@ export function ResultsPanel() {
     <section className="results-section" aria-labelledby="results-heading">
       <div className="results-heading"><div><p className="proof-label">Governed Results</p><h3 id="results-heading">Your Relevant Capability Paths</h3></div><p><strong>{results.length}</strong> Primary Product{results.length === 1 ? '' : 's'}</p></div>
       <p className="result-intro">Based on what you selected, these are the Puretronics capabilities worth reviewing first. Every result explains why it appeared.</p>
-      <div className="sr-only" aria-live="polite">{results.length} relevant Primary Products found.</div>
+      <div className="sr-only" aria-live="polite">{results.length} relevant Primary Product{results.length === 1 ? '' : 's'} found.</div>
+      {state.navigatorMode === 'project' && state.filters.stages.length > 0 && <div className="project-stage-groups" aria-label="Capability Paths Grouped by Selected Stage"><p className="proof-label">Stage-Grouped Review</p><h4>Capability Paths Across the Selected Project Stages</h4>{state.filters.stages.map((stageId) => { const productIds = new Set(relationshipsForStage(stageId).map((relationship) => relationship.productId)); const stageResults = results.filter((result) => productIds.has(result.productId)); return <section key={stageId}><h5>{productionStages.find((stage) => stage.id === stageId)?.label}</h5>{stageResults.length ? <ul>{stageResults.map((result) => <li key={result.productId}><button type="button" onClick={() => dispatch({ type: 'OPEN_DRAWER', productId: result.productId })}>{result.productId} · {productById.get(result.productId)?.shortName}</button></li>)}</ul> : <p>No capability path remains at this stage after the other selected constraints are applied.</p>}</section>; })}</div>}
       <div className="result-list">
         {results.map((result, index) => {
           const product = productById.get(result.productId)!;

@@ -8,8 +8,8 @@ export const productionStages = [
   { id: 'dimensional-measurement', label: 'Dimensional Measurement', description: 'Inline diameter measurement, control and validated lump/neck detection.', kind: 'inline' },
   { id: 'spark-fault', label: 'Spark Testing and Fault Response', description: 'Inline insulation-fault detection and applicable downstream response.', kind: 'inline' },
   { id: 'takeup-rewind', label: 'Take-Up / Rewind / Coiling', description: 'Downstream handling where tension roles and fault response may be relevant.', kind: 'inline' },
-  { id: 'offline-hv-testing', label: 'Offline High-Voltage Testing', description: 'Separate AC or DC cable/sample validation.' },
-  { id: 'fire-resistance-testing', label: 'Fire-Resistance Testing', description: 'Project-specific fire and circuit-integrity test systems.' },
+  { id: 'offline-hv-testing', label: 'Offline High-Voltage Testing', description: 'Separate AC or DC cable/sample validation.', kind: 'offline' },
+  { id: 'fire-resistance-testing', label: 'Fire-Resistance Testing', description: 'Project-specific fire and circuit-integrity test systems.', kind: 'offline' },
 ] as const;
 
 export const problemOptions = [

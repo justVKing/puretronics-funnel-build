@@ -24,6 +24,8 @@ export interface ExplorerState {
   navigatorMode: NavigatorMode | null;
   filters: ExplorerFilters;
   selectedProducts: string[];
+  reviewFamilyIds: FamilyId[];
+  reviewStageIds: string[];
   comparisonProductId: string | null;
   comparisonModelIds: string[];
   comparisonShowDifferences: boolean;
@@ -42,6 +44,9 @@ export type ExplorerAction =
   | { type: 'SET_QUERY'; query: string }
   | { type: 'CLEAR_FILTERS' }
   | { type: 'TOGGLE_SELECTED'; productId: string }
+  | { type: 'TOGGLE_REVIEW_FAMILY'; familyId: FamilyId }
+  | { type: 'ADD_REVIEW_STAGE'; stageId: string }
+  | { type: 'REMOVE_REVIEW_STAGE'; stageId: string }
   | { type: 'SET_COMPARISON_PRODUCT'; productId: string | null }
   | { type: 'TOGGLE_COMPARISON_MODEL'; modelId: string; limit: number }
   | { type: 'SET_COMPARISON_DIFFERENCES'; show: boolean }

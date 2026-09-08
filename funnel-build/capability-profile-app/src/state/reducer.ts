@@ -5,6 +5,8 @@ export const initialState: ExplorerState = {
   navigatorMode: null,
   filters: { problems: [], stages: [], families: [], routes: [], query: '' },
   selectedProducts: [],
+  reviewFamilyIds: [],
+  reviewStageIds: [],
   comparisonProductId: null,
   comparisonModelIds: [],
   comparisonShowDifferences: false,
@@ -26,6 +28,9 @@ export function explorerReducer(state: ExplorerState, action: ExplorerAction): E
     case 'SET_QUERY': return { ...state, filters: { ...state.filters, query: action.query } };
     case 'CLEAR_FILTERS': return { ...state, filters: initialState.filters, navigatorMode: null, navigatorAnswers: {} };
     case 'TOGGLE_SELECTED': return { ...state, selectedProducts: toggle(state.selectedProducts, action.productId) };
+    case 'TOGGLE_REVIEW_FAMILY': return { ...state, reviewFamilyIds: toggle(state.reviewFamilyIds, action.familyId) };
+    case 'ADD_REVIEW_STAGE': return state.reviewStageIds.includes(action.stageId) ? state : { ...state, reviewStageIds: [...state.reviewStageIds, action.stageId] };
+    case 'REMOVE_REVIEW_STAGE': return { ...state, reviewStageIds: state.reviewStageIds.filter((id) => id !== action.stageId) };
     case 'SET_COMPARISON_PRODUCT': {
       if (!action.productId) return { ...state, comparisonProductId: null, comparisonModelIds: [], comparisonShowDifferences: false };
       return { ...state, comparisonProductId: action.productId, comparisonModelIds: [], comparisonShowDifferences: false };
@@ -39,7 +44,7 @@ export function explorerReducer(state: ExplorerState, action: ExplorerAction): E
     case 'CLOSE_DRAWER': return { ...state, drawerProductId: null };
     case 'SET_READINESS_ANSWER': return { ...state, readinessAnswers: { ...state.readinessAnswers, [action.questionId]: action.value }, briefGenerated: false };
     case 'GENERATE_BRIEF': return { ...state, briefGenerated: true };
-    case 'RESET_READINESS': return { ...state, readinessAnswers: {}, selectedProducts: [], briefGenerated: false };
+    case 'RESET_READINESS': return { ...state, readinessAnswers: {}, selectedProducts: [], reviewFamilyIds: [], reviewStageIds: [], briefGenerated: false };
     case 'RESTORE': return action.state;
     default: return state;
   }

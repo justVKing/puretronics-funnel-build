@@ -33,8 +33,9 @@ describe('V4 evidence-based fit evaluation', () => {
   });
 
   it('narrows loadcell series by approved capacity', () => {
-    const [result] = evaluateFit(stateFor(['P12'], { 'pf05-role': 'sensing', 'pf05-load': '2000-5000' }));
+    const [result] = evaluateFit(stateFor(['P12'], { 'pf05-role': 'sensing', 'pf05-capacity': '5000' }));
     expect(result.modelIds).toEqual(['P12F']);
+    expect(result.variantIds).toEqual(['P12F-C5000']);
   });
 
   it('applies intersecting P13 torque and speed boundaries', () => {
@@ -50,13 +51,13 @@ describe('V4 evidence-based fit evaluation', () => {
   });
 
   it('keeps request-based P05 ranges in project review rather than treating them as published standard coverage', () => {
-    const [result] = evaluateFit(stateFor(['P05'], { 'pf03-path': 'ac', 'pf03-voltage': 'above-40' }));
+    const [result] = evaluateFit(stateFor(['P05'], { 'pf03-path': 'ac', 'pf03-ac-voltage': 'above-40' }));
     expect(result.status).toBe('project-review');
     expect(result.reasons.join(' ')).toMatch(/request-based/i);
   });
 
   it('keeps graphite powder variants separate and applies speed', () => {
-    const [result] = evaluateFit(stateFor(['P08'], { 'pf04-path': 'graphite', 'pf04-speed': '100-150' }));
+    const [result] = evaluateFit(stateFor(['P08'], { 'pf04-path': 'graphite', 'pf04-speed': '100-150', 'pf04-powder-size': 'up-to-40', 'pf04-powder-readiness': ['powder-defined', 'earthing', 'air-quality', 'running-height', 'utilities'] }));
     expect(result.status).toBe('aligned');
     expect(result.modelIds).toEqual(['P08E']);
   });

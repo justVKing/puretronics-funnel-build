@@ -14,8 +14,8 @@ describe('readiness brief generation', () => {
   });
 
   it('preserves Not Applicable without treating it as missing', () => {
-    const state = { ...initialState, selectedProducts: ['P12'], readinessAnswers: { 'pf05-load': 'not-applicable' } };
+    const state = { ...initialState, selectedProducts: ['P12'], readinessAnswers: { 'pf05-capacity': 'not-applicable' } };
     const brief = generateBrief(state);
-    expect(brief.open).not.toContain('Which Maximum Load or Tension-Capacity Band Applies?');
+    expect(brief.open).not.toContain('Which Exact Published Loadcell Capacity Is Required?');
   });
 });

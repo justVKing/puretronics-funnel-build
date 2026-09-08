@@ -1,8 +1,8 @@
 import type { ExplorerState } from '../types/explorer';
 import { initialState } from './reducer';
 
-const KEY = 'puretronics-capability-profile:v3';
-const VERSION = 3;
+const KEY = 'puretronics-capability-profile:v4';
+const VERSION = 4;
 
 export function saveState(state: ExplorerState, storage: Pick<Storage, 'setItem'> = sessionStorage) {
   storage.setItem(KEY, JSON.stringify({ version: VERSION, state }));

@@ -57,14 +57,34 @@ export const capabilityRelationships: CapabilityRelationship[] = stageLinks.map(
 export function validateCapabilityRelationships() {
   const errors: string[] = [];
   const validProducts = new Set(products.map((product) => product.id));
+  const productMap = new Map(products.map((product) => [product.id, product]));
   const validStages = new Set(productionStages.map((stage) => stage.id));
   const validRequirements = new Set(requirementDefinitions.map((requirement) => requirement.id));
+  const relationshipKeys = new Set<string>();
   for (const relationship of capabilityRelationships) {
     if (!validProducts.has(relationship.productId)) errors.push(`Unknown Product: ${relationship.productId}`);
     if (!validStages.has(relationship.orientationStageId as never)) errors.push(`Unknown Stage: ${relationship.orientationStageId}`);
     if (relationship.requirementIds.some((id) => !validRequirements.has(id as never))) errors.push(`Unknown Requirement on ${relationship.productId}`);
+    const product = productMap.get(relationship.productId);
+    if (product && relationship.familyId !== product.familyId) errors.push(`Wrong Family on ${relationship.productId}: ${relationship.familyId}`);
+    if (!relationship.approved) errors.push(`Unapproved Relationship: ${relationship.productId}/${relationship.orientationStageId}`);
+    const expectedAuthority = relationship.relationshipType === 'primary' ? 'Product Database V4' : 'Interactive Sections Specification';
+    if (relationship.sourceAuthority !== expectedAuthority) errors.push(`Wrong Source Authority: ${relationship.productId}/${relationship.orientationStageId}`);
+    if (!relationship.primaryV4Stage.trim()) errors.push(`Missing V4 Primary Stage: ${relationship.productId}`);
+    if (product && relationship.projectRoutes.some((route) => !product.projectRoutes.includes(route))) errors.push(`Unapproved Project Route on ${relationship.productId}`);
+    for (const requirementId of relationship.requirementIds) {
+      const requirement = requirementDefinitions.find((item) => item.id === requirementId);
+      if (requirement && !requirement.productIds.includes(relationship.productId as never)) errors.push(`Contradictory Requirement ${requirementId} on ${relationship.productId}`);
+    }
+    const key = `${relationship.productId}|${relationship.orientationStageId}|${relationship.relationshipType}`;
+    if (relationshipKeys.has(key)) errors.push(`Duplicate Relationship: ${key}`);
+    relationshipKeys.add(key);
   }
-  for (const product of products) if (!capabilityRelationships.some((relationship) => relationship.productId === product.id && relationship.relationshipType === 'primary')) errors.push(`No Primary Placement: ${product.id}`);
+  for (const product of products) {
+    const primaries = capabilityRelationships.filter((relationship) => relationship.productId === product.id && relationship.relationshipType === 'primary');
+    if (!primaries.length) errors.push(`No Primary Placement: ${product.id}`);
+    if (primaries.length > 1) errors.push(`Multiple Primary Placements: ${product.id}`);
+  }
   return errors;
 }
 

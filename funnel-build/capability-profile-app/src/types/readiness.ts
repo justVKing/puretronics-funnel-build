@@ -11,10 +11,12 @@ export interface McqOption {
   label: string;
   productIds?: string[];
   modelIds?: string[];
+  variantIds?: string[];
   projectRoute?: ProjectRoute;
   evidence?: string;
   caveat?: string;
   reviewRequired?: boolean;
+  reviewRequiredModelIds?: string[];
 }
 export interface McqQuestion {
   id: QuestionId;
@@ -22,12 +24,13 @@ export interface McqQuestion {
   purpose: string;
   section: 'requirement' | 'application' | 'conditions' | 'integration' | 'project';
   mode: 'single' | 'multiple';
+  scopeOnly?: boolean;
   familyIds?: FamilyId[];
   when?: { questionId: QuestionId; optionIds: OptionId[] };
   options: McqOption[];
 }
 export interface ExclusionReason { questionId: string; reason: string; source: string; }
-export interface FitEvaluation { productId: string; status: FitStatus; modelIds: string[]; reasons: string[]; exclusions: ExclusionReason[]; }
+export interface FitEvaluation { productId: string; status: FitStatus; modelIds: string[]; variantIds: string[]; reasons: string[]; exclusions: ExclusionReason[]; openQuestionIds: string[]; }
 export interface ReviewBrief {
   title: string;
   known: Array<{ label: string; value: string }>;

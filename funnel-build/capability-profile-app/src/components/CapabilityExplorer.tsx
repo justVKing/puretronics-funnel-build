@@ -9,6 +9,7 @@ import { ResultsPanel } from './ResultsPanel';
 import { ProductDrawer } from './ProductDrawer';
 import { SelectionTray } from './SelectionTray';
 import { track } from '../analytics/events';
+import { ExplorerContextBar } from './ExplorerContextBar';
 
 const views: Array<{ id: ExplorerView; label: string; number: string }> = [
   { id: 'navigator', label: 'Solution Navigator', number: '01' },
@@ -23,6 +24,7 @@ export function CapabilityExplorer() {
   return (
     <div className="explorer-shell">
       <div className="explorer-tabs" role="tablist" aria-label="Capability explorer views">{views.map((view, index) => <button type="button" role="tab" id={`tab-${view.id}`} aria-controls={`panel-${view.id}`} aria-selected={state.view === view.id} tabIndex={state.view === view.id ? 0 : -1} className={state.view === view.id ? 'is-active' : ''} key={view.id} onClick={() => dispatch({ type: 'SET_VIEW', view: view.id })} onKeyDown={(event) => { if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return; event.preventDefault(); const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? views.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + views.length) % views.length; dispatch({ type: 'SET_VIEW', view: views[nextIndex].id }); requestAnimationFrame(() => document.getElementById(`tab-${views[nextIndex].id}`)?.focus()); }}><span>{view.number}</span>{view.label}{view.id === 'compare' && state.comparisonModelIds.length > 0 && <b>{state.comparisonModelIds.length}</b>}</button>)}</div>
+      <ExplorerContextBar />
       <div className="explorer-panel" role="tabpanel" id={`panel-${state.view}`} aria-labelledby={`tab-${state.view}`}>
         {state.view === 'navigator' && <><SolutionNavigator /><ResultsPanel /></>}
         {state.view === 'line' && <><ProductionLineMap /><ResultsPanel /></>}
