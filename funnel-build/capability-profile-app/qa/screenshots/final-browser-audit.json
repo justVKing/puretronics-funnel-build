@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://127.0.0.1:4175/puretronics-funnel-build/",
+  "baseUrl": "https://justvking.github.io/puretronics-funnel-build/",
   "viewports": {
     "390": {
       "scrollWidth": 390,
