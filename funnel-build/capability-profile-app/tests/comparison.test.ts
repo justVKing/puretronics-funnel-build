@@ -54,8 +54,8 @@ describe('model comparison', () => {
 
   it('enforces the supplied model limit without dropping existing selections', () => {
     let state = explorerReducer(initialState, { type: 'SET_COMPARISON_PRODUCT', productId: 'P13' });
-    state = explorerReducer(state, { type: 'TOGGLE_COMPARISON_MODEL', modelId: 'P13A', limit: 2 });
-    state = explorerReducer(state, { type: 'TOGGLE_COMPARISON_MODEL', modelId: 'P13B', limit: 2 });
+
+
     state = explorerReducer(state, { type: 'TOGGLE_COMPARISON_MODEL', modelId: 'P13C', limit: 2 });
     expect(state.comparisonModelIds).toEqual(['P13A', 'P13B']);
   });

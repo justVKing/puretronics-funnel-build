@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { productById } from '../src/data/catalog';
 
 describe('high-risk technical claim guards', () => {
-  it('limits P03 to validated lump-and-neck detection', () => expect(productById.get('P03')?.caveats.join(' ')).toMatch(/general surface-defect/i));
+  it('limits P03 to validated lump-and-neck detection', () => expect(productById.get('P03')?.caveats.join(' ')).toMatch(/other surface defects require a separate inspection review/i));
   it('keeps Live, Acute and DC values on separate P04 model records', () => {
     const models = productById.get('P04')!.models;
     expect(models.map((model) => model.name)).toEqual(['Live Spark Tester: Mains-Frequency AC', 'Acute Spark Tester: High-Frequency AC', 'DC Spark Tester']);
@@ -13,10 +13,10 @@ describe('high-risk technical claim guards', () => {
     expect(product.governance.evidence).toBe('Source-Limited');
     expect(product.availability).toBe('Custom/Project-Specific');
     expect(product.specs).toHaveLength(11);
-    expect(product.caveats.join(' ')).toMatch(/standards and editions remain Pending Validation/i);
+    expect(product.caveats.join(' ')).toMatch(/required test standard, edition/i);
   });
   it('publishes six approved P08 variants without extrapolation', () => expect(productById.get('P08')?.models).toHaveLength(6));
-  it('distinguishes P10 indication from active control', () => expect(productById.get('P10')?.caveats.join(' ')).toMatch(/not the complete closed-loop controller/i));
+  it('distinguishes P10 indication from active control', () => expect(productById.get('P10')?.caveats.join(' ')).toMatch(/Active tension control also requires a suitable controller and actuator/i));
   it('limits ATEX to the LC-AR-85 model record', () => {
     const models = productById.get('P12')!.models;
     expect(models.filter((model) => model.record?.technicalCaveats.includes('ATEX')).map((model) => model.id)).toEqual(['P12A']);

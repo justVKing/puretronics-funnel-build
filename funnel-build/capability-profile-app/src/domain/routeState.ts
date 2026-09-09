@@ -1,7 +1,9 @@
-export const isBookingPlaceholder = () => window.location.hash === '#/booking-placeholder';
+import { siteConfig } from '../config/site';
+import { clearState } from '../state/persistence';
 
 export function navigateToBooking() {
-  window.location.hash = '#/booking-placeholder';
+  if (siteConfig.bookingUrl) { clearState(); window.location.assign(siteConfig.bookingUrl); }
+  else window.location.hash = '#prepare';
 }
 
 export function returnToProfile() {

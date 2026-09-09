@@ -39,7 +39,7 @@ describe('V4 evidence-based fit evaluation', () => {
   });
 
   it('applies intersecting P13 torque and speed boundaries', () => {
-    const [result] = evaluateFit(stateFor(['P13'], { 'pf05-role': 'braking', 'pf05-rpm': '1200-1500', 'pf05-torque': '27-33' }));
+    const [result] = evaluateFit(stateFor(['P13'], { 'pf05-role': 'braking', 'pf05-rpm': '1200-1500', 'pf05-torque': '27-33', 'pf05-torque-basis': 'per-caliper' }));
     expect(result.modelIds).toEqual([]);
     expect(result.status).toBe('excluded');
   });
@@ -58,7 +58,8 @@ describe('V4 evidence-based fit evaluation', () => {
 
   it('keeps graphite powder variants separate and applies speed', () => {
     const [result] = evaluateFit(stateFor(['P08'], { 'pf04-path': 'graphite', 'pf04-speed': '100-150', 'pf04-powder-size': 'up-to-40', 'pf04-powder-readiness': ['powder-defined', 'earthing', 'air-quality', 'running-height', 'utilities'] }));
-    expect(result.status).toBe('aligned');
+    expect(result.status).toBe('potential');
+    expect(result.openQuestionIds).toContain('pf04-powder-specification');
     expect(result.modelIds).toEqual(['P08E']);
   });
 

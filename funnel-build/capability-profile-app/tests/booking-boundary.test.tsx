@@ -1,15 +1,34 @@
-import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 import App from '../src/App';
+import { BookingLink } from '../src/components/SiteHeader';
+import { siteConfig } from '../src/config/site';
 
-describe('booking placeholder boundary', () => {
-  it('shows no retained family, product or brief context', () => {
-    sessionStorage.setItem('puretronics-capability-profile:v1', JSON.stringify({ version: 1, state: { filters: { families: ['PF05'] }, selectedProducts: ['P13'], readinessAnswers: { outcome: 'secret free text' } } }));
+describe('application-review destination boundary', () => {
+  it('retires the legacy placeholder URL without exposing a placeholder or invalid saved input', () => {
+    sessionStorage.setItem('puretronics-capability-profile:v4', JSON.stringify({ version: 4, state: { filters: { families: ['PF05'] }, selectedProducts: ['P13'], readinessAnswers: { outcome: 'secret free text' } } }));
     window.location.hash = '#/booking-placeholder';
     render(<App />);
-    expect(screen.getByRole('heading', { name: 'Booking System Page — Review Placeholder' })).toBeInTheDocument();
-    expect(screen.queryByText(/Tension \/ Braking/i)).not.toBeInTheDocument();
-    expect(screen.queryByText(/secret free text/i)).not.toBeInTheDocument();
-    expect(document.body.textContent).not.toMatch(/P13/);
+    expect(document.body.textContent).not.toMatch(/Review Placeholder|Review Build|secret free text|\bP13\b/);
+    expect(window.location.hash).toBe('#top');
+    expect(document.querySelector('a[href*="placeholder"]')).toBeNull();
+  });
+  it('does not invent a booking destination when approval is absent', () => {
+    render(<BookingLink location="header">Book an Application Review</BookingLink>);
+    expect(screen.getByRole('link')).toHaveAttribute('href', siteConfig.bookingUrl ?? '#prepare');
+    if (!siteConfig.bookingUrl) expect(screen.getByRole('link')).toHaveTextContent('Prepare an Application Review');
+  });
+  it('sends no selection context and clears local state when an approved external destination is configured', () => {
+    const configured = siteConfig.bookingUrl;
+    Object.assign(siteConfig, { bookingUrl: 'https://pureindia.net/contact-us' });
+    sessionStorage.setItem('puretronics-capability-profile:v4', 'private session context');
+    render(<BookingLink location="header">Review</BookingLink>);
+    const link = screen.getByRole('link');
+    link.addEventListener('click', event => event.preventDefault());
+    fireEvent.click(link);
+    expect(link).toHaveAttribute('href', 'https://pureindia.net/contact-us');
+    expect(link).toHaveAttribute('referrerpolicy', 'no-referrer');
+    expect(sessionStorage.getItem('puretronics-capability-profile:v4')).toBeNull();
+    Object.assign(siteConfig, { bookingUrl: configured });
   });
 });

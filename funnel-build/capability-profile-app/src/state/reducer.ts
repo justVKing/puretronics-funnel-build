@@ -1,4 +1,5 @@
 import type { ExplorerAction, ExplorerState } from '../types/explorer';
+import { productById } from '../data/catalog';
 
 export const initialState: ExplorerState = {
   view: 'navigator',
@@ -8,6 +9,7 @@ export const initialState: ExplorerState = {
   reviewFamilyIds: [],
   reviewStageIds: [],
   comparisonProductId: null,
+  comparisonLevel: 'models',
   comparisonModelIds: [],
   comparisonShowDifferences: false,
   drawerProductId: null,
@@ -28,23 +30,31 @@ export function explorerReducer(state: ExplorerState, action: ExplorerAction): E
     case 'SET_QUERY': return { ...state, filters: { ...state.filters, query: action.query } };
     case 'CLEAR_FILTERS': return { ...state, filters: initialState.filters, navigatorMode: null, navigatorAnswers: {} };
     case 'TOGGLE_SELECTED': return { ...state, selectedProducts: toggle(state.selectedProducts, action.productId) };
+    case 'ADD_SELECTED': return state.selectedProducts.includes(action.productId) ? state : { ...state, selectedProducts: [...state.selectedProducts, action.productId] };
     case 'TOGGLE_REVIEW_FAMILY': return { ...state, reviewFamilyIds: toggle(state.reviewFamilyIds, action.familyId) };
     case 'ADD_REVIEW_STAGE': return state.reviewStageIds.includes(action.stageId) ? state : { ...state, reviewStageIds: [...state.reviewStageIds, action.stageId] };
     case 'REMOVE_REVIEW_STAGE': return { ...state, reviewStageIds: state.reviewStageIds.filter((id) => id !== action.stageId) };
     case 'SET_COMPARISON_PRODUCT': {
-      if (!action.productId) return { ...state, comparisonProductId: null, comparisonModelIds: [], comparisonShowDifferences: false };
-      return { ...state, comparisonProductId: action.productId, comparisonModelIds: [], comparisonShowDifferences: false };
+      const product = action.productId ? productById.get(action.productId) : undefined;
+      return { ...state, comparisonProductId: product?.id ?? null, comparisonLevel: 'models', comparisonModelIds: product?.models.slice(0, 2).map((model) => model.id) ?? [], comparisonShowDifferences: false };
     }
+    case 'SET_COMPARISON_LEVEL': {
+      const product = state.comparisonProductId ? productById.get(state.comparisonProductId) : undefined;
+      const candidates = action.level === 'capacities' ? product?.models.flatMap((model) => model.children ?? []) : product?.models;
+      return { ...state, comparisonLevel: action.level, comparisonModelIds: candidates?.slice(0, 2).map((model) => model.id) ?? [], comparisonShowDifferences: false };
+    }
+    case 'LIMIT_COMPARISON_MODELS': return state.comparisonModelIds.length <= action.limit ? state : { ...state, comparisonModelIds: state.comparisonModelIds.slice(0, action.limit) };
     case 'TOGGLE_COMPARISON_MODEL': return state.comparisonModelIds.includes(action.modelId)
       ? { ...state, comparisonModelIds: state.comparisonModelIds.filter((id) => id !== action.modelId) }
       : state.comparisonModelIds.length >= action.limit ? state : { ...state, comparisonModelIds: [...state.comparisonModelIds, action.modelId] };
     case 'SET_COMPARISON_DIFFERENCES': return { ...state, comparisonShowDifferences: action.show };
-    case 'CLEAR_COMPARISON': return { ...state, comparisonProductId: null, comparisonModelIds: [], comparisonShowDifferences: false };
+    case 'CLEAR_COMPARISON': return { ...state, comparisonProductId: null, comparisonLevel: 'models', comparisonModelIds: [], comparisonShowDifferences: false };
     case 'OPEN_DRAWER': return { ...state, drawerProductId: action.productId };
     case 'CLOSE_DRAWER': return { ...state, drawerProductId: null };
     case 'SET_READINESS_ANSWER': return { ...state, readinessAnswers: { ...state.readinessAnswers, [action.questionId]: action.value }, briefGenerated: false };
     case 'GENERATE_BRIEF': return { ...state, briefGenerated: true };
-    case 'RESET_READINESS': return { ...state, readinessAnswers: {}, selectedProducts: [], reviewFamilyIds: [], reviewStageIds: [], briefGenerated: false };
+    case 'EDIT_BRIEF': return { ...state, briefGenerated: false };
+    case 'RESET_READINESS': return { ...state, filters: initialState.filters, navigatorMode: null, navigatorAnswers: {}, readinessAnswers: {}, selectedProducts: [], reviewFamilyIds: [], reviewStageIds: [], briefGenerated: false };
     case 'RESTORE': return action.state;
     default: return state;
   }

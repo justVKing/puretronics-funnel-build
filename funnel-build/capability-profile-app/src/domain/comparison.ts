@@ -56,13 +56,13 @@ export function buildModelComparison(product: ProductRecord, selectedModelIds?: 
   return [
     {
       id: 'publication',
-      label: 'Publication Status',
+      label: 'Selection Conditions',
       rows: [
         makeRow('availability', 'Availability', models, (model) => model.availability ?? product.availability, (model) => model.id),
         makeRow('caveat', 'Model-Specific Caveat', models, (model) => model.caveat ?? product.caveats.join(' '), (model) => model.id),
       ],
     },
-    { id: 'technical', label: 'Approved Public Technical Specifications', rows: technicalRows },
+    { id: 'technical', label: 'Technical Specifications', rows: technicalRows },
   ];
 }
 

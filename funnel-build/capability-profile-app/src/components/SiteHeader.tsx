@@ -1,8 +1,14 @@
 import { siteConfig } from '../config/site';
 import { track } from '../analytics/events';
+import { clearState } from '../state/persistence';
 
 export function BookingLink({ className = 'button', location, children }: { className?: string; location: string; children: React.ReactNode }) {
-  return <a className={className} href={siteConfig.bookingUrl} onClick={() => track('application_review_cta_clicked', { location })}>{children}</a>;
+  const href = siteConfig.bookingUrl ?? '#prepare';
+  return <a className={className} href={href} referrerPolicy="no-referrer" onClick={() => {
+    if (!siteConfig.bookingUrl) return;
+    clearState();
+    track('application_review_cta_clicked', { location });
+  }}>{siteConfig.bookingUrl ? children : 'Prepare an Application Review'}</a>;
 }
 
 export function SiteHeader() {

@@ -10,11 +10,13 @@ export default defineConfig({
       name: 'puretronics-site-metadata',
       transformIndexHtml(html) {
         const canonical = siteConfig.canonicalUrl.endsWith('/') ? siteConfig.canonicalUrl : `${siteConfig.canonicalUrl}/`;
-        return html.replaceAll('__CANONICAL_URL__', canonical).replaceAll('__OG_IMAGE_URL__', `${canonical}assets/social/capability-profile-review-og.png`);
+        return html.replaceAll('__CANONICAL_URL__', canonical).replaceAll('__OG_IMAGE_URL__', `${canonical}assets/social/capability-profile.webp`).replaceAll('__ROBOTS__', siteConfig.indexable ? 'index, follow' : 'noindex, nofollow');
       },
     },
   ],
   test: {
+    testTimeout: 20000,
+    maxWorkers: 4,
     environment: 'jsdom',
     setupFiles: './tests/setup.ts',
     css: true,

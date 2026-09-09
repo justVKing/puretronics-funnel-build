@@ -10,5 +10,5 @@ export function MobileBookingBar() {
     observer.observe(target);
     return () => observer.disconnect();
   }, []);
-  return <div className={`mobile-booking-bar${visible ? ' is-visible' : ''}`}><BookingLink location="mobile-sticky">Book an Application Review</BookingLink></div>;
+  return <div className={`mobile-booking-bar${visible ? ' is-visible' : ''}`} inert={!visible}><BookingLink location="mobile-sticky">Book an Application Review</BookingLink></div>;
 }

@@ -17,6 +17,10 @@ export interface McqOption {
   caveat?: string;
   reviewRequired?: boolean;
   reviewRequiredModelIds?: string[];
+  /** A confirmed contradiction to a product-level limit, including products without models. */
+  excludesProduct?: boolean;
+  /** Retain the configurable product for review even when no standard configuration remains. */
+  configurationReview?: boolean;
 }
 export interface McqQuestion {
   id: QuestionId;
@@ -26,6 +30,10 @@ export interface McqQuestion {
   mode: 'single' | 'multiple';
   scopeOnly?: boolean;
   familyIds?: FamilyId[];
+  /** The products whose technical conditions this question can constrain. */
+  productIds?: string[];
+  /** Only these methods are constrained; other selected methods remain independent. */
+  modelScope?: string[];
   when?: { questionId: QuestionId; optionIds: OptionId[] };
   options: McqOption[];
 }

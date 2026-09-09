@@ -1,5 +1,6 @@
 import rawCatalog from './v4Catalog.generated.json';
 import type { ModelVariant, TechnicalDatum, V4RecordClass, V4RecordDetails } from '../types/catalog';
+import { customerText, publicSpecificationValue } from './publicContent';
 
 interface GeneratedSpecification {
   label: string;
@@ -38,7 +39,7 @@ export function specificationsFor(recordId: string): TechnicalDatum[] {
   const record = v4RecordById.get(recordId);
   return record?.technicalSpecifications.map((specification) => ({
     label: specification.label,
-    display: specification.value,
+    display: publicSpecificationValue(recordId, specification.label, specification.value),
     kind: kindFor(specification.label),
     sourceRecord: recordId,
   })) ?? [];
@@ -49,20 +50,20 @@ export function publicRecordDetails(recordId: string): V4RecordDetails | undefin
   if (!record) return undefined;
   return {
     id: record.id,
-    name: record.name,
+    name: customerText(record.name),
     recordClass: record.recordClass as V4RecordClass,
     subItemType: record.subItemType ?? undefined,
     variantCode: record.variantCode ?? undefined,
     parentId: record.parentId ?? undefined,
-    primaryFunction: record.primaryFunction,
-    buyerProblemSolved: record.buyerProblemSolved,
-    buyerValue: record.buyerValue,
-    primaryUseCase: record.primaryUseCase,
-    selectionFactors: record.selectionFactors,
+    primaryFunction: customerText(record.primaryFunction),
+    buyerProblemSolved: customerText(record.buyerProblemSolved),
+    buyerValue: customerText(record.buyerValue),
+    primaryUseCase: customerText(record.primaryUseCase),
+    selectionFactors: customerText(record.selectionFactors),
     availability: record.availability,
-    technicalCaveats: record.technicalCaveats,
-    quotationConfirmationNote: record.quotationConfirmationNote,
-    bestFitBuyerQuestion: record.bestFitBuyerQuestion,
+    technicalCaveats: customerText(record.technicalCaveats),
+    quotationConfirmationNote: customerText(record.quotationConfirmationNote),
+    bestFitBuyerQuestion: customerText(record.bestFitBuyerQuestion),
     primaryManufacturingStage: record.primaryManufacturingStage,
     recommendedNextAction: record.recommendedNextAction,
     sourceAuthority: record.sourceAuthority,
@@ -79,10 +80,10 @@ const aliasesFor = (record: GeneratedRecord) => [record.name, record.variantCode
 export function toVariant(record: GeneratedRecord): ModelVariant {
   return {
     id: record.id,
-    name: record.name,
+    name: customerText(record.name),
     aliases: aliasesFor(record),
     specs: specificationsFor(record.id),
-    caveat: record.technicalCaveats || undefined,
+    caveat: customerText(record.technicalCaveats) || undefined,
     availability: record.availability || undefined,
     record: publicRecordDetails(record.id),
     children: v4Records.filter((item) => item.parentId === record.id && item.recordClass === 'SKU').map(toVariant),

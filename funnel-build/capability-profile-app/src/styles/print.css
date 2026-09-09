@@ -1,9 +1,15 @@
 @media print {
-  .site-header, .hero, #explore, .pathway-section, .evidence-section, #service-support, .faq-section, .final-cta, .site-footer, .mobile-booking-bar, .builder-status, .imported-selection, .builder-sections, .builder-submit, .brief-actions, .live-status { display: none !important; }
   body { color: #000; background: #fff; }
-  .readiness-section { display: block !important; padding: 0 !important; }
-  .readiness-section > .section-heading-grid { display: none !important; }
-  .brief-preview { display: block !important; margin: 0; padding: 0; border: 0; box-shadow: none; }
-  .brief-columns { break-inside: avoid; }
+  .site-header, .mobile-booking-bar, .brief-actions, .live-status, .skip-link, .page-utilities { display: none !important; }
+  body:has(.brief-preview) .hero, body:has(.brief-preview) #explore, body:has(.brief-preview) .pathway-section, body:has(.brief-preview) .evidence-section, body:has(.brief-preview) #service-support, body:has(.brief-preview) .faq-section, body:has(.brief-preview) .final-cta, body:has(.brief-preview) .site-footer, body:has(.brief-preview) .builder-status, body:has(.brief-preview) .imported-selection, body:has(.brief-preview) .builder-sections, body:has(.brief-preview) .builder-submit, body:has(.brief-preview) .readiness-section > .section-heading-grid, body:has(.brief-preview) .scientific-logic-note { display: none !important; }
+  .readiness-section { padding: 0 !important; }
+  .brief-preview { margin: 0; padding: 0; border: 0; box-shadow: none; }
+  .brief-preview details::details-content { content-visibility: visible; }
+  .brief-preview details > * { display: block !important; }
+  .brief-preview summary { display: none !important; }
+  .brief-columns { display: block; }
+  .brief-columns section, .fit-result { break-inside: avoid; }
   .brief-disclaimer { border: 1px solid #999; }
+  .container { width: 100%; }
+  .section { padding-block: 1.5rem; }
 }

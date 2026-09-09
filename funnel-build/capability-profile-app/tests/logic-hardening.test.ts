@@ -54,10 +54,10 @@ describe('logic-hardening invariants', () => {
     expect(live.modelIds).toEqual(['P04A']);
   });
 
-  it('rejects a P10 tension requirement above the published configurations', () => {
+  it('requests application review for configurable P10 tension above standard configurations', () => {
     const [result] = evaluateFit(stateFor(['P10'], { 'pf05-role': 'indication', 'pf05-indicator-tension': 'above-40' }));
-    expect(result.status).toBe('excluded');
-    expect(result.modelIds).toEqual([]);
+    expect(result.status).toBe('project-review');
+    expect(result.reasons.join(' ')).toMatch(/review|confirm|quotation/i);
   });
 
   it('maps every exact P12 capacity choice to at least one approved SKU', () => {
@@ -74,14 +74,14 @@ describe('logic-hardening invariants', () => {
     const finiteBoundaryQuestions = ['pf01-min-diameter', 'pf01-max-diameter', 'pf02-speed', 'pf02-voltage', 'pf02-diameter', 'pf04-speed', 'pf04-preheat-min-size', 'pf04-preheat-max-size', 'pf04-powder-size', 'pf04-temperature', 'pf05-indicator-size', 'pf05-indicator-tension', 'pf05-capacity', 'pf05-rpm', 'pf05-torque', 'pf05-air'];
     for (const questionId of finiteBoundaryQuestions) {
       const question = readinessQuestions.find((item) => item.id === questionId)!;
-      expect(question.options.some((option) => option.modelIds?.length === 0), `${questionId} needs an explicit outside-boundary choice`).toBe(true);
+      expect(question.options.some((option) => option.modelIds?.length === 0 || option.configurationReview || option.reviewRequired || option.excludesProduct), `${questionId} needs an explicit outside-boundary outcome`).toBe(true);
     }
   });
 
   it('carries selected stages into both known information and the plain-text brief', () => {
     const brief = generateBrief({ ...initialState, reviewStageIds: ['pre-extrusion'] });
     expect(brief.known[0].value).toContain('Preheating and Other Pre-Extrusion Preparation');
-    expect(brief.text).toContain('Production or Testing Stages Carried From the Explorer');
+    expect(brief.text).toContain('Production or Testing Stages');
   });
 
   it('never excludes a model solely because a governed answer is unknown', () => {

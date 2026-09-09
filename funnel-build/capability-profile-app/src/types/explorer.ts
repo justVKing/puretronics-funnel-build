@@ -27,6 +27,7 @@ export interface ExplorerState {
   reviewFamilyIds: FamilyId[];
   reviewStageIds: string[];
   comparisonProductId: string | null;
+  comparisonLevel: 'models' | 'capacities';
   comparisonModelIds: string[];
   comparisonShowDifferences: boolean;
   drawerProductId: string | null;
@@ -44,10 +45,13 @@ export type ExplorerAction =
   | { type: 'SET_QUERY'; query: string }
   | { type: 'CLEAR_FILTERS' }
   | { type: 'TOGGLE_SELECTED'; productId: string }
+  | { type: 'ADD_SELECTED'; productId: string }
   | { type: 'TOGGLE_REVIEW_FAMILY'; familyId: FamilyId }
   | { type: 'ADD_REVIEW_STAGE'; stageId: string }
   | { type: 'REMOVE_REVIEW_STAGE'; stageId: string }
   | { type: 'SET_COMPARISON_PRODUCT'; productId: string | null }
+  | { type: 'SET_COMPARISON_LEVEL'; level: 'models' | 'capacities' }
+  | { type: 'LIMIT_COMPARISON_MODELS'; limit: number }
   | { type: 'TOGGLE_COMPARISON_MODEL'; modelId: string; limit: number }
   | { type: 'SET_COMPARISON_DIFFERENCES'; show: boolean }
   | { type: 'CLEAR_COMPARISON' }
@@ -55,5 +59,6 @@ export type ExplorerAction =
   | { type: 'CLOSE_DRAWER' }
   | { type: 'SET_READINESS_ANSWER'; questionId: string; value: McqAnswer }
   | { type: 'GENERATE_BRIEF' }
+  | { type: 'EDIT_BRIEF' }
   | { type: 'RESET_READINESS' }
   | { type: 'RESTORE'; state: ExplorerState };

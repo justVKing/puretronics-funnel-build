@@ -4,7 +4,7 @@ import { families, products } from './catalog';
 const unknown = { id: 'unknown', label: 'Not Known Yet' };
 const na = { id: 'not-applicable', label: 'Not Applicable' };
 
-export const readinessQuestions: McqQuestion[] = [
+const questionDefinitions: McqQuestion[] = [
   { id: 'requirement-location', label: 'Where Does the Requirement Occur?', purpose: 'Separates inline production capabilities from offline laboratory validation.', section: 'requirement', mode: 'single', options: [
     { id: 'line', label: 'On a Production Line', productIds: ['P01','P02','P03','P04','P07','P08','P09','P10','P11','P12','P13'] },
     { id: 'laboratory', label: 'In an Offline Laboratory or Test Area', productIds: ['P05','P06'] },
@@ -85,7 +85,7 @@ export const readinessQuestions: McqQuestion[] = [
     { id: 'calibration', label: 'Sensitivity Calibration', reviewRequired: true, evidence: 'P04 Sensitivity-Calibrator Support Record', caveat: 'Depends on the tester, sensing method, procedure and documentation need.' },
     { id: 'ul-electrode', label: 'UL Electrode Option', reviewRequired: true, evidence: 'P04 UL Electrode Option Record', caveat: 'Custom and project-specific for Live, Acute and DC testers.' }, unknown,
   ] },
-  { id: 'pf03-path', label: 'Which Offline Validation Path Applies?', purpose: 'Separates electrical HV testing from project-specific fire testing.', section: 'conditions', mode: 'single', familyIds: ['PF03'], options: [
+  { id: 'pf03-path', label: 'Which Offline Validation Paths Apply?', purpose: 'Select each required test method. AC, DC and fire testing remain separate capabilities.', section: 'conditions', mode: 'multiple', familyIds: ['PF03'], options: [
     { id: 'ac', label: 'Offline AC High-Voltage Testing', productIds: ['P05'], modelIds: ['P05A'], evidence: 'P05A Approved Test Method' }, { id: 'dc', label: 'Offline DC High-Voltage Testing', productIds: ['P05'], modelIds: ['P05B'], evidence: 'P05B Approved Test Method' }, { id: 'fire', label: 'Fire-Resistance / Circuit-Integrity Testing', productIds: ['P06'], evidence: 'P06 Project-Specific System Record' }, unknown,
   ] },
   { id: 'pf03-ac-voltage', label: 'Which Maximum AC Test-Voltage Band Applies?', purpose: 'Uses the approved AC high-voltage path without transferring DC limits.', section: 'conditions', mode: 'single', familyIds: ['PF03'], when: { questionId: 'pf03-path', optionIds: ['ac'] }, options: [
@@ -112,11 +112,12 @@ export const readinessQuestions: McqQuestion[] = [
   { id: 'pf03-fire-site', label: 'Are the Test-Area, Utilities and Safety Requirements Defined?', purpose: 'Surfaces system-level installation inputs without claiming a standard fixed configuration.', section: 'conditions', mode: 'single', familyIds: ['PF03'], when: { questionId: 'pf03-path', optionIds: ['fire'] }, options: [
     { id: 'defined', label: 'Test Area, Utilities and Safety Requirements Are Defined' }, { id: 'partial', label: 'Partly Defined' }, unknown,
   ] },
-  { id: 'pf04-path', label: 'Which Process-Equipment Requirement Applies?', purpose: 'Separates preheating, powdering and joining roles.', section: 'conditions', mode: 'single', familyIds: ['PF04'], options: [
+  { id: 'pf04-path', label: 'Which Process-Equipment Requirements Apply?', purpose: 'Select each required process. Preheating, powder application and joining serve different roles.', section: 'conditions', mode: 'multiple', familyIds: ['PF04'], options: [
     { id: 'preheat', label: 'Inline Conductor Preheating', productIds: ['P07'] }, { id: 'talc', label: 'Talcum Powder Application', productIds: ['P08'], modelIds: ['P08A','P08B','P08C','P08D'], evidence: 'P08 Approved Talcum Variant Records' }, { id: 'graphite', label: 'Graphite Powder Application', productIds: ['P08'], modelIds: ['P08E','P08F'], evidence: 'P08 Approved Graphite Variant Records' }, { id: 'joining', label: 'Conductor Joining / Repair', productIds: ['P09'] }, unknown,
   ] },
   { id: 'pf04-speed', label: 'Which Maximum Process-Speed Band Applies?', purpose: 'Applies only approved P07 and P08 model speed boundaries.', section: 'conditions', mode: 'single', familyIds: ['PF04'], when: { questionId: 'pf04-path', optionIds: ['preheat','talc','graphite'] }, options: [
-    { id: 'up-to-100', label: 'Up to 100 m/min', modelIds: ['P07A','P07B','P07C','P08A','P08B','P08C','P08D','P08E','P08F'], evidence: 'P07/P08 Approved Speed Limits' },
+    { id: 'below-40', label: 'Below 40 m/min', modelIds: ['P08A','P08B','P08C','P08D','P08E','P08F'], evidence: 'P07 Validated Minimum Line Speed and P08 Maximum Speeds' },
+    { id: 'up-to-100', label: '40 m/min to 100 m/min', modelIds: ['P07A','P07B','P07C','P08A','P08B','P08C','P08D','P08E','P08F'], evidence: 'P07/P08 Approved Speed Limits' },
     { id: '100-150', label: 'Above 100 m/min to 150 m/min', modelIds: ['P07A','P07B','P07C','P08A','P08B','P08C','P08D','P08E'], evidence: 'P07/P08 Approved Speed Limits' },
     { id: '150-250', label: 'Above 150 m/min to 250 m/min', modelIds: ['P07A','P07B','P07C','P08B','P08C'], evidence: 'P07/P08 Approved Speed Limits' },
     { id: '250-400', label: 'Above 250 m/min to 400 m/min', modelIds: ['P07A','P07B','P07C','P08C'], evidence: 'P07/P08 Approved Speed Limits' },
@@ -125,10 +126,10 @@ export const readinessQuestions: McqQuestion[] = [
     { id: '1500-2000', label: 'Above 1500 m/min to 2000 m/min', modelIds: ['P07C'], evidence: 'P07 Approved Speed Configurations' }, { id: 'above-2000', label: 'Above 2000 m/min', modelIds: [], evidence: 'P07/P08 Approved Speed Limits', caveat: 'No published P07 or P08 path exceeds 2000 m/min.' }, unknown, na,
   ] },
   { id: 'pf04-preheat-min-size', label: 'What Is the Smallest Conductor Diameter to Be Preheated?', purpose: 'Checks the lower boundary of each P07 speed configuration.', section: 'conditions', mode: 'single', familyIds: ['PF04'], when: { questionId: 'pf04-path', optionIds: ['preheat'] }, options: [
-    { id: 'below-0-3', label: 'Below 0.3 mm', modelIds: [], evidence: 'P07 Approved Wire Ranges', caveat: 'No published P07 wire range begins below 0.3 mm.' }, { id: '0-3-to-below-0-4', label: '0.3 mm to Below 0.4 mm', modelIds: ['P07C'], evidence: 'P07 Approved Wire Ranges' }, { id: '0-4-to-below-0-5', label: '0.4 mm to Below 0.5 mm', modelIds: ['P07A','P07C'], evidence: 'P07 Approved Wire Ranges' }, { id: '0-5-or-more', label: '0.5 mm or Larger', modelIds: ['P07A','P07B','P07C'], evidence: 'P07 Approved Wire Ranges' }, unknown,
+    { id: 'below-0-1', label: 'Below 0.1 mm', modelIds: [], excludesProduct: true, evidence: 'P07 Validated Configurable Envelope', caveat: 'The published configurable conductor range starts at 0.1 mm.' }, { id: 'below-0-3', label: '0.1 mm to Below 0.3 mm', modelIds: [], configurationReview: true, evidence: 'P07 Validated Configurable Envelope', caveat: 'This diameter requires a configured preheater application review.' }, { id: '0-3-to-below-0-4', label: '0.3 mm to Below 0.4 mm', modelIds: ['P07C'], evidence: 'P07 Approved Wire Ranges' }, { id: '0-4-to-below-0-5', label: '0.4 mm to Below 0.5 mm', modelIds: ['P07A','P07C'], evidence: 'P07 Approved Wire Ranges' }, { id: '0-5-or-more', label: '0.5 mm or Larger', modelIds: ['P07A','P07B','P07C'], evidence: 'P07 Approved Wire Ranges' }, unknown,
   ] },
   { id: 'pf04-preheat-max-size', label: 'What Is the Largest Conductor Diameter to Be Preheated?', purpose: 'Checks the upper boundary of each P07 speed configuration.', section: 'conditions', mode: 'single', familyIds: ['PF04'], when: { questionId: 'pf04-path', optionIds: ['preheat'] }, options: [
-    { id: 'up-to-1-4', label: 'Up to 1.4 mm', modelIds: ['P07A','P07B','P07C'], evidence: 'P07 Approved Wire Ranges' }, { id: '1-4-to-2-8', label: 'Above 1.4 mm to 2.8 mm', modelIds: ['P07A','P07B'], evidence: 'P07 Approved Wire Ranges' }, { id: '2-8-to-3-6', label: 'Above 2.8 mm to 3.6 mm', modelIds: ['P07A'], evidence: 'P07 Approved Wire Ranges' }, { id: 'above-3-6', label: 'Above 3.6 mm', modelIds: [], evidence: 'P07 Approved Wire Ranges', caveat: 'No published P07 wire range extends above 3.6 mm.' }, unknown,
+    { id: 'up-to-1-4', label: 'Up to 1.4 mm', modelIds: ['P07A','P07B','P07C'], evidence: 'P07 Approved Wire Ranges' }, { id: '1-4-to-2-8', label: 'Above 1.4 mm to 2.8 mm', modelIds: ['P07A','P07B'], evidence: 'P07 Approved Wire Ranges' }, { id: '2-8-to-3-6', label: 'Above 2.8 mm to 3.6 mm', modelIds: ['P07A'], evidence: 'P07 Approved Wire Ranges' }, { id: 'above-3-6', label: 'Above 3.6 mm to 10 mm', modelIds: [], configurationReview: true, evidence: 'P07 Validated Configurable Envelope', caveat: 'This diameter requires a configured preheater application review.' }, { id: '10-16', label: 'Above 10 mm to 16 mm', modelIds: [], configurationReview: true, evidence: 'P07 Validated Configurable Envelope', caveat: 'This range is published for bunched conductors only and requires configuration review.' }, { id: 'above-16', label: 'Above 16 mm', modelIds: [], excludesProduct: true, evidence: 'P07 Validated Configurable Envelope', caveat: 'This exceeds the published maximum configurable conductor diameter.' }, unknown,
   ] },
   { id: 'pf04-powder-size', label: 'Which Maximum Cable-Diameter Band Applies?', purpose: 'Uses only approved P08 model-specific cable-diameter boundaries.', section: 'conditions', mode: 'single', familyIds: ['PF04'], when: { questionId: 'pf04-path', optionIds: ['talc','graphite'] }, options: [
     { id: 'up-to-40', label: 'Up to 40 mm', modelIds: ['P08A','P08B','P08C','P08D','P08E','P08F'], evidence: 'P08 Approved Diameter Ranges' }, { id: '40-100', label: 'Above 40 mm to 100 mm', modelIds: ['P08D','P08F'], evidence: 'P08 Approved Diameter Ranges' }, { id: 'above-100', label: 'Above 100 mm', modelIds: [], evidence: 'P08 Approved Diameter Ranges', caveat: 'No published P08 cable-diameter path exceeds 100 mm.' }, unknown,
@@ -137,7 +138,7 @@ export const readinessQuestions: McqQuestion[] = [
     { id: '60-180', label: '60°C to 180°C', modelIds: ['P07A','P07B','P07C'], evidence: 'P07 Approved Maximum Wire Temperature' }, { id: 'outside', label: 'Outside 60°C to 180°C', modelIds: [], evidence: 'P07 Approved Maximum Wire Temperature', caveat: 'The published P07 configurations do not establish a range outside 60–180°C.' }, unknown,
   ] },
   { id: 'pf04-powder-readiness', label: 'Which Powder-Application Conditions Are Confirmed?', purpose: 'Surfaces the utilities and installation inputs needed for a powder-applicator review.', section: 'conditions', mode: 'multiple', familyIds: ['PF04'], when: { questionId: 'pf04-path', optionIds: ['talc','graphite'] }, options: [
-    { id: 'powder-defined', label: 'Powder Grade or Mesh Is Defined' }, { id: 'earthing', label: 'Earthing Arrangement Is Defined' }, { id: 'air-quality', label: 'Compressed-Air Quality Is Defined' }, { id: 'running-height', label: 'Wire Running Height Is Defined' }, { id: 'utilities', label: 'Electrical and Utility Supply Is Defined' }, unknown,
+    { id: 'powder-defined', label: 'Clean, Dry Powder Meets the Selected Talcum Mesh or Graphite Grade' }, { id: 'earthing', label: 'Earthing Below 1 V and the Machine Earth Connection Are Confirmed' }, { id: 'air-quality', label: 'Panel Air Is Free of Moisture and Mist' }, { id: 'running-height', label: 'Wire Running Height Matches the Selected Applicator' }, { id: 'utilities', label: '415 VAC Three-Phase Supply and Required Power Are Available' }, unknown,
   ] },
   { id: 'pf04-joining-material', label: 'Which Conductor Material Requires Joining or Repair?', purpose: 'Records the conductor material without extrapolating a welding range.', section: 'conditions', mode: 'single', familyIds: ['PF04'], when: { questionId: 'pf04-path', optionIds: ['joining'] }, options: [
     { id: 'copper', label: 'Copper' }, { id: 'aluminium', label: 'Aluminium' }, unknown,
@@ -145,14 +146,14 @@ export const readinessQuestions: McqQuestion[] = [
   { id: 'pf04-joining-construction', label: 'Which Conductor Construction Applies?', purpose: 'Records the approved construction categories for the P09 application review.', section: 'conditions', mode: 'single', familyIds: ['PF04'], when: { questionId: 'pf04-path', optionIds: ['joining'] }, options: [
     { id: 'solid', label: 'Solid Conductor' }, { id: 'stranded', label: 'Stranded Wire' }, unknown,
   ] },
-  { id: 'pf05-role', label: 'Which Tension-System Role Is Required?', purpose: 'Prevents indication, sensing, control and actuation from being treated as substitutes.', section: 'conditions', mode: 'single', familyIds: ['PF05'], options: [
+  { id: 'pf05-role', label: 'Which Tension-System Roles Are Required?', purpose: 'Select each role required. Indication, sensing, control and braking perform different functions.', section: 'conditions', mode: 'multiple', familyIds: ['PF05'], options: [
     { id: 'indication', label: 'Tension Indication', productIds: ['P10'] }, { id: 'sensing', label: 'Load / Tension Sensing', productIds: ['P12'] }, { id: 'control', label: 'Active Tension Control', productIds: ['P11'] }, { id: 'braking', label: 'Pneumatic Braking Actuation', productIds: ['P13'] }, { id: 'integrated', label: 'Integrated Sensing, Control and Braking Review', productIds: ['P10','P11','P12','P13'] }, unknown,
   ] },
   { id: 'pf05-indicator-size', label: 'Which Wire-Size Band Applies to the Tension Indicator?', purpose: 'Uses approved WTI model wire-size ranges.', section: 'conditions', mode: 'single', familyIds: ['PF05'], when: { questionId: 'pf05-role', optionIds: ['indication','integrated'] }, options: [
     { id: 'below-0-2', label: 'Below 0.2 mm', modelIds: [], evidence: 'P10 Approved Wire-Size Ranges', caveat: 'No published P10 wire range begins below 0.2 mm.' }, { id: '0-2-2', label: '0.2 mm to Below 2 mm', modelIds: ['P10A'], evidence: 'P10 Approved Wire-Size Ranges' }, { id: '2-5', label: '2 mm to 5 mm', modelIds: ['P10A','P10B'], evidence: 'P10 Approved Wire-Size Ranges' }, { id: '5-10', label: 'Above 5 mm to 10 mm', modelIds: ['P10B'], evidence: 'P10 Approved Wire-Size Ranges' }, { id: 'above-10', label: 'Above 10 mm', modelIds: [], evidence: 'P10 Approved Wire-Size Ranges', caveat: 'No published P10 wire range extends above 10 mm.' }, unknown,
   ] },
   { id: 'pf05-indicator-tension', label: 'Which Maximum Published Tension Configuration Is Required?', purpose: 'Uses the two approved WTI tension configurations and identifies requirements beyond them.', section: 'conditions', mode: 'single', familyIds: ['PF05'], when: { questionId: 'pf05-role', optionIds: ['indication','integrated'] }, options: [
-    { id: 'up-to-15', label: 'Up to 15 kg', modelIds: ['P10A','P10B'], evidence: 'P10 Approved Published Configurations' }, { id: '15-to-40', label: 'Above 15 kg to 40 kg', modelIds: ['P10A','P10B'], evidence: 'P10 Approved Published Configurations' }, { id: 'above-40', label: 'Above 40 kg', modelIds: [], evidence: 'P10 Approved Published Configurations', caveat: 'No published P10 configuration above 40 kg is established in V4.' }, unknown,
+    { id: 'up-to-15', label: 'Up to 15 kg', modelIds: ['P10A','P10B'], reviewRequired: true, evidence: 'Puretronics Validated WTI Configuration Answer Q8', caveat: 'The tension range is configured and confirmed for the application.' }, { id: '15-to-40', label: 'Above 15 kg to 40 kg', modelIds: ['P10A','P10B'], reviewRequired: true, evidence: 'Puretronics Validated WTI Configuration Answer Q8', caveat: 'The tension range is configured and confirmed for the application.' }, { id: 'above-40', label: 'Above 40 kg', modelIds: ['P10A','P10B'], reviewRequired: true, evidence: 'Puretronics Validated WTI Configuration Answer Q8', caveat: 'Higher tension ranges require a configured quotation; standard coverage is not established.' }, unknown,
   ] },
   { id: 'pf05-capacity', label: 'Which Exact Published Loadcell Capacity Is Required?', purpose: 'Resolves against approved capacity SKU records rather than broad series bands.', section: 'conditions', mode: 'single', familyIds: ['PF05'], when: { questionId: 'pf05-role', optionIds: ['sensing','integrated'] }, options: [
     { id: '10', label: '10 kg', modelIds: ['P12A','P12E'], variantIds: ['P12A-C10','P12E-C10'], evidence: 'P12 Approved Capacity SKU Records' },
@@ -174,11 +175,11 @@ export const readinessQuestions: McqQuestion[] = [
   { id: 'pf05-rpm', label: 'Which Maximum Brake-Speed Band Applies?', purpose: 'Uses approved P13 model-specific RPM limits.', section: 'conditions', mode: 'single', familyIds: ['PF05'], when: { questionId: 'pf05-role', optionIds: ['braking','integrated'] }, options: [
     { id: 'up-to-1200', label: 'Up to 1200 rpm', modelIds: ['P13A','P13B','P13C'], evidence: 'P13 Approved Maximum RPM' }, { id: '1200-1500', label: 'Above 1200 rpm to 1500 rpm', modelIds: ['P13A','P13B'], evidence: 'P13 Approved Maximum RPM' }, { id: '1500-2500', label: 'Above 1500 rpm to 2500 rpm', modelIds: ['P13A'], evidence: 'P13 Approved Maximum RPM' }, { id: 'above-2500', label: 'Above 2500 rpm', modelIds: [], evidence: 'P13 Approved Maximum RPM', caveat: 'No published P13 maximum speed exceeds 2500 rpm.' }, unknown, na,
   ] },
-  { id: 'pf05-torque', label: 'Which Required Braking-Torque Band per Caliper Applies?', purpose: 'Uses approved P13 model-specific minimum and maximum torque values.', section: 'conditions', mode: 'single', familyIds: ['PF05'], when: { questionId: 'pf05-role', optionIds: ['braking','integrated'] }, options: [
+  { id: 'pf05-torque', label: 'Which Required Braking-Torque Band per Caliper Applies?', purpose: 'Uses approved P13 model-specific minimum and maximum torque values. Enter the per-caliper requirement only; total system torque cannot be compared directly.', section: 'conditions', mode: 'single', familyIds: ['PF05'], when: { questionId: 'pf05-role', optionIds: ['braking','integrated'] }, options: [
     { id: 'below-0-15', label: 'Below 0.15 kg·m', modelIds: [], evidence: 'P13 Approved Torque Ranges', caveat: 'No published P13 per-caliper range begins below 0.15 kg·m.' }, { id: '0-15-0-24', label: '0.15 kg·m to Below 0.25 kg·m', modelIds: ['P13A'], evidence: 'P13 Approved Torque Ranges' }, { id: '0-25-0-32', label: '0.25 kg·m to Below 0.33 kg·m', modelIds: ['P13A','P13B'], evidence: 'P13 Approved Torque Ranges' }, { id: '0-33-16', label: '0.33 kg·m to 16 kg·m', modelIds: ['P13A','P13B','P13C'], evidence: 'P13 Approved Torque Ranges' }, { id: '16-27', label: 'Above 16 kg·m to 27 kg·m', modelIds: ['P13B','P13C'], evidence: 'P13 Approved Torque Ranges' }, { id: '27-33', label: 'Above 27 kg·m to 33 kg·m', modelIds: ['P13C'], evidence: 'P13 Approved Torque Ranges' }, { id: 'above-33', label: 'Above 33 kg·m', modelIds: [], evidence: 'P13 Approved Torque Ranges', caveat: 'No published P13 per-caliper range exceeds 33 kg·m.' }, unknown,
   ] },
   { id: 'pf05-air', label: 'What Is Known About the Pneumatic Supply?', purpose: 'Records the approved brake pressure range and site-readiness status.', section: 'conditions', mode: 'single', familyIds: ['PF05'], when: { questionId: 'pf05-role', optionIds: ['braking','integrated'] }, options: [
-    { id: 'within-range', label: '0.2 Bar to 6 Bar Is Available', modelIds: ['P13A','P13B','P13C'], evidence: 'P13 Approved Pressure Range' }, { id: 'outside-range', label: 'Available Pressure Is Outside 0.2 Bar to 6 Bar', modelIds: [], evidence: 'P13 Approved Pressure Range', caveat: 'The published P13 models do not establish operation outside 0.2–6 Bar.' }, { id: 'not-confirmed', label: 'Pneumatic Supply Is Not Confirmed' }, unknown,
+    { id: 'within-range', label: 'A Regulated Brake Supply Within 0.2 Bar to 6 Bar Is Available', modelIds: ['P13A','P13B','P13C'], evidence: 'P13 Approved Pressure Range' }, { id: 'outside-range', label: 'The Brake Must Operate Outside 0.2 Bar to 6 Bar', modelIds: [], evidence: 'P13 Approved Pressure Range', caveat: 'The published brake models do not establish operation outside 0.2–6 Bar. A higher plant supply pressure alone is not an exclusion if it can be regulated for the brake.' }, { id: 'not-confirmed', label: 'Pneumatic Supply Is Not Confirmed' }, unknown,
   ] },
   { id: 'pf05-torque-basis', label: 'How Is the Braking Demand Defined?', purpose: 'Prevents total system demand from being compared directly with a per-caliper published value.', section: 'conditions', mode: 'single', familyIds: ['PF05'], when: { questionId: 'pf05-role', optionIds: ['braking','integrated'] }, options: [
     { id: 'per-caliper', label: 'Required Torque per Caliper Is Known' }, { id: 'total-only', label: 'Only Total System Braking Demand Is Known', reviewRequired: true, evidence: 'P13 Per-Caliper Braking Values', caveat: 'Puretronics must establish the caliper arrangement before model selection.' }, unknown,
@@ -209,6 +210,68 @@ export const readinessQuestions: McqQuestion[] = [
   ] },
 ];
 
+const additionalQuestions: McqQuestion[] = [
+  { id: 'pf01-material', label: 'Which Optical Measurement Condition Applies?', purpose: 'Transparent-material measurement requires the appropriate model and advance configuration.', section: 'conditions', mode: 'single', familyIds: ['PF01'], options: [
+    { id: 'opaque', label: 'Opaque Wire or Cable' }, { id: 'transparent', label: 'Transparent or Translucent Product', reviewRequired: true, evidence: 'LASER Model Transparency Configuration Notes', caveat: 'Confirm the material and optical measurement configuration with Puretronics.' }, unknown,
+  ] },
+  { id: 'pf02-min-diameter', label: 'What Is the Smallest Wire or Cable Diameter to Be Spark Tested?', purpose: 'The whole required diameter range must remain above the spark tester minimum.', section: 'conditions', mode: 'single', familyIds: ['PF02'], options: [
+    { id: 'below-0-5', label: 'Below 0.5 mm OD', modelIds: [], evidence: 'P04 Approved Wire-Size Ranges' }, { id: '0-5-or-more', label: '0.5 mm OD or Larger', modelIds: ['P04A','P04B','P04C'], evidence: 'P04 Approved Wire-Size Ranges' }, unknown,
+  ] },
+  { id: 'pf02-min-voltage', label: 'What Is the Lowest Required Spark-Test Voltage?', purpose: 'Checks the lower limit as well as the maximum test voltage.', section: 'conditions', mode: 'single', familyIds: ['PF02'], options: [
+    { id: 'below-1-5', label: 'Below 1.5 kV', modelIds: [], evidence: 'P04 Approved Voltage Ranges' }, { id: '1-5-or-more', label: '1.5 kV or Higher', modelIds: ['P04A','P04B','P04C'], evidence: 'P04 Approved Voltage Ranges' }, unknown,
+  ] },
+  { id: 'pf03-test-basis', label: 'Are the Offline Electrical Test Method and Sample Defined?', purpose: 'Voltage and current alone do not establish the sample, test duration or safety arrangement.', section: 'conditions', mode: 'single', familyIds: ['PF03'], when: { questionId: 'pf03-path', optionIds: ['ac','dc'] }, options: [
+    { id: 'defined', label: 'Sample, Test Procedure, Duration and Safety Arrangement Are Defined' }, { id: 'partial', label: 'Only Partly Defined' }, unknown,
+  ] },
+  { id: 'pf04-preheat-construction', label: 'Which Conductor Construction Will Be Preheated?', purpose: 'The configurable diameter envelope differs for solid and bunched conductors.', section: 'conditions', mode: 'single', familyIds: ['PF04'], when: { questionId: 'pf04-path', optionIds: ['preheat'] }, options: [
+    { id: 'solid', label: 'Solid Conductor' }, { id: 'bunched', label: 'Bunched or Stranded Conductor' }, unknown,
+  ] },
+  { id: 'pf04-preheat-material', label: 'Which Preheater Material Is Specified?', purpose: 'Heating power and achievable speed depend on the actual conductor material and diameter.', section: 'conditions', mode: 'single', familyIds: ['PF04'], when: { questionId: 'pf04-path', optionIds: ['preheat'] }, options: [
+    { id: 'copper', label: 'Copper' }, { id: 'aluminium', label: 'Aluminium' }, { id: 'steel', label: 'Steel' }, { id: 'other', label: 'Another Specified Material', reviewRequired: true, evidence: 'P07 Validated Configurable Material Envelope', caveat: 'Puretronics must confirm the material and heating configuration.' }, unknown,
+  ] },
+  { id: 'pf04-powder-specification', label: 'Which Powder Specification Has Been Confirmed?', purpose: 'Talcum and graphite have different material requirements. A matching speed and diameter do not establish powder compatibility.', section: 'conditions', mode: 'multiple', familyIds: ['PF04'], when: { questionId: 'pf04-path', optionIds: ['talc','graphite'] }, options: [
+    { id: 'talc-2000', label: 'Talcum Powder, Mesh 2000 or Finer', modelIds: ['P08A','P08B','P08C','P08D'], evidence: 'P08 Talcum Powder Specifications' },
+    { id: 'graphite-23061', label: 'THIELMANN GRAPHITE 23061 or Confirmed Equivalent', modelIds: ['P08E','P08F'], evidence: 'P08 Graphite Powder Specifications' },
+    { id: 'other', label: 'Another Powder Specification', reviewRequired: true, evidence: 'P08 Model-Specific Powder Requirements', caveat: 'Alternative powder specifications require Puretronics confirmation.' }, unknown,
+  ] },
+  { id: 'pf04-joining-size', label: 'What Conductor Cross-Section Requires Joining?', purpose: 'Checks conductor cross-sectional area; this value is not a diameter in millimetres.', section: 'conditions', mode: 'single', familyIds: ['PF04'], when: { questionId: 'pf04-path', optionIds: ['joining'] }, options: [
+    { id: 'below-0-2', label: 'Below 0.2 mm²', excludesProduct: true, evidence: 'P09 Validated 0.2–6 sq mm Range', caveat: 'The published joining range starts at 0.2 mm².' }, { id: '0-2-to-6', label: '0.2 mm² to 6 mm²' }, { id: 'above-6', label: 'Above 6 mm²', excludesProduct: true, evidence: 'P09 Validated 0.2–6 sq mm Range', caveat: 'The published joining range ends at 6 mm².' }, unknown,
+  ] },
+  { id: 'pf05-loadcell-interface', label: 'Are the Loadcell Geometry and Signal Requirements Defined?', purpose: 'Matching capacity and mounting category does not establish shaft geometry, load direction or electrical compatibility.', section: 'conditions', mode: 'single', familyIds: ['PF05'], when: { questionId: 'pf05-role', optionIds: ['sensing','integrated'] }, options: [
+    { id: 'defined', label: 'Shaft Geometry, Load Direction, Signal and Environment Are Defined' }, { id: 'partial', label: 'Only Partly Defined' }, unknown,
+  ] },
+  { id: 'pf05-wti-installation', label: 'Are the Tension-Indicator Installation and Output Needs Defined?', purpose: 'Wire size and tension range do not establish mechanical fit, calibration or the required output.', section: 'conditions', mode: 'single', familyIds: ['PF05'], when: { questionId: 'pf05-role', optionIds: ['indication','integrated'] }, options: [
+    { id: 'defined', label: 'Mechanical Arrangement, Calibration and Outputs Are Defined' }, { id: 'partial', label: 'Only Partly Defined' }, unknown,
+  ] },
+];
+
+const productScope = (id: string): string[] | undefined => {
+  if (id.startsWith('pf01-')) return ['P01','P02','P03'];
+  if (id.startsWith('pf02-')) return ['P04'];
+  if (id === 'pf03-path') return ['P05','P06'];
+  if (id.startsWith('pf03-fire-')) return ['P06'];
+  if (id.startsWith('pf03-')) return ['P05'];
+  if (id === 'pf04-path') return ['P07','P08','P09'];
+  if (id === 'pf04-speed') return ['P07','P08'];
+  if (id.startsWith('pf04-preheat-') || id === 'pf04-temperature') return ['P07'];
+  if (id.startsWith('pf04-powder-')) return ['P08'];
+  if (id.startsWith('pf04-joining-')) return ['P09'];
+  if (id === 'pf05-role') return ['P10','P11','P12','P13'];
+  if (id.startsWith('pf05-indicator-') || id === 'pf05-wti-installation') return ['P10'];
+  if (['pf05-capacity','pf05-mounting','pf05-loadcell-interface'].includes(id)) return ['P12'];
+  if (id === 'pf05-control-architecture') return ['P11'];
+  if (id.startsWith('pf05-')) return ['P13'];
+  return undefined;
+};
+
+// Keep added technical questions next to their family, ahead of common integration questions.
+const sections: McqQuestion['section'][] = ['requirement','application','conditions','integration','project'];
+export const readinessQuestions: McqQuestion[] = [...questionDefinitions, ...additionalQuestions]
+  .map((question) => ({ ...question, productIds: productScope(question.id),
+    modelScope: question.id.startsWith('pf03-ac-') ? ['P05A'] : question.id.startsWith('pf03-dc-') ? ['P05B'] : undefined }))
+  .sort((a, b) => sections.indexOf(a.section) - sections.indexOf(b.section) ||
+    (a.section === 'conditions' ? (a.familyIds?.[0] ?? '').localeCompare(b.familyIds?.[0] ?? '') : 0));
+
 export const questionById = new Map(readinessQuestions.map((question) => [question.id, question]));
 
 export function validateReadinessQuestions() {
@@ -223,6 +286,7 @@ export function validateReadinessQuestions() {
     questionIds.add(question.id);
     if (!question.options.length) errors.push(`Question Has No Options: ${question.id}`);
     if (question.familyIds?.some((id) => !familyIds.has(id))) errors.push(`Unknown Family on ${question.id}`);
+    if (question.productIds?.some((id) => !productIds.has(id))) errors.push(`Unknown Product Scope on ${question.id}`);
     const optionIds = new Set<string>();
     for (const option of question.options) {
       if (optionIds.has(option.id)) errors.push(`Duplicate Option ${option.id} on ${question.id}`);
@@ -231,7 +295,7 @@ export function validateReadinessQuestions() {
       if (option.modelIds?.some((id) => !modelIds.has(id))) errors.push(`Unknown Model on ${question.id}/${option.id}`);
       if (option.reviewRequiredModelIds?.some((id) => !modelIds.has(id))) errors.push(`Unknown Conditional-Review Model on ${question.id}/${option.id}`);
       if (option.variantIds?.some((id) => !variantIds.has(id))) errors.push(`Unknown Variant on ${question.id}/${option.id}`);
-      if ((option.modelIds || option.variantIds || option.reviewRequired || option.reviewRequiredModelIds) && !option.evidence) errors.push(`Missing Evidence on ${question.id}/${option.id}`);
+      if ((option.modelIds || option.variantIds || option.reviewRequired || option.reviewRequiredModelIds || option.excludesProduct || option.configurationReview) && !option.evidence) errors.push(`Missing Evidence on ${question.id}/${option.id}`);
     }
   }
   for (const question of readinessQuestions) if (question.when) {

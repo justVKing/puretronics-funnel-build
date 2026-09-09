@@ -11,7 +11,7 @@ describe('capability explorer interactions', () => {
     await user.click(screen.getByRole('button', { name: /I have a production or quality problem/i }));
     await user.click(screen.getByRole('button', { name: /Diameter variation or inadequate measurement visibility/i }));
     expect(screen.getByRole('heading', { name: 'Your Relevant Capability Paths' })).toBeInTheDocument();
-    expect(screen.getByText(/3 relevant Primary Products found/i)).toBeInTheDocument();
+    expect(screen.getByText(/3 relevant Products found/i)).toBeInTheDocument();
     expect(screen.getAllByLabelText('Why this result matched')[0]).toHaveTextContent('Relevant to Diameter Variation or Inadequate Measurement Visibility');
   });
 
@@ -21,6 +21,7 @@ describe('capability explorer interactions', () => {
     await user.click(screen.getByRole('tab', { name: /Production-Line Map/i }));
     const stage = screen.getAllByRole('button', { name: /Spark Testing and Fault Response/i })[0];
     await user.click(stage);
+    await user.keyboard('{Escape}');
     await user.click(screen.getByRole('tab', { name: /Solution Navigator/i }));
     await user.click(screen.getByRole('tab', { name: /Production-Line Map/i }));
     expect(screen.getAllByRole('button', { name: /Spark Testing and Fault Response/i }).find((button) => button.hasAttribute('aria-pressed'))).toHaveAttribute('aria-pressed', 'true');
@@ -32,7 +33,7 @@ describe('capability explorer interactions', () => {
     await user.click(screen.getByRole('tab', { name: /Capability Matrix/i }));
     expect(screen.getByRole('heading', { name: /Move from a requirement/i })).toBeInTheDocument();
     expect(screen.getByText((_, element) => element?.textContent === '12 Requirement Paths')).toBeInTheDocument();
-    expect(screen.getByText((_, element) => element?.textContent === '13 Distinct Primary Products')).toBeInTheDocument();
+    expect(screen.getByText((_, element) => element?.textContent === '13 Products')).toBeInTheDocument();
     expect(screen.getByText((_, element) => element?.textContent === '5 Product Families')).toBeInTheDocument();
     expect(screen.getByRole('option', { name: 'All Five Product Families' })).toBeInTheDocument();
     expect(screen.queryByLabelText('Not applicable')).not.toBeInTheDocument();
@@ -46,7 +47,7 @@ describe('capability explorer interactions', () => {
     await user.click(screen.getByRole('button', { name: /Diameter variation or inadequate measurement visibility/i }));
     await user.click(screen.getByRole('tab', { name: /Capability Matrix/i }));
     expect(screen.getByRole('button', { name: /Diameter Variation or Inadequate Measurement Visibility ×/i })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Clear Explorer Constraints' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Clear Filters' })).toBeInTheDocument();
   });
 
   it('presents offline tests as independent paths rather than stages ten and eleven', async () => {
@@ -55,7 +56,7 @@ describe('capability explorer interactions', () => {
     await user.click(screen.getByRole('tab', { name: /Production-Line Map/i }));
     expect(screen.getByRole('heading', { name: 'Inline Production Sequence' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Separate Offline / Laboratory Testing' })).toBeInTheDocument();
-    expect(screen.getByText('These are not stages 10 and 11 of the production line.')).toBeInTheDocument();
+    expect(screen.getByText('Review these independent laboratory requirements separately from the production sequence.')).toBeInTheDocument();
   });
 
   it('narrows a Product Family route with a decision-active discriminator', async () => {
@@ -64,7 +65,7 @@ describe('capability explorer interactions', () => {
     await user.click(screen.getByRole('button', { name: /I know the product family/i }));
     await user.click(screen.getByRole('button', { name: /Tension \/ Braking \/ Line Control/i }));
     await user.click(screen.getByRole('button', { name: /Load \/ Tension Sensing/i }));
-    expect(screen.getByText(/1 relevant Primary Product found/i)).toBeInTheDocument();
+    expect(screen.getByText(/1 relevant Product found/i)).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Loadcells and Tension Transducers/i })).toBeInTheDocument();
   });
 
@@ -73,7 +74,7 @@ describe('capability explorer interactions', () => {
     render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
     await user.click(screen.getByRole('button', { name: /I know a product or model/i }));
     await user.type(screen.getByRole('searchbox', { name: 'Product or Model Name' }), 'AX-400');
-    expect(screen.getByText(/Matched V4 Record: P13B · AX-400/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Matching Models or Options: AX-400/i).length).toBeGreaterThan(0);
   });
 
   it('groups a new-line or retrofit review by the selected project stages', async () => {
@@ -95,16 +96,16 @@ describe('capability explorer interactions', () => {
     await user.click(screen.getAllByRole('button', { name: 'Not Known Yet' })[1]);
     await user.click(screen.getByRole('button', { name: 'Test Method / Voltage' }));
     expect(screen.getByText(/known measurement is carried into the Application Review/i)).toBeInTheDocument();
-    expect(screen.getByText(/2 relevant Primary Products found/i)).toBeInTheDocument();
+    expect(screen.getByText(/2 relevant Products found/i)).toBeInTheDocument();
   });
 
   it('lets visitors select a product and models directly in the comparison tab', async () => {
     const user = userEvent.setup();
     render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
     await user.click(screen.getByRole('tab', { name: /Comparison Workbench/i }));
-    await user.selectOptions(screen.getByRole('combobox', { name: 'Primary Product' }), 'P13');
+    await user.selectOptions(screen.getByRole('combobox', { name: 'Product' }), 'P13');
     expect(await screen.findByRole('heading', { name: 'Choose Models or Variants' })).toBeInTheDocument();
-    expect(screen.getByRole('table', { name: /complete approved v4 model specification comparison/i })).toBeInTheDocument();
+    expect(screen.getByRole('table', { name: /model specification comparison/i })).toBeInTheDocument();
     expect(screen.getByRole('rowheader', { name: 'Max Torque for Each Calliper' })).toBeInTheDocument();
     expect(screen.getByRole('rowheader', { name: 'Max RPM' })).toBeInTheDocument();
     expect(screen.queryByText('Like-for-like')).not.toBeInTheDocument();
@@ -115,8 +116,8 @@ describe('capability explorer interactions', () => {
     const user = userEvent.setup();
     render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
     await user.click(screen.getByRole('tab', { name: /Comparison Workbench/i }));
-    await user.selectOptions(screen.getByRole('combobox', { name: 'Primary Product' }), 'P08');
-    expect(await screen.findByText(/11 technical parameters, plus publication context/i)).toBeInTheDocument();
+    await user.selectOptions(screen.getByRole('combobox', { name: 'Product' }), 'P08');
+    expect(await screen.findByText(/11 technical parameters/i)).toBeInTheDocument();
     expect(screen.getByRole('rowheader', { name: 'Power Supply' })).toBeInTheDocument();
     expect(screen.getByRole('rowheader', { name: 'Dimensions (mm) - [H × W × D]' })).toBeInTheDocument();
     expect(screen.getByRole('rowheader', { name: 'Weight (Kg)' })).toBeInTheDocument();
@@ -126,9 +127,9 @@ describe('capability explorer interactions', () => {
     const user = userEvent.setup();
     render(<ExplorerProvider><CapabilityExplorer /></ExplorerProvider>);
     await user.click(screen.getByRole('tab', { name: /Comparison Workbench/i }));
-    await user.selectOptions(screen.getByRole('combobox', { name: 'Primary Product' }), 'P12');
-    await user.click(await screen.findByRole('radio', { name: 'Capacity SKUs' }));
-    expect(await screen.findByText(/9 technical parameters, plus publication context/i)).toBeInTheDocument();
+    await user.selectOptions(screen.getByRole('combobox', { name: 'Product' }), 'P12');
+    await user.click(await screen.findByRole('radio', { name: 'Capacity Options' }));
+    expect(await screen.findByText(/9 technical parameters/i)).toBeInTheDocument();
     expect(screen.getByRole('rowheader', { name: 'Capacity' })).toBeInTheDocument();
     expect(screen.getByRole('rowheader', { name: 'Loadcell Series' })).toBeInTheDocument();
   });

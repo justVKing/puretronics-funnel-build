@@ -19,6 +19,12 @@ p { margin: 0; }
 .lead { max-width: 44rem; margin-top: 1.55rem; font-size: clamp(1.08rem, 1.7vw, 1.3rem); line-height: 1.65; }
 .skip-link { position: fixed; z-index: 100; top: 0.5rem; left: 0.5rem; padding: 0.65rem 0.85rem; background: var(--paper); border: 2px solid var(--instrument-blue); transform: translateY(-160%); }
 .skip-link:focus { transform: none; }
-:focus-visible { outline: none; box-shadow: var(--focus); }
+:focus-visible { outline: 3px solid #005a91; outline-offset: 3px; }
+button, a, select, summary { scroll-margin-block: 6rem; }
+button, select, summary { min-height: 44px; }
+.text-button, .text-link, .footer-links a, .site-footer address a, .site-header nav a, .brand-logo { min-height: 44px; display: inline-flex; align-items: center; }
+.text-button, .tray-button { min-width: 44px; }
+summary { cursor: pointer; }
+@media (max-width: 767px) { html { scroll-padding-bottom: 6rem; } }
 .sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
