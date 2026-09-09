@@ -2,7 +2,7 @@
 
 Public URL: https://justvking.github.io/puretronics-funnel-build/
 
-Verdict: corrected customer-facing capability build; the final booking journey remains externally blocked. No approved live booking URL or explicit approval to use the existing service contact page for application-review enquiries was supplied. The CTA honestly leads to brief preparation. No placeholder route is presented. Indexing remains intentionally disabled pending launch-host approval.
+Verdict: corrected customer-facing capability build; the approved application-review contact route is configured and verified. No placeholder route is presented. Indexing remains intentionally disabled for this GitHub Pages review release, and analytics remains disabled until final deployment.
 
 ## Findings and corrections
 
@@ -16,7 +16,7 @@ High severity, corrected:
 - Corrected superseded LC-AR-85 and LC-AR-ST capacity prose; all 24 capacity options show actual series mounting requirements.
 - Removed internal record IDs, database versions, source tables, publication labels and internal architecture language from customer presentation and copied briefs. Raw source export remains unchanged.
 - Removed the historical certificate and unapproved testimonial/evidence-request modules.
-- Retired the booking placeholder. Without destination approval, links say Prepare an Application Review and lead to the MCQ brief.
+- Retired the booking placeholder. Approved links now open Puretronics' application-review contact route without passing saved visitor context.
 
 Medium severity, corrected:
 - Navigator and Matrix now share search. Exact public model matches rank ahead of aliases and broad matches; all filters remain visible/removable.
@@ -46,12 +46,12 @@ Independent live approved/current technical-source reconciliation found zero ide
 - Bundle: about 590 kB JavaScript (130 kB gzip) and 57 kB CSS (10 kB gzip). No remote font dependency. Dependency audit: zero advisories at audit time.
 - Deployed results and workflow outcome are recorded in the final task response and qa/publish/public-report.json.
 
-## Exact configuration requiring approval
+## Exact configuration and final-deployment approvals
 
-- bookingUrl: null. Supply the approved live booking URL, or explicitly authorize https://pureindia.net/contact-us for application-review enquiries. The existing page was verified HTTP 200 and remains the service destination.
-- indexable: false. Approve the current canonical URL as the launch host before changing to true. Current robots: noindex, nofollow.
+- bookingUrl: https://pureindia.net/contact-us. Puretronics approved this route for application-review enquiries; it was verified HTTP 200.
+- indexable: false. This GitHub Pages review release intentionally remains noindex, nofollow. Change only for the later approved launch host.
 - canonicalUrl: https://justvking.github.io/puretronics-funnel-build/
-- analyticsMode: disabled. No analytics integration or identifier is fabricated.
+- analyticsMode: disabled. Analytics is intentionally deferred to final deployment.
 - certificate: module removed; no current certificate is claimed.
 
 Unrelated modified project documents, untracked research, input files and pre-existing screenshots are preserved and excluded from the release commit.

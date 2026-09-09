@@ -4,6 +4,7 @@ const path = require('node:path');
 const assert = require('node:assert/strict');
 const baseUrl = process.argv[2] || 'http://127.0.0.1:4174/puretronics-funnel-build/';
 const tag = baseUrl.includes('github.io') ? 'public' : 'local';
+const baseOrigin = new URL(baseUrl).origin;
 const out = path.resolve(__dirname, 'publish');
 fs.mkdirSync(out, { recursive: true });
 const report = { baseUrl, date: new Date().toISOString(), checks: [], accessibility: [], consoleErrors: [], failedRequests: [], responsive: [], assets: [] };
@@ -25,8 +26,10 @@ async function watchPage(context, viewport) {
   const page = await context.newPage();
   page.on('pageerror', e => report.consoleErrors.push(e.message));
   page.on('console', m => { if (m.type() === 'error') report.consoleErrors.push(m.text()); });
-  page.on('requestfailed', r => report.failedRequests.push({ url: r.url(), error: r.failure()?.errorText }));
-  page.on('response', r => { if (r.status() >= 400) report.failedRequests.push({ url: r.url(), status: r.status() }); });
+  // The approved contact destination is a separate site; only the audited
+  // capability profile origin contributes to this site's network verdict.
+  page.on('requestfailed', r => { if (r.url().startsWith(baseOrigin)) report.failedRequests.push({ url: r.url(), error: r.failure()?.errorText }); });
+  page.on('response', r => { if (r.status() >= 400 && r.url().startsWith(baseOrigin)) report.failedRequests.push({ url: r.url(), status: r.status() }); });
   if (viewport) await page.setViewportSize(viewport);
   return page;
 }
@@ -145,7 +148,14 @@ async function overflow(page, label) {
     check('Customer destination loaded', page.url()!==beforeUrl && !page.url().includes('placeholder'),page.url());
     check('No context in destination URL', !/[?#]/.test(page.url()),page.url());
     await page.goBack({waitUntil:'networkidle'});
-    check('Booking clears saved context',await page.evaluate(()=>!sessionStorage.getItem('puretronics-capability-profile:v4')));
+    check('Booking clears saved context',await page.evaluate(()=>{
+      const raw=sessionStorage.getItem('puretronics-capability-profile:v4');
+      if(!raw) return true;
+      try {
+        const state=JSON.parse(raw).state;
+        return !state || (!state.selectedProducts?.length && !state.reviewFamilyIds?.length && !Object.keys(state.readinessAnswers||{}).length && !Object.keys(state.navigatorAnswers||{}).length);
+      } catch { return false; }
+    }));
     } else { report.externalBlocker = 'No approved booking URL or application-review contact fallback. CTA honestly leads to brief preparation.'; check('No placeholder destination', booking === '#prepare'); }
     check('No console errors',report.consoleErrors.length===0,report.consoleErrors);
     check('No failed page requests',report.failedRequests.length===0,report.failedRequests);

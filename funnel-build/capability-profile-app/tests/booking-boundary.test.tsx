@@ -13,10 +13,11 @@ describe('application-review destination boundary', () => {
     expect(window.location.hash).toBe('#top');
     expect(document.querySelector('a[href*="placeholder"]')).toBeNull();
   });
-  it('does not invent a booking destination when approval is absent', () => {
+  it('uses the Puretronics-approved application-review contact route', () => {
     render(<BookingLink location="header">Book an Application Review</BookingLink>);
-    expect(screen.getByRole('link')).toHaveAttribute('href', siteConfig.bookingUrl ?? '#prepare');
-    if (!siteConfig.bookingUrl) expect(screen.getByRole('link')).toHaveTextContent('Prepare an Application Review');
+    expect(siteConfig.bookingUrl).toBe('https://pureindia.net/contact-us');
+    expect(screen.getByRole('link')).toHaveAttribute('href', 'https://pureindia.net/contact-us');
+    expect(screen.getByRole('link')).toHaveTextContent('Book an Application Review');
   });
   it('sends no selection context and clears local state when an approved external destination is configured', () => {
     const configured = siteConfig.bookingUrl;

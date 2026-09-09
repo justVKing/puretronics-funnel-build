@@ -1,8 +1,8 @@
 export const siteConfig = {
   basePath: '/puretronics-funnel-build/',
   canonicalUrl: 'https://justvking.github.io/puretronics-funnel-build/',
-  // Set only after Puretronics approves the booking destination or contact fallback.
-  bookingUrl: null as string | null,
+  // Puretronics approved this customer-facing route for application-review enquiries.
+  bookingUrl: 'https://pureindia.net/contact-us' as string | null,
   technicalResourcesUrl: '#technical-evidence',
   serviceSupportUrl: 'https://pureindia.net/contact-us',
   websiteUrl: 'https://pureindia.net/',

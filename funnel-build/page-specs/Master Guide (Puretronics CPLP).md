@@ -3,7 +3,7 @@
 **Document Name:** Master Guide (Puretronics CPLP)
 **CPLP Meaning:** Puretronics Capability Profile Landing Page
 **Document Purpose:** Single Source of Truth for understanding and validating the two interactive sections
-**Document Status:** Corrected Implementation; Booking Approval Outstanding
+**Document Status:** Corrected Implementation; Review Contact Approved
 **Last Verified:** 9 September 2026
 **Executable Reference:** [Puretronics Wire and Cable Capability Profile](https://justvking.github.io/puretronics-funnel-build/)
 
@@ -102,7 +102,7 @@ Separate Booking System Page
 | Comparison Workbench | One Primary Product and up to two or three models | Collects every V4 parameter populated for at least one selected model | A model-to-model specification table |
 | Application Review | Governed multiple-choice answers | Adds scope, applies V4 boundaries and identifies missing information | Candidate products/models, exclusions and open questions |
 | Review Brief | The visitor's completed or incomplete MCQ selections | Organises known information and unresolved questions | A copyable and printable technical discussion brief |
-| Booking Boundary | The CTA location only | Opens a brief preparation until an external booking destination is approved | An application brief; external booking remains unconfigured |
+| Booking Boundary | The CTA location only | Opens the approved Puretronics application-review contact route without sending saved context | A prepared application brief and a separate Puretronics contact conversation |
 
 > **Central Principle:** Scope choices add relevant possibilities. Approved technical facts narrow them. Unknown information never creates a false rejection or recommendation.
 
@@ -653,7 +653,7 @@ The generated brief contains:
 
 The visitor can edit answers, copy the brief, print/save it, or reset after confirmation. No brief is automatically submitted.
 
-The booking CTA records only an allowlisted location such as “Readiness Brief.” The review placeholder displays no retained context.
+The booking CTA records only an allowlisted location such as “Readiness Brief.” The approved contact route receives no retained context.
 
 ## 15. Worked End-to-End Journeys
 
@@ -1023,4 +1023,4 @@ New tests: tests/publish-state.test.ts and tests/publish-interactions.test.tsx. 
 
 The canonical URL remains https://justvking.github.io/puretronics-funnel-build/. Indexing has not been approved; robots remains noindex, nofollow. Analytics is disabled and emits no events or console messages. Customer text contains public product/model names without database IDs, source codes or internal publication language. The historical certificate and unapproved proof module are removed.
 
-No approved booking destination or application-review contact fallback was supplied. bookingUrl is null; conversion links honestly say “Prepare an Application Review” and lead to #prepare. This is not a live booking journey. The legacy #/booking-placeholder route returns to the profile and displays no placeholder. The approved existing service route remains https://pureindia.net/contact-us. Set bookingUrl only after Puretronics supplies or approves the external destination. No selected context is appended to a booking URL; saved context is cleared when such a configured link is followed.
+Puretronics approved https://pureindia.net/contact-us as the application-review contact route. bookingUrl is configured to that URL; conversion links open it without appending family, product, model, answer or brief context, and saved review state is cleared before navigation. The legacy #/booking-placeholder route returns to the profile and displays no placeholder. Indexing remains disabled for this GitHub Pages review release, and analytics remains disabled until the final deployment.
